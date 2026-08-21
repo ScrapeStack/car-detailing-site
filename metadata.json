@@ -1,0 +1,6 @@
+{
+  "name": "Apex Precision Auto Detailing",
+  "description": "High-converting, premium landing page and interactive booking platform for Apex Precision Auto Detailing in Pasadena, CA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

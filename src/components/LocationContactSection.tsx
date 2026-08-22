@@ -23,13 +23,13 @@ export const LocationContactSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono-tech text-amber-400 mb-3">
             <MapPin className="w-3.5 h-3.5" />
-            <span>Astoria Detailing Center</span>
+            <span>Pasadena Facility & Service Hub</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-            Visit Our Astoria Center or Call For Service
+            Visit Our Pasadena Studio or Call For Mobile Dispatch
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Conveniently located at 42-09 31st Ave in Astoria, Queens with easy access from Long Island City, Sunnyside, Woodside, and Manhattan.
+            Conveniently situated off Walnut Street near Old Pasadena and Colorado Boulevard with secure customer parking.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export const LocationContactSection: React.FC = () => {
                   <div>
                     <strong className="text-white block font-medium">Studio Address:</strong>
                     <span>{BUSINESS_INFO.address}</span>
-                    <div className="text-[11px] text-slate-400 mt-0.5 font-mono-tech">Auto Detailing, Hand Wash, Tinting & Ceramic Bay</div>
+                    <div className="text-[11px] text-slate-400 mt-0.5 font-mono-tech">Suite 104 (Rear Studio Entrance & Curing Bays)</div>
                   </div>
                 </div>
 
@@ -67,7 +67,7 @@ export const LocationContactSection: React.FC = () => {
                     <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-amber-400 font-bold hover:underline">
                       {BUSINESS_INFO.phone}
                     </a>
-                    <div className="text-[11px] text-slate-400 mt-0.5">Direct line to Astoria Master Detailer (Call or SMS)</div>
+                    <div className="text-[11px] text-slate-400 mt-0.5">Direct line to Master Detailer (Call or SMS)</div>
                   </div>
                 </div>
 
@@ -78,6 +78,7 @@ export const LocationContactSection: React.FC = () => {
                   <div>
                     <strong className="text-white block font-medium">Operating Hours:</strong>
                     <div className="text-slate-300 text-xs mt-0.5">{BUSINESS_INFO.hours.weekdays}</div>
+                    <div className="text-slate-300 text-xs">{BUSINESS_INFO.hours.saturday}</div>
                     <div className="text-amber-400 text-xs font-mono-tech mt-0.5">{BUSINESS_INFO.hours.sunday}</div>
                   </div>
                 </div>
@@ -86,7 +87,7 @@ export const LocationContactSection: React.FC = () => {
               {/* Service Areas Tags */}
               <div className="pt-3 border-t border-white/10">
                 <span className="text-[11px] font-mono-tech uppercase text-slate-400 block mb-2 font-semibold">
-                  Service & Coverage Area:
+                  Mobile Detailing Coverage Area:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {BUSINESS_INFO.serviceAreas.map((area, idx) => (
@@ -134,7 +135,7 @@ export const LocationContactSection: React.FC = () => {
                 <div className="w-96 h-96 rounded-full border border-white/5 absolute"></div>
               </div>
 
-              {/* Astoria Map Marker Center */}
+              {/* Pasadena Map Marker Center */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10">
                 <div className="relative inline-block">
                   <div className="w-12 h-12 rounded-full bg-amber-500 text-black flex items-center justify-center shadow-2xl animate-bounce mx-auto">
@@ -143,13 +144,13 @@ export const LocationContactSection: React.FC = () => {
                   <div className="w-8 h-2 rounded-full bg-amber-500/30 blur-sm mx-auto mt-1"></div>
                 </div>
                 <div className="bg-[#090b10]/95 backdrop-blur-md border border-amber-500/40 px-3.5 py-1.5 rounded-lg text-xs font-bold text-white mt-1 shadow-xl font-mono-tech">
-                  Astoria Detailing • 42-09 31st Ave
+                  Apex Precision • 1420 E Walnut St
                 </div>
               </div>
 
               {/* Floating Map Navigation Badge */}
               <div className="absolute top-3 left-3 bg-[#090b10]/90 backdrop-blur-md border border-white/10 px-3 py-1 rounded-md text-[10px] font-mono-tech text-slate-300">
-                Astoria, NY 11103
+                Pasadena, CA 91106
               </div>
 
               <div className="absolute bottom-3 right-3">
@@ -220,7 +221,7 @@ export const LocationContactSection: React.FC = () => {
                   </div>
                   <h4 className="text-lg font-bold text-white">Message Received!</h4>
                   <p className="text-xs text-slate-300 max-w-sm mx-auto">
-                    Thank you {inquiryData.name}. Our master detailer in Astoria will contact you at {inquiryData.phone} shortly.
+                    Thank you {inquiryData.name}. Our master detailer in Pasadena will contact you at {inquiryData.phone} shortly.
                   </p>
                   <button
                     onClick={() => {

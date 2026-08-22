@@ -22,7 +22,7 @@ export const FaqSection: React.FC = () => {
             Clear Answers for Car Enthusiasts
           </h2>
           <p className="mt-3 text-slate-400 text-sm">
-            Everything you need to know about ceramic longevity, window tinting, paint correction, hand car washes, and our Astoria center.
+            Everything you need to know about ceramic longevity, paint correction thickness safety, and our Pasadena mobile detailing unit.
           </p>
         </div>
 

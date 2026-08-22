@@ -12,16 +12,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
   const getServiceIcon = (id: string) => {
     switch (id) {
-      case 'auto-detailing':
-        return <Sparkles className="w-5 h-5" />;
-      case 'car-wash':
-        return <Droplets className="w-5 h-5" />;
-      case 'window-tinting':
-        return <Layers className="w-5 h-5" />;
-      case 'ceramic-coating':
-        return <Shield className="w-5 h-5" />;
       case 'paint-correction':
         return <Sparkles className="w-5 h-5" />;
+      case 'ceramic-coating':
+        return <Shield className="w-5 h-5" />;
+      case 'interior-deep-clean':
+        return <Droplets className="w-5 h-5" />;
+      case 'engine-bay':
+        return <Wrench className="w-5 h-5" />;
+      case 'mobile-detailing':
+        return <Truck className="w-5 h-5" />;
       default:
         return <Sparkles className="w-5 h-5" />;
     }
@@ -43,7 +43,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             </h2>
           </div>
           <p className="text-slate-400 text-sm max-w-md">
-            Every vehicle at our Astoria Auto Detailing Center receives clinical grade attention, tailored chemical balances, and certified ceramic & tint installation.
+            Every vehicle in our Pasadena facility receives clinical grade attention, tailored chemical balances, and certified ceramic installation.
           </p>
         </div>
 

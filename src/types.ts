@@ -63,7 +63,7 @@ export interface FaqItem {
   id: string;
   question: string;
   answer: string;
-  category: 'ceramic' | 'correction' | 'mobile' | 'general' | 'tinting' | 'booking' | string;
+  category: 'ceramic' | 'correction' | 'mobile' | 'general';
 }
 
 export interface BookingFormData {

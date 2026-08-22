@@ -84,7 +84,7 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
                 {/* Top Badge */}
                 {pkg.bestValue && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-black uppercase text-[10px] tracking-widest px-4 py-1 rounded-full shadow-lg">
-                    ★ MOST POPULAR IN ASTORIA
+                    ★ MOST POPULAR IN PASADENA
                   </div>
                 )}
                 {pkg.popular && !pkg.bestValue && (

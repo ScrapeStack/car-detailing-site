@@ -17,7 +17,7 @@ export const SocialProofSection: React.FC = () => {
               Verified Client Reviews
             </p>
             <h2 className="text-2xl sm:text-3xl font-black text-white uppercase font-heading tracking-tight">
-              Trusted by Astoria & NYC Drivers
+              Trusted by Pasadena’s Drivers
             </h2>
           </div>
 

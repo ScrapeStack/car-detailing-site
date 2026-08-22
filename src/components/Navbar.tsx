@@ -97,12 +97,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
           
           {/* Logo / Brand Name in Minimalist High-End Lettering */}
           <a href="#" className="flex items-center space-x-3 group" id="nav-brand-logo">
-            <span className="font-display font-black text-xl sm:text-2xl tracking-[0.25em] text-white group-hover:text-amber-400 transition-colors uppercase leading-none">
-              EQUIS
+            <span className="font-display font-black text-xl sm:text-2xl tracking-[0.2em] text-white group-hover:text-amber-400 transition-colors uppercase leading-none">
+              ASTORIA
             </span>
             <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-amber-500"></span>
             <span className="hidden sm:inline-block text-[11px] tracking-[0.2em] text-slate-400 uppercase font-mono-tech">
-              APEX PRECISION
+              AUTO DETAILING
             </span>
           </a>
 
@@ -144,14 +144,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
 
           {/* Mobile Hamburger */}
           <div className="flex items-center space-x-2 lg:hidden">
-            <button
+            <a
               id="nav-mobile-call-btn"
-              onClick={() => window.open(`tel:${BUSINESS_INFO.phoneRaw}`)}
-              className="p-2 text-amber-400 bg-white/5 border border-white/10 rounded"
-              aria-label="Call Apex Detailing"
+              href={`tel:${BUSINESS_INFO.phoneRaw}`}
+              className="p-2 text-amber-400 bg-white/5 border border-white/10 rounded inline-flex items-center justify-center"
+              aria-label="Call Astoria Detailing"
             >
               <Phone className="w-4 h-4" />
-            </button>
+            </a>
             <button
               id="nav-mobile-toggle-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

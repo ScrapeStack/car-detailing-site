@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           <div className="space-y-1 text-center sm:text-left">
             <span className="text-amber-400 font-mono-tech uppercase text-[11px] font-bold">Ready to Experience Flawless Reflections?</span>
             <div className="text-xl sm:text-2xl font-display font-black text-white">
-              Reserve Your Pasadena Detailing Bay or Mobile Visit
+              Reserve Your Astoria Detailing Bay or Visit Us Today
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-3">
@@ -57,13 +57,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
               </span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              Pasadena’s certified luxury automotive detailing studio & mobile unit. We specialize in multi-stage paint correction, 9H/10H ceramic coatings, dry steam interior restoration, and engine bay detailing.
+              Astoria’s premier automotive detailing center & hand wash facility. We specialize in comprehensive auto detailing, scratch-free hand car washes, precision nano-ceramic window tinting, multi-year ceramic coatings, and paint correction.
             </p>
             <div className="flex items-center space-x-2 text-amber-400 font-mono-tech text-xs">
               <Star className="w-4 h-4 fill-amber-400" />
               <span className="font-bold">{BUSINESS_INFO.rating} / 5.0 Star Rating</span>
               <span className="text-slate-500">•</span>
-              <span className="text-slate-400">{BUSINESS_INFO.reviewCount} Pasadena Client Reviews</span>
+              <span className="text-slate-400">{BUSINESS_INFO.reviewCount} Verified Client Reviews</span>
             </div>
             <div className="pt-2">
               <button
@@ -111,11 +111,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           {/* Studio Location & Service Coverage */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              Pasadena Studio
+              Astoria Studio
             </span>
             <div className="space-y-2 text-slate-400">
               <div className="flex items-start space-x-2">
-                <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                 <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                 <span>{BUSINESS_INFO.address}</span>
               </div>
               <div className="flex items-center space-x-2">
@@ -125,7 +125,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
                 </a>
               </div>
               <div className="text-[11px] text-slate-500 font-mono-tech pt-2">
-                Serving: Pasadena, San Marino, Arcadia, South Pasadena, Glendale, La Cañada.
+                Serving: Astoria, Long Island City, Sunnyside, Woodside, Jackson Heights, Queens & Manhattan.
               </div>
             </div>
           </div>

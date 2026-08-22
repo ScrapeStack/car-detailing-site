@@ -4,28 +4,29 @@ import ceramicApplicatorImg from '../assets/images/ceramic_applicator_hood_17872
 import luxuryInteriorImg from '../assets/images/luxury_interior_clean_1787211008247.jpg';
 
 export const BUSINESS_INFO = {
-  name: "Apex Precision Auto Detailing",
-  tagline: "Pasadena's Concourse-Grade Ceramic Coating & Paint Correction Specialists",
-  address: "1420 E Walnut St, Suite 104, Pasadena, CA 91106",
-  phone: "(626) 555-0184",
-  phoneRaw: "6265550184",
-  email: "concierge@apexprecisiondetailing.com",
-  rating: 4.8,
-  reviewCount: 64,
+  name: "Astoria Detailing",
+  fullName: "Astoria Auto Detailing Center",
+  tagline: "Astoria's Premier Auto Detailing, Car Wash, Window Tinting & Ceramic Coating Center",
+  address: "42-09 31st Ave, Astoria, NY 11103",
+  phone: "(917) 774-0051",
+  phoneRaw: "9177740051",
+  email: "info@astoriadetailing.com",
+  rating: 4.2,
+  reviewCount: 343,
   hours: {
-    weekdays: "Monday – Friday: 7:30 AM – 6:30 PM",
-    saturday: "Saturday: 8:00 AM – 5:00 PM",
-    sunday: "Sunday: By VIP Appointment Only"
+    weekdays: "Monday – Saturday: 7:00 AM – 9:00 PM",
+    saturday: "Saturday: 7:00 AM – 9:00 PM",
+    sunday: "Sunday: 7:00 AM – 7:00 PM"
   },
   serviceAreas: [
-    "Pasadena",
-    "San Marino",
-    "South Pasadena",
-    "Arcadia",
-    "La Cañada Flintridge",
-    "Glendale",
-    "Sierra Madre",
-    "Downtown Los Angeles"
+    "Astoria",
+    "Long Island City",
+    "Sunnyside",
+    "Woodside",
+    "Jackson Heights",
+    "Ditmars Steinway",
+    "Upper East Side",
+    "Manhattan & Queens"
   ]
 };
 
@@ -36,7 +37,7 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Standard Size',
     multiplier: 1.0,
     iconName: 'Car',
-    examples: 'Porsche 911, BMW M3/M4, Tesla Model 3, Corvette C8, Mercedes C-Class'
+    examples: 'BMW 3/4 Series, Tesla Model 3, Mercedes C/E-Class, Audi A4/A5, Porsche 911'
   },
   {
     id: 'suv',
@@ -44,7 +45,7 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Medium Size (+15%)',
     multiplier: 1.15,
     iconName: 'Shield',
-    examples: 'Porsche Macan/Cayenne, Tesla Model Y, BMW X5, Audi Q7, Range Rover Sport'
+    examples: 'Tesla Model Y, BMW X3/X5, Audi Q5/Q7, Porsche Macan, Range Rover Velar'
   },
   {
     id: 'truck',
@@ -52,378 +53,375 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Large Size (+30%)',
     multiplier: 1.3,
     iconName: 'Truck',
-    examples: 'Cadillac Escalade, Mercedes G-Wagon, Ford F-150 Raptor, Rivian R1T/R1S'
+    examples: 'Cadillac Escalade, Mercedes G-Wagon, Chevy Tahoe, Ford F-150, Lincoln Navigator'
   },
   {
     id: 'exotic',
-    name: 'Exotic & Supercar',
-    category: 'Precision Custom Care (+25%)',
+    name: 'Exotic & Luxury Sports',
+    category: 'Bespoke Care (+25%)',
     multiplier: 1.25,
     iconName: 'Sparkles',
-    examples: 'Ferrari 458/F8/296, McLaren 720S, Lamborghini Huracán, Aston Martin'
+    examples: 'Porsche GT3/Turbo, Ferrari, Lamborghini, McLaren, Aston Martin, Bentley'
   }
 ];
 
 export const SERVICES_DATA: ServiceDetail[] = [
   {
-    id: 'paint-correction',
-    title: 'Paint Correction & Restoration',
+    id: 'auto-detailing',
+    title: 'Comprehensive Auto Detailing',
     badge: 'Signature Mastery',
-    shortDesc: 'Eliminate 85%–99% of swirl marks, buffer holograms, water spots, and micro-scratches for an authentic mirror finish.',
-    fullDesc: 'Using digital paint depth gauges and multi-stage rotary/dual-action polishers with precision micro-abrasives, we gently restore clear coat clarity without compromising paint integrity.',
-    startingPrice: 450,
-    duration: '6 – 10 Hours',
-    popular: true,
-    features: [
-      'Paint thickness ultrasound digital measurement before/after',
-      'Decontamination foam bath & ultra-fine clay bar treatment',
-      'Multi-stage compound & jeweling micro-polish',
-      'Eliminates spiderwebs, car wash swirls, and clear coat haze',
-      'Pre-coating alcohol prep wipe inspection'
-    ],
-    specs: [
-      { label: 'Defect Removal', value: 'Up to 95%–99%' },
-      { label: 'Gloss Meter Jump', value: '+35 to +55 GU' },
-      { label: 'Equipment', value: 'Rupes Bigfoot & Flex Polishers' }
-    ],
-    idealFor: 'Vehicles with visible spiderwebs, dull sun haze, track micro-scuffs, or preparing for ceramic shield.',
-    imageUrl: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80'
-  },
-  {
-    id: 'ceramic-coating',
-    title: 'Multi-Year Ceramic & Graphene Coating',
-    badge: 'Ultimate Armor',
-    shortDesc: 'Military-grade 9H/10H SiO2 nano-ceramic molecular bond offering intense hydrophobic gloss, UV defense, and chemical barrier.',
-    fullDesc: 'Our certified climate-controlled application creates a semi-permanent glassy shell over clear coat, wheels, plastics, and glass. Sheds rain, brake dust, bird droppings, and Pasadena smog pollutants effortlessly.',
-    startingPrice: 850,
-    duration: '1 – 2 Days (Cure Bay)',
-    popular: true,
-    features: [
-      'Genuine 9H / 10H certified nano-ceramic or graphene matrix',
-      'Ultra-hydrophobic 115°+ water contact angle bead effect',
-      'UV & oxidation protection against California sun fading',
-      'Includes Carfax registration & official warranty certificate',
-      'Infrared curing heat-lamp baking cycle'
-    ],
-    specs: [
-      { label: 'Protection Lifespan', value: '2 to 7+ Years' },
-      { label: 'Hardness Rating', value: '9H – 10H Ceramic / Graphene' },
-      { label: 'Maintenance', value: 'Self-Cleaning Hydrophobic' }
-    ],
-    idealFor: 'New vehicle protection, post-paint correction lock-in, daily luxury drivers and collector sports cars.',
-    imageUrl: ceramicApplicatorImg
-  },
-  {
-    id: 'interior-deep-clean',
-    title: 'Interior Deep Clean & Spa Sanitization',
-    badge: 'Sanitized Luxury',
-    shortDesc: 'Hospital-grade pressurized steam extraction, pH-neutral aniline leather conditioning, and ozone odor elimination.',
-    fullDesc: 'We dismantle seat rails, deep-clean crevices, shampoo and hot-water extract carpets, condition delicate Nappa/Alcantara leathers with matte UV blockers, leaving an OEM factory scent.',
-    startingPrice: 280,
+    shortDesc: 'Complete interior deep sanitization, exterior hand polish, leather conditioning, and wheel decontamination.',
+    fullDesc: 'Our complete auto detailing treatment rejuvenates both the exterior body and interior cabin. We perform a multi-stage snow foam hand wash, iron decontamination, clay treatment, deep interior dry-steam extraction, and leather conditioning to restore that factory-fresh luxury feel.',
+    startingPrice: 180,
     duration: '3.5 – 5 Hours',
+    popular: true,
     features: [
-      'Dry-vapor pressurized steam sterilization (220°F kills 99.9% bacteria)',
-      'Deep hot-water carpet & fabric seat stain extraction',
-      'Matte leather cleaning & Swiss-grade conditioning treatment',
-      'Air vent duct sterilization & cabin ozone odor neutralization',
-      'Zero greasy residue — factory fresh OEM matte finish'
+      'Complete exterior 2-bucket hand wash & gentle microfiber dry',
+      'Full interior pressurized dry-vapor steam sanitization',
+      'Deep hot-water carpet & upholstery stain extraction',
+      'pH-balanced leather cleaning, feeding & matte UV shield',
+      'Rims, brake calipers & wheel arches deep scrubbed and dressed'
     ],
     specs: [
-      { label: 'Bacteria Eradication', value: '99.9% Sanitized' },
-      { label: 'Leather Finish', value: 'Original OEM Matte Non-Greasy' },
-      { label: 'Steam Temp', value: '220°F Dry Vapor' }
+      { label: 'Clean Level', value: '100% Comprehensive' },
+      { label: 'Interior Care', value: 'Steam & Leather Conditioning' },
+      { label: 'Finish', value: 'OEM Matte & Deep Gloss' }
     ],
-    idealFor: 'Vehicles needing interior rejuvenation, coffee/food stain removal, pet hair extraction, or leather restoration.',
+    idealFor: 'Vehicles needing a complete reset, seasonal rejuvenation, or routine luxury maintenance in Astoria.',
     imageUrl: luxuryInteriorImg
   },
   {
-    id: 'engine-bay',
-    title: 'Engine Bay Detailing & Dressing',
-    badge: 'Mechanical Elegance',
-    shortDesc: 'Careful electronic-safe degreasing, dry steam cleaning, and satin thermal dressing for a factory-new engine compartment.',
-    fullDesc: 'Sensitive components (ECU, alternator, intake) are securely masked before high-pressure micro-steam breaks down heavy oil film, road grime, and salt residue, finished with heat-resistant satin polymer dressing.',
-    startingPrice: 160,
-    duration: '1.5 – 2 Hours',
+    id: 'car-wash',
+    title: 'Concourse Hand Car Wash',
+    badge: 'Gentle & Spot-Free',
+    shortDesc: '100% scratch-free 2-bucket hand wash with high-foam pH-neutral shampoo, wheel blast, and express interior vacuum.',
+    fullDesc: 'Forget destructive automatic car wash brushes. At Astoria Detailing, every wash is done strictly by hand using ultra-plush microfiber mitts, filtered spot-free rinse water, and delicate blow drying to protect your clear coat from swirls and micro-scratches.',
+    startingPrice: 45,
+    duration: '45 – 60 Mins',
     features: [
-      'Water-sensitive wiring harness & ECU sensor masking',
-      'Gentle bio-degradable degreaser agitated with horsehair brushes',
-      'Controlled dry vapor steam rinse (minimal moisture)',
-      'Heat-resistant, non-sticky satin plastic & rubber conditioner',
-      'Prevents hose dry-rot and electrical dust buildup'
+      'Pre-wash citrus snow foam to loosen grit and NYC road grime',
+      'Two-bucket hand wash with grit guards & plush microfibers',
+      'Brake dust wheel face, barrel & tire scrubbing',
+      'Spot-free deionized water rinse & warm air blower drying',
+      'Express interior cabin vacuum, dash wipe & crystal glass clean'
     ],
     specs: [
-      { label: 'Safety Protocol', value: '100% Masked Electronics' },
-      { label: 'Dressing Finish', value: 'Anti-Static Heat Resistant' },
-      { label: 'Service Time', value: '90 Minutes' }
+      { label: 'Wash Method', value: '100% Hand Wash' },
+      { label: 'Water Quality', value: 'Spot-Free Filtered' },
+      { label: 'Drying Tech', value: 'Plush Microfiber & Warm Air' }
     ],
-    idealFor: 'Performance sports cars, car show prep, resale appraisal boost, and routine mechanical care.',
-    imageUrl: engineBayCleaningImg
+    idealFor: 'Regular weekly or bi-weekly vehicle maintenance to maintain clean, swirl-free paint.',
+    imageUrl: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    id: 'mobile-detailing',
-    title: 'Mobile Detailing Concierge Unit',
-    badge: 'Direct to You',
-    shortDesc: 'Our fully equipped Mercedes Sprinter arrives at your Pasadena residence or office with spot-free deionized water and quiet power.',
-    fullDesc: 'Experience luxury detailing at zero hassle. Our self-contained mobile van carries 100 gallons of pure 0-PPM deionized water, ultra-quiet generator, and full professional detailing machinery right to your driveway.',
+    id: 'window-tinting',
+    title: 'Precision Window Tinting',
+    badge: 'Heat & UV Defense',
+    shortDesc: 'Computer-cut ceramic & carbon automotive window film for maximum heat rejection, glare reduction, and privacy.',
+    fullDesc: 'We install premium computer-cut nano-ceramic and carbon window tints that block up to 99% of harmful UV rays and up to 88% of solar infrared heat. Protect your vehicle interior leather from fading while ensuring privacy and comfort during hot NYC summers.',
     startingPrice: 220,
-    duration: '2 – 4.5 Hours',
+    duration: '2 – 3.5 Hours',
     features: [
-      'Self-contained with 100% 0-PPM Spot-Free Deionized Water',
-      'Eco-friendly on-board quiet inverter generator & compressors',
-      'Available across Pasadena, San Marino, Arcadia, and Glendale',
-      'Home garage, residential driveway, or corporate executive parking',
-      'Same master-grade technicians & chemicals as our studio'
+      'Precision plotter computer-cut patterns tailored to your exact make/model',
+      '99% UV radiation blockage protects skin and interior upholstery',
+      'High infrared heat rejection keeps cabin noticeably cooler',
+      'Multiple legal shade options (5%, 15%, 20%, 35%, 50%, 70%)',
+      'Lifetime nationwide warranty against bubbling, peeling, and color fade'
     ],
     specs: [
-      { label: 'Water Quality', value: '0 PPM Deionized (Zero Spots)' },
-      { label: 'Radius', value: 'Up to 25 Miles from Pasadena' },
-      { label: 'Self-Sufficient', value: 'No Water/Power Hookups Needed' }
+      { label: 'UV Rejection', value: '99% UV Block' },
+      { label: 'Film Type', value: 'Nano-Ceramic / Carbon' },
+      { label: 'Warranty', value: 'Lifetime Guarantee' }
     ],
-    idealFor: 'Busy professionals, luxury homeowners, and car enthusiasts who value utmost convenience without compromising standards.',
-    imageUrl: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80'
+    idealFor: 'Drivers looking for heat relief, interior UV protection, reduced glare, and sleek privacy.',
+    imageUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 'ceramic-coating',
+    title: 'Multi-Year Ceramic Coating',
+    badge: 'Ultimate Armor',
+    shortDesc: 'Military-grade 9H/10H SiO2 nano-ceramic molecular bond offering intense hydrophobic gloss, UV defense, and chemical barrier.',
+    fullDesc: 'Our certified climate-controlled application creates a semi-permanent glassy shell over clear coat, wheels, plastics, and glass. Sheds rain, brake dust, bird droppings, acid rain, and New York winter road salt effortlessly.',
+    startingPrice: 650,
+    duration: '1 – 2 Days (Cure Bay)',
+    popular: true,
+    features: [
+      'Genuine 9H / 10H certified nano-ceramic matrix bonded to clear coat',
+      'Ultra-hydrophobic 115°+ water contact angle self-cleaning bead effect',
+      'Defense against winter road salt, acid rain, bird droppings & UV rays',
+      'Includes warranty certificate and multi-year durability',
+      'Infrared heat-lamp curing cycle for maximum hardness'
+    ],
+    specs: [
+      { label: 'Protection Lifespan', value: '2 to 5+ Years' },
+      { label: 'Hardness Rating', value: '9H – 10H Ceramic' },
+      { label: 'Maintenance', value: 'Hydrophobic Self-Cleaning' }
+    ],
+    idealFor: 'New vehicle protection, daily commuters, collector cars, and locking in paint perfection.',
+    imageUrl: ceramicApplicatorImg
+  },
+  {
+    id: 'paint-correction',
+    title: 'Paint Correction & Restoration',
+    badge: 'Flawless Mirror Finish',
+    shortDesc: 'Eliminate 85%–99% of swirl marks, buffer holograms, water spots, and micro-scratches for an authentic mirror finish.',
+    fullDesc: 'Using digital paint depth gauges and multi-stage rotary and dual-action polishers with precision micro-abrasives, we safely level and restore clear coat clarity without compromising factory paint thickness.',
+    startingPrice: 350,
+    duration: '5 – 8 Hours',
+    popular: true,
+    features: [
+      'Paint thickness digital gauge measurement before and after machine polishing',
+      'Decontamination foam bath & ultra-fine clay bar treatment',
+      'Multi-stage compound & jeweling micro-polish',
+      'Eliminates car wash swirls, spiderweb scratches, and clear coat haze',
+      'Pre-sealant IPA alcohol surface prep inspection'
+    ],
+    specs: [
+      { label: 'Defect Removal', value: 'Up to 90%–98%' },
+      { label: 'Gloss Meter Jump', value: '+35 to +50 GU' },
+      { label: 'Equipment', value: 'Rupes & Flex Precision Polishers' }
+    ],
+    idealFor: 'Vehicles with visible swirl marks, dull haze, micro-scratches, or preparing for ceramic coating.',
+    imageUrl: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 
 export const PACKAGES_DATA: PackageTier[] = [
   {
-    id: 'essential-detail',
-    name: 'Precision Preservation',
+    id: 'express-wash-detail',
+    name: 'Executive Hand Wash & Mini Detail',
     subtitle: 'Maintenance & Deep Refresh',
+    price: 95,
+    originalPrice: 120,
+    duration: '1.5 – 2 Hours',
+    warranty: '100% Satisfaction Guarantee',
+    serviceType: 'In-Studio Service',
+    includes: [
+      'pH-neutral snow foam bath & 2-bucket hand wash',
+      'Wheels, tires, calipers & arches cleaned and dressed',
+      'Express interior cabin vacuum, dash & door panels wiped',
+      'Windows cleaned inside and out for crystal clarity',
+      'Spray sealant gloss enhancer & tire shine applied'
+    ],
+    perfectFor: 'Weekly or bi-weekly maintenance and keeping daily drivers pristine.'
+  },
+  {
+    id: 'signature-auto-detail',
+    name: 'Astoria Full Auto Detail',
+    subtitle: 'Comprehensive Interior & Exterior Reset',
     price: 249,
     originalPrice: 299,
-    duration: '3.5 – 4 Hours',
-    warranty: '30-Day Gloss Guarantee',
-    serviceType: 'Mobile or Studio',
-    includes: [
-      'Ph-neutral snow foam bath & 2-bucket hand wash',
-      'Wheels, barrels, brake calipers & wheel wells deep scrub',
-      'Paint chemical iron fallout decon & light synthetic sealant',
-      'Interior steam sanitize, vacuum & console wipe down',
-      'Glass crystal clarity streak-free treatment',
-      'Tire conditioning with satin sling-free dressing'
-    ],
-    perfectFor: 'Monthly maintenance and high-end daily drivers.'
-  },
-  {
-    id: 'signature-correction',
-    name: 'Signature Paint Correction',
-    subtitle: 'Flawless Mirror Finish',
-    price: 649,
-    originalPrice: 799,
-    duration: '7 – 9 Hours',
-    warranty: '6-Month Poly-Shield',
+    duration: '3.5 – 5 Hours',
+    warranty: 'Gloss & Hygiene Guarantee',
     popular: true,
-    serviceType: 'Studio Recommended',
+    serviceType: 'In-Studio Service',
     includes: [
-      'All Precision Preservation wash & decon steps included',
-      'Complete clay bar physical paint decontamination',
-      'Single-Stage or 2-Stage Machine Paint Polish (85–92% Swirl Removal)',
-      'Digital paint depth micrometer evaluation',
-      'Headlight & taillight high-gloss jeweling',
-      'Interior complete deep steam extraction & leather conditioning',
-      '6-Month high-bonding polymer paint sealant applied'
+      'Complete 2-bucket hand wash & paint clay bar decontamination',
+      'Full interior dry-vapor steam sanitization & deep vacuum',
+      'Hot-water carpet & upholstery shampoo stain extraction',
+      'Leather cleaned, conditioned & protected with UV inhibitor',
+      'Single-stage machine polish enhancement for rich gloss',
+      'Tire conditioning, wheel barrel scrub & exhaust tip polish'
     ],
-    perfectFor: 'Vehicles with swirl marks, spiderwebs, dull paint, or before resale.'
+    perfectFor: 'Vehicles needing a complete rejuvenation and fresh factory smell.'
   },
   {
-    id: 'elite-ceramic',
-    name: 'Apex 5-Year Ceramic Shield',
-    subtitle: 'Permanent Nano Armor & Hydrophobic Shine',
-    price: 1290,
-    originalPrice: 1490,
+    id: 'paint-correction-package',
+    name: 'Signature Paint Correction',
+    subtitle: 'Swirl Mark Removal & Mirror Gloss',
+    price: 495,
+    originalPrice: 595,
+    duration: '6 – 8 Hours',
+    warranty: '6-Month Poly-Shield',
+    serviceType: 'In-Studio Precision Bay',
+    includes: [
+      'All Full Auto Detail wash & decontamination steps',
+      'Multi-stage machine compounding & jeweling polish',
+      '85%–95% removal of swirl marks, light scratches & haze',
+      'Paint depth digital ultrasound micrometer evaluation',
+      'Headlight & taillight polish for high clarity',
+      '6-Month high-bonding polymer ceramic sealant applied'
+    ],
+    perfectFor: 'Vehicles with visible spiderwebs, wash marks, or preparing for ceramic coating.'
+  },
+  {
+    id: 'ceramic-shield-package',
+    name: 'Astoria 3-Year Ceramic Shield',
+    subtitle: 'Multi-Year Nano Armor & Hydrophobic Shine',
+    price: 890,
+    originalPrice: 1090,
     duration: '1.5 Days (Cure Bay)',
-    warranty: '5-Year Written Carfax Warranty',
+    warranty: '3-Year Certified Warranty',
     bestValue: true,
-    serviceType: 'Studio Required (IR Baking)',
+    serviceType: 'Studio Climate-Controlled Bay',
     includes: [
-      'Full Multi-Stage Paint Correction (Up to 95%+ Defect Removal)',
-      '2 Coats of 9H Graphene/Ceramic Coating on all painted body panels',
-      'Wheel faces ceramic coat protection against hot brake dust',
-      'Windshield & exterior glass hydrophobic rain-repellent shield',
-      'Plastic trim & rubber ceramic restoration barrier',
-      'Full interior deep clean + leather ceramic barrier',
-      'Infrared bake cure & official Carfax recorded warranty'
+      'Multi-Stage Paint Correction (Up to 95%+ Defect Removal)',
+      '2 Coats of 9H Nano-Ceramic Coating on all body panels',
+      'Wheel faces ceramic coated against corrosive NYC brake dust',
+      'Windshield & exterior glass hydrophobic rain repellent',
+      'Exterior plastic trim & rubber ceramic restoration barrier',
+      'Infrared heat-lamp curing cycle for extreme hardness'
     ],
-    perfectFor: 'New cars, luxury exotics, and owners seeking zero-wax permanent gloss.'
-  },
-  {
-    id: 'concourse-mastery',
-    name: 'Concourse Apex Bespoke',
-    subtitle: '7-Year Ultimate Armor & Engine Bay',
-    price: 1850,
-    originalPrice: 2200,
-    duration: '2 Full Days',
-    warranty: '7-Year Lifetime Ceramic Guarantee',
-    serviceType: 'VIP Studio Exclusive',
-    includes: [
-      'Multi-Stage Jeweled Compound Paint Correction (99% Flawless Clarity)',
-      '3-Layer 10H Ceramic + Graphene Matrix Armor (Body & Carbon Fiber)',
-      'Wheels-off package: Full wheel barrel + brake caliper ceramic coated',
-      'Complete Engine Bay dry-steam detailing & thermal dressing',
-      'All exterior glass 2-year rain shedding crystal coating',
-      'Full Interior Nappa leather ceramic coat & carpet stain guard',
-      'Complimentary 1-Year quarterly checkup & maintenance wash'
-    ],
-    perfectFor: 'Supercars, rare collector builds, and Porsche / Ferrari owners wanting the pinnacle.'
+    perfectFor: 'New vehicles, luxury daily drivers, and owners seeking permanent hydrophobic gloss.'
   }
 ];
 
 export const ADDONS_DATA: AddOnOption[] = [
   {
+    id: 'window-tint-front',
+    name: 'Front 2 Windows Ceramic Tinting',
+    price: 130,
+    description: 'High heat rejection & UV block matching factory rear privacy glass.'
+  },
+  {
+    id: 'window-tint-full',
+    name: 'Full Vehicle Ceramic Window Tinting',
+    price: 260,
+    description: 'All side and rear windows tinted with lifetime warranty nano-ceramic film.'
+  },
+  {
     id: 'wheel-ceramic',
-    name: 'Wheels Ceramic Coating (Face & Calipers)',
-    price: 180,
+    name: 'Wheels & Caliper Ceramic Coating',
+    price: 150,
     description: 'Prevents corrosive brake dust buildup and makes wheel washing effortless.'
   },
   {
-    id: 'glass-ceramic',
+    id: 'glass-rain-shield',
     name: 'Hydrophobic Glass Rain Shield (All Windows)',
-    price: 120,
-    description: 'Extreme water repellency; raindrops fly off at 35+ mph without wipers.'
+    price: 90,
+    description: 'Extreme water repellency; raindrops slide off in rain for high driving visibility.'
   },
   {
     id: 'leather-ceramic',
-    name: 'Interior Nappa Leather Ceramic Protection',
-    price: 160,
-    description: 'Prevents dye transfer from blue jeans, UV cracking, and liquid spills.'
+    name: 'Interior Leather Ceramic Protection',
+    price: 140,
+    description: 'Prevents dye transfer from denim, liquid stains, and UV sun cracking.'
   },
   {
     id: 'headlight-resto',
     name: 'Headlight Wet-Sand & UV Clear Coat Restoration',
-    price: 110,
-    description: 'Restores yellowed, hazy polycarbonate headlights back to 100% optical clarity.'
-  },
-  {
-    id: 'engine-add',
-    name: 'Engine Bay Steam Clean & Satin Dressing',
-    price: 140,
-    description: 'Electronic-safe degreasing and dry-vapor detailing under the hood.'
-  },
-  {
-    id: 'pet-hair-ozone',
-    name: 'Heavy Pet Hair Extraction + Ozone Sanitizer',
     price: 95,
-    description: 'Micro-hair needle extraction tool and 30-min O3 medical odor neutralizer.'
+    description: 'Restores yellowed, hazy polycarbonate headlights back to 100% optical clarity.'
   }
 ];
 
 export const REVIEWS_DATA: ReviewItem[] = [
   {
     id: 'rev-1',
-    author: 'Marcus Vance',
-    location: 'San Marino, CA',
-    vehicle: 'Porsche 911 GT3 (992)',
-    service: 'Apex 5-Year Ceramic Shield & Paint Correction',
+    author: 'Dimitri Kostas',
+    location: 'Astoria, NY',
+    vehicle: 'BMW M3 Competition',
+    service: 'Paint Correction & Ceramic Coating',
     rating: 5,
-    date: '2 weeks ago',
-    comment: 'Took my GT3 to Apex after getting swirls from a previous dealership wash. The level of detail here is obsessive. The carbon roof and paint look deeper than when it rolled off the showroom floor in Stuttgart. Best detailing studio in Pasadena by far.',
+    date: '1 week ago',
+    comment: 'Brought my M3 into Astoria Detailing on 31st Ave after noticing heavy swirls from dealer prep. The team did an incredible multi-stage correction and ceramic coating. The Isle of Man green looks deeper than glass. Hands down the best auto detailing center in Queens.',
     verified: true,
-    highlight: 'Deeper than showroom delivery'
+    highlight: 'Deeper than showroom glass'
   },
   {
     id: 'rev-2',
-    author: 'Elena Rostova',
-    location: 'Pasadena, CA (Old Town)',
-    vehicle: 'Tesla Model S Plaid',
-    service: 'Mobile Detailing Concierge Unit',
+    author: 'Sarah Jenkins',
+    location: 'Long Island City, NY',
+    vehicle: 'Tesla Model Y',
+    service: 'Full Auto Detail & Ceramic Window Tinting',
     rating: 5,
-    date: '3 weeks ago',
-    comment: 'The mobile van came directly to my home in Pasadena. They brought their own purified water and silent generator. My interior looks and smells brand new, and they removed a tough espresso stain from my white seats completely.',
+    date: '2 weeks ago',
+    comment: 'Got my Model Y windows tinted with ceramic film and the full interior/exterior detail. The ceramic tint keeps the car so much cooler in the sun, and the interior looks spotless. Quick turnaround and great communication from the team.',
     verified: true,
-    highlight: 'Zero water spots with mobile unit'
+    highlight: 'Huge difference with ceramic tint'
   },
   {
     id: 'rev-3',
-    author: 'David Chen',
-    location: 'Arcadia, CA',
-    vehicle: 'BMW M3 Competition (Isle of Man Green)',
-    service: 'Signature Paint Correction & 2-Year Ceramic',
+    author: 'Michael Rossi',
+    location: 'Astoria (Ditmars), NY',
+    vehicle: 'Porsche Macan GTS',
+    service: 'Comprehensive Auto Detailing & Hand Wash',
     rating: 5,
-    date: '1 month ago',
-    comment: 'Under the LED inspection lights, you could see 99% of all hairline scratches were gone. Water literally falls off the hood now. Very honest pricing and master craftsmanship. Will be bringing my wife’s X5 next month.',
+    date: '3 weeks ago',
+    comment: 'I live right near 31st Ave and brought my Porsche in for a full detail. They took exceptional care of the satin black rims and restored the leather interior to a clean OEM matte finish. Very fair pricing and great hours (open till 9 PM)!',
     verified: true,
-    highlight: 'Under LED lights it was flawless'
+    highlight: 'Open till 9 PM & impeccable service'
   },
   {
     id: 'rev-4',
-    author: 'Robert K.',
-    location: 'La Cañada Flintridge, CA',
-    vehicle: 'Mercedes-Benz G63 AMG',
-    service: 'Concourse Apex Bespoke & Engine Bay Detail',
-    rating: 5,
+    author: 'Anthony Vasquez',
+    location: 'Sunnyside, Queens, NY',
+    vehicle: 'Mercedes-Benz C43 AMG',
+    service: 'Concourse Hand Car Wash & Ceramic Boost',
+    rating: 4.5,
     date: '1 month ago',
-    comment: 'The G-Wagon is a monster to clean with all the square edges. Apex treated it like fine jewelry. Engine bay was spotless, wheel calipers coated, and the 7-year graphene warranty gives me total peace of mind in the SoCal sun.',
+    comment: 'Astoria Auto Detailing Center is my go-to spot. The 2-bucket hand wash is gentle on the clear coat and they clean every spoke on the wheels. Friendly staff, clean shop, and they treat your car with real respect.',
     verified: true,
-    highlight: 'Treated my G63 like fine jewelry'
+    highlight: 'Gentle hand wash & great attention'
   },
   {
     id: 'rev-5',
-    author: 'Sophia Martinez',
-    location: 'South Pasadena, CA',
-    vehicle: 'Audi RS6 Avant',
-    service: 'Interior Deep Clean & Leather Spa',
-    rating: 4.8,
-    date: '2 months ago',
-    comment: 'Kids and dogs had done a number on the back seats. The team did hot-water extraction and restored the Nappa leather without any cheap oily sheen. Clean, matte, and fresh. 10/10 recommend!',
+    author: 'Elena Pavlova',
+    location: 'Upper East Side, NY',
+    vehicle: 'Audi RS5 Sportback',
+    service: '3-Year Ceramic Shield & Interior Steam Clean',
+    rating: 5,
+    date: '1 month ago',
+    comment: 'Drove across the RFK Bridge specifically to come to Astoria Detailing. Worth every penny. The ceramic coating made winter road salt rinse right off with zero effort. Outstanding craftsmanship!',
     verified: true,
-    highlight: 'Restored Nappa leather to OEM matte'
+    highlight: 'Road salt slides right off'
   },
   {
     id: 'rev-6',
-    author: 'Julian Thorne',
-    location: 'Glendale, CA',
-    vehicle: 'Ferrari 458 Italia',
-    service: 'Multi-Stage Paint Correction & Concourse Prep',
-    rating: 5,
+    author: 'Carlos Mendez',
+    location: 'Jackson Heights, NY',
+    vehicle: 'Jeep Grand Cherokee',
+    service: 'Interior Deep Clean & Odor Neutralizer',
+    rating: 4.5,
     date: '2 months ago',
-    comment: 'Hard to trust anyone with Rosso Corsa single-stage clear, but Apex has certified masters. The paint depth readings before and after were documented in detail. Simply unmatched professionalism.',
+    comment: 'Had stains and pet hair all over the back seats from weekend trips. The team steamed and extracted everything. Looks brand new again. Highly recommend Astoria Detailing for anyone in Queens!',
     verified: true,
-    highlight: 'Documented paint depth readings'
+    highlight: 'Pet hair and stains 100% gone'
   }
 ];
 
 export const FAQS_DATA: FaqItem[] = [
   {
     id: 'faq-1',
-    category: 'ceramic',
-    question: 'How long does ceramic coating really last, and is it better than wax?',
-    answer: 'Unlike traditional carnauba waxes or synthetic polymer sealants that melt away after 2–8 weeks in the hot California sun, our 9H / 10H ceramic coatings create a semi-permanent chemical and covalent bond with your vehicle’s clear coat. They last between 2 to 7+ years depending on the chosen package, providing extreme chemical resistance, UV protection, and self-cleaning hydrophobic properties.'
+    category: 'general',
+    question: 'Where is Astoria Detailing located and what are your operating hours?',
+    answer: 'We are located at 42-09 31st Ave, Astoria, NY 11103. We are open Monday through Saturday from 7:00 AM to 9:00 PM, and Sunday from 7:00 AM to 7:00 PM. We welcome both walk-ins for hand car washes and advance appointments for detailing, window tinting, and ceramic coatings.'
   },
   {
     id: 'faq-2',
-    category: 'correction',
-    question: 'What is the difference between a 1-step and a multi-step paint correction?',
-    answer: 'A 1-Step enhancement combines light polishing to boost gloss and remove 50%–70% of micro-marring, ideal for newer vehicles. A 2-Step or Multi-Stage Paint Correction uses a heavy cutting compound with micro-abrasive pads to eliminate 85%–99% of deep swirl marks, scratches, and etching, followed by a jeweling finishing polish for laser-sharp reflections.'
+    category: 'tinting',
+    question: 'What types of window tinting do you offer and is it legal in New York?',
+    answer: 'We offer state-of-the-art computer-cut Nano-Ceramic and Carbon window films with multiple shade options (5%, 15%, 20%, 35%, 50%, 70%). Our team ensures your vehicle meets your desired heat rejection, privacy, and NY state inspection compliance needs. All our tints come with a lifetime warranty against bubbling, fading, or peeling.'
   },
   {
     id: 'faq-3',
-    category: 'mobile',
-    question: 'Do I need to provide water or power for the Mobile Detailing service?',
-    answer: 'No! Our mobile detailing Mercedes Sprinter van is 100% self-contained. We carry our own 100-gallon tank of 0-PPM deionized spot-free filtered water and an ultra-quiet internal inverter generator. All we need is access to your vehicle at your home, office, or private garage in Pasadena or surrounding cities.'
+    category: 'ceramic',
+    question: 'How does ceramic coating protect against NYC weather and road salt?',
+    answer: 'Our 9H / 10H ceramic coatings form a durable, glassy covalent bond over your clear coat. Unlike waxes that wash away in weeks, ceramic coating creates an ultra-hydrophobic shield that prevents NYC road salts, acid rain, bird droppings, brake dust, and UV oxidation from etching into your paint.'
   },
   {
     id: 'faq-4',
-    category: 'ceramic',
-    question: 'Can you detail or ceramic coat my vehicle if it already has Paint Protection Film (PPF)?',
-    answer: 'Absolutely. We regularly apply ceramic coatings over PPF (Clear Bra). The ceramic layer enhances the gloss of the film, seals the pores to prevent staining and yellowing from road tar, and adds slick hydrophobic properties that make washing your wrapped vehicle effortless.'
+    category: 'correction',
+    question: 'What is the difference between a hand car wash and a paint correction?',
+    answer: 'A hand car wash safely cleans surface grime and brake dust without scratching your paint. Paint correction is a precision machine polishing discipline that removes 85%–99% of existing swirl marks, scratches, oxidation, and clear coat haze to restore flawless mirror reflections.'
   },
   {
     id: 'faq-5',
-    category: 'general',
-    question: 'Where is your Pasadena studio located and do I need an appointment?',
-    answer: 'Our state-of-the-art detailing studio is located at 1420 E Walnut St, Suite 104, Pasadena, CA 91106. Because we allocate dedicated technician hours and temperature-controlled bays for every car, we operate by appointment. You can book directly through our online quote tool or call us at (626) 555-0184.'
+    category: 'booking',
+    question: 'How do I book an appointment or get an instant quote?',
+    answer: 'You can select your vehicle class and services directly in our online Instant Quote Calculator on this page, or call our direct line at (917) 774-0051 to speak directly with our detailing concierge.'
   },
   {
     id: 'faq-6',
     category: 'general',
-    question: 'What is your satisfaction guarantee and warranty policy?',
-    answer: 'Every vehicle undergoes a 32-point inspection under high-CRI 5000K LED studio bay lighting before handover. Our ceramic coating installations include an official warranty certificate with Carfax registry reporting, ensuring your vehicle retains maximum resale value.'
+    question: 'Do you work on luxury, exotic, and daily commuter vehicles?',
+    answer: 'Yes! From daily sedans and family SUVs to high-performance supercars (Porsche, BMW M, Mercedes-AMG, Ferrari), our master detailers treat every car with clinical precision and gentle, pH-balanced chemicals.'
   }
 ];
 
 export const STYLE_GUIDE_DATA = {
-  themeName: "Obsidian Concourse & Electric Amber",
-  conceptOverview: "Synthesizing TurboTweak's dark supercar studio aesthetic, ProAuto's high-conversion clarity, and bold motorsport ceramic branding into a high-converting digital showroom.",
+  themeName: "Astoria Obsidian & Electric Amber",
+  conceptOverview: "High-contrast luxury automotive detailing aesthetic with dark obsidian carbon canvas, crisp electric amber accents, and transparent pricing architecture.",
   colors: [
     { name: "Obsidian Carbon (Canvas)", hex: "#090B10", role: "Primary background providing high contrast and deep luxury depth" },
     { name: "Graphite Surface", hex: "#12161F", role: "Component cards, elevated containers, and structural panels" },
@@ -439,22 +437,20 @@ export const STYLE_GUIDE_DATA = {
     body: "Plus Jakarta Sans (400 Regular / 500 Medium) for crisp 16px+ baseline readability"
   },
   heroConcept: {
-    headline: "Concourse-Level Precision for Pasadena's Finest Automobiles",
-    subheadline: "Master-certified multi-stage paint correction, 9H/10H ceramic shield protection, and bespoke interior restoration — at our climate-controlled Pasadena studio or via our self-contained mobile unit.",
-    primaryCta: "Calculate Instant Quote & Book",
-    secondaryCta: "Explore 5-Year Ceramic Packages",
-    visualStyle: "Studio spotlighting on a high-gloss supercar, interactive technical spec nodes, dynamic before/after paint clarity slider, and 4.8★ Google verified social proof banner."
+    headline: "Astoria Detailing | Astoria, NY",
+    subheadline: "Astoria Auto Detailing Center: Concourse-grade auto detailing, 100% hand car wash, precision window tinting, multi-year ceramic coating, and paint correction.",
+    primaryCta: "GET IN TOUCH",
+    secondaryCta: "VIEW SERVICES & PRICING",
+    visualStyle: "Studio spotlighting on a high-gloss supercar, interactive technical spec nodes, dynamic before/after paint clarity slider, and 4.2★ Google verified social proof banner."
   },
   wireframeSections: [
-    { number: "01", name: "Global Header & Live Status Bar", purpose: "Persistent trust signals (4.8★, Pasadena address, instant phone dial, mobile booking trigger)" },
-    { number: "02", name: "Hero Showcase & Technical Spec Nodes", purpose: "Immediate visual impact, value proposition, and instant quote CTA" },
-    { number: "03", name: "Interactive Before/After Paint Defect Slider", purpose: "Direct visual proof of swirl elimination vs. mirror ceramic gloss" },
-    { number: "04", name: "Core Services Breakdown (5 Pillars)", purpose: "Deep dive into Paint Correction, Ceramic Coating, Interior Deep Clean, Engine Bay, and Mobile Van" },
-    { number: "05", name: "Interactive Pricing & Package Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments and Carfax warranty details" },
-    { number: "06", name: "Live Quote & Multi-Step Booking Builder", purpose: "High-conversion lead capture and instant estimated quote calculator" },
-    { number: "07", name: "Craftsmanship & Studio Standards", purpose: "Deionized water, high-CRI lighting, Rupes polishers, and climate-controlled curing bay" },
-    { number: "08", name: "Verified Customer Reviews (64 Reviews)", purpose: "Social proof with real car models and Pasadena/San Marino local authenticity" },
-    { number: "09", name: "Interactive FAQ Accordion", purpose: "Overcoming objections around ceramic longevity, mobile logistics, and PPF compatibility" },
-    { number: "10", name: "Pasadena Studio Map & Direct Contact", purpose: "Physical address, business hours, Google directions, and VIP appointment booking" }
+    { number: "01", name: "Global Header & Live Status Bar", purpose: "Persistent trust signals (4.2★, 42-09 31st Ave address, instant phone dial (917) 774-0051)" },
+    { number: "02", name: "Hero Showcase & Performance Typography", purpose: "Immediate visual impact, Astoria Detailing headline, and instant quote CTA" },
+    { number: "03", name: "Core Services Breakdown (5 Disciplines)", purpose: "Deep dive into Auto Detailing, Car Wash, Window Tinting, Ceramic Coating, and Paint Correction" },
+    { number: "04", name: "Interactive Pricing & Package Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments" },
+    { number: "05", name: "Live Quote & Multi-Step Booking Builder", purpose: "High-conversion lead capture and instant estimated quote calculator" },
+    { number: "06", name: "Verified Customer Reviews (343 Reviews)", purpose: "Social proof with real car models and Astoria / Queens authenticity (4.2 / 5.0)" },
+    { number: "07", name: "Interactive FAQ Accordion", purpose: "Answers for ceramic longevity, window tinting, hours, and hand car washes" },
+    { number: "08", name: "Astoria Studio Map & Direct Contact", purpose: "42-09 31st Ave address, business hours (7 AM - 9 PM), Google directions, and phone dial" }
   ]
 };

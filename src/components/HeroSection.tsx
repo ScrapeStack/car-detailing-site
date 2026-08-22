@@ -26,7 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           <div className="w-full lg:w-[66%] xl:w-[60%] h-full relative flex items-center justify-end">
             <motion.img
               src={heroSupercarImg}
-              alt="Apex Precision Luxury Supercar Detailing"
+              alt="Astoria Detailing Luxury Auto Detailing Center"
               className="w-full h-full object-cover object-[65%_center] lg:object-right opacity-65 sm:opacity-80 lg:opacity-95"
               referrerPolicy="no-referrer"
               animate={{ 
@@ -91,12 +91,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             }}
           >
             <span className="w-2 h-2 rounded-full bg-amber-400 inline-block animate-pulse"></span>
-            <span className="text-slate-300 font-semibold">Pasadena, CA</span>
+            <span className="text-slate-300 font-semibold">42-09 31st Ave, Astoria, NY</span>
             <span className="text-slate-600">•</span>
-            <span className="text-slate-400">Studio & Mobile Detailing</span>
+            <span className="text-slate-400">Auto Detailing Center</span>
           </motion.div>
 
-          {/* Iconic Headline: "LIVE BETTER, LIVE LUXURY" */}
+          {/* Hero Headline: "Astoria Detailing | Astoria, NY" */}
           <motion.div 
             className="space-y-2"
             variants={{
@@ -105,11 +105,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight text-white uppercase leading-[1.03]">
-              LIVE BETTER, <br />
-              LIVE <span className="font-serif-luxury italic font-normal tracking-wide text-slate-200 capitalize">Luxury</span>
+              Astoria Detailing <br />
+              <span className="font-serif-luxury italic font-normal tracking-wide text-slate-200 capitalize text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                | Astoria, NY
+              </span>
             </h1>
             <p className="text-xs sm:text-sm font-mono-tech uppercase tracking-wider text-amber-400/90 pt-0.5">
-              Precision Paint Correction • Ceramic Coating • Interior Spa
+              Auto Detailing • Car Wash • Window Tinting • Ceramic Coating • Paint Correction
             </p>
           </motion.div>
 
@@ -123,12 +125,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           >
             <div>
               <p>
-                Restore your vehicle’s true showroom shine with deep paint decontamination, swirl scratch removal, and durable ceramic protection.
+                Restore your vehicle’s true showroom shine with concourse hand car washes, deep interior steam sanitization, and certified ceramic coatings.
               </p>
             </div>
             <div>
               <p>
-                From meticulous interior deep cleaning to full paint enhancement, enjoy flawless results at our Pasadena studio or right at your driveway.
+                Specializing in multi-stage paint correction and precision nano-ceramic window tinting at our Astoria center. Open 7 days a week.
               </p>
             </div>
           </motion.div>

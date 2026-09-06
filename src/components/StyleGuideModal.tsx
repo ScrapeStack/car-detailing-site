@@ -30,7 +30,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
             </div>
             <div>
               <h3 className="text-base sm:text-lg font-display font-black text-white">
-                Apex Precision • Design System & Concept Blueprint
+                RetroClean Detailing - Bayside • Design System & Concept Blueprint
               </h3>
               <p className="text-xs text-slate-400 font-mono-tech">
                 Synthesized from reference inspiration & local business requirements

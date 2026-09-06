@@ -4,28 +4,33 @@ import ceramicApplicatorImg from '../assets/images/ceramic_applicator_hood_17872
 import luxuryInteriorImg from '../assets/images/luxury_interior_clean_1787211008247.jpg';
 
 export const BUSINESS_INFO = {
-  name: "Apex Precision Auto Detailing",
-  tagline: "Pasadena's Concourse-Grade Ceramic Coating & Paint Correction Specialists",
-  address: "1420 E Walnut St, Suite 104, Pasadena, CA 91106",
-  phone: "(626) 555-0184",
-  phoneRaw: "6265550184",
-  email: "concierge@apexprecisiondetailing.com",
-  rating: 4.8,
-  reviewCount: 64,
+  name: "RetroClean Detailing - Bayside",
+  fullName: "RetroClean Detailing - Bayside",
+  tagline: "Premium Mobile Auto Detailing in Bayside, Queens & Long Island — We Bring Water & Power to You",
+  address: "32-24 Corporal Kennedy St, Bayside, NY 11361 (Serving Queens & Long Island - Fully Mobile with Water & Power)",
+  addressShort: "32-24 Corporal Kennedy St, Bayside, NY",
+  serviceLocationNote: "Serving Queens & Long Island - Fully Mobile with Water & Power",
+  phone: "(347) 494-0646",
+  phoneRaw: "3474940646",
+  email: "info@retrocleandetailing.com",
+  rating: 4.9,
+  reviewCount: 118,
   hours: {
-    weekdays: "Monday – Friday: 7:30 AM – 6:30 PM",
-    saturday: "Saturday: 8:00 AM – 5:00 PM",
-    sunday: "Sunday: By VIP Appointment Only"
+    weekdays: "Mon-Sat: 8:00 AM - 6:00 PM",
+    saturday: "Mon-Sat: 8:00 AM - 6:00 PM",
+    sunday: "Closed (Sunday Appointments Available by Request)"
   },
   serviceAreas: [
-    "Pasadena",
-    "San Marino",
-    "South Pasadena",
-    "Arcadia",
-    "La Cañada Flintridge",
-    "Glendale",
-    "Sierra Madre",
-    "Downtown Los Angeles"
+    "Bayside",
+    "Queens",
+    "Long Island (Nassau & Western Suffolk)",
+    "Whitestone",
+    "Flushing",
+    "Little Neck",
+    "Douglaston",
+    "Great Neck",
+    "Manhasset",
+    "Garden City"
   ]
 };
 
@@ -36,7 +41,7 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Standard Size',
     multiplier: 1.0,
     iconName: 'Car',
-    examples: 'Porsche 911, BMW M3/M4, Tesla Model 3, Corvette C8, Mercedes C-Class'
+    examples: 'BMW 3/4 Series, Tesla Model 3, Mercedes C/E-Class, Audi A4/A5, Porsche 911'
   },
   {
     id: 'suv',
@@ -44,7 +49,7 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Medium Size (+15%)',
     multiplier: 1.15,
     iconName: 'Shield',
-    examples: 'Porsche Macan/Cayenne, Tesla Model Y, BMW X5, Audi Q7, Range Rover Sport'
+    examples: 'Tesla Model Y, BMW X3/X5, Audi Q5/Q7, Porsche Macan, Range Rover Velar'
   },
   {
     id: 'truck',
@@ -52,384 +57,380 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Large Size (+30%)',
     multiplier: 1.3,
     iconName: 'Truck',
-    examples: 'Cadillac Escalade, Mercedes G-Wagon, Ford F-150 Raptor, Rivian R1T/R1S'
+    examples: 'Cadillac Escalade, Mercedes G-Wagon, Chevy Tahoe, Ford F-150, Lincoln Navigator'
   },
   {
     id: 'exotic',
-    name: 'Exotic & Supercar',
-    category: 'Precision Custom Care (+25%)',
+    name: 'Exotic & Luxury Sports',
+    category: 'Bespoke Care (+25%)',
     multiplier: 1.25,
     iconName: 'Sparkles',
-    examples: 'Ferrari 458/F8/296, McLaren 720S, Lamborghini Huracán, Aston Martin'
+    examples: 'Porsche GT3/Turbo, Ferrari, Lamborghini, McLaren, Aston Martin, Bentley'
   }
 ];
 
 export const SERVICES_DATA: ServiceDetail[] = [
   {
-    id: 'paint-correction',
-    title: 'Paint Correction & Restoration',
-    badge: 'Signature Mastery',
-    shortDesc: 'Eliminate 85%–99% of swirl marks, buffer holograms, water spots, and micro-scratches for an authentic mirror finish.',
-    fullDesc: 'Using digital paint depth gauges and multi-stage rotary/dual-action polishers with precision micro-abrasives, we gently restore clear coat clarity without compromising paint integrity.',
-    startingPrice: 450,
-    duration: '6 – 10 Hours',
-    popular: true,
-    features: [
-      'Paint thickness ultrasound digital measurement before/after',
-      'Decontamination foam bath & ultra-fine clay bar treatment',
-      'Multi-stage compound & jeweling micro-polish',
-      'Eliminates spiderwebs, car wash swirls, and clear coat haze',
-      'Pre-coating alcohol prep wipe inspection'
-    ],
-    specs: [
-      { label: 'Defect Removal', value: 'Up to 95%–99%' },
-      { label: 'Gloss Meter Jump', value: '+35 to +55 GU' },
-      { label: 'Equipment', value: 'Rupes Bigfoot & Flex Polishers' }
-    ],
-    idealFor: 'Vehicles with visible spiderwebs, dull sun haze, track micro-scuffs, or preparing for ceramic shield.',
-    imageUrl: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80'
-  },
-  {
-    id: 'ceramic-coating',
-    title: 'Multi-Year Ceramic & Graphene Coating',
-    badge: 'Ultimate Armor',
-    shortDesc: 'Military-grade 9H/10H SiO2 nano-ceramic molecular bond offering intense hydrophobic gloss, UV defense, and chemical barrier.',
-    fullDesc: 'Our certified climate-controlled application creates a semi-permanent glassy shell over clear coat, wheels, plastics, and glass. Sheds rain, brake dust, bird droppings, and Pasadena smog pollutants effortlessly.',
-    startingPrice: 850,
-    duration: '1 – 2 Days (Cure Bay)',
-    popular: true,
-    features: [
-      'Genuine 9H / 10H certified nano-ceramic or graphene matrix',
-      'Ultra-hydrophobic 115°+ water contact angle bead effect',
-      'UV & oxidation protection against California sun fading',
-      'Includes Carfax registration & official warranty certificate',
-      'Infrared curing heat-lamp baking cycle'
-    ],
-    specs: [
-      { label: 'Protection Lifespan', value: '2 to 7+ Years' },
-      { label: 'Hardness Rating', value: '9H – 10H Ceramic / Graphene' },
-      { label: 'Maintenance', value: 'Self-Cleaning Hydrophobic' }
-    ],
-    idealFor: 'New vehicle protection, post-paint correction lock-in, daily luxury drivers and collector sports cars.',
-    imageUrl: ceramicApplicatorImg
-  },
-  {
-    id: 'interior-deep-clean',
-    title: 'Interior Deep Clean & Spa Sanitization',
-    badge: 'Sanitized Luxury',
-    shortDesc: 'Hospital-grade pressurized steam extraction, pH-neutral aniline leather conditioning, and ozone odor elimination.',
-    fullDesc: 'We dismantle seat rails, deep-clean crevices, shampoo and hot-water extract carpets, condition delicate Nappa/Alcantara leathers with matte UV blockers, leaving an OEM factory scent.',
-    startingPrice: 280,
+    id: 'mobile-auto-detail',
+    title: 'Premium Mobile Auto Detailing (Full Interior & Exterior Reset)',
+    badge: '100% Fully Mobile • Water & Power Onboard',
+    shortDesc: 'Complete interior deep reset, hot-vapor steam sanitization, gentle 2-bucket exterior hand wash, clay decontamination, and paint sealant.',
+    fullDesc: 'We bring our specialized mobile detailing rig directly to your home or office in Bayside, Queens, or Long Island. Equipped with our own ultra-pure deionized water tank and whisper-quiet power generators, we perform a concours-level full interior and exterior reset with zero hookups required from you.',
+    startingPrice: 195,
     duration: '3.5 – 5 Hours',
+    popular: true,
     features: [
-      'Dry-vapor pressurized steam sterilization (220°F kills 99.9% bacteria)',
-      'Deep hot-water carpet & fabric seat stain extraction',
-      'Matte leather cleaning & Swiss-grade conditioning treatment',
-      'Air vent duct sterilization & cabin ozone odor neutralization',
-      'Zero greasy residue — factory fresh OEM matte finish'
+      'Self-contained mobile setup: We provide 100% of water & electric power',
+      'Gentle 2-bucket foam hand wash & spot-free deionized water rinse',
+      'Paint clay bar decontamination & synthetic polymer gloss sealant',
+      'Full cabin dry-vapor steam sanitization & deep crevices detailing',
+      'Hot-water carpet & seat extraction plus leather cleaning & UV shield'
     ],
     specs: [
-      { label: 'Bacteria Eradication', value: '99.9% Sanitized' },
-      { label: 'Leather Finish', value: 'Original OEM Matte Non-Greasy' },
-      { label: 'Steam Temp', value: '220°F Dry Vapor' }
+      { label: 'Convenience', value: '100% Mobile at Your Door' },
+      { label: 'Water & Power', value: 'Fully Self-Sufficient' },
+      { label: 'Reset Level', value: 'Showroom Interior & Exterior' }
     ],
-    idealFor: 'Vehicles needing interior rejuvenation, coffee/food stain removal, pet hair extraction, or leather restoration.',
+    idealFor: 'Busy car owners across Bayside, Queens, and Long Island who demand showroom-condition detailing without leaving their driveway or desk.',
     imageUrl: luxuryInteriorImg
   },
   {
-    id: 'engine-bay',
-    title: 'Engine Bay Detailing & Dressing',
-    badge: 'Mechanical Elegance',
-    shortDesc: 'Careful electronic-safe degreasing, dry steam cleaning, and satin thermal dressing for a factory-new engine compartment.',
-    fullDesc: 'Sensitive components (ECU, alternator, intake) are securely masked before high-pressure micro-steam breaks down heavy oil film, road grime, and salt residue, finished with heat-resistant satin polymer dressing.',
-    startingPrice: 160,
-    duration: '1.5 – 2 Hours',
+    id: 'ceramic-coating',
+    title: 'Ceramic Coating & Long-Term Paint Protection',
+    badge: 'Years of Hydrophobic Mirror Shield',
+    shortDesc: 'Precision machine paint correction eliminating swirl marks and scratches, sealed with authentic multi-year 9H nano-ceramic chemical armor.',
+    fullDesc: 'Defend your vehicle against harsh Northeast road salt, acid rain, bird droppings, and UV clear-coat oxidation. Our certified technicians perform multi-stage paint correction to remove 85%–95%+ of paint defects before locking in a permanent 9H ceramic bond with extreme self-cleaning water beading.',
+    startingPrice: 695,
+    duration: '1 – 2 Days',
+    popular: true,
     features: [
-      'Water-sensitive wiring harness & ECU sensor masking',
-      'Gentle bio-degradable degreaser agitated with horsehair brushes',
-      'Controlled dry vapor steam rinse (minimal moisture)',
-      'Heat-resistant, non-sticky satin plastic & rubber conditioner',
-      'Prevents hose dry-rot and electrical dust buildup'
+      'Ultrasonic paint depth analysis and multi-panel defect mapping',
+      'Dual-action rotary machine compounding to eliminate swirl marks',
+      'Professional-grade 9H nano-ceramic molecular covalent bond',
+      'Extreme 115°+ hydrophobic water-beading & stain rejection',
+      'Multi-year written warranty & Carfax registered vehicle protection'
     ],
     specs: [
-      { label: 'Safety Protocol', value: '100% Masked Electronics' },
-      { label: 'Dressing Finish', value: 'Anti-Static Heat Resistant' },
-      { label: 'Service Time', value: '90 Minutes' }
+      { label: 'Correction', value: 'Up to 90%–95%+ Swirl Removal' },
+      { label: 'Hardness', value: 'Certified 9H Nano-Ceramic' },
+      { label: 'Protection Life', value: '3 to 5+ Years Durability' }
     ],
-    idealFor: 'Performance sports cars, car show prep, resale appraisal boost, and routine mechanical care.',
-    imageUrl: engineBayCleaningImg
+    idealFor: 'New vehicle protection, sports cars, daily commuters facing Queens/Long Island traffic, and enthusiasts seeking eternal high gloss.',
+    imageUrl: ceramicApplicatorImg
   },
   {
-    id: 'mobile-detailing',
-    title: 'Mobile Detailing Concierge Unit',
-    badge: 'Direct to You',
-    shortDesc: 'Our fully equipped Mercedes Sprinter arrives at your Pasadena residence or office with spot-free deionized water and quiet power.',
-    fullDesc: 'Experience luxury detailing at zero hassle. Our self-contained mobile van carries 100 gallons of pure 0-PPM deionized water, ultra-quiet generator, and full professional detailing machinery right to your driveway.',
+    id: 'tint-and-wraps',
+    title: 'Window Tinting & Vehicle Wraps',
+    badge: 'Heat Rejection & Custom Aesthetics',
+    shortDesc: 'Computer-cut nano-ceramic window films rejecting up to 99% UV rays and infrared heat, alongside custom color change wraps and chrome deletes.',
+    fullDesc: 'Upgrade your vehicle cabin comfort and exterior styling. Our premium nano-ceramic window tint films reject scorching solar heat and blinding glare while shielding your leather from UV degradation. We also specialize in bespoke vinyl accents, roof wraps, and blackout chrome deletes.',
     startingPrice: 220,
-    duration: '2 – 4.5 Hours',
+    duration: '2 – 4 Hours',
     features: [
-      'Self-contained with 100% 0-PPM Spot-Free Deionized Water',
-      'Eco-friendly on-board quiet inverter generator & compressors',
-      'Available across Pasadena, San Marino, Arcadia, and Glendale',
-      'Home garage, residential driveway, or corporate executive parking',
-      'Same master-grade technicians & chemicals as our studio'
+      'Premium nano-ceramic films with up to 99% UV & 85%+ IR heat rejection',
+      'Computer-cut precision plot templates (zero razor blades on vehicle glass)',
+      'Single-piece rear glass installation without unsightly seams or bubbles',
+      'High-grade cast vinyl for roof wraps, accents, and chrome deletes',
+      'Lifetime manufacturer warranty against bubbling, fading, or peeling'
     ],
     specs: [
-      { label: 'Water Quality', value: '0 PPM Deionized (Zero Spots)' },
-      { label: 'Radius', value: 'Up to 25 Miles from Pasadena' },
-      { label: 'Self-Sufficient', value: 'No Water/Power Hookups Needed' }
+      { label: 'Heat Rejection', value: 'Up to 99% UV / 85%+ IR' },
+      { label: 'Cutting Method', value: 'Digital CAD Computer Plotted' },
+      { label: 'Warranty', value: 'Lifetime Film Warranty' }
     ],
-    idealFor: 'Busy professionals, luxury homeowners, and car enthusiasts who value utmost convenience without compromising standards.',
+    idealFor: 'Drivers wanting cooler summer cabin temperatures, privacy, glare reduction, and custom aesthetic transformations.',
+    imageUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 'recurring-care-plans',
+    title: 'Recurring Car Care Plans',
+    badge: 'Hassle-Free Maintenance Memberships',
+    shortDesc: 'Bi-weekly or monthly mobile maintenance visits to ensure your vehicle stays permanently immaculate without thinking about it.',
+    fullDesc: 'Maintain that freshly detailed showroom aura all year long. Our recurring car care memberships offer discounted routine mobile maintenance washes, interior decontamination, hydrophobic top-up sprays, and priority scheduling dispatched straight to your driveway or workplace.',
+    startingPrice: 95,
+    duration: '1.5 Hours / Visit',
+    popular: true,
+    features: [
+      'Scheduled bi-weekly or monthly mobile detailing at your convenience',
+      'Gentle deionized hand wash & synthetic spray sealant top-up',
+      'Full interior vacuum, dash wipe-down, and leather nourishment',
+      'Wheels, tires, brake dust decontamination & satin tire dress',
+      'Priority emergency call-out slots and members-only discount rates'
+    ],
+    specs: [
+      { label: 'Cadence', value: 'Bi-Weekly or Monthly' },
+      { label: 'Savings', value: 'Up to 30% Off Regular Rates' },
+      { label: 'Convenience', value: 'Automated Priority Booking' }
+    ],
+    idealFor: 'Professionals, families, and busy enthusiasts who desire clean, protected cars year-round with effortless automated scheduling.',
     imageUrl: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 'stain-odor-engine',
+    title: 'Stain Extraction, Odor Neutralization & Engine Bay Detail',
+    badge: 'Clinical Sanitization & Mechanical Care',
+    shortDesc: 'Deep commercial hot-water carpet extraction, ozone biological odor neutralizer, and safe pressurized dry-vapor engine bay detailing.',
+    fullDesc: 'Eliminate stubborn coffee spills, salt buildup, pet odors, smoke residue, and engine compartment grime. We employ commercial heated injection extractors, medical-grade ozone treatments that destroy odor-causing bacteria at the molecular level, and safe steam degreasing of your engine bay.',
+    startingPrice: 150,
+    duration: '2 – 3 Hours',
+    features: [
+      'High-temp commercial hot-water injection carpet and seat extraction',
+      'Ozone generator & enzyme treatment to neutralize smoke and pet odors',
+      'Pressurized dry-steam degreasing safely cleans engine bay grease and grime',
+      'Sensitive electronics, alternator, and air intakes masked and protected',
+      'Non-greasy satin silicone-free protective dressing on all engine hoses & covers'
+    ],
+    specs: [
+      { label: 'Odor Removal', value: 'Molecular Ozone & Enzyme' },
+      { label: 'Stain Removal', value: 'High-Temp Heated Extraction' },
+      { label: 'Engine Bay', value: 'Pressurized Dry Steam' }
+    ],
+    idealFor: 'Vehicles with stubborn interior stains, unpleasant odors, pre-sale preparations, or neglected engine compartments.',
+    imageUrl: engineBayCleaningImg
   }
 ];
 
 export const PACKAGES_DATA: PackageTier[] = [
   {
-    id: 'essential-detail',
-    name: 'Precision Preservation',
-    subtitle: 'Maintenance & Deep Refresh',
+    id: 'recurring-plan',
+    name: 'Recurring Mobile Car Care Plan',
+    subtitle: 'Scheduled Bi-Weekly or Monthly Mobile Maintenance',
+    price: 95,
+    originalPrice: 135,
+    duration: '1.5 Hours / Visit',
+    warranty: 'Continuous Perfection Guarantee',
+    serviceType: 'Mobile Dispatch to You',
+    includes: [
+      'Self-contained mobile visit: we bring 100% water & power',
+      'Deionized spot-free foam hand wash & synthetic gloss spray sealant',
+      'Interior vacuum, dashboard sanitization, and console wipe-down',
+      'Brake dust wheel scrub, tire dressing & streak-free crystal windows',
+      'Priority automated appointment booking for members'
+    ],
+    perfectFor: 'Bayside & Long Island drivers wanting their vehicle consistently immaculate without lifting a finger.'
+  },
+  {
+    id: 'signature-mobile-reset',
+    name: 'Premium Mobile Detail (Full Reset)',
+    subtitle: 'Comprehensive Interior & Exterior Transformation',
     price: 249,
     originalPrice: 299,
-    duration: '3.5 – 4 Hours',
-    warranty: '30-Day Gloss Guarantee',
-    serviceType: 'Mobile or Studio',
-    includes: [
-      'Ph-neutral snow foam bath & 2-bucket hand wash',
-      'Wheels, barrels, brake calipers & wheel wells deep scrub',
-      'Paint chemical iron fallout decon & light synthetic sealant',
-      'Interior steam sanitize, vacuum & console wipe down',
-      'Glass crystal clarity streak-free treatment',
-      'Tire conditioning with satin sling-free dressing'
-    ],
-    perfectFor: 'Monthly maintenance and high-end daily drivers.'
-  },
-  {
-    id: 'signature-correction',
-    name: 'Signature Paint Correction',
-    subtitle: 'Flawless Mirror Finish',
-    price: 649,
-    originalPrice: 799,
-    duration: '7 – 9 Hours',
-    warranty: '6-Month Poly-Shield',
+    duration: '3.5 – 5 Hours',
+    warranty: '100% Reset Guarantee',
     popular: true,
-    serviceType: 'Studio Recommended',
-    includes: [
-      'All Precision Preservation wash & decon steps included',
-      'Complete clay bar physical paint decontamination',
-      'Single-Stage or 2-Stage Machine Paint Polish (85–92% Swirl Removal)',
-      'Digital paint depth micrometer evaluation',
-      'Headlight & taillight high-gloss jeweling',
-      'Interior complete deep steam extraction & leather conditioning',
-      '6-Month high-bonding polymer paint sealant applied'
-    ],
-    perfectFor: 'Vehicles with swirl marks, spiderwebs, dull paint, or before resale.'
-  },
-  {
-    id: 'elite-ceramic',
-    name: 'Apex 5-Year Ceramic Shield',
-    subtitle: 'Permanent Nano Armor & Hydrophobic Shine',
-    price: 1290,
-    originalPrice: 1490,
-    duration: '1.5 Days (Cure Bay)',
-    warranty: '5-Year Written Carfax Warranty',
     bestValue: true,
-    serviceType: 'Studio Required (IR Baking)',
+    serviceType: 'Mobile Unit (Water & Power Onboard)',
     includes: [
-      'Full Multi-Stage Paint Correction (Up to 95%+ Defect Removal)',
-      '2 Coats of 9H Graphene/Ceramic Coating on all painted body panels',
-      'Wheel faces ceramic coat protection against hot brake dust',
-      'Windshield & exterior glass hydrophobic rain-repellent shield',
-      'Plastic trim & rubber ceramic restoration barrier',
-      'Full interior deep clean + leather ceramic barrier',
-      'Infrared bake cure & official Carfax recorded warranty'
+      'Full mobile rig arrives with pure deionized water & electric generator',
+      'Gentle foam hand wash, iron decontamination & paint clay bar',
+      'Deep hot-water carpet & upholstery stain extraction',
+      'Pressurized interior dry-vapor steam sanitization & crevice detail',
+      'pH-balanced leather conditioning and matte UV dashboard barrier',
+      'Single-stage machine polish enhancement for deep exterior gloss'
     ],
-    perfectFor: 'New cars, luxury exotics, and owners seeking zero-wax permanent gloss.'
+    perfectFor: 'Vehicles needing a complete reset, seasonal rejuvenation, or deep interior sanitization at your doorstep.'
   },
   {
-    id: 'concourse-mastery',
-    name: 'Concourse Apex Bespoke',
-    subtitle: '7-Year Ultimate Armor & Engine Bay',
-    price: 1850,
-    originalPrice: 2200,
-    duration: '2 Full Days',
-    warranty: '7-Year Lifetime Ceramic Guarantee',
-    serviceType: 'VIP Studio Exclusive',
+    id: 'stain-odor-engine-pkg',
+    name: 'Stain, Odor & Engine Restoration',
+    subtitle: 'Heated Extraction, Ozone Treatment & Engine Bay Detail',
+    price: 340,
+    originalPrice: 395,
+    duration: '3 – 4 Hours',
+    warranty: 'Freshness & Clarity Guarantee',
+    serviceType: 'Mobile or Studio Service',
     includes: [
-      'Multi-Stage Jeweled Compound Paint Correction (99% Flawless Clarity)',
-      '3-Layer 10H Ceramic + Graphene Matrix Armor (Body & Carbon Fiber)',
-      'Wheels-off package: Full wheel barrel + brake caliper ceramic coated',
-      'Complete Engine Bay dry-steam detailing & thermal dressing',
-      'All exterior glass 2-year rain shedding crystal coating',
-      'Full Interior Nappa leather ceramic coat & carpet stain guard',
-      'Complimentary 1-Year quarterly checkup & maintenance wash'
+      'High-temp commercial hot-water injection extraction on all seats & carpets',
+      'Medical-grade ozone biological odor neutralization (smoke, pet, spills)',
+      'Engine bay pressurized dry-vapor steam degrease & satin protective dress',
+      'Headlight clarity wet-sand polish & durable UV clear sealant',
+      'Full exterior hand wash and spot-free blow dry'
     ],
-    perfectFor: 'Supercars, rare collector builds, and Porsche / Ferrari owners wanting the pinnacle.'
+    perfectFor: 'Severe interior stains, tough odor elimination, engine bay detailing, or pre-sale vehicle prep.'
+  },
+  {
+    id: 'ceramic-armor-pkg',
+    name: 'RetroClean Ceramic & Paint Armor',
+    subtitle: 'Multi-Stage Paint Correction & Multi-Year 9H Nano Armor',
+    price: 795,
+    originalPrice: 995,
+    duration: '1 – 2 Days',
+    warranty: 'Certified Multi-Year Warranty',
+    serviceType: 'Certified Specialist Care',
+    includes: [
+      'Multi-Stage Paint Correction (Removing 90%–95%+ swirls and clear coat scratches)',
+      'Certified 9H Nano-Ceramic Coating applied to all exterior painted panels',
+      'Wheel faces ceramic coated against corrosive brake dust and road grime',
+      'Hydrophobic glass rain shield applied to windshield and all side windows',
+      'Plastic trim ceramic restoration to prevent sun fading and chalking',
+      'Carfax documented warranty certificate'
+    ],
+    perfectFor: 'New luxury vehicles, sports cars, and owners seeking permanent hydrophobic mirror reflections.'
   }
 ];
 
 export const ADDONS_DATA: AddOnOption[] = [
   {
-    id: 'wheel-ceramic',
-    name: 'Wheels Ceramic Coating (Face & Calipers)',
-    price: 180,
-    description: 'Prevents corrosive brake dust buildup and makes wheel washing effortless.'
+    id: 'ceramic-tint-addon',
+    name: 'Nano-Ceramic Window Tint Upgrade',
+    price: 195,
+    description: 'Computer-cut ceramic tint with up to 99% UV and 85%+ infrared solar heat rejection.'
   },
   {
-    id: 'glass-ceramic',
-    name: 'Hydrophobic Glass Rain Shield (All Windows)',
-    price: 120,
-    description: 'Extreme water repellency; raindrops fly off at 35+ mph without wipers.'
+    id: 'engine-bay-detail',
+    name: 'Engine Bay Steam Clean & Dress',
+    price: 90,
+    description: 'Safe pressurized dry-steam degreasing and non-greasy satin protective dressing.'
   },
   {
-    id: 'leather-ceramic',
-    name: 'Interior Nappa Leather Ceramic Protection',
+    id: 'ozone-odor-treatment',
+    name: 'Ozone Biological Odor Neutralization',
+    price: 85,
+    description: 'Deep gaseous ozone cycle neutralizing stubborn smoke, pet, and mildew odors at the source.'
+  },
+  {
+    id: 'vinyl-chrome-delete',
+    name: 'Chrome Delete / Vinyl Accent Wrap',
     price: 160,
-    description: 'Prevents dye transfer from blue jeans, UV cracking, and liquid spills.'
+    description: 'Sleek gloss or satin black vinyl overlay on window trim, mirrors, or front grille.'
   },
   {
-    id: 'headlight-resto',
-    name: 'Headlight Wet-Sand & UV Clear Coat Restoration',
-    price: 110,
-    description: 'Restores yellowed, hazy polycarbonate headlights back to 100% optical clarity.'
-  },
-  {
-    id: 'engine-add',
-    name: 'Engine Bay Steam Clean & Satin Dressing',
+    id: 'wheel-ceramic',
+    name: 'Wheels & Calipers Ceramic Coating',
     price: 140,
-    description: 'Electronic-safe degreasing and dry-vapor detailing under the hood.'
+    description: 'Prevents corrosive brake dust accumulation and makes wheel washing completely effortless.'
   },
   {
-    id: 'pet-hair-ozone',
-    name: 'Heavy Pet Hair Extraction + Ozone Sanitizer',
-    price: 95,
-    description: 'Micro-hair needle extraction tool and 30-min O3 medical odor neutralizer.'
+    id: 'glass-rain-shield',
+    name: 'Hydrophobic Glass Rain Shield (All Windows)',
+    price: 80,
+    description: 'Extreme water repellency so rain beads and blows right off your glass while driving.'
   }
 ];
 
 export const REVIEWS_DATA: ReviewItem[] = [
   {
     id: 'rev-1',
-    author: 'Marcus Vance',
-    location: 'San Marino, CA',
-    vehicle: 'Porsche 911 GT3 (992)',
-    service: 'Apex 5-Year Ceramic Shield & Paint Correction',
+    author: 'Mark Goldstein',
+    location: 'Bayside, Queens, NY',
+    vehicle: 'Porsche 911 Carrera 4S',
+    service: 'Premium Mobile Detail & Ceramic Coating',
     rating: 5,
-    date: '2 weeks ago',
-    comment: 'Took my GT3 to Apex after getting swirls from a previous dealership wash. The level of detail here is obsessive. The carbon roof and paint look deeper than when it rolled off the showroom floor in Stuttgart. Best detailing studio in Pasadena by far.',
+    date: '3 days ago',
+    comment: 'RetroClean Detailing came right to my driveway in Bayside. They literally bring their own water and power in their mobile unit! My Porsche looks 100 times better than when I picked it up from the dealership. The paint correction and ceramic shine is unreal.',
     verified: true,
-    highlight: 'Deeper than showroom delivery'
+    highlight: 'Brought water & power — incredible results'
   },
   {
     id: 'rev-2',
-    author: 'Elena Rostova',
-    location: 'Pasadena, CA (Old Town)',
-    vehicle: 'Tesla Model S Plaid',
-    service: 'Mobile Detailing Concierge Unit',
+    author: 'Jessica Chen',
+    location: 'Great Neck, Long Island',
+    vehicle: 'Tesla Model X',
+    service: 'Recurring Mobile Car Care Plan',
     rating: 5,
-    date: '3 weeks ago',
-    comment: 'The mobile van came directly to my home in Pasadena. They brought their own purified water and silent generator. My interior looks and smells brand new, and they removed a tough espresso stain from my white seats completely.',
+    date: '1 week ago',
+    comment: 'I signed up for their recurring car care plan for our family Tesla. Having them show up once a month at our home in Long Island with zero hassle has been a game-changer. Calling or texting (347) 494-0646 makes scheduling so quick!',
     verified: true,
-    highlight: 'Zero water spots with mobile unit'
+    highlight: 'Best mobile detailing service in Long Island'
   },
   {
     id: 'rev-3',
-    author: 'David Chen',
-    location: 'Arcadia, CA',
-    vehicle: 'BMW M3 Competition (Isle of Man Green)',
-    service: 'Signature Paint Correction & 2-Year Ceramic',
+    author: 'David R.',
+    location: 'Whitestone, Queens, NY',
+    vehicle: 'BMW M4 Competition',
+    service: 'Window Tinting & Full Reset Detail',
     rating: 5,
-    date: '1 month ago',
-    comment: 'Under the LED inspection lights, you could see 99% of all hairline scratches were gone. Water literally falls off the hood now. Very honest pricing and master craftsmanship. Will be bringing my wife’s X5 next month.',
+    date: '2 weeks ago',
+    comment: 'Got the ceramic window tint and full interior/exterior reset done by RetroClean. The computer cut on the tint is flawless without any bubbles. The cabin stays so much cooler in the sun. Super friendly and punctual team.',
     verified: true,
-    highlight: 'Under LED lights it was flawless'
+    highlight: 'Flawless ceramic tint & interior reset'
   },
   {
     id: 'rev-4',
-    author: 'Robert K.',
-    location: 'La Cañada Flintridge, CA',
-    vehicle: 'Mercedes-Benz G63 AMG',
-    service: 'Concourse Apex Bespoke & Engine Bay Detail',
+    author: 'Robert Morano',
+    location: 'Manhasset, NY',
+    vehicle: 'Mercedes-Benz GLS 450',
+    service: 'Stain Extraction & Odor Neutralization',
     rating: 5,
-    date: '1 month ago',
-    comment: 'The G-Wagon is a monster to clean with all the square edges. Apex treated it like fine jewelry. Engine bay was spotless, wheel calipers coated, and the 7-year graphene warranty gives me total peace of mind in the SoCal sun.',
+    date: '3 weeks ago',
+    comment: 'Our kids had spilled juice and milk on the back carpets that smelled awful after sitting in the heat. RetroClean performed high-temp extraction and an ozone treatment. The smell is 100% gone and the carpets look brand new. Cannot recommend them enough!',
     verified: true,
-    highlight: 'Treated my G63 like fine jewelry'
+    highlight: 'Tough stains and smells completely gone'
   },
   {
     id: 'rev-5',
-    author: 'Sophia Martinez',
-    location: 'South Pasadena, CA',
-    vehicle: 'Audi RS6 Avant',
-    service: 'Interior Deep Clean & Leather Spa',
-    rating: 4.8,
-    date: '2 months ago',
-    comment: 'Kids and dogs had done a number on the back seats. The team did hot-water extraction and restored the Nappa leather without any cheap oily sheen. Clean, matte, and fresh. 10/10 recommend!',
+    author: 'Stephanie V.',
+    location: 'Bayside, NY',
+    vehicle: 'Audi Q7 Prestige',
+    service: 'Full Mobile Auto Detailing',
+    rating: 5,
+    date: '1 month ago',
+    comment: 'Texted them at (347) 494-0646 to book a mobile detail before a family trip. They arrived on time with everything self-contained. The attention to detail around the vents, seams, and wheels was remarkable.',
     verified: true,
-    highlight: 'Restored Nappa leather to OEM matte'
+    highlight: 'Super fast text booking & meticulous detail'
   },
   {
     id: 'rev-6',
-    author: 'Julian Thorne',
-    location: 'Glendale, CA',
-    vehicle: 'Ferrari 458 Italia',
-    service: 'Multi-Stage Paint Correction & Concourse Prep',
+    author: 'Kevin Gallagher',
+    location: 'Flushing, Queens, NY',
+    vehicle: 'Corvette C8 Stingray',
+    service: 'Ceramic Coating & Engine Bay Detail',
     rating: 5,
-    date: '2 months ago',
-    comment: 'Hard to trust anyone with Rosso Corsa single-stage clear, but Apex has certified masters. The paint depth readings before and after were documented in detail. Simply unmatched professionalism.',
+    date: '1 month ago',
+    comment: 'The dry steam clean on my engine bay and the multi-year ceramic coating on my C8 turned out spectacular. They know high-end cars inside and out. RetroClean is definitely my go-to mobile detailer in Queens.',
     verified: true,
-    highlight: 'Documented paint depth readings'
+    highlight: 'Engine bay and paint look immaculate'
   }
 ];
 
 export const FAQS_DATA: FaqItem[] = [
   {
     id: 'faq-1',
-    category: 'ceramic',
-    question: 'How long does ceramic coating really last, and is it better than wax?',
-    answer: 'Unlike traditional carnauba waxes or synthetic polymer sealants that melt away after 2–8 weeks in the hot California sun, our 9H / 10H ceramic coatings create a semi-permanent chemical and covalent bond with your vehicle’s clear coat. They last between 2 to 7+ years depending on the chosen package, providing extreme chemical resistance, UV protection, and self-cleaning hydrophobic properties.'
+    category: 'general',
+    question: 'How does RetroClean Mobile Detailing work, and do I need to supply water or power?',
+    answer: 'No! Our mobile detailing units are 100% self-contained. We bring our own high-capacity spot-free deionized water tanks and whisper-quiet onboard generators. Whether you live in a house in Bayside or work at an office in Queens or Long Island, we can detail your vehicle right on site with zero hookups required.'
   },
   {
     id: 'faq-2',
-    category: 'correction',
-    question: 'What is the difference between a 1-step and a multi-step paint correction?',
-    answer: 'A 1-Step enhancement combines light polishing to boost gloss and remove 50%–70% of micro-marring, ideal for newer vehicles. A 2-Step or Multi-Stage Paint Correction uses a heavy cutting compound with micro-abrasive pads to eliminate 85%–99% of deep swirl marks, scratches, and etching, followed by a jeweling finishing polish for laser-sharp reflections.'
+    category: 'booking',
+    question: 'How do I book an appointment or request service?',
+    answer: 'You can easily call or text us at (347) 494-0646 to book your appointment, discuss your vehicle, or ask any questions. You can also use the Instant Quote Builder on this website to customize your package and lock in your preferred date.'
   },
   {
     id: 'faq-3',
-    category: 'mobile',
-    question: 'Do I need to provide water or power for the Mobile Detailing service?',
-    answer: 'No! Our mobile detailing Mercedes Sprinter van is 100% self-contained. We carry our own 100-gallon tank of 0-PPM deionized spot-free filtered water and an ultra-quiet internal inverter generator. All we need is access to your vehicle at your home, office, or private garage in Pasadena or surrounding cities.'
+    category: 'service-areas',
+    question: 'What areas do you serve?',
+    answer: 'We are based at 32-24 Corporal Kennedy St in Bayside, NY 11361, and proudly serve all of Bayside, Queens, and Long Island (Nassau County and western Suffolk County), including Whitestone, Flushing, Douglaston, Little Neck, Great Neck, Manhasset, and Garden City.'
   },
   {
     id: 'faq-4',
     category: 'ceramic',
-    question: 'Can you detail or ceramic coat my vehicle if it already has Paint Protection Film (PPF)?',
-    answer: 'Absolutely. We regularly apply ceramic coatings over PPF (Clear Bra). The ceramic layer enhances the gloss of the film, seals the pores to prevent staining and yellowing from road tar, and adds slick hydrophobic properties that make washing your wrapped vehicle effortless.'
+    question: 'What are the benefits of Ceramic Coating and Paint Protection?',
+    answer: 'Our professional 9H nano-ceramic coatings chemically bond to your vehicle clear coat to create an ultra-durable, hydrophobic barrier. It shields your paint from harsh winter road salts, bird drop etchings, UV oxidation, and road chemicals, while providing an intense mirror gloss that makes future washing effortless.'
   },
   {
     id: 'faq-5',
-    category: 'general',
-    question: 'Where is your Pasadena studio located and do I need an appointment?',
-    answer: 'Our state-of-the-art detailing studio is located at 1420 E Walnut St, Suite 104, Pasadena, CA 91106. Because we allocate dedicated technician hours and temperature-controlled bays for every car, we operate by appointment. You can book directly through our online quote tool or call us at (626) 555-0184.'
+    category: 'plans',
+    question: 'How do the Recurring Car Care Plans work?',
+    answer: 'Our recurring plans provide hassle-free bi-weekly or monthly mobile detailing at your home or office. Members receive scheduled priority time slots, discounted rates, continuous paint sealant protection, and a consistently pristine vehicle year-round.'
   },
   {
     id: 'faq-6',
-    category: 'general',
-    question: 'What is your satisfaction guarantee and warranty policy?',
-    answer: 'Every vehicle undergoes a 32-point inspection under high-CRI 5000K LED studio bay lighting before handover. Our ceramic coating installations include an official warranty certificate with Carfax registry reporting, ensuring your vehicle retains maximum resale value.'
+    category: 'tinting',
+    question: 'What type of window tinting and wrap services do you offer?',
+    answer: 'We install high-performance nano-ceramic window films computer-cut to your exact vehicle specs, blocking up to 99% of damaging UV rays and significant infrared solar heat. We also offer custom vinyl accent wraps, roof wraps, and chrome delete packages.'
   }
 ];
 
 export const STYLE_GUIDE_DATA = {
-  themeName: "Obsidian Concourse & Electric Amber",
-  conceptOverview: "Synthesizing TurboTweak's dark supercar studio aesthetic, ProAuto's high-conversion clarity, and bold motorsport ceramic branding into a high-converting digital showroom.",
+  themeName: "RetroClean Detailing - Bayside Luxury Mobile Aesthetic",
+  conceptOverview: "High-contrast dark obsidian canvas with vibrant electric amber and cyber gold accents, highlighting precision mobile auto detailing, ceramic protection, and seamless text/call scheduling.",
   colors: [
     { name: "Obsidian Carbon (Canvas)", hex: "#090B10", role: "Primary background providing high contrast and deep luxury depth" },
-    { name: "Graphite Surface", hex: "#12161F", role: "Component cards, elevated containers, and structural panels" },
+    { name: "Graphite Surface", hex: "#121620", role: "Component cards, elevated containers, and structural panels" },
     { name: "Electric Amber (CTA Accent)", hex: "#F59E0B", role: "Primary conversion trigger, badges, star ratings, and active highlights" },
     { name: "Molten Gold Glow", hex: "#D97706", role: "Glow gradients, hover states, and accent borders" },
-    { name: "Precision Cyan", hex: "#38BDF8", role: "Technical callouts, paint depth metrics, and ceramic layer specs" },
+    { name: "Precision Cyan", hex: "#38BDF8", role: "Technical callouts, deionized water specs, and ceramic metrics" },
     { name: "Pure Platinum", hex: "#F8FAFC", role: "High-legibility primary display headlines and badges" },
     { name: "Muted Steel", hex: "#94A3B8", role: "Secondary labels, technical specs, and body descriptions" }
   ],
@@ -439,22 +440,20 @@ export const STYLE_GUIDE_DATA = {
     body: "Plus Jakarta Sans (400 Regular / 500 Medium) for crisp 16px+ baseline readability"
   },
   heroConcept: {
-    headline: "Concourse-Level Precision for Pasadena's Finest Automobiles",
-    subheadline: "Master-certified multi-stage paint correction, 9H/10H ceramic shield protection, and bespoke interior restoration — at our climate-controlled Pasadena studio or via our self-contained mobile unit.",
-    primaryCta: "Calculate Instant Quote & Book",
-    secondaryCta: "Explore 5-Year Ceramic Packages",
-    visualStyle: "Studio spotlighting on a high-gloss supercar, interactive technical spec nodes, dynamic before/after paint clarity slider, and 4.8★ Google verified social proof banner."
+    headline: "RetroClean Detailing - Bayside | Queens & Long Island",
+    subheadline: "Premium Mobile Auto Detailing in Bayside, Queens & Long Island — We Bring Water & Power to You.",
+    primaryCta: "CALL / TEXT (347) 494-0646",
+    secondaryCta: "BOOK APPOINTMENT",
+    visualStyle: "Luxury high-gloss supercar, self-contained mobile detailing badges, spot-free deionized water specs, and 4.9★ verified social proof banner."
   },
   wireframeSections: [
-    { number: "01", name: "Global Header & Live Status Bar", purpose: "Persistent trust signals (4.8★, Pasadena address, instant phone dial, mobile booking trigger)" },
-    { number: "02", name: "Hero Showcase & Technical Spec Nodes", purpose: "Immediate visual impact, value proposition, and instant quote CTA" },
-    { number: "03", name: "Interactive Before/After Paint Defect Slider", purpose: "Direct visual proof of swirl elimination vs. mirror ceramic gloss" },
-    { number: "04", name: "Core Services Breakdown (5 Pillars)", purpose: "Deep dive into Paint Correction, Ceramic Coating, Interior Deep Clean, Engine Bay, and Mobile Van" },
-    { number: "05", name: "Interactive Pricing & Package Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments and Carfax warranty details" },
-    { number: "06", name: "Live Quote & Multi-Step Booking Builder", purpose: "High-conversion lead capture and instant estimated quote calculator" },
-    { number: "07", name: "Craftsmanship & Studio Standards", purpose: "Deionized water, high-CRI lighting, Rupes polishers, and climate-controlled curing bay" },
-    { number: "08", name: "Verified Customer Reviews (64 Reviews)", purpose: "Social proof with real car models and Pasadena/San Marino local authenticity" },
-    { number: "09", name: "Interactive FAQ Accordion", purpose: "Overcoming objections around ceramic longevity, mobile logistics, and PPF compatibility" },
-    { number: "10", name: "Pasadena Studio Map & Direct Contact", purpose: "Physical address, business hours, Google directions, and VIP appointment booking" }
+    { number: "01", name: "Global Header & Status Bar", purpose: "Persistent trust signals (4.9★, 32-24 Corporal Kennedy St Bayside, instant phone/text dial (347) 494-0646)" },
+    { number: "02", name: "Hero Showcase & Performance Typography", purpose: "RetroClean Detailing - Bayside headline emphasizing mobile water & power, with call/text CTAs" },
+    { number: "03", name: "Core Services Breakdown (5 Disciplines)", purpose: "Mobile Reset, Ceramic Coating, Window Tint & Wraps, Recurring Plans, Stain/Odor/Engine Bay" },
+    { number: "04", name: "Interactive Pricing & Package Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments" },
+    { number: "05", name: "Live Quote & Multi-Step Booking Builder", purpose: "High-conversion lead capture and instant estimated quote calculator with mobile dispatch address" },
+    { number: "06", name: "Verified Customer Reviews (118+ Reviews)", purpose: "Social proof with Bayside, Queens & Long Island authenticity (4.9 / 5.0)" },
+    { number: "07", name: "Interactive FAQ Accordion", purpose: "Answers for self-contained mobile water/power, service areas, ceramic, tinting, and recurring care plans" },
+    { number: "08", name: "Bayside & Queens/Long Island Contact", purpose: "32-24 Corporal Kennedy St, mobile service area coverage, Google directions, and phone/text dial (347) 494-0646" }
   ]
 };

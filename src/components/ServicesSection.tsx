@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Sparkles, Shield, Droplets, Wrench, Truck, Check, ArrowRight, Clock, DollarSign, Layers } from 'lucide-react';
-import { SERVICES_DATA } from '../data/businessData';
+import { Sparkles, Shield, Droplets, Wrench, Truck, Check, ArrowRight, Clock, DollarSign, Layers, PhoneCall } from 'lucide-react';
+import { SERVICES_DATA, BUSINESS_INFO } from '../data/businessData';
 import { ServiceDetail } from '../types';
 
 interface ServicesSectionProps {
@@ -12,16 +12,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
   const getServiceIcon = (id: string) => {
     switch (id) {
-      case 'paint-correction':
+      case 'mobile-auto-detailing':
         return <Sparkles className="w-5 h-5" />;
-      case 'ceramic-coating':
+      case 'ceramic-coating-protection':
         return <Shield className="w-5 h-5" />;
-      case 'interior-deep-clean':
+      case 'window-tint-wraps':
+        return <Layers className="w-5 h-5" />;
+      case 'recurring-car-care':
         return <Droplets className="w-5 h-5" />;
-      case 'engine-bay':
+      case 'stain-odor-engine':
         return <Wrench className="w-5 h-5" />;
-      case 'mobile-detailing':
-        return <Truck className="w-5 h-5" />;
       default:
         return <Sparkles className="w-5 h-5" />;
     }
@@ -39,11 +39,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               Master Craftsmanship Disciplines
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-              Specialized Detailing Services
+              Featured Detailing Services
             </h2>
           </div>
           <p className="text-slate-400 text-sm max-w-md">
-            Every vehicle in our Pasadena facility receives clinical grade attention, tailored chemical balances, and certified ceramic installation.
+            Every vehicle serviced by RetroClean Detailing - Bayside receives clinical grade attention, spot-free deionized water, and master-level execution directly at your location.
           </p>
         </div>
 
@@ -69,8 +69,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 }`}>
                   {getServiceIcon(service.id)}
                 </div>
-                <div className="font-display font-bold text-sm text-white mb-1 leading-snug">
-                  {service.title.split('&')[0]}
+                <div className="font-display font-bold text-xs sm:text-sm text-white mb-1 leading-snug">
+                  {service.title}
                 </div>
                 <div className="text-[11px] text-slate-400 font-mono-tech flex items-center justify-between">
                   <span>From ${service.startingPrice}</span>
@@ -143,14 +143,22 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 {currentService.idealFor}
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons: Calling / Texting (347) 494-0646 and Quick Quote */}
               <div className="flex flex-wrap gap-4 pt-2">
+                <a
+                  id={`service-call-book-btn-${currentService.id}`}
+                  href={`tel:${BUSINESS_INFO.phoneRaw}`}
+                  className="px-6 py-3 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-amber-500/20 flex items-center space-x-2 group cursor-pointer"
+                >
+                  <PhoneCall className="w-4 h-4 text-slate-950" />
+                  <span>Book Appointment: {BUSINESS_INFO.phone}</span>
+                </a>
                 <button
                   id={`service-quote-btn-${currentService.id}`}
                   onClick={() => onSelectServiceForQuote(currentService.id)}
-                  className="px-6 py-3 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-amber-500/20 flex items-center space-x-2 group"
+                  className="px-5 py-3 bg-white/5 hover:bg-white/10 text-white font-semibold uppercase tracking-wider text-xs rounded-xl border border-white/10 flex items-center space-x-2 group cursor-pointer"
                 >
-                  <span>Build Quote for {currentService.title.split(' ')[0]}</span>
+                  <span>Build Quote</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -170,8 +178,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 {/* Overlay Badge */}
                 <div className="absolute bottom-4 left-4 right-4 bg-[#090b10]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/15">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-mono-tech text-amber-400 font-semibold uppercase">Pasadena Studio Standard</span>
-                    <span className="text-slate-400">IDA Certified</span>
+                    <span className="font-mono-tech text-amber-400 font-semibold uppercase">RetroClean Detailing Standard</span>
+                    <span className="text-slate-400">Bayside, NY</span>
                   </div>
                   <div className="text-xs text-slate-300 font-medium mt-1">
                     {currentService.shortDesc}

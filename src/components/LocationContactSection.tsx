@@ -23,13 +23,13 @@ export const LocationContactSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono-tech text-amber-400 mb-3">
             <MapPin className="w-3.5 h-3.5" />
-            <span>Pasadena Facility & Service Hub</span>
+            <span>RetroClean Detailing - Bayside</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-            Visit Our Pasadena Studio or Call For Mobile Dispatch
+            Serving Queens & Long Island — We Bring Water & Power to You
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Conveniently situated off Walnut Street near Old Pasadena and Colorado Boulevard with secure customer parking.
+            Based at {BUSINESS_INFO.addressShort}, operating fully mobile units across Bayside, Queens, and Long Island with spot-free deionized water and silent onboard generators.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export const LocationContactSection: React.FC = () => {
           <div className="lg:col-span-5 bg-[#121620] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div className="space-y-6">
               <div>
-                <span className="text-xs font-mono-tech uppercase text-amber-400 font-bold">Studio Headquarters</span>
+                <span className="text-xs font-mono-tech uppercase text-amber-400 font-bold">Studio Headquarters & Mobile Dispatch</span>
                 <h3 className="text-2xl font-display font-black text-white mt-1">
                   {BUSINESS_INFO.name}
                 </h3>
@@ -52,9 +52,9 @@ export const LocationContactSection: React.FC = () => {
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-white block font-medium">Studio Address:</strong>
+                    <strong className="text-white block font-medium">Headquarters & Service Area:</strong>
                     <span>{BUSINESS_INFO.address}</span>
-                    <div className="text-[11px] text-slate-400 mt-0.5 font-mono-tech">Suite 104 (Rear Studio Entrance & Curing Bays)</div>
+                    <div className="text-[11px] text-slate-400 mt-0.5 font-mono-tech">Fully Mobile with Onboard Pure Water & Electric Power</div>
                   </div>
                 </div>
 
@@ -63,11 +63,11 @@ export const LocationContactSection: React.FC = () => {
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-white block font-medium">Phone & Text Concierge:</strong>
+                    <strong className="text-white block font-medium">Call / Text Concierge:</strong>
                     <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-amber-400 font-bold hover:underline">
                       {BUSINESS_INFO.phone}
                     </a>
-                    <div className="text-[11px] text-slate-400 mt-0.5">Direct line to Master Detailer (Call or SMS)</div>
+                    <div className="text-[11px] text-slate-400 mt-0.5">Call or Text for Fast Booking & Quotes</div>
                   </div>
                 </div>
 
@@ -78,7 +78,6 @@ export const LocationContactSection: React.FC = () => {
                   <div>
                     <strong className="text-white block font-medium">Operating Hours:</strong>
                     <div className="text-slate-300 text-xs mt-0.5">{BUSINESS_INFO.hours.weekdays}</div>
-                    <div className="text-slate-300 text-xs">{BUSINESS_INFO.hours.saturday}</div>
                     <div className="text-amber-400 text-xs font-mono-tech mt-0.5">{BUSINESS_INFO.hours.sunday}</div>
                   </div>
                 </div>
@@ -87,7 +86,7 @@ export const LocationContactSection: React.FC = () => {
               {/* Service Areas Tags */}
               <div className="pt-3 border-t border-white/10">
                 <span className="text-[11px] font-mono-tech uppercase text-slate-400 block mb-2 font-semibold">
-                  Mobile Detailing Coverage Area:
+                  Service & Coverage Area:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {BUSINESS_INFO.serviceAreas.map((area, idx) => (
@@ -99,23 +98,25 @@ export const LocationContactSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Quick Action Bar */}
+            {/* Quick Action Bar: Call/Text triggers call or sms */}
             <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
               <a
                 href={`tel:${BUSINESS_INFO.phoneRaw}`}
-                className="py-3 px-4 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase text-xs rounded-xl flex items-center justify-center space-x-2 transition-colors text-center"
+                id="contact-call-now-btn"
+                className="py-3 px-4 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase text-xs rounded-xl flex items-center justify-center space-x-2 transition-colors text-center cursor-pointer"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span>Call Directly</span>
+                <span>Call / Text Now</span>
               </a>
               <a
                 href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_INFO.name + ' ' + BUSINESS_INFO.address)}`}
                 target="_blank"
                 rel="noreferrer"
-                className="py-3 px-4 bg-white/10 hover:bg-white/20 text-white font-bold uppercase text-xs rounded-xl flex items-center justify-center space-x-2 transition-colors text-center"
+                id="contact-directions-btn"
+                className="py-3 px-4 bg-white/10 hover:bg-white/20 text-white font-bold uppercase text-xs rounded-xl flex items-center justify-center space-x-2 transition-colors text-center cursor-pointer"
               >
                 <Navigation className="w-3.5 h-3.5 text-amber-400" />
-                <span>Get Directions</span>
+                <span>Directions</span>
               </a>
             </div>
           </div>
@@ -135,7 +136,7 @@ export const LocationContactSection: React.FC = () => {
                 <div className="w-96 h-96 rounded-full border border-white/5 absolute"></div>
               </div>
 
-              {/* Pasadena Map Marker Center */}
+              {/* Bayside Map Marker Center */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10">
                 <div className="relative inline-block">
                   <div className="w-12 h-12 rounded-full bg-amber-500 text-black flex items-center justify-center shadow-2xl animate-bounce mx-auto">
@@ -144,13 +145,13 @@ export const LocationContactSection: React.FC = () => {
                   <div className="w-8 h-2 rounded-full bg-amber-500/30 blur-sm mx-auto mt-1"></div>
                 </div>
                 <div className="bg-[#090b10]/95 backdrop-blur-md border border-amber-500/40 px-3.5 py-1.5 rounded-lg text-xs font-bold text-white mt-1 shadow-xl font-mono-tech">
-                  Apex Precision • 1420 E Walnut St
+                  RetroClean Detailing • {BUSINESS_INFO.addressShort}
                 </div>
               </div>
 
               {/* Floating Map Navigation Badge */}
               <div className="absolute top-3 left-3 bg-[#090b10]/90 backdrop-blur-md border border-white/10 px-3 py-1 rounded-md text-[10px] font-mono-tech text-slate-300">
-                Pasadena, CA 91106
+                Bayside, NY 11361 • Queens & Long Island
               </div>
 
               <div className="absolute bottom-3 right-3">
@@ -199,20 +200,30 @@ export const LocationContactSection: React.FC = () => {
                   <textarea
                     id="inquiry-message"
                     rows={2}
-                    placeholder="Tell us about your vehicle model, condition, or question..."
+                    placeholder="Tell us about your vehicle model, address/town, or question..."
                     value={inquiryData.message}
                     onChange={(e) => setInquiryData(prev => ({ ...prev, message: e.target.value }))}
                     className="w-full bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500 resize-none"
                   ></textarea>
 
-                  <button
-                    type="submit"
-                    id="inquiry-submit-btn"
-                    className="w-full py-3 bg-white/10 hover:bg-amber-500 hover:text-black text-white font-bold uppercase tracking-wider text-xs rounded-xl border border-white/10 transition-all flex items-center justify-center space-x-2 cursor-pointer"
-                  >
-                    <Send className="w-3.5 h-3.5" />
-                    <span>Send Message to Concierge</span>
-                  </button>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button
+                      type="submit"
+                      id="inquiry-submit-btn"
+                      className="py-3 bg-white/10 hover:bg-white/20 text-white font-bold uppercase tracking-wider text-xs rounded-xl border border-white/10 transition-all flex items-center justify-center space-x-2 cursor-pointer"
+                    >
+                      <Send className="w-3.5 h-3.5" />
+                      <span>Send Message</span>
+                    </button>
+                    <a
+                      href={`tel:${BUSINESS_INFO.phoneRaw}`}
+                      id="inquiry-call-direct-btn"
+                      className="py-3 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl transition-all flex items-center justify-center space-x-2 cursor-pointer text-center"
+                    >
+                      <Phone className="w-3.5 h-3.5" />
+                      <span>Call / Text {BUSINESS_INFO.phone}</span>
+                    </a>
+                  </div>
                 </form>
               ) : (
                 <div className="text-center py-6 space-y-3">
@@ -221,7 +232,7 @@ export const LocationContactSection: React.FC = () => {
                   </div>
                   <h4 className="text-lg font-bold text-white">Message Received!</h4>
                   <p className="text-xs text-slate-300 max-w-sm mx-auto">
-                    Thank you {inquiryData.name}. Our master detailer in Pasadena will contact you at {inquiryData.phone} shortly.
+                    Thank you {inquiryData.name}. Our master detailer at RetroClean Detailing - Bayside will contact you at {inquiryData.phone} shortly.
                   </p>
                   <button
                     onClick={() => {

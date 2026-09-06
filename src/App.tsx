@@ -92,13 +92,13 @@ export default function App() {
           initialVehicleType={selectedVehicleType}
         />
 
-        {/* 6. Social Proof & Verified Reviews Grid (4.8 Stars, 64 Reviews) */}
+        {/* 6. Social Proof & Verified Reviews Grid (4.4 Stars, 97+ Reviews) */}
         <SocialProofSection />
 
         {/* 8. Frequently Asked Questions */}
         <FaqSection />
 
-        {/* 9. Pasadena Studio Map, Direct Call & Concierge Contact */}
+        {/* 9. East Elmhurst Detailing Facility Map, Direct Call & Concierge Contact */}
         <LocationContactSection />
       </main>
 

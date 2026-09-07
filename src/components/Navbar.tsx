@@ -97,12 +97,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
           
           {/* Logo / Brand Name in Minimalist High-End Lettering */}
           <a href="#" className="flex items-center space-x-3 group" id="nav-brand-logo">
-            <span className="font-display font-black text-xl sm:text-2xl tracking-[0.25em] text-white group-hover:text-amber-400 transition-colors uppercase leading-none">
-              EQUIS
+            <span className="font-display font-black text-lg sm:text-xl tracking-[0.15em] text-white group-hover:text-amber-400 transition-colors uppercase leading-none">
+              ZEPHYR
             </span>
             <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-            <span className="hidden sm:inline-block text-[11px] tracking-[0.2em] text-slate-400 uppercase font-mono-tech">
-              APEX PRECISION
+            <span className="hidden sm:inline-block text-[11px] tracking-[0.18em] text-amber-400 uppercase font-mono-tech font-bold">
+              AUTO SPA
             </span>
           </a>
 
@@ -120,22 +120,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
             ))}
           </nav>
 
-          {/* Action CTAs: Book & Quick Cart / Reserve */}
+          {/* Action CTAs: Book Appointment triggering call/text to (347) 494-0646 */}
           <div className="hidden sm:flex items-center space-x-4">
-            <button
-              id="nav-instant-quote-btn"
-              onClick={onOpenBooking}
-              className="px-5 py-2 text-xs font-mono-tech font-semibold tracking-widest uppercase text-white bg-transparent hover:bg-white hover:text-black border border-white/40 hover:border-white transition-all rounded-none duration-200"
+            <a
+              id="nav-book-appointment-btn"
+              href={`tel:${BUSINESS_INFO.phoneRaw}`}
+              className="px-5 py-2 text-xs font-mono-tech font-bold tracking-wider uppercase text-slate-950 bg-amber-400 hover:bg-amber-300 border border-amber-400 transition-all rounded-md duration-200 flex items-center space-x-1.5 shadow-sm shadow-amber-500/20"
             >
-              BOOK STUDIO
-            </button>
+              <Phone className="w-3 h-3 text-slate-950" />
+              <span>BOOK APPOINTMENT</span>
+            </a>
 
             <button
-              id="nav-cart-btn"
+              id="nav-quote-calculator-btn"
               onClick={onOpenBooking}
-              className="p-2 text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors relative"
-              aria-label="View Booking cart and quotes"
-              title="Instant Quote & Reservation"
+              className="p-2 text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors relative rounded-md border border-white/10"
+              aria-label="View Booking calculator and quotes"
+              title="Instant Quote Calculator"
             >
               <ShoppingBag className="w-4 h-4" />
               <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-amber-500"></span>
@@ -144,14 +145,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
 
           {/* Mobile Hamburger */}
           <div className="flex items-center space-x-2 lg:hidden">
-            <button
+            <a
               id="nav-mobile-call-btn"
-              onClick={() => window.open(`tel:${BUSINESS_INFO.phoneRaw}`)}
-              className="p-2 text-amber-400 bg-white/5 border border-white/10 rounded"
-              aria-label="Call Apex Detailing"
+              href={`tel:${BUSINESS_INFO.phoneRaw}`}
+              className="p-2 text-amber-400 bg-white/5 border border-white/10 rounded inline-flex items-center justify-center"
+              aria-label={`Call ${BUSINESS_INFO.name} at ${BUSINESS_INFO.phone}`}
             >
               <Phone className="w-4 h-4" />
-            </button>
+            </a>
             <button
               id="nav-mobile-toggle-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -181,15 +182,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
             </div>
 
             <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
-              <button
+              <a
                 id="mobile-drawer-book-btn"
+                href={`tel:${BUSINESS_INFO.phoneRaw}`}
+                className="w-full py-3 text-xs font-mono-tech font-bold uppercase tracking-widest text-slate-950 bg-amber-400 hover:bg-amber-300 transition-colors text-center flex items-center justify-center space-x-2 rounded-md"
+              >
+                <Phone className="w-3.5 h-3.5 text-slate-950" />
+                <span>CALL NOW: {BUSINESS_INFO.phone}</span>
+              </a>
+              <button
+                id="mobile-drawer-quote-btn"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenBooking();
                 }}
-                className="w-full py-3 text-xs font-mono-tech font-bold uppercase tracking-widest text-black bg-white hover:bg-slate-200 transition-colors"
+                className="w-full py-2.5 text-xs font-mono-tech font-semibold uppercase tracking-wider text-white bg-white/10 hover:bg-white/15 transition-colors rounded-md"
               >
-                GET IN TOUCH & BOOK
+                CALCULATE INSTANT QUOTE
               </button>
               <button
                 id="mobile-drawer-style-guide-btn"
@@ -197,7 +206,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
                   setMobileMenuOpen(false);
                   onOpenStyleGuide();
                 }}
-                className="w-full py-2.5 text-xs font-mono-tech text-slate-400 hover:text-white bg-white/5 border border-white/10"
+                className="w-full py-2.5 text-xs font-mono-tech text-slate-400 hover:text-white bg-white/5 border border-white/10 rounded-md"
               >
                 VIEW DESIGN SYSTEM & STYLE GUIDE
               </button>

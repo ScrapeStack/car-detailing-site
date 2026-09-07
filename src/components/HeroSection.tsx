@@ -26,7 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           <div className="w-full lg:w-[66%] xl:w-[60%] h-full relative flex items-center justify-end">
             <motion.img
               src={heroSupercarImg}
-              alt="Apex Precision Luxury Supercar Detailing"
+              alt="Zephyr Auto Spa - High-Quality Auto Detailing in the Bronx"
               className="w-full h-full object-cover object-[65%_center] lg:object-right opacity-65 sm:opacity-80 lg:opacity-95"
               referrerPolicy="no-referrer"
               animate={{ 
@@ -84,32 +84,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           
           {/* Location & Trust Micro Tag */}
           <motion.div 
-            className="inline-flex items-center space-x-2 text-[11px] sm:text-xs tracking-[0.25em] uppercase font-mono-tech text-slate-400"
+            className="inline-flex items-center space-x-2 text-[11px] sm:text-xs tracking-[0.2em] uppercase font-mono-tech text-slate-400"
             variants={{
               hidden: { opacity: 0, y: -10 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
             }}
           >
             <span className="w-2 h-2 rounded-full bg-amber-400 inline-block animate-pulse"></span>
-            <span className="text-slate-300 font-semibold">Pasadena, CA</span>
+            <span className="text-slate-300 font-semibold">{BUSINESS_INFO.addressShort}</span>
             <span className="text-slate-600">•</span>
-            <span className="text-slate-400">Studio & Mobile Detailing</span>
+            <span className="text-amber-400 font-bold">{BUSINESS_INFO.rating}★ ({BUSINESS_INFO.reviewCount}+ Reviews)</span>
           </motion.div>
 
-          {/* Iconic Headline: "LIVE BETTER, LIVE LUXURY" */}
+          {/* Hero Headline: Zephyr Auto Spa */}
           <motion.div 
-            className="space-y-2"
+            className="space-y-2.5"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
             }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight text-white uppercase leading-[1.03]">
-              LIVE BETTER, <br />
-              LIVE <span className="font-serif-luxury italic font-normal tracking-wide text-slate-200 capitalize">Luxury</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black tracking-tight text-white uppercase leading-[1.08]">
+              ZEPHYR <br />
+              <span className="font-serif-luxury italic font-normal tracking-wide text-amber-400 capitalize text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                Auto Spa
+              </span>
             </h1>
-            <p className="text-xs sm:text-sm font-mono-tech uppercase tracking-wider text-amber-400/90 pt-0.5">
-              Precision Paint Correction • Ceramic Coating • Interior Spa
+            <p className="text-sm sm:text-base lg:text-lg font-display font-bold text-slate-100 leading-snug pt-1">
+              High-Quality Auto Detailing at 233 Brinsmade Ave in the Bronx.
             </p>
           </motion.div>
 
@@ -123,17 +125,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           >
             <div>
               <p>
-                Restore your vehicle’s true showroom shine with deep paint decontamination, swirl scratch removal, and durable ceramic protection.
+                Professional auto spa facility located at 233 Brinsmade Ave in the Bronx, equipped with precision heated extraction, steam sanitization, and dual-action machine polishers.
               </p>
             </div>
             <div>
               <p>
-                From meticulous interior deep cleaning to full paint enhancement, enjoy flawless results at our Pasadena studio or right at your driveway.
+                Specializing in complete auto detailing, scratch-free hand washes, multi-stage paint correction, 9H ceramic coatings, and headlight restoration. Call <strong className="text-amber-400">{BUSINESS_INFO.phone}</strong>.
               </p>
             </div>
           </motion.div>
 
-          {/* Clean Action Buttons with Yellow Gradient matching the palette */}
+          {/* Clean Action Buttons: Triggering Direct Call to (347) 780-5287 as requested */}
           <motion.div 
             className="flex flex-wrap items-center gap-3.5 pt-2"
             variants={{
@@ -141,39 +143,41 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
               visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
             }}
           >
-            {/* Gradient Yellow CTA: GET IN TOUCH */}
-            <motion.button
-              id="hero-get-in-touch-btn"
-              onClick={onOpenBooking}
+            {/* Primary Action Button: BOOK APPOINTMENT -> triggers direct call */}
+            <motion.a
+              id="hero-book-appointment-btn"
+              href={`tel:${BUSINESS_INFO.phoneRaw}`}
               whileHover={{ scale: 1.025, y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className="px-7 sm:px-8 py-3.5 bg-gradient-to-r from-yellow-400 via-amber-400 to-amber-500 hover:from-yellow-300 hover:via-amber-300 hover:to-amber-400 text-slate-950 font-bold font-mono-tech text-xs sm:text-sm uppercase tracking-[0.15em] rounded-md transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:shadow-[0_0_28px_rgba(245,158,11,0.45)] flex items-center space-x-2.5 cursor-pointer group"
+              className="px-6 sm:px-8 py-3.5 bg-gradient-to-r from-yellow-400 via-amber-400 to-amber-500 hover:from-yellow-300 hover:via-amber-300 hover:to-amber-400 text-slate-950 font-bold font-mono-tech text-xs sm:text-sm uppercase tracking-[0.15em] rounded-md transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:shadow-[0_0_28px_rgba(245,158,11,0.45)] flex items-center space-x-2.5 cursor-pointer group"
             >
-              <span>GET IN TOUCH</span>
+              <PhoneCall className="w-4 h-4 text-slate-900" />
+              <span>BOOK APPOINTMENT</span>
               <ChevronRight className="w-4 h-4 text-slate-900 transition-transform group-hover:translate-x-1" />
-            </motion.button>
+            </motion.a>
 
-            {/* Gradient Yellow CTA: VIEW SERVICES & PRICING */}
+            {/* Direct Call Now Button */}
+            <motion.a
+              id="hero-call-now-btn"
+              href={`tel:${BUSINESS_INFO.phoneRaw}`}
+              whileHover={{ scale: 1.025, y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-5 sm:px-7 py-3.5 bg-[#141a27] hover:bg-[#1c2436] text-white border border-amber-400/40 hover:border-amber-400 font-bold text-xs sm:text-sm uppercase tracking-wider rounded-md transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.15)] flex items-center space-x-2 cursor-pointer group"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-amber-400" />
+              <span>CALL NOW: {BUSINESS_INFO.phone}</span>
+            </motion.a>
+
+            {/* Secondary Services Anchor */}
             <motion.button
               id="hero-explore-packages-btn"
               onClick={onExplorePackages}
-              whileHover={{ scale: 1.025, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-6 sm:px-7 py-3.5 bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:via-amber-400 hover:to-yellow-400 text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider rounded-md transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:shadow-[0_0_28px_rgba(245,158,11,0.45)] flex items-center space-x-2 cursor-pointer group"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-slate-950" />
-              <span>VIEW SERVICES & PRICING</span>
-            </motion.button>
-
-            <motion.a
-              id="hero-phone-direct-btn"
-              href={`tel:${BUSINESS_INFO.phoneRaw}`}
               whileHover={{ x: 2 }}
-              className="px-2 py-3.5 text-xs text-slate-400 hover:text-amber-400 transition-colors flex items-center space-x-1.5 cursor-pointer"
+              className="px-3 py-3.5 text-xs text-slate-300 hover:text-amber-400 transition-colors flex items-center space-x-1.5 cursor-pointer font-mono-tech uppercase"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-amber-500" />
-              <span className="font-mono-tech">{BUSINESS_INFO.phone}</span>
-            </motion.a>
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>View Services & Pricing</span>
+            </motion.button>
           </motion.div>
 
           {/* Simple Quality Guarantees */}
@@ -186,15 +190,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           >
             <span className="flex items-center space-x-1.5">
               <span className="text-amber-400">✓</span>
-              <span>100% Satisfaction Guaranteed</span>
+              <span>233 Brinsmade Ave, Bronx</span>
             </span>
             <span className="flex items-center space-x-1.5">
               <span className="text-amber-400">✓</span>
-              <span>IDA Certified Master Detailers</span>
+              <span>Serving Throggs Neck & NYC</span>
             </span>
             <span className="flex items-center space-x-1.5">
               <span className="text-amber-400">✓</span>
-              <span>Fully Insured & Licensed</span>
+              <span>100% Satisfaction Guarantee</span>
             </span>
           </motion.div>
 

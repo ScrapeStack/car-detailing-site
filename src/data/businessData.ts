@@ -4,28 +4,33 @@ import ceramicApplicatorImg from '../assets/images/ceramic_applicator_hood_17872
 import luxuryInteriorImg from '../assets/images/luxury_interior_clean_1787211008247.jpg';
 
 export const BUSINESS_INFO = {
-  name: "Apex Precision Auto Detailing",
-  tagline: "Pasadena's Concourse-Grade Ceramic Coating & Paint Correction Specialists",
-  address: "1420 E Walnut St, Suite 104, Pasadena, CA 91106",
-  phone: "(626) 555-0184",
-  phoneRaw: "6265550184",
-  email: "concierge@apexprecisiondetailing.com",
-  rating: 4.8,
-  reviewCount: 64,
+  name: "Zephyr Auto Spa",
+  fullName: "Zephyr Auto Spa",
+  tagline: "High-Quality Auto Detailing at 233 Brinsmade Ave in the Bronx",
+  address: "233 Brinsmade Ave, Bronx, NY 10465",
+  addressShort: "233 Brinsmade Ave, Bronx, NY",
+  serviceLocationNote: "Bronx, NY (Serving Throggs Neck, Pelham Bay, Country Club & NYC)",
+  phone: "(347) 780-5287",
+  phoneRaw: "3477805287",
+  email: "info@zephyrautospa.com",
+  rating: 4.9,
+  reviewCount: 128,
   hours: {
-    weekdays: "Monday – Friday: 7:30 AM – 6:30 PM",
-    saturday: "Saturday: 8:00 AM – 5:00 PM",
-    sunday: "Sunday: By VIP Appointment Only"
+    weekdays: "Mon-Fri: 7:30 AM - 4:30 PM",
+    saturday: "Sat: 9:00 AM - 4:00 PM",
+    sunday: "Sun: Closed"
   },
   serviceAreas: [
-    "Pasadena",
-    "San Marino",
-    "South Pasadena",
-    "Arcadia",
-    "La Cañada Flintridge",
-    "Glendale",
-    "Sierra Madre",
-    "Downtown Los Angeles"
+    "The Bronx",
+    "Throggs Neck",
+    "Pelham Bay",
+    "Country Club",
+    "City Island",
+    "Morris Park",
+    "Riverdale",
+    "Westchester County",
+    "Upper Manhattan",
+    "Queens"
   ]
 };
 
@@ -36,7 +41,7 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Standard Size',
     multiplier: 1.0,
     iconName: 'Car',
-    examples: 'Porsche 911, BMW M3/M4, Tesla Model 3, Corvette C8, Mercedes C-Class'
+    examples: 'BMW 3/4 Series, Tesla Model 3, Mercedes C/E-Class, Audi A4/A5, Honda Accord'
   },
   {
     id: 'suv',
@@ -44,7 +49,7 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Medium Size (+15%)',
     multiplier: 1.15,
     iconName: 'Shield',
-    examples: 'Porsche Macan/Cayenne, Tesla Model Y, BMW X5, Audi Q7, Range Rover Sport'
+    examples: 'Tesla Model Y, BMW X3/X5, Audi Q5/Q7, Porsche Macan, Jeep Grand Cherokee'
   },
   {
     id: 'truck',
@@ -52,384 +57,384 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Large Size (+30%)',
     multiplier: 1.3,
     iconName: 'Truck',
-    examples: 'Cadillac Escalade, Mercedes G-Wagon, Ford F-150 Raptor, Rivian R1T/R1S'
+    examples: 'Cadillac Escalade, Chevy Tahoe/Suburban, Ford F-150, Dodge Ram, Lincoln Navigator'
   },
   {
     id: 'exotic',
-    name: 'Exotic & Supercar',
-    category: 'Precision Custom Care (+25%)',
+    name: 'Exotic & Luxury Sports',
+    category: 'Bespoke Care (+25%)',
     multiplier: 1.25,
     iconName: 'Sparkles',
-    examples: 'Ferrari 458/F8/296, McLaren 720S, Lamborghini Huracán, Aston Martin'
+    examples: 'Porsche 911/GT3, Corvette C8, Ferrari, Lamborghini, Maserati, Aston Martin'
   }
 ];
 
 export const SERVICES_DATA: ServiceDetail[] = [
   {
-    id: 'paint-correction',
-    title: 'Paint Correction & Restoration',
-    badge: 'Signature Mastery',
-    shortDesc: 'Eliminate 85%–99% of swirl marks, buffer holograms, water spots, and micro-scratches for an authentic mirror finish.',
-    fullDesc: 'Using digital paint depth gauges and multi-stage rotary/dual-action polishers with precision micro-abrasives, we gently restore clear coat clarity without compromising paint integrity.',
-    startingPrice: 450,
-    duration: '6 – 10 Hours',
+    id: 'complete-auto-detail',
+    title: 'Complete Auto Detailing & Interior Deep Clean',
+    badge: 'Complete Interior & Exterior Showroom Reset',
+    shortDesc: 'Full cabin hot-water shampoo extraction, dry-vapor steam sanitization, leather conditioning, gentle foam hand wash, and protective paint sealant.',
+    fullDesc: 'Our signature complete detailing service delivers a total transformation inside and out at our 233 Brinsmade Ave Bronx facility or via our mobile service. We meticulously shampoo carpets and upholstery, steam disinfect all air vents and touchpoints, condition leather, and execute a multi-stage exterior hand wash with clay bar decontamination and gloss sealant.',
+    startingPrice: 195,
+    duration: '3 – 4 Hours',
     popular: true,
     features: [
-      'Paint thickness ultrasound digital measurement before/after',
-      'Decontamination foam bath & ultra-fine clay bar treatment',
-      'Multi-stage compound & jeweling micro-polish',
-      'Eliminates spiderwebs, car wash swirls, and clear coat haze',
-      'Pre-coating alcohol prep wipe inspection'
+      'High-temperature hot water extraction on all carpets, floor mats, and fabric seats',
+      'Dry-vapor steam sanitization of HVAC vents, console, door panels, and cup holders',
+      'pH-balanced leather cleansing and deep conditioning with UV barrier protection',
+      'Gentle two-bucket exterior hand wash, wheel de-ironing, and synthetic paint sealant',
+      'Streak-free optical interior and exterior glass cleaning plus satin tire dressing'
     ],
     specs: [
-      { label: 'Defect Removal', value: 'Up to 95%–99%' },
-      { label: 'Gloss Meter Jump', value: '+35 to +55 GU' },
-      { label: 'Equipment', value: 'Rupes Bigfoot & Flex Polishers' }
+      { label: 'Interior Depth', value: 'Deep Heated Extraction & Steam' },
+      { label: 'Exterior Finish', value: 'Decontaminated & Polymer Sealed' },
+      { label: 'Cabin Sanitization', value: '99.9% Bacteria & Odor Free' }
     ],
-    idealFor: 'Vehicles with visible spiderwebs, dull sun haze, track micro-scuffs, or preparing for ceramic shield.',
-    imageUrl: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80'
-  },
-  {
-    id: 'ceramic-coating',
-    title: 'Multi-Year Ceramic & Graphene Coating',
-    badge: 'Ultimate Armor',
-    shortDesc: 'Military-grade 9H/10H SiO2 nano-ceramic molecular bond offering intense hydrophobic gloss, UV defense, and chemical barrier.',
-    fullDesc: 'Our certified climate-controlled application creates a semi-permanent glassy shell over clear coat, wheels, plastics, and glass. Sheds rain, brake dust, bird droppings, and Pasadena smog pollutants effortlessly.',
-    startingPrice: 850,
-    duration: '1 – 2 Days (Cure Bay)',
-    popular: true,
-    features: [
-      'Genuine 9H / 10H certified nano-ceramic or graphene matrix',
-      'Ultra-hydrophobic 115°+ water contact angle bead effect',
-      'UV & oxidation protection against California sun fading',
-      'Includes Carfax registration & official warranty certificate',
-      'Infrared curing heat-lamp baking cycle'
-    ],
-    specs: [
-      { label: 'Protection Lifespan', value: '2 to 7+ Years' },
-      { label: 'Hardness Rating', value: '9H – 10H Ceramic / Graphene' },
-      { label: 'Maintenance', value: 'Self-Cleaning Hydrophobic' }
-    ],
-    idealFor: 'New vehicle protection, post-paint correction lock-in, daily luxury drivers and collector sports cars.',
-    imageUrl: ceramicApplicatorImg
-  },
-  {
-    id: 'interior-deep-clean',
-    title: 'Interior Deep Clean & Spa Sanitization',
-    badge: 'Sanitized Luxury',
-    shortDesc: 'Hospital-grade pressurized steam extraction, pH-neutral aniline leather conditioning, and ozone odor elimination.',
-    fullDesc: 'We dismantle seat rails, deep-clean crevices, shampoo and hot-water extract carpets, condition delicate Nappa/Alcantara leathers with matte UV blockers, leaving an OEM factory scent.',
-    startingPrice: 280,
-    duration: '3.5 – 5 Hours',
-    features: [
-      'Dry-vapor pressurized steam sterilization (220°F kills 99.9% bacteria)',
-      'Deep hot-water carpet & fabric seat stain extraction',
-      'Matte leather cleaning & Swiss-grade conditioning treatment',
-      'Air vent duct sterilization & cabin ozone odor neutralization',
-      'Zero greasy residue — factory fresh OEM matte finish'
-    ],
-    specs: [
-      { label: 'Bacteria Eradication', value: '99.9% Sanitized' },
-      { label: 'Leather Finish', value: 'Original OEM Matte Non-Greasy' },
-      { label: 'Steam Temp', value: '220°F Dry Vapor' }
-    ],
-    idealFor: 'Vehicles needing interior rejuvenation, coffee/food stain removal, pet hair extraction, or leather restoration.',
+    idealFor: 'Vehicles needing a complete reset, seasonal rejuvenation, deep family vehicle sanitization, or pre-sale preparation in the Bronx.',
     imageUrl: luxuryInteriorImg
   },
   {
-    id: 'engine-bay',
-    title: 'Engine Bay Detailing & Dressing',
-    badge: 'Mechanical Elegance',
-    shortDesc: 'Careful electronic-safe degreasing, dry steam cleaning, and satin thermal dressing for a factory-new engine compartment.',
-    fullDesc: 'Sensitive components (ECU, alternator, intake) are securely masked before high-pressure micro-steam breaks down heavy oil film, road grime, and salt residue, finished with heat-resistant satin polymer dressing.',
-    startingPrice: 160,
-    duration: '1.5 – 2 Hours',
+    id: 'hand-wash-shine',
+    title: 'Professional Hand Wash & Exterior Shine',
+    badge: 'Scratch-Free 2-Bucket Foam Bath',
+    shortDesc: 'Thorough pH-neutral snow foam bath, two-bucket grit-guard hand wash, microfiber towel and blow dry, spray wax enhancement, and tire gloss.',
+    fullDesc: 'Far superior to harsh automated car washes that scour clear coats with abrasive brushes and recycled water. At Zephyr Auto Spa on Brinsmade Ave, every vehicle receives a lavish snow foam pre-soak, gentle two-bucket wash with plush microfiber mitts, wheel face and barrel cleaning, warm filtered air blow dry, and a high-gloss spray sealant.',
+    startingPrice: 65,
+    duration: '45 – 60 Mins',
+    popular: false,
     features: [
-      'Water-sensitive wiring harness & ECU sensor masking',
-      'Gentle bio-degradable degreaser agitated with horsehair brushes',
-      'Controlled dry vapor steam rinse (minimal moisture)',
-      'Heat-resistant, non-sticky satin plastic & rubber conditioner',
-      'Prevents hose dry-rot and electrical dust buildup'
+      'Luxurious pH-neutral snow foam cannon pre-wash dissolving road grime and salt',
+      'Two-bucket hand wash method with grit guards and ultra-plush microfiber wash mitts',
+      'Brake dust de-ironing wheel cleaner, inner barrel agitation, and wheel arch rinse',
+      'Spot-free filtered rinse and warm filtered air blow-dry to prevent water trapping',
+      'High-gloss synthetic spray wax protection and non-sling satin tire dressing'
     ],
     specs: [
-      { label: 'Safety Protocol', value: '100% Masked Electronics' },
-      { label: 'Dressing Finish', value: 'Anti-Static Heat Resistant' },
-      { label: 'Service Time', value: '90 Minutes' }
+      { label: 'Wash Method', value: '100% Hand Wash & Dual Grit-Guards' },
+      { label: 'Wheel Treatment', value: 'De-ironed & Detailed' },
+      { label: 'Finish', value: 'Hydrophobic High-Gloss Seal' }
     ],
-    idealFor: 'Performance sports cars, car show prep, resale appraisal boost, and routine mechanical care.',
-    imageUrl: engineBayCleaningImg
+    idealFor: 'Weekly or bi-weekly maintenance wash to preserve paint clarity and gloss without introducing swirl marks.',
+    imageUrl: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    id: 'mobile-detailing',
-    title: 'Mobile Detailing Concierge Unit',
-    badge: 'Direct to You',
-    shortDesc: 'Our fully equipped Mercedes Sprinter arrives at your Pasadena residence or office with spot-free deionized water and quiet power.',
-    fullDesc: 'Experience luxury detailing at zero hassle. Our self-contained mobile van carries 100 gallons of pure 0-PPM deionized water, ultra-quiet generator, and full professional detailing machinery right to your driveway.',
-    startingPrice: 220,
-    duration: '2 – 4.5 Hours',
+    id: 'paint-correction',
+    title: 'Paint Correction & Scratch Removal',
+    badge: 'Mirror Clarity & Swirl Removal',
+    shortDesc: 'Precision multi-stage machine compounding and polishing to eliminate swirl marks, spiderwebs, light scratches, oxidation, and clear coat haze.',
+    fullDesc: 'Restore your vehicle\'s paintwork to true mirror perfection. Our master detailers measure clear coat thickness with digital ultrasonic gauges before deploying dual-action rotary polishers, micro-abrasive compounds, and finishing polishes to permanently level defects and reveal deep, liquid reflections.',
+    startingPrice: 325,
+    duration: '4 – 8 Hours',
+    popular: true,
     features: [
-      'Self-contained with 100% 0-PPM Spot-Free Deionized Water',
-      'Eco-friendly on-board quiet inverter generator & compressors',
-      'Available across Pasadena, San Marino, Arcadia, and Glendale',
-      'Home garage, residential driveway, or corporate executive parking',
-      'Same master-grade technicians & chemicals as our studio'
+      'Comprehensive chemical decontamination: iron fallout remover and clay bar treatment',
+      'Digital ultrasonic paint depth measurement across all panels to ensure safe compounding',
+      'Stage 1 or Stage 2 dual-action machine polishing removing 80%–95%+ of surface swirls',
+      'Eliminates wash scratches, water spot etchings, holograms, and dull oxidation',
+      'Sealed with high-grade synthetic polymer sealant or prepped for ceramic coating'
     ],
     specs: [
-      { label: 'Water Quality', value: '0 PPM Deionized (Zero Spots)' },
-      { label: 'Radius', value: 'Up to 25 Miles from Pasadena' },
-      { label: 'Self-Sufficient', value: 'No Water/Power Hookups Needed' }
+      { label: 'Defect Removal', value: '80%–95%+ Swirl & Scratch Elimination' },
+      { label: 'Equipment', value: 'Rupes & Flex Dual-Action Polishers' },
+      { label: 'Clarity', value: 'Flawless Liquid Mirror Reflections' }
     ],
-    idealFor: 'Busy professionals, luxury homeowners, and car enthusiasts who value utmost convenience without compromising standards.',
-    imageUrl: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80'
+    idealFor: 'Enthusiasts, black and dark-colored vehicles with noticeable wash swirls, lease returns, and prep before ceramic coating.',
+    imageUrl: ceramicApplicatorImg
+  },
+  {
+    id: 'ceramic-coating',
+    title: 'Ceramic Coating Protection',
+    badge: 'Multi-Year 9H Molecular Shield',
+    shortDesc: 'Authentic 9H nano-ceramic chemical armor providing years of extreme hydrophobic water beading, chemical resistance, and permanent candy gloss.',
+    fullDesc: 'Defend your vehicle against harsh Bronx and NYC road salt, acid rain, bird droppings, industrial fallout, and UV oxidation. Our certified technicians chemically bond a professional 9H nano-ceramic coating to your paint, wheels, and glass, creating an ultra-durable crystalline barrier that keeps your car cleaner for longer.',
+    startingPrice: 695,
+    duration: '1 – 2 Days',
+    popular: true,
+    features: [
+      'Full exterior surface prep including clay bar and machine polish gloss enhancement',
+      'Authentic 9H nano-ceramic coating creating a permanent covalent molecular bond',
+      'Extreme 115°+ hydrophobic water contact angle — dirt and water slide off effortlessly',
+      'UV-inhibitors prevent paint oxidation, clear coat fading, and chemical staining',
+      'Includes windshield rain repellant treatment and warranty documentation'
+    ],
+    specs: [
+      { label: 'Hardness', value: 'Certified 9H Nano-Ceramic' },
+      { label: 'Protection', value: '3 to 5+ Years Durability' },
+      { label: 'Maintenance', value: 'Wash Time Reduced by 70%' }
+    ],
+    idealFor: 'New car protection, luxury & sports cars, daily commuters facing Bronx & NYC traffic, and long-term vehicle preservation.',
+    imageUrl: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 'headlight-tire-dressing',
+    title: 'Headlight Restoration & Tire Dressing',
+    badge: 'Optical Clarity & Deep Satin Finish',
+    shortDesc: 'Multi-stage wet-sanding and UV clear seal to restore oxidized cloudy headlights to crystal clarity, paired with wheel detailing and premium satin tire dressing.',
+    fullDesc: 'Foggy, yellowed headlights diminish nighttime driving safety and age an otherwise clean car. At Zephyr Auto Spa, we wet-sand, compound, and polish headlight lenses back to crystal clarity before baking on a permanent UV-blocking sealant. Paired with deep brake dust wheel cleaning and rich, sling-free silicone-free tire dressing.',
+    startingPrice: 110,
+    duration: '1.5 – 2 Hours',
+    popular: false,
+    features: [
+      'Multi-stage wet sanding (1000, 2000, 3000 grit) eliminating yellowing and oxidation',
+      'Rotary machine compounding and fine polishing to restore factory optical clarity',
+      'Long-lasting UV-blocking protective ceramic clear sealant to prevent re-hazing',
+      'Brake dust removal and deep cleaning of wheel faces, spokes, and inner barrels',
+      'Non-sling, water-based satin tire dressing that nourishes rubber without attracting dust'
+    ],
+    specs: [
+      { label: 'Light Output', value: 'Up to 200% Nighttime Visibility Increase' },
+      { label: 'UV Sealant', value: 'Prevents Yellowing for 12+ Months' },
+      { label: 'Tire Finish', value: 'Deep Satin Non-Sling Formula' }
+    ],
+    idealFor: 'Vehicles with hazy, yellowed lenses, safety inspections, night commuters, and finishing touches for a showroom stance.',
+    imageUrl: engineBayCleaningImg
   }
 ];
 
 export const PACKAGES_DATA: PackageTier[] = [
   {
-    id: 'essential-detail',
-    name: 'Precision Preservation',
-    subtitle: 'Maintenance & Deep Refresh',
-    price: 249,
-    originalPrice: 299,
-    duration: '3.5 – 4 Hours',
-    warranty: '30-Day Gloss Guarantee',
-    serviceType: 'Mobile or Studio',
+    id: 'hand-wash-express',
+    name: 'Professional Hand Wash & Shine',
+    subtitle: 'Gentle 2-Bucket Foam Wash & Paint Gloss',
+    price: 65,
+    originalPrice: 85,
+    duration: '45 – 60 Mins',
+    warranty: '100% Swirl-Free Guarantee',
+    serviceType: 'Hand Wash & Quick Shine',
     includes: [
-      'Ph-neutral snow foam bath & 2-bucket hand wash',
-      'Wheels, barrels, brake calipers & wheel wells deep scrub',
-      'Paint chemical iron fallout decon & light synthetic sealant',
-      'Interior steam sanitize, vacuum & console wipe down',
-      'Glass crystal clarity streak-free treatment',
-      'Tire conditioning with satin sling-free dressing'
+      'Gentle 2-bucket foam bath with grit-guard microfiber wash mitts',
+      'Brake dust wheel scrub, wheel barrel clean & tire sidewall wash',
+      'Spot-free rinse and warm filtered air blow dry (no water drips)',
+      'High-gloss synthetic polymer spray wax enhancement',
+      'Sling-free satin tire dressing & crystal optical window clean'
     ],
-    perfectFor: 'Monthly maintenance and high-end daily drivers.'
+    perfectFor: 'Regular routine car care to keep your paint sparkling and swirl-free.'
   },
   {
-    id: 'signature-correction',
-    name: 'Signature Paint Correction',
-    subtitle: 'Flawless Mirror Finish',
-    price: 649,
-    originalPrice: 799,
-    duration: '7 – 9 Hours',
-    warranty: '6-Month Poly-Shield',
+    id: 'complete-detail-reset',
+    name: 'Complete Auto Detail & Deep Clean',
+    subtitle: 'Comprehensive Interior Reset & Exterior Detail',
+    price: 195,
+    originalPrice: 245,
+    duration: '3 – 4 Hours',
+    warranty: 'Total Cleanliness Guarantee',
     popular: true,
-    serviceType: 'Studio Recommended',
-    includes: [
-      'All Precision Preservation wash & decon steps included',
-      'Complete clay bar physical paint decontamination',
-      'Single-Stage or 2-Stage Machine Paint Polish (85–92% Swirl Removal)',
-      'Digital paint depth micrometer evaluation',
-      'Headlight & taillight high-gloss jeweling',
-      'Interior complete deep steam extraction & leather conditioning',
-      '6-Month high-bonding polymer paint sealant applied'
-    ],
-    perfectFor: 'Vehicles with swirl marks, spiderwebs, dull paint, or before resale.'
-  },
-  {
-    id: 'elite-ceramic',
-    name: 'Apex 5-Year Ceramic Shield',
-    subtitle: 'Permanent Nano Armor & Hydrophobic Shine',
-    price: 1290,
-    originalPrice: 1490,
-    duration: '1.5 Days (Cure Bay)',
-    warranty: '5-Year Written Carfax Warranty',
     bestValue: true,
-    serviceType: 'Studio Required (IR Baking)',
+    serviceType: 'Complete Interior & Exterior Service',
     includes: [
-      'Full Multi-Stage Paint Correction (Up to 95%+ Defect Removal)',
-      '2 Coats of 9H Graphene/Ceramic Coating on all painted body panels',
-      'Wheel faces ceramic coat protection against hot brake dust',
-      'Windshield & exterior glass hydrophobic rain-repellent shield',
-      'Plastic trim & rubber ceramic restoration barrier',
-      'Full interior deep clean + leather ceramic barrier',
-      'Infrared bake cure & official Carfax recorded warranty'
+      'High-temp heated shampoo extraction on carpets, mats & cloth seats',
+      'Full dry-vapor steam sanitization of vents, console & cupholders',
+      'pH-balanced leather conditioning with anti-aging UV barrier',
+      'Complete 2-bucket exterior foam wash & clay bar decontamination',
+      'Machine gloss polish & synthetic protective paint sealant',
+      'Streak-free interior & exterior glass cleaning plus tire dressing'
     ],
-    perfectFor: 'New cars, luxury exotics, and owners seeking zero-wax permanent gloss.'
+    perfectFor: 'Vehicles needing a complete reset, seasonal rejuvenation, or deep interior sanitization.'
   },
   {
-    id: 'concourse-mastery',
-    name: 'Concourse Apex Bespoke',
-    subtitle: '7-Year Ultimate Armor & Engine Bay',
-    price: 1850,
-    originalPrice: 2200,
-    duration: '2 Full Days',
-    warranty: '7-Year Lifetime Ceramic Guarantee',
-    serviceType: 'VIP Studio Exclusive',
+    id: 'paint-correction-package',
+    name: 'Paint Correction & Scratch Removal',
+    subtitle: 'Machine Compounding & Polish Defect Removal',
+    price: 349,
+    originalPrice: 420,
+    duration: '4 – 6 Hours',
+    warranty: 'Clarity & Gloss Guarantee',
+    popular: true,
+    serviceType: 'Precision Machine Restoration',
     includes: [
-      'Multi-Stage Jeweled Compound Paint Correction (99% Flawless Clarity)',
-      '3-Layer 10H Ceramic + Graphene Matrix Armor (Body & Carbon Fiber)',
-      'Wheels-off package: Full wheel barrel + brake caliper ceramic coated',
-      'Complete Engine Bay dry-steam detailing & thermal dressing',
-      'All exterior glass 2-year rain shedding crystal coating',
-      'Full Interior Nappa leather ceramic coat & carpet stain guard',
-      'Complimentary 1-Year quarterly checkup & maintenance wash'
+      'Ultrasonic digital paint gauge depth analysis across all body panels',
+      'Iron chemical fallout decontamination & fine grade clay bar treatment',
+      'Dual-action machine compounding removing 80%–95%+ of swirl marks & light scratches',
+      'Jeweling finishing polish creating deep, liquid reflection clarity',
+      'Headlight clarity enhancement & non-sling tire dressing',
+      'Durable hydrophobic synthetic paint sealant protection'
     ],
-    perfectFor: 'Supercars, rare collector builds, and Porsche / Ferrari owners wanting the pinnacle.'
+    perfectFor: 'Vehicles with wash swirls, spiderwebs, dull oxidation, or preparing for ceramic coating.'
+  },
+  {
+    id: 'ceramic-protection-package',
+    name: 'Ceramic Coating Protection Armor',
+    subtitle: 'Multi-Stage Paint Prep & Multi-Year 9H Nano Armor',
+    price: 695,
+    originalPrice: 850,
+    duration: '1 – 2 Days',
+    warranty: 'Certified Multi-Year Warranty',
+    serviceType: 'Certified 9H Ceramic Specialist',
+    includes: [
+      'Multi-stage machine paint correction to eliminate swirls and imperfections',
+      'Certified 9H Nano-Ceramic Coating applied to all exterior painted panels',
+      'Wheel faces ceramic coated against corrosive brake dust and road grime',
+      'Hydrophobic glass rain shield applied to windshield and all side windows',
+      'Plastic trim ceramic restoration to prevent sun fading and chalking',
+      'Official documentation and maintenance care guide'
+    ],
+    perfectFor: 'New luxury vehicles, sports cars, and owners seeking permanent hydrophobic mirror reflections.'
   }
 ];
 
 export const ADDONS_DATA: AddOnOption[] = [
   {
-    id: 'wheel-ceramic',
-    name: 'Wheels Ceramic Coating (Face & Calipers)',
-    price: 180,
-    description: 'Prevents corrosive brake dust buildup and makes wheel washing effortless.'
+    id: 'headlight-restore-addon',
+    name: 'Headlight Restoration (Both Lenses)',
+    price: 75,
+    description: 'Multi-stage wet sanding and UV clear seal restoring yellowed cloudy lenses to crystal clarity.'
   },
   {
-    id: 'glass-ceramic',
+    id: 'engine-bay-detail',
+    name: 'Engine Bay Steam Clean & Dress',
+    price: 85,
+    description: 'Safe pressurized dry-steam degreasing and non-greasy satin protective dressing.'
+  },
+  {
+    id: 'ozone-odor-treatment',
+    name: 'Ozone Biological Odor Neutralization',
+    price: 75,
+    description: 'Deep gaseous ozone cycle neutralizing stubborn smoke, pet, and mildew odors at the source.'
+  },
+  {
+    id: 'glass-rain-shield',
     name: 'Hydrophobic Glass Rain Shield (All Windows)',
-    price: 120,
-    description: 'Extreme water repellency; raindrops fly off at 35+ mph without wipers.'
+    price: 65,
+    description: 'Extreme water repellency so rain beads and blows right off your glass while driving.'
   },
   {
-    id: 'leather-ceramic',
-    name: 'Interior Nappa Leather Ceramic Protection',
-    price: 160,
-    description: 'Prevents dye transfer from blue jeans, UV cracking, and liquid spills.'
+    id: 'wheel-ceramic',
+    name: 'Wheels & Calipers Ceramic Coating',
+    price: 125,
+    description: 'Prevents corrosive brake dust accumulation and makes wheel washing completely effortless.'
   },
   {
-    id: 'headlight-resto',
-    name: 'Headlight Wet-Sand & UV Clear Coat Restoration',
-    price: 110,
-    description: 'Restores yellowed, hazy polycarbonate headlights back to 100% optical clarity.'
-  },
-  {
-    id: 'engine-add',
-    name: 'Engine Bay Steam Clean & Satin Dressing',
-    price: 140,
-    description: 'Electronic-safe degreasing and dry-vapor detailing under the hood.'
-  },
-  {
-    id: 'pet-hair-ozone',
-    name: 'Heavy Pet Hair Extraction + Ozone Sanitizer',
-    price: 95,
-    description: 'Micro-hair needle extraction tool and 30-min O3 medical odor neutralizer.'
+    id: 'leather-conditioner',
+    name: 'Deep Leather Cleansing & Conditioning',
+    price: 60,
+    description: 'Gently cleans pores and applies rich conditioner to prevent leather cracking and drying.'
   }
 ];
 
 export const REVIEWS_DATA: ReviewItem[] = [
   {
     id: 'rev-1',
-    author: 'Marcus Vance',
-    location: 'San Marino, CA',
-    vehicle: 'Porsche 911 GT3 (992)',
-    service: 'Apex 5-Year Ceramic Shield & Paint Correction',
+    author: 'Anthony Mancuso',
+    location: 'Throggs Neck, Bronx, NY',
+    vehicle: 'BMW M3 Competition',
+    service: 'Paint Correction & Ceramic Coating',
     rating: 5,
-    date: '2 weeks ago',
-    comment: 'Took my GT3 to Apex after getting swirls from a previous dealership wash. The level of detail here is obsessive. The carbon roof and paint look deeper than when it rolled off the showroom floor in Stuttgart. Best detailing studio in Pasadena by far.',
+    date: '3 days ago',
+    comment: 'Zephyr Auto Spa on Brinsmade Ave did an unbelievable job on my M3. The paint had swirl marks from previous automated washes. They completely removed every imperfection and applied the 9H ceramic coating. The car looks like a glass mirror!',
     verified: true,
-    highlight: 'Deeper than showroom delivery'
+    highlight: 'Flawless paint correction & mirror ceramic shine'
   },
   {
     id: 'rev-2',
-    author: 'Elena Rostova',
-    location: 'Pasadena, CA (Old Town)',
-    vehicle: 'Tesla Model S Plaid',
-    service: 'Mobile Detailing Concierge Unit',
+    author: 'Maria Rodriguez',
+    location: 'Pelham Bay, Bronx, NY',
+    vehicle: 'Honda Pilot Touring',
+    service: 'Complete Auto Detail & Interior Deep Clean',
     rating: 5,
-    date: '3 weeks ago',
-    comment: 'The mobile van came directly to my home in Pasadena. They brought their own purified water and silent generator. My interior looks and smells brand new, and they removed a tough espresso stain from my white seats completely.',
+    date: '1 week ago',
+    comment: 'With 3 kids and a dog, our SUV interior was a disaster. Called (347) 780-5287 and brought it over to 233 Brinsmade Ave. When I picked it up, it literally smelled and looked brand new. Heated steam extraction worked miracles on the seats.',
     verified: true,
-    highlight: 'Zero water spots with mobile unit'
+    highlight: 'Heated extraction got every stain out'
   },
   {
     id: 'rev-3',
-    author: 'David Chen',
-    location: 'Arcadia, CA',
-    vehicle: 'BMW M3 Competition (Isle of Man Green)',
-    service: 'Signature Paint Correction & 2-Year Ceramic',
+    author: 'Derrick Washington',
+    location: 'Country Club, Bronx, NY',
+    vehicle: 'Mercedes-Benz E350',
+    service: 'Professional Hand Wash & Headlight Restoration',
     rating: 5,
-    date: '1 month ago',
-    comment: 'Under the LED inspection lights, you could see 99% of all hairline scratches were gone. Water literally falls off the hood now. Very honest pricing and master craftsmanship. Will be bringing my wife’s X5 next month.',
+    date: '2 weeks ago',
+    comment: 'My headlights were foggy and yellowed. Zephyr Auto Spa restored them back to 100% crystal clarity and gave the car a fantastic scratch-free hand wash. Quick turnaround and very professional staff.',
     verified: true,
-    highlight: 'Under LED lights it was flawless'
+    highlight: 'Headlights look brand new & great hand wash'
   },
   {
     id: 'rev-4',
-    author: 'Robert K.',
-    location: 'La Cañada Flintridge, CA',
-    vehicle: 'Mercedes-Benz G63 AMG',
-    service: 'Concourse Apex Bespoke & Engine Bay Detail',
+    author: 'Gianna Rossi',
+    location: 'City Island, Bronx, NY',
+    vehicle: 'Jeep Grand Cherokee',
+    service: 'Complete Auto Detailing & Interior Deep Clean',
     rating: 5,
-    date: '1 month ago',
-    comment: 'The G-Wagon is a monster to clean with all the square edges. Apex treated it like fine jewelry. Engine bay was spotless, wheel calipers coated, and the 7-year graphene warranty gives me total peace of mind in the SoCal sun.',
+    date: '3 weeks ago',
+    comment: 'Super easy booking by calling (347) 780-5287. Dropped off my Jeep at 233 Brinsmade Ave in the morning and picked it up sparkling clean inside and out. The leather feels soft and looks matte factory fresh.',
     verified: true,
-    highlight: 'Treated my G63 like fine jewelry'
+    highlight: 'Top notch detailing shop in the Bronx'
   },
   {
     id: 'rev-5',
-    author: 'Sophia Martinez',
-    location: 'South Pasadena, CA',
-    vehicle: 'Audi RS6 Avant',
-    service: 'Interior Deep Clean & Leather Spa',
-    rating: 4.8,
-    date: '2 months ago',
-    comment: 'Kids and dogs had done a number on the back seats. The team did hot-water extraction and restored the Nappa leather without any cheap oily sheen. Clean, matte, and fresh. 10/10 recommend!',
+    author: 'Carlos Mendez',
+    location: 'Morris Park, Bronx, NY',
+    vehicle: 'Audi S5 Sportback',
+    service: 'Ceramic Coating Protection & Paint Correction',
+    rating: 5,
+    date: '1 month ago',
+    comment: 'The quality of craftsmanship at Zephyr Auto Spa is second to none in NYC. Transparent pricing, high attention to detail, and genuine care for the vehicle. Highly recommend to any car enthusiast.',
     verified: true,
-    highlight: 'Restored Nappa leather to OEM matte'
+    highlight: 'Second to none in NYC'
   },
   {
     id: 'rev-6',
-    author: 'Julian Thorne',
-    location: 'Glendale, CA',
-    vehicle: 'Ferrari 458 Italia',
-    service: 'Multi-Stage Paint Correction & Concourse Prep',
+    author: 'Michael O\'Connor',
+    location: 'Riverdale, Bronx, NY',
+    vehicle: 'Porsche Macan GTS',
+    service: 'Professional Hand Wash & Tire Dressing',
     rating: 5,
-    date: '2 months ago',
-    comment: 'Hard to trust anyone with Rosso Corsa single-stage clear, but Apex has certified masters. The paint depth readings before and after were documented in detail. Simply unmatched professionalism.',
+    date: '1 month ago',
+    comment: 'Best hand wash in the Bronx. No swirls, perfect tire dressing that doesn\'t sling all over the paint, and clean rims inside and out. Zephyr Auto Spa is my permanent detailing spot.',
     verified: true,
-    highlight: 'Documented paint depth readings'
+    highlight: 'Best hand wash in the Bronx'
   }
 ];
 
 export const FAQS_DATA: FaqItem[] = [
   {
     id: 'faq-1',
-    category: 'ceramic',
-    question: 'How long does ceramic coating really last, and is it better than wax?',
-    answer: 'Unlike traditional carnauba waxes or synthetic polymer sealants that melt away after 2–8 weeks in the hot California sun, our 9H / 10H ceramic coatings create a semi-permanent chemical and covalent bond with your vehicle’s clear coat. They last between 2 to 7+ years depending on the chosen package, providing extreme chemical resistance, UV protection, and self-cleaning hydrophobic properties.'
+    category: 'general',
+    question: 'Where is Zephyr Auto Spa located and what are your operating hours?',
+    answer: 'Zephyr Auto Spa is conveniently located at 233 Brinsmade Ave, Bronx, NY 10465 (serving Throggs Neck, Pelham Bay, Country Club, and the greater NYC area). Our hours are Monday through Friday from 7:30 AM to 4:30 PM, Saturday from 9:00 AM to 4:00 PM, and we are closed on Sunday.'
   },
   {
     id: 'faq-2',
-    category: 'correction',
-    question: 'What is the difference between a 1-step and a multi-step paint correction?',
-    answer: 'A 1-Step enhancement combines light polishing to boost gloss and remove 50%–70% of micro-marring, ideal for newer vehicles. A 2-Step or Multi-Stage Paint Correction uses a heavy cutting compound with micro-abrasive pads to eliminate 85%–99% of deep swirl marks, scratches, and etching, followed by a jeweling finishing polish for laser-sharp reflections.'
+    category: 'booking',
+    question: 'How do I book an appointment or get a quote?',
+    answer: 'You can easily call us at (347) 780-5287 for immediate scheduling, questions, or vehicle consultations. You can also use the Instant Quote Builder on this website to select your package, calculate pricing based on your vehicle size, and reserve your spot.'
   },
   {
     id: 'faq-3',
-    category: 'mobile',
-    question: 'Do I need to provide water or power for the Mobile Detailing service?',
-    answer: 'No! Our mobile detailing Mercedes Sprinter van is 100% self-contained. We carry our own 100-gallon tank of 0-PPM deionized spot-free filtered water and an ultra-quiet internal inverter generator. All we need is access to your vehicle at your home, office, or private garage in Pasadena or surrounding cities.'
+    category: 'services',
+    question: 'What is included in the Complete Auto Detailing & Interior Deep Clean?',
+    answer: 'Our Complete Auto Detailing includes deep hot-water shampoo extraction on carpets and seats, dry-vapor steam sanitization of HVAC vents and crevices, pH-balanced leather conditioning, full 2-bucket foam hand wash, paint clay bar decontamination, machine gloss sealant, and tire dressing.'
   },
   {
     id: 'faq-4',
-    category: 'ceramic',
-    question: 'Can you detail or ceramic coat my vehicle if it already has Paint Protection Film (PPF)?',
-    answer: 'Absolutely. We regularly apply ceramic coatings over PPF (Clear Bra). The ceramic layer enhances the gloss of the film, seals the pores to prevent staining and yellowing from road tar, and adds slick hydrophobic properties that make washing your wrapped vehicle effortless.'
+    category: 'paint',
+    question: 'What is the difference between Paint Correction and Ceramic Coating?',
+    answer: 'Paint correction is the mechanical process of leveling clear coat to eliminate swirl marks, scratches, and haze. Ceramic coating is the protective shield applied afterward to chemically seal the restored paint with a 9H sacrificial barrier, providing years of UV resistance, intense water beading, and high gloss.'
   },
   {
     id: 'faq-5',
-    category: 'general',
-    question: 'Where is your Pasadena studio located and do I need an appointment?',
-    answer: 'Our state-of-the-art detailing studio is located at 1420 E Walnut St, Suite 104, Pasadena, CA 91106. Because we allocate dedicated technician hours and temperature-controlled bays for every car, we operate by appointment. You can book directly through our online quote tool or call us at (626) 555-0184.'
+    category: 'headlights',
+    question: 'How does Headlight Restoration work and how long does it last?',
+    answer: 'We use a multi-stage precision wet sanding process (1000, 2000, 3000 grit) to shave off the yellowed, oxidized clear coat, followed by machine compounding and polishing. We then apply an authentic UV-blocking ceramic sealant that prevents future oxidation for over a year.'
   },
   {
     id: 'faq-6',
-    category: 'general',
-    question: 'What is your satisfaction guarantee and warranty policy?',
-    answer: 'Every vehicle undergoes a 32-point inspection under high-CRI 5000K LED studio bay lighting before handover. Our ceramic coating installations include an official warranty certificate with Carfax registry reporting, ensuring your vehicle retains maximum resale value.'
+    category: 'hand-wash',
+    question: 'Why choose your Professional Hand Wash over automated car washes?',
+    answer: 'Automated car washes use harsh rotating brushes that hold sand and debris from previous cars, leaving micro-scratches and spiderwebs on your paint. At Zephyr Auto Spa, we exclusively use two-bucket grit-guard hand washes with plush microfiber mitts, filtered water, and warm air blow-drying to ensure 100% swirl-free results.'
   }
 ];
 
 export const STYLE_GUIDE_DATA = {
-  themeName: "Obsidian Concourse & Electric Amber",
-  conceptOverview: "Synthesizing TurboTweak's dark supercar studio aesthetic, ProAuto's high-conversion clarity, and bold motorsport ceramic branding into a high-converting digital showroom.",
+  themeName: "Zephyr Auto Spa Precision Detailing Aesthetic",
+  conceptOverview: "High-contrast dark obsidian canvas with vibrant electric amber and cyber gold accents, highlighting high-quality auto detailing at 233 Brinsmade Ave in the Bronx.",
   colors: [
     { name: "Obsidian Carbon (Canvas)", hex: "#090B10", role: "Primary background providing high contrast and deep luxury depth" },
-    { name: "Graphite Surface", hex: "#12161F", role: "Component cards, elevated containers, and structural panels" },
+    { name: "Graphite Surface", hex: "#121620", role: "Component cards, elevated containers, and structural panels" },
     { name: "Electric Amber (CTA Accent)", hex: "#F59E0B", role: "Primary conversion trigger, badges, star ratings, and active highlights" },
     { name: "Molten Gold Glow", hex: "#D97706", role: "Glow gradients, hover states, and accent borders" },
-    { name: "Precision Cyan", hex: "#38BDF8", role: "Technical callouts, paint depth metrics, and ceramic layer specs" },
+    { name: "Precision Cyan", hex: "#38BDF8", role: "Technical callouts, wash specs, and ceramic metrics" },
     { name: "Pure Platinum", hex: "#F8FAFC", role: "High-legibility primary display headlines and badges" },
     { name: "Muted Steel", hex: "#94A3B8", role: "Secondary labels, technical specs, and body descriptions" }
   ],
@@ -439,22 +444,20 @@ export const STYLE_GUIDE_DATA = {
     body: "Plus Jakarta Sans (400 Regular / 500 Medium) for crisp 16px+ baseline readability"
   },
   heroConcept: {
-    headline: "Concourse-Level Precision for Pasadena's Finest Automobiles",
-    subheadline: "Master-certified multi-stage paint correction, 9H/10H ceramic shield protection, and bespoke interior restoration — at our climate-controlled Pasadena studio or via our self-contained mobile unit.",
-    primaryCta: "Calculate Instant Quote & Book",
-    secondaryCta: "Explore 5-Year Ceramic Packages",
-    visualStyle: "Studio spotlighting on a high-gloss supercar, interactive technical spec nodes, dynamic before/after paint clarity slider, and 4.8★ Google verified social proof banner."
+    headline: "Zephyr Auto Spa | Bronx, NY",
+    subheadline: "High-Quality Auto Detailing at 233 Brinsmade Ave in the Bronx.",
+    primaryCta: "CALL NOW: (347) 780-5287",
+    secondaryCta: "BOOK APPOINTMENT",
+    visualStyle: "Luxury high-gloss supercar, precision detailing badges, and 4.9★ verified Bronx customer ratings."
   },
   wireframeSections: [
-    { number: "01", name: "Global Header & Live Status Bar", purpose: "Persistent trust signals (4.8★, Pasadena address, instant phone dial, mobile booking trigger)" },
-    { number: "02", name: "Hero Showcase & Technical Spec Nodes", purpose: "Immediate visual impact, value proposition, and instant quote CTA" },
-    { number: "03", name: "Interactive Before/After Paint Defect Slider", purpose: "Direct visual proof of swirl elimination vs. mirror ceramic gloss" },
-    { number: "04", name: "Core Services Breakdown (5 Pillars)", purpose: "Deep dive into Paint Correction, Ceramic Coating, Interior Deep Clean, Engine Bay, and Mobile Van" },
-    { number: "05", name: "Interactive Pricing & Package Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments and Carfax warranty details" },
-    { number: "06", name: "Live Quote & Multi-Step Booking Builder", purpose: "High-conversion lead capture and instant estimated quote calculator" },
-    { number: "07", name: "Craftsmanship & Studio Standards", purpose: "Deionized water, high-CRI lighting, Rupes polishers, and climate-controlled curing bay" },
-    { number: "08", name: "Verified Customer Reviews (64 Reviews)", purpose: "Social proof with real car models and Pasadena/San Marino local authenticity" },
-    { number: "09", name: "Interactive FAQ Accordion", purpose: "Overcoming objections around ceramic longevity, mobile logistics, and PPF compatibility" },
-    { number: "10", name: "Pasadena Studio Map & Direct Contact", purpose: "Physical address, business hours, Google directions, and VIP appointment booking" }
+    { number: "01", name: "Global Header & Status Bar", purpose: "Persistent trust signals (4.9★, 233 Brinsmade Ave Bronx, instant phone call (347) 780-5287)" },
+    { number: "02", name: "Hero Showcase & Performance Typography", purpose: "Zephyr Auto Spa headline emphasizing high-quality detailing at 233 Brinsmade Ave in the Bronx" },
+    { number: "03", name: "Core Services Breakdown (5 Disciplines)", purpose: "Complete Detail & Deep Clean, Hand Wash & Shine, Paint Correction, Ceramic Coating, Headlight Restoration & Tire Dressing" },
+    { number: "04", name: "Interactive Pricing & Package Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments" },
+    { number: "05", name: "Live Quote & Multi-Step Booking Builder", purpose: "High-conversion lead capture and instant estimated quote calculator" },
+    { number: "06", name: "Verified Customer Reviews (128+ Reviews)", purpose: "Social proof with Bronx, Throggs Neck & Pelham Bay authenticity (4.9 / 5.0)" },
+    { number: "07", name: "Interactive FAQ Accordion", purpose: "Answers for operating hours, location, hand wash, ceramic coating, and paint correction" },
+    { number: "08", name: "Bronx Facility & Contact Section", purpose: "233 Brinsmade Ave, operating hours, Google directions, and direct phone dial (347) 780-5287" }
   ]
 };

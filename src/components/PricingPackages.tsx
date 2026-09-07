@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Shield, Sparkles, Check, ArrowRight, Star, Clock, Award, ChevronRight } from 'lucide-react';
-import { PACKAGES_DATA, VEHICLE_OPTIONS } from '../data/businessData';
+import { Shield, Sparkles, Check, ArrowRight, Star, Clock, Award, ChevronRight, PhoneCall } from 'lucide-react';
+import { PACKAGES_DATA, VEHICLE_OPTIONS, BUSINESS_INFO } from '../data/businessData';
 import { VehicleType } from '../types';
 
 interface PricingPackagesProps {
@@ -23,13 +23,13 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono-tech text-amber-400 mb-3">
             <Award className="w-3.5 h-3.5" />
-            <span>Transparent Concourse Pricing</span>
+            <span>Transparent Mobile Detailing Pricing</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-            Curated Detailing Packages
+            Curated Mobile Packages
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Select your vehicle class below to view real-time adjusted rates. All ceramic packages include Carfax warranty registration and climate-controlled bay curing.
+            Select your vehicle class below to view real-time adjusted rates. Serving Queens, Long Island & Greater NYC directly at your doorstep.
           </p>
 
           {/* Vehicle Class Selector */}
@@ -83,13 +83,13 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
               >
                 {/* Top Badge */}
                 {pkg.bestValue && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-black uppercase text-[10px] tracking-widest px-4 py-1 rounded-full shadow-lg">
-                    ★ MOST POPULAR IN PASADENA
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-black uppercase text-[10px] tracking-widest px-4 py-1 rounded-full shadow-lg whitespace-nowrap">
+                    ★ MOST POPULAR • SIGNATURE MOBILE DETAIL
                   </div>
                 )}
                 {pkg.popular && !pkg.bestValue && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-sky-500 text-black font-black uppercase text-[10px] tracking-widest px-3 py-1 rounded-full shadow-lg">
-                    PAINT RESTORATION FOCUS
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-sky-500 text-black font-black uppercase text-[10px] tracking-widest px-3 py-1 rounded-full shadow-lg whitespace-nowrap">
+                    DEEP HEATED STEAM EXTRACTION
                   </div>
                 )}
 
@@ -151,19 +151,29 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
                     {pkg.perfectFor}
                   </div>
 
-                  {/* CTA Button */}
-                  <button
-                    id={`package-select-btn-${pkg.id}`}
-                    onClick={() => onSelectPackage(pkg.id, selectedVehicle)}
-                    className={`w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 ${
-                      pkg.bestValue
-                        ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/25'
-                        : 'bg-white/10 hover:bg-white/20 text-white border border-white/10 hover:border-amber-500/50'
-                    }`}
-                  >
-                    <span>Select & Book Package</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                  {/* CTA Buttons: Direct Call Book Appointment & Calculator */}
+                  <div className="space-y-2">
+                    <a
+                      id={`package-book-btn-${pkg.id}`}
+                      href={`tel:${BUSINESS_INFO.phoneRaw}`}
+                      className={`w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 cursor-pointer ${
+                        pkg.bestValue
+                          ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/25'
+                          : 'bg-white/10 hover:bg-white/20 text-white border border-white/10 hover:border-amber-500/50'
+                      }`}
+                    >
+                      <PhoneCall className="w-3.5 h-3.5" />
+                      <span>Book Now: {BUSINESS_INFO.phone}</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </a>
+                    <button
+                      id={`package-quote-btn-${pkg.id}`}
+                      onClick={() => onSelectPackage(pkg.id, selectedVehicle)}
+                      className="w-full py-2 text-[11px] font-mono-tech uppercase text-slate-400 hover:text-amber-400 transition-colors text-center"
+                    >
+                      Customize Quote & Add-ons →
+                    </button>
+                  </div>
                 </div>
               </div>
             );

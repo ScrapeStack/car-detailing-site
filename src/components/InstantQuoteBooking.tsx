@@ -20,7 +20,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
     serviceId: initialServiceId || SERVICES_DATA[0].id,
     packageTierId: initialPackageId || PACKAGES_DATA[1].id,
     selectedAddOns: [],
-    serviceMode: 'studio',
+    serviceMode: 'mobile',
     mobileAddress: '',
     preferredDate: '',
     preferredTime: '09:00 AM',
@@ -54,7 +54,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
     const item = ADDONS_DATA.find(a => a.id === addonId);
     return acc + (item ? item.price : 0);
   }, 0);
-  const mobileConvenienceFee = formData.serviceMode === 'mobile' ? 0 : 0; // complimentary mobile dispatch within Pasadena
+  const mobileConvenienceFee = 0; // Complimentary mobile dispatch across Queens, LI & Greater NYC
   const grandTotal = basePackagePrice + addOnsTotal + mobileConvenienceFee;
 
   const toggleAddOn = (addonId: string) => {
@@ -74,7 +74,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
       alert('Please enter your name and phone number to reserve your spot.');
       return;
     }
-    const code = `APEX-${Math.floor(100000 + Math.random() * 900000)}`;
+    const code = `JMC-${Math.floor(100000 + Math.random() * 900000)}`;
     setConfirmationCode(code);
     setBookingConfirmed(true);
   };
@@ -86,13 +86,13 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono-tech text-amber-400 mb-3">
             <Calculator className="w-3.5 h-3.5" />
-            <span>Instant Quote Calculator & Online Scheduler</span>
+            <span>Instant Quote Calculator & Doorstep Booking</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-            Customize Your Detailing Package
+            Customize Your Mobile Detailing
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Get an instant, transparent quote calibrated to your specific vehicle size, desired protection level, and location preference.
+            Get an instant, transparent quote calibrated to your specific vehicle size and service package. We bring water & electric power directly to your doorstep.
           </p>
         </div>
 
@@ -150,9 +150,9 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                 <div className="flex items-center justify-between mb-3">
                   <label className="text-sm font-display font-bold text-white flex items-center gap-2">
                     <span className="w-6 h-6 rounded-full bg-amber-500 text-black text-xs font-black flex items-center justify-center font-mono-tech">2</span>
-                    Select Detailing / Ceramic Package
+                    Select Mobile Detailing Package
                   </label>
-                  <span className="text-xs text-amber-400 font-mono-tech font-semibold">Includes Studio Curing Bay</span>
+                  <span className="text-xs text-amber-400 font-mono-tech font-semibold">Includes Water & Power Supply</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -242,24 +242,6 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                   <button
                     type="button"
-                    onClick={() => setFormData(prev => ({ ...prev, serviceMode: 'studio' }))}
-                    className={`p-3.5 rounded-xl border text-left transition-all ${
-                      formData.serviceMode === 'studio'
-                        ? 'bg-amber-500/15 border-amber-500 text-white'
-                        : 'bg-[#090b10] border-white/10 text-slate-400 hover:bg-[#121620]'
-                    }`}
-                  >
-                    <div className="flex items-center space-x-2">
-                      <MapPin className="w-4 h-4 text-amber-400" />
-                      <span className="font-bold text-xs text-white">Pasadena Studio Bay</span>
-                    </div>
-                    <p className="text-[11px] text-slate-400 mt-1">
-                      1420 E Walnut St (Climate-controlled infrared curing bays)
-                    </p>
-                  </button>
-
-                  <button
-                    type="button"
                     onClick={() => setFormData(prev => ({ ...prev, serviceMode: 'mobile' }))}
                     className={`p-3.5 rounded-xl border text-left transition-all ${
                       formData.serviceMode === 'mobile'
@@ -268,28 +250,44 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                     }`}
                   >
                     <div className="flex items-center space-x-2">
-                      <Car className="w-4 h-4 text-amber-400" />
-                      <span className="font-bold text-xs text-white">Mobile Detailing Unit</span>
+                      <MapPin className="w-4 h-4 text-amber-400" />
+                      <span className="font-bold text-xs text-white">Home / Residential Driveway</span>
                     </div>
                     <p className="text-[11px] text-slate-400 mt-1">
-                      Sprinter van with 0-PPM water & power arrives at your address
+                      We bring 100% spot-free water & power directly to your house or apartment driveway
+                    </p>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setFormData(prev => ({ ...prev, serviceMode: 'office' as any }))}
+                    className={`p-3.5 rounded-xl border text-left transition-all ${
+                      formData.serviceMode === ('office' as any)
+                        ? 'bg-amber-500/15 border-amber-500 text-white'
+                        : 'bg-[#090b10] border-white/10 text-slate-400 hover:bg-[#121620]'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <Car className="w-4 h-4 text-amber-400" />
+                      <span className="font-bold text-xs text-white">Workplace / Office Parking</span>
+                    </div>
+                    <p className="text-[11px] text-slate-400 mt-1">
+                      Ultra-quiet generator and self-contained zero-mess setup while you work
                     </p>
                   </button>
                 </div>
 
-                {formData.serviceMode === 'mobile' && (
-                  <div className="mb-4">
-                    <label className="text-xs text-slate-300 font-mono-tech block mb-1">Your Mobile Service Address in Pasadena / Greater LA:</label>
-                    <input
-                      type="text"
-                      id="booking-address-input"
-                      placeholder="e.g. 1200 S Orange Grove Blvd, Pasadena, CA 91105"
-                      value={formData.mobileAddress}
-                      onChange={(e) => setFormData(prev => ({ ...prev, mobileAddress: e.target.value }))}
-                      className="w-full bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
-                    />
-                  </div>
-                )}
+                <div className="mb-4">
+                  <label className="text-xs text-slate-300 font-mono-tech block mb-1">Your Service Address (Queens, Long Island & Greater NYC):</label>
+                  <input
+                    type="text"
+                    id="booking-address-input"
+                    placeholder="e.g. 45-20 Bell Blvd, Bayside, NY or Long Island home/office address"
+                    value={formData.mobileAddress}
+                    onChange={(e) => setFormData(prev => ({ ...prev, mobileAddress: e.target.value }))}
+                    className="w-full bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
+                  />
+                </div>
 
                 {/* Date & Time Selectors */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -392,7 +390,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <span className="font-display font-bold text-white text-base">Live Quote Summary</span>
                 <span className="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-1 rounded font-mono-tech font-bold">
-                  PASADENA RATES
+                  JONATHAN'S MOBILE RATES
                 </span>
               </div>
 
@@ -431,8 +429,8 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                 )}
 
                 <div className="flex justify-between text-slate-300 pt-2 border-t border-white/5">
-                  <span className="text-slate-400 font-mono-tech">Location Mode:</span>
-                  <span className="font-bold text-white capitalize">{formData.serviceMode === 'studio' ? 'Pasadena Studio Bay' : 'Mobile Unit (Pasadena Area)'}</span>
+                  <span className="text-slate-400 font-mono-tech">Service Mode:</span>
+                  <span className="font-bold text-white capitalize">Mobile Unit (Queens, LI & NYC)</span>
                 </div>
 
                 <div className="flex justify-between text-slate-300">
@@ -441,7 +439,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                 </div>
 
                 <div className="flex justify-between text-slate-300">
-                  <span className="text-slate-400 font-mono-tech">Warranty:</span>
+                  <span className="text-slate-400 font-mono-tech">Protection:</span>
                   <span className="font-mono-tech text-emerald-400 font-semibold">{selectedPackageObj.warranty}</span>
                 </div>
               </div>
@@ -451,7 +449,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                 <div className="text-[11px] text-slate-400 font-mono-tech uppercase">Estimated Total Cost:</div>
                 <div className="text-3xl font-display font-black text-amber-400 flex items-baseline justify-between">
                   <span>${grandTotal}</span>
-                  <span className="text-[10px] text-slate-500 font-mono-tech font-normal">All Taxes & Chemicals Included</span>
+                  <span className="text-[10px] text-slate-500 font-mono-tech font-normal">All Supplies & Water/Power Included</span>
                 </div>
               </div>
 
@@ -459,22 +457,22 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
               <div className="space-y-2 pt-2 text-[11px] text-slate-400 border-t border-white/10">
                 <div className="flex items-center space-x-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>No payment required until handover & inspection</span>
+                  <span>No payment required until job complete & inspected</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Free cancellation up to 24 hours prior</span>
+                  <span>Free rescheduling or cancellation up to 24 hours</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Carfax recorded ceramic warranty certificate</span>
+                  <span>100% satisfaction & spot-free shine guarantee</span>
                 </div>
               </div>
             </div>
 
             {/* Quick Phone Call Card */}
             <div className="bg-[#0f131d] border border-white/10 rounded-xl p-4 text-xs text-center space-y-1">
-              <span className="text-slate-400 font-mono-tech">Prefer to talk with our Master Detailer?</span>
+              <span className="text-slate-400 font-mono-tech">Questions or need urgent service?</span>
               <div>
                 <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-amber-400 font-bold text-sm hover:underline">
                   {BUSINESS_INFO.phone}
@@ -495,16 +493,16 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
 
             <div className="space-y-2">
               <span className="text-xs font-mono-tech uppercase text-amber-400 font-bold">Booking Request Confirmed</span>
-              <h3 className="text-2xl font-display font-black text-white">You're Scheduled for Perfection!</h3>
+              <h3 className="text-2xl font-display font-black text-white">We Bring the Shine to You!</h3>
               <p className="text-xs text-slate-300">
-                Thank you <strong className="text-white">{formData.fullName}</strong>. Our Pasadena concierge team has received your appointment request for your <strong className="text-white">{formData.vehicleYearMakeModel || selectedVehicleObj.name}</strong>.
+                Thank you <strong className="text-white">{formData.fullName}</strong>. Jonathan's Mobile Carwash has received your appointment request for your <strong className="text-white">{formData.vehicleYearMakeModel || selectedVehicleObj.name}</strong>.
               </p>
             </div>
 
             <div className="bg-[#090b10] border border-white/10 rounded-xl p-4 text-xs text-left space-y-2 font-mono-tech">
               <div className="flex justify-between"><span className="text-slate-400">Confirmation Code:</span><span className="text-amber-400 font-bold">{confirmationCode}</span></div>
               <div className="flex justify-between"><span className="text-slate-400">Package:</span><span className="text-white">{selectedPackageObj.name}</span></div>
-              <div className="flex justify-between"><span className="text-slate-400">Service Mode:</span><span className="text-white">{formData.serviceMode === 'studio' ? 'Pasadena Studio' : 'Mobile Unit'}</span></div>
+              <div className="flex justify-between"><span className="text-slate-400">Location:</span><span className="text-white">{formData.mobileAddress || 'Mobile Doorstep Service (Queens, LI & NYC)'}</span></div>
               <div className="flex justify-between"><span className="text-slate-400">Estimated Total:</span><span className="text-emerald-400 font-bold">${grandTotal}</span></div>
               <div className="flex justify-between"><span className="text-slate-400">Date & Slot:</span><span className="text-white">{formData.preferredDate || 'Earliest Available'} ({formData.preferredTime})</span></div>
             </div>

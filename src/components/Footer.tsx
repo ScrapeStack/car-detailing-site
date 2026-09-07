@@ -20,25 +20,28 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           <div className="space-y-1 text-center sm:text-left">
             <span className="text-amber-400 font-mono-tech uppercase text-[11px] font-bold">Ready to Experience Flawless Reflections?</span>
             <div className="text-xl sm:text-2xl font-display font-black text-white">
-              Reserve Your Pasadena Detailing Bay or Mobile Visit
+              Schedule Auto Detailing or Call Us Today
+            </div>
+            <div className="text-xs text-slate-400 font-mono-tech">
+              Mon-Fri: 7:30 AM - 4:30 PM | Sat: 9:00 AM - 4:00 PM | Sun: Closed • 233 Brinsmade Ave, Bronx, NY 10465
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-3">
+            <a
+              id="footer-book-appointment-btn"
+              href={`tel:${BUSINESS_INFO.phoneRaw}`}
+              className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all flex items-center space-x-1.5 cursor-pointer"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>Call Now ({BUSINESS_INFO.phone})</span>
+            </a>
             <button
               id="footer-quote-btn"
               onClick={onOpenBooking}
-              className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all"
+              className="px-5 py-3 bg-white/5 hover:bg-white/10 text-white font-semibold text-xs rounded-xl border border-white/10 transition-all cursor-pointer"
             >
-              Get Instant Quote & Book
+              <span>Instant Quote Builder</span>
             </button>
-            <a
-              id="footer-call-btn"
-              href={`tel:${BUSINESS_INFO.phoneRaw}`}
-              className="px-5 py-3 bg-white/5 hover:bg-white/10 text-white font-semibold text-xs rounded-xl border border-white/10 transition-all flex items-center space-x-1.5"
-            >
-              <Phone className="w-3.5 h-3.5 text-amber-400" />
-              <span>{BUSINESS_INFO.phone}</span>
-            </a>
           </div>
         </div>
       </div>
@@ -57,13 +60,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
               </span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              Pasadena’s certified luxury automotive detailing studio & mobile unit. We specialize in multi-stage paint correction, 9H/10H ceramic coatings, dry steam interior restoration, and engine bay detailing.
+              High-quality auto detailing at 233 Brinsmade Ave in the Bronx. Specializing in complete auto detailing, interior deep clean, professional hand wash, exterior shine, paint correction, scratch removal, ceramic coating protection, and headlight restoration.
             </p>
             <div className="flex items-center space-x-2 text-amber-400 font-mono-tech text-xs">
               <Star className="w-4 h-4 fill-amber-400" />
               <span className="font-bold">{BUSINESS_INFO.rating} / 5.0 Star Rating</span>
               <span className="text-slate-500">•</span>
-              <span className="text-slate-400">{BUSINESS_INFO.reviewCount} Pasadena Client Reviews</span>
+              <span className="text-slate-400">{BUSINESS_INFO.reviewCount}+ Verified Reviews</span>
             </div>
             <div className="pt-2">
               <button
@@ -80,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           {/* Services Column */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              Core Services
+              Featured Services
             </span>
             <ul className="space-y-2">
               {SERVICES_DATA.map((s) => (
@@ -111,21 +114,25 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           {/* Studio Location & Service Coverage */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              Pasadena Studio
+              Location & Hours
             </span>
-            <div className="space-y-2 text-slate-400">
+            <div className="space-y-2.5 text-slate-400">
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                <span>{BUSINESS_INFO.address}</span>
+                <span className="text-white font-medium">{BUSINESS_INFO.address}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-amber-500 shrink-0" />
-                <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-slate-300 hover:text-amber-400">
+                <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-amber-400 font-bold hover:underline">
                   {BUSINESS_INFO.phone}
                 </a>
               </div>
-              <div className="text-[11px] text-slate-500 font-mono-tech pt-2">
-                Serving: Pasadena, San Marino, Arcadia, South Pasadena, Glendale, La Cañada.
+              <div className="pt-1 text-[11px] font-mono-tech space-y-1">
+                <div className="text-slate-300">{BUSINESS_INFO.hours.weekdays}</div>
+                <div className="text-amber-400">{BUSINESS_INFO.hours.sunday}</div>
+              </div>
+              <div className="text-[11px] text-slate-500 font-mono-tech pt-1">
+                Serving: Throggs Neck, Pelham Bay, Country Club, Morris Park, Riverdale, The Bronx & NYC.
               </div>
             </div>
           </div>

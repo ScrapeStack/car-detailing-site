@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { ServicesSection } from './components/ServicesSection';
+import { CraftsmanshipStandards } from './components/CraftsmanshipStandards';
 import { PricingPackages } from './components/PricingPackages';
 import { InstantQuoteBooking } from './components/InstantQuoteBooking';
 import { SocialProofSection } from './components/SocialProofSection';
@@ -80,6 +81,9 @@ export default function App() {
           onSelectServiceForQuote={handleSelectServiceForQuote} 
         />
 
+        {/* 3. Craftsmanship Standards & Facility Specifications */}
+        <CraftsmanshipStandards />
+
         {/* 4. Packages & Pricing Matrix with Vehicle Size Multiplier */}
         <PricingPackages 
           onSelectPackage={handleSelectPackage} 
@@ -92,13 +96,13 @@ export default function App() {
           initialVehicleType={selectedVehicleType}
         />
 
-        {/* 6. Social Proof & Verified Reviews Grid (4.8 Stars, 64 Reviews) */}
+        {/* 6. Social Proof & Verified Reviews Grid */}
         <SocialProofSection />
 
-        {/* 8. Frequently Asked Questions */}
+        {/* 7. Frequently Asked Questions */}
         <FaqSection />
 
-        {/* 9. Pasadena Studio Map, Direct Call & Concierge Contact */}
+        {/* 8. Bronx Detailing Facility Map, Direct Call & Concierge Contact */}
         <LocationContactSection />
       </main>
 

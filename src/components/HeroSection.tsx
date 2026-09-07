@@ -26,7 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           <div className="w-full lg:w-[66%] xl:w-[60%] h-full relative flex items-center justify-end">
             <motion.img
               src={heroSupercarImg}
-              alt="Apex Precision Luxury Supercar Detailing"
+              alt="Jonathan's Mobile Carwash - Premium On-Site Mobile Car Wash & Detailing"
               className="w-full h-full object-cover object-[65%_center] lg:object-right opacity-65 sm:opacity-80 lg:opacity-95"
               referrerPolicy="no-referrer"
               animate={{ 
@@ -84,32 +84,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           
           {/* Location & Trust Micro Tag */}
           <motion.div 
-            className="inline-flex items-center space-x-2 text-[11px] sm:text-xs tracking-[0.25em] uppercase font-mono-tech text-slate-400"
+            className="inline-flex items-center space-x-2 text-[11px] sm:text-xs tracking-[0.2em] uppercase font-mono-tech text-slate-400"
             variants={{
               hidden: { opacity: 0, y: -10 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
             }}
           >
             <span className="w-2 h-2 rounded-full bg-amber-400 inline-block animate-pulse"></span>
-            <span className="text-slate-300 font-semibold">Pasadena, CA</span>
+            <span className="text-slate-300 font-semibold">{BUSINESS_INFO.addressShort}</span>
             <span className="text-slate-600">•</span>
-            <span className="text-slate-400">Studio & Mobile Detailing</span>
+            <span className="text-amber-400 font-bold">{BUSINESS_INFO.rating}★ ({BUSINESS_INFO.reviewCount}+ Reviews)</span>
           </motion.div>
 
-          {/* Iconic Headline: "LIVE BETTER, LIVE LUXURY" */}
+          {/* Hero Headline: Jonathan's Mobile Carwash */}
           <motion.div 
-            className="space-y-2"
+            className="space-y-2.5"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
             }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight text-white uppercase leading-[1.03]">
-              LIVE BETTER, <br />
-              LIVE <span className="font-serif-luxury italic font-normal tracking-wide text-slate-200 capitalize">Luxury</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black tracking-tight text-white uppercase leading-[1.06]">
+              JONATHAN'S <br />
+              <span className="font-serif-luxury italic font-normal tracking-wide text-amber-400 capitalize text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                Mobile Carwash
+              </span>
             </h1>
-            <p className="text-xs sm:text-sm font-mono-tech uppercase tracking-wider text-amber-400/90 pt-0.5">
-              Precision Paint Correction • Ceramic Coating • Interior Spa
+            <p className="text-base sm:text-lg lg:text-xl font-display font-bold text-slate-100 leading-snug pt-1">
+              Premium On-Site Mobile Car Wash & Detailing — We Bring the Care Directly to Your Doorstep.
             </p>
           </motion.div>
 
@@ -123,17 +125,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           >
             <div>
               <p>
-                Restore your vehicle’s true showroom shine with deep paint decontamination, swirl scratch removal, and durable ceramic protection.
+                Fully equipped mobile auto detailing unit serving Queens, Long Island & Greater NYC. We bring our own 100% deionized spot-free water and electric generator straight to your home or office.
               </p>
             </div>
             <div>
               <p>
-                From meticulous interior deep cleaning to full paint enhancement, enjoy flawless results at our Pasadena studio or right at your driveway.
+                Specializing in on-site hand wash & wax, 220°F interior steam sanitization, paint correction, leather extraction, and ceramic maintenance. Direct inquiries: <strong className="text-amber-400">{BUSINESS_INFO.phone}</strong>.
               </p>
             </div>
           </motion.div>
 
-          {/* Clean Action Buttons with Yellow Gradient matching the palette */}
+          {/* Clean Action Buttons: Triggering Direct Inquiries */}
           <motion.div 
             className="flex flex-wrap items-center gap-3.5 pt-2"
             variants={{
@@ -141,39 +143,41 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
               visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
             }}
           >
-            {/* Gradient Yellow CTA: GET IN TOUCH */}
-            <motion.button
-              id="hero-get-in-touch-btn"
-              onClick={onOpenBooking}
-              whileHover={{ scale: 1.025, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-7 sm:px-8 py-3.5 bg-gradient-to-r from-yellow-400 via-amber-400 to-amber-500 hover:from-yellow-300 hover:via-amber-300 hover:to-amber-400 text-slate-950 font-bold font-mono-tech text-xs sm:text-sm uppercase tracking-[0.15em] rounded-md transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:shadow-[0_0_28px_rgba(245,158,11,0.45)] flex items-center space-x-2.5 cursor-pointer group"
-            >
-              <span>GET IN TOUCH</span>
-              <ChevronRight className="w-4 h-4 text-slate-900 transition-transform group-hover:translate-x-1" />
-            </motion.button>
-
-            {/* Gradient Yellow CTA: VIEW SERVICES & PRICING */}
-            <motion.button
-              id="hero-explore-packages-btn"
-              onClick={onExplorePackages}
-              whileHover={{ scale: 1.025, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-6 sm:px-7 py-3.5 bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:via-amber-400 hover:to-yellow-400 text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider rounded-md transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:shadow-[0_0_28px_rgba(245,158,11,0.45)] flex items-center space-x-2 cursor-pointer group"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-slate-950" />
-              <span>VIEW SERVICES & PRICING</span>
-            </motion.button>
-
+            {/* Primary Action Button: BOOK NOW -> triggers direct phone inquiry or schedule */}
             <motion.a
-              id="hero-phone-direct-btn"
+              id="hero-book-now-btn"
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
-              whileHover={{ x: 2 }}
-              className="px-2 py-3.5 text-xs text-slate-400 hover:text-amber-400 transition-colors flex items-center space-x-1.5 cursor-pointer"
+              whileHover={{ scale: 1.025, y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-6 sm:px-8 py-3.5 bg-gradient-to-r from-yellow-400 via-amber-400 to-amber-500 hover:from-yellow-300 hover:via-amber-300 hover:to-amber-400 text-slate-950 font-bold font-mono-tech text-xs sm:text-sm uppercase tracking-[0.15em] rounded-md transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:shadow-[0_0_28px_rgba(245,158,11,0.45)] flex items-center space-x-2.5 cursor-pointer group"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-amber-500" />
-              <span className="font-mono-tech">{BUSINESS_INFO.phone}</span>
+              <PhoneCall className="w-4 h-4 text-slate-900" />
+              <span>BOOK NOW: {BUSINESS_INFO.phone}</span>
+              <ChevronRight className="w-4 h-4 text-slate-900 transition-transform group-hover:translate-x-1" />
             </motion.a>
+
+            {/* Direct Call Now Button */}
+            <motion.a
+              id="hero-call-now-btn"
+              href={`tel:${BUSINESS_INFO.phoneRaw}`}
+              whileHover={{ scale: 1.025, y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-5 sm:px-7 py-3.5 bg-[#141a27] hover:bg-[#1c2436] text-white border border-amber-400/40 hover:border-amber-400 font-bold text-xs sm:text-sm uppercase tracking-wider rounded-md transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.15)] flex items-center space-x-2 cursor-pointer group"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-amber-400" />
+              <span>CALL NOW</span>
+            </motion.a>
+
+            {/* Secondary Online Quote / Booking Anchor */}
+            <motion.button
+              id="hero-instant-quote-btn"
+              onClick={onOpenBooking}
+              whileHover={{ x: 2 }}
+              className="px-3 py-3.5 text-xs text-slate-300 hover:text-amber-400 transition-colors flex items-center space-x-1.5 cursor-pointer font-mono-tech uppercase"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>Instant Online Quote</span>
+            </motion.button>
           </motion.div>
 
           {/* Simple Quality Guarantees */}
@@ -186,15 +190,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           >
             <span className="flex items-center space-x-1.5">
               <span className="text-amber-400">✓</span>
-              <span>100% Satisfaction Guaranteed</span>
+              <span>Queens, Long Island & NYC</span>
             </span>
             <span className="flex items-center space-x-1.5">
               <span className="text-amber-400">✓</span>
-              <span>IDA Certified Master Detailers</span>
+              <span>We Bring Water & Power</span>
             </span>
             <span className="flex items-center space-x-1.5">
               <span className="text-amber-400">✓</span>
-              <span>Fully Insured & Licensed</span>
+              <span>100% Scratch-Free Guarantee</span>
             </span>
           </motion.div>
 

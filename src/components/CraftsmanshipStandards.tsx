@@ -6,12 +6,12 @@ export const CraftsmanshipStandards: React.FC = () => {
     {
       icon: <Sun className="w-6 h-6 text-amber-400" />,
       title: "5000K High-CRI LED Studio Lighting",
-      description: "Our Pasadena studio is engineered with specialized high Color Rendering Index diffuse lighting arrays that expose every micro-scratch, hologram, and clear coat flaw that standard garage lights hide."
+      description: "Our Apex Detail studio is engineered with specialized high Color Rendering Index diffuse lighting arrays that expose every micro-scratch, hologram, and clear coat flaw that standard garage lights hide."
     },
     {
       icon: <Droplets className="w-6 h-6 text-sky-400" />,
       title: "0-PPM Deionized Pure Water Filtration",
-      description: "Both our Pasadena studio and mobile detailing Sprinter unit utilize multi-stage deionization resin filters that strip 100% of minerals and calcium, guaranteeing a completely spot-free rinse in direct California sunlight."
+      description: "Both our Apex Detail studio and mobile detailing Sprinter unit utilize multi-stage deionization resin filters that strip 100% of minerals and calcium, guaranteeing a completely spot-free rinse in direct California sunlight."
     },
     {
       icon: <Flame className="w-6 h-6 text-amber-500" />,
@@ -48,7 +48,7 @@ export const CraftsmanshipStandards: React.FC = () => {
             Obsessive Standards. Zero Compromise.
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            We operate at the exact intersection of surgical chemistry and automotive art. Here is why luxury car owners across Pasadena and the San Gabriel Valley trust us with their vehicles.
+            We operate at the exact intersection of surgical chemistry and automotive art. Here is why luxury car owners across Apex Detail and the San Gabriel Valley trust us with their vehicles.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export const CraftsmanshipStandards: React.FC = () => {
         {/* Studio Bay Showcase Banner */}
         <div className="mt-12 bg-gradient-to-r from-[#151a24] via-[#10141e] to-[#151a24] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
-            <span className="text-xs font-mono-tech text-amber-400 uppercase font-semibold">Pasadena Studio Specification</span>
+            <span className="text-xs font-mono-tech text-amber-400 uppercase font-semibold">Apex Detail Studio Specification</span>
             <div className="text-xl sm:text-2xl font-display font-bold text-white">
               Visiting Our 1420 E Walnut St Facility
             </div>

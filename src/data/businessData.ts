@@ -5,8 +5,8 @@ import luxuryInteriorImg from '../assets/images/luxury_interior_clean_1787211008
 
 export const BUSINESS_INFO = {
   name: "Apex Precision Auto Detailing",
-  tagline: "Pasadena's Concourse-Grade Ceramic Coating & Paint Correction Specialists",
-  address: "1420 E Walnut St, Suite 104, Pasadena, CA 91106",
+  tagline: "Apex Detail's Top-Rated Auto Detailing, Ceramic Coating & Paint Correction",
+  address: "1420 E Walnut St, Suite 104, Apex Detail, CA 91106",
   phone: "(626) 555-0184",
   phoneRaw: "6265550184",
   email: "concierge@apexprecisiondetailing.com",
@@ -18,9 +18,9 @@ export const BUSINESS_INFO = {
     sunday: "Sunday: By VIP Appointment Only"
   },
   serviceAreas: [
-    "Pasadena",
+    "Apex Detail",
     "San Marino",
-    "South Pasadena",
+    "South Apex Detail",
     "Arcadia",
     "La Cañada Flintridge",
     "Glendale",
@@ -67,16 +67,16 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
 export const SERVICES_DATA: ServiceDetail[] = [
   {
     id: 'paint-correction',
-    title: 'Paint Correction & Restoration',
+    title: 'Paint Correction & Auto Detailing',
     badge: 'Signature Mastery',
-    shortDesc: 'Eliminate 85%–99% of swirl marks, buffer holograms, water spots, and micro-scratches for an authentic mirror finish.',
-    fullDesc: 'Using digital paint depth gauges and multi-stage rotary/dual-action polishers with precision micro-abrasives, we gently restore clear coat clarity without compromising paint integrity.',
+    shortDesc: 'Eliminate 85%–99% of swirl marks, water spots, and scratches for an authentic mirror finish in Apex Detail.',
+    fullDesc: 'Using digital paint depth gauges and multi-stage rotary/dual-action polishers with precision micro-abrasives, we provide the ultimate auto detailing and paint correction service to gently restore clear coat clarity.',
     startingPrice: 450,
     duration: '6 – 10 Hours',
     popular: true,
     features: [
       'Paint thickness ultrasound digital measurement before/after',
-      'Decontamination foam bath & ultra-fine clay bar treatment',
+      'Decontamination foam bath & ultra-fine clay bar auto detailing',
       'Multi-stage compound & jeweling micro-polish',
       'Eliminates spiderwebs, car wash swirls, and clear coat haze',
       'Pre-coating alcohol prep wipe inspection'
@@ -91,10 +91,10 @@ export const SERVICES_DATA: ServiceDetail[] = [
   },
   {
     id: 'ceramic-coating',
-    title: 'Multi-Year Ceramic & Graphene Coating',
+    title: 'Multi-Year Ceramic Coating',
     badge: 'Ultimate Armor',
-    shortDesc: 'Military-grade 9H/10H SiO2 nano-ceramic molecular bond offering intense hydrophobic gloss, UV defense, and chemical barrier.',
-    fullDesc: 'Our certified climate-controlled application creates a semi-permanent glassy shell over clear coat, wheels, plastics, and glass. Sheds rain, brake dust, bird droppings, and Pasadena smog pollutants effortlessly.',
+    shortDesc: 'Military-grade 9H/10H SiO2 nano-ceramic molecular bond offering intense hydrophobic gloss and UV defense.',
+    fullDesc: 'Our certified climate-controlled application creates a semi-permanent glassy shell over clear coat, wheels, plastics, and glass. The best ceramic coating in Apex Detail sheds rain, brake dust, and smog pollutants effortlessly.',
     startingPrice: 850,
     duration: '1 – 2 Days (Cure Bay)',
     popular: true,
@@ -102,7 +102,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Genuine 9H / 10H certified nano-ceramic or graphene matrix',
       'Ultra-hydrophobic 115°+ water contact angle bead effect',
       'UV & oxidation protection against California sun fading',
-      'Includes Carfax registration & official warranty certificate',
+      'Includes Carfax registration & official ceramic coating warranty',
       'Infrared curing heat-lamp baking cycle'
     ],
     specs: [
@@ -115,15 +115,15 @@ export const SERVICES_DATA: ServiceDetail[] = [
   },
   {
     id: 'interior-deep-clean',
-    title: 'Interior Deep Clean & Spa Sanitization',
+    title: 'Interior Deep Cleaning & Steam Cleaning',
     badge: 'Sanitized Luxury',
-    shortDesc: 'Hospital-grade pressurized steam extraction, pH-neutral aniline leather conditioning, and ozone odor elimination.',
-    fullDesc: 'We dismantle seat rails, deep-clean crevices, shampoo and hot-water extract carpets, condition delicate Nappa/Alcantara leathers with matte UV blockers, leaving an OEM factory scent.',
+    shortDesc: 'Hospital-grade pressurized steam cleaning, interior deep cleaning, and ozone odor elimination for your vehicle.',
+    fullDesc: 'We dismantle seat rails, deep-clean crevices, shampoo and hot-water extract carpets, and utilize professional steam cleaning to condition delicate Nappa leathers, leaving an OEM factory scent.',
     startingPrice: 280,
     duration: '3.5 – 5 Hours',
     features: [
-      'Dry-vapor pressurized steam sterilization (220°F kills 99.9% bacteria)',
-      'Deep hot-water carpet & fabric seat stain extraction',
+      'Dry-vapor pressurized steam cleaning (220°F kills 99.9% bacteria)',
+      'Deep hot-water carpet & fabric seat stain interior deep cleaning',
       'Matte leather cleaning & Swiss-grade conditioning treatment',
       'Air vent duct sterilization & cabin ozone odor neutralization',
       'Zero greasy residue — factory fresh OEM matte finish'
@@ -138,16 +138,16 @@ export const SERVICES_DATA: ServiceDetail[] = [
   },
   {
     id: 'engine-bay',
-    title: 'Engine Bay Detailing & Dressing',
+    title: 'Engine Bay Detailing & Steam Cleaning',
     badge: 'Mechanical Elegance',
-    shortDesc: 'Careful electronic-safe degreasing, dry steam cleaning, and satin thermal dressing for a factory-new engine compartment.',
-    fullDesc: 'Sensitive components (ECU, alternator, intake) are securely masked before high-pressure micro-steam breaks down heavy oil film, road grime, and salt residue, finished with heat-resistant satin polymer dressing.',
+    shortDesc: 'Careful electronic-safe degreasing, dry steam cleaning, and satin thermal dressing for a factory-new engine.',
+    fullDesc: 'Sensitive components (ECU, alternator) are securely masked before high-pressure steam cleaning breaks down heavy oil film and road grime, finished with heat-resistant satin polymer dressing.',
     startingPrice: 160,
     duration: '1.5 – 2 Hours',
     features: [
       'Water-sensitive wiring harness & ECU sensor masking',
       'Gentle bio-degradable degreaser agitated with horsehair brushes',
-      'Controlled dry vapor steam rinse (minimal moisture)',
+      'Controlled dry vapor steam cleaning rinse (minimal moisture)',
       'Heat-resistant, non-sticky satin plastic & rubber conditioner',
       'Prevents hose dry-rot and electrical dust buildup'
     ],
@@ -161,22 +161,22 @@ export const SERVICES_DATA: ServiceDetail[] = [
   },
   {
     id: 'mobile-detailing',
-    title: 'Mobile Detailing Concierge Unit',
+    title: 'Mobile Auto Detailing Concierge',
     badge: 'Direct to You',
-    shortDesc: 'Our fully equipped Mercedes Sprinter arrives at your Pasadena residence or office with spot-free deionized water and quiet power.',
-    fullDesc: 'Experience luxury detailing at zero hassle. Our self-contained mobile van carries 100 gallons of pure 0-PPM deionized water, ultra-quiet generator, and full professional detailing machinery right to your driveway.',
+    shortDesc: 'Our fully equipped Mercedes Sprinter arrives at your Apex Detail residence or office for premium mobile auto detailing.',
+    fullDesc: 'Experience luxury auto detailing at zero hassle. Our self-contained mobile van carries 100 gallons of pure 0-PPM deionized water and full professional detailing machinery right to your driveway.',
     startingPrice: 220,
     duration: '2 – 4.5 Hours',
     features: [
       'Self-contained with 100% 0-PPM Spot-Free Deionized Water',
       'Eco-friendly on-board quiet inverter generator & compressors',
-      'Available across Pasadena, San Marino, Arcadia, and Glendale',
+      'Available across Apex Detail, San Marino, Arcadia, and Glendale',
       'Home garage, residential driveway, or corporate executive parking',
       'Same master-grade technicians & chemicals as our studio'
     ],
     specs: [
       { label: 'Water Quality', value: '0 PPM Deionized (Zero Spots)' },
-      { label: 'Radius', value: 'Up to 25 Miles from Pasadena' },
+      { label: 'Radius', value: 'Up to 25 Miles from Apex Detail' },
       { label: 'Self-Sufficient', value: 'No Water/Power Hookups Needed' }
     ],
     idealFor: 'Busy professionals, luxury homeowners, and car enthusiasts who value utmost convenience without compromising standards.',
@@ -186,48 +186,47 @@ export const SERVICES_DATA: ServiceDetail[] = [
 
 export const PACKAGES_DATA: PackageTier[] = [
   {
-    id: 'essential-detail',
-    name: 'Precision Preservation',
+    id: 'basic-essential',
+    name: 'Basic/Essential Clean',
     subtitle: 'Maintenance & Deep Refresh',
-    price: 249,
-    originalPrice: 299,
-    duration: '3.5 – 4 Hours',
-    warranty: '30-Day Gloss Guarantee',
+    price: 199,
+    originalPrice: 249,
+    duration: '2 – 3 Hours',
+    warranty: 'Gloss Guarantee',
     serviceType: 'Mobile or Studio',
     includes: [
-      'Ph-neutral snow foam bath & 2-bucket hand wash',
-      'Wheels, barrels, brake calipers & wheel wells deep scrub',
-      'Paint chemical iron fallout decon & light synthetic sealant',
-      'Interior steam sanitize, vacuum & console wipe down',
-      'Glass crystal clarity streak-free treatment',
-      'Tire conditioning with satin sling-free dressing'
+      'Ph-neutral snow foam bath & hand wash',
+      'Wheels & brake calipers cleaned',
+      'Light synthetic sealant application',
+      'Interior vacuum & wipe down',
+      'Glass streak-free cleaning',
+      'Tire conditioning'
     ],
     perfectFor: 'Monthly maintenance and high-end daily drivers.'
   },
   {
-    id: 'signature-correction',
-    name: 'Signature Paint Correction',
-    subtitle: 'Flawless Mirror Finish',
-    price: 649,
-    originalPrice: 799,
-    duration: '7 – 9 Hours',
+    id: 'deep-detail',
+    name: 'Deep Detail & Steam',
+    subtitle: 'Flawless Interior & Exterior Refresh',
+    price: 499,
+    originalPrice: 599,
+    duration: '5 – 7 Hours',
     warranty: '6-Month Poly-Shield',
     popular: true,
     serviceType: 'Studio Recommended',
     includes: [
-      'All Precision Preservation wash & decon steps included',
-      'Complete clay bar physical paint decontamination',
-      'Single-Stage or 2-Stage Machine Paint Polish (85–92% Swirl Removal)',
-      'Digital paint depth micrometer evaluation',
-      'Headlight & taillight high-gloss jeweling',
-      'Interior complete deep steam extraction & leather conditioning',
-      '6-Month high-bonding polymer paint sealant applied'
+      'All Basic/Essential Clean steps included',
+      'Clay bar physical paint decontamination',
+      'Single-Stage Machine Paint Polish',
+      'Interior complete deep steam extraction',
+      'Leather cleaning & conditioning',
+      '6-Month high-bonding polymer paint sealant'
     ],
-    perfectFor: 'Vehicles with swirl marks, spiderwebs, dull paint, or before resale.'
+    perfectFor: 'Vehicles needing a thorough refresh and paint enhancement.'
   },
   {
-    id: 'elite-ceramic',
-    name: 'Apex 5-Year Ceramic Shield',
+    id: 'ultimate-ceramic',
+    name: 'Ultimate Ceramic & Protection',
     subtitle: 'Permanent Nano Armor & Hydrophobic Shine',
     price: 1290,
     originalPrice: 1490,
@@ -236,35 +235,15 @@ export const PACKAGES_DATA: PackageTier[] = [
     bestValue: true,
     serviceType: 'Studio Required (IR Baking)',
     includes: [
-      'Full Multi-Stage Paint Correction (Up to 95%+ Defect Removal)',
-      '2 Coats of 9H Graphene/Ceramic Coating on all painted body panels',
-      'Wheel faces ceramic coat protection against hot brake dust',
-      'Windshield & exterior glass hydrophobic rain-repellent shield',
-      'Plastic trim & rubber ceramic restoration barrier',
-      'Full interior deep clean + leather ceramic barrier',
-      'Infrared bake cure & official Carfax recorded warranty'
+      'Full Multi-Stage Paint Correction',
+      '2 Coats of 9H Ceramic Coating on all painted panels',
+      'Wheel faces ceramic coat protection',
+      'Windshield hydrophobic rain-repellent shield',
+      'Plastic trim & rubber ceramic restoration',
+      'Full interior deep clean & stain guard',
+      'Infrared bake cure & official Carfax warranty'
     ],
-    perfectFor: 'New cars, luxury exotics, and owners seeking zero-wax permanent gloss.'
-  },
-  {
-    id: 'concourse-mastery',
-    name: 'Concourse Apex Bespoke',
-    subtitle: '7-Year Ultimate Armor & Engine Bay',
-    price: 1850,
-    originalPrice: 2200,
-    duration: '2 Full Days',
-    warranty: '7-Year Lifetime Ceramic Guarantee',
-    serviceType: 'VIP Studio Exclusive',
-    includes: [
-      'Multi-Stage Jeweled Compound Paint Correction (99% Flawless Clarity)',
-      '3-Layer 10H Ceramic + Graphene Matrix Armor (Body & Carbon Fiber)',
-      'Wheels-off package: Full wheel barrel + brake caliper ceramic coated',
-      'Complete Engine Bay dry-steam detailing & thermal dressing',
-      'All exterior glass 2-year rain shedding crystal coating',
-      'Full Interior Nappa leather ceramic coat & carpet stain guard',
-      'Complimentary 1-Year quarterly checkup & maintenance wash'
-    ],
-    perfectFor: 'Supercars, rare collector builds, and Porsche / Ferrari owners wanting the pinnacle.'
+    perfectFor: 'New cars, luxury exotics, and maximum long-term protection.'
   }
 ];
 
@@ -316,19 +295,19 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: 'Apex 5-Year Ceramic Shield & Paint Correction',
     rating: 5,
     date: '2 weeks ago',
-    comment: 'Took my GT3 to Apex after getting swirls from a previous dealership wash. The level of detail here is obsessive. The carbon roof and paint look deeper than when it rolled off the showroom floor in Stuttgart. Best detailing studio in Pasadena by far.',
+    comment: 'Took my GT3 to Apex after getting swirls from a previous dealership wash. The level of detail here is obsessive. The carbon roof and paint look deeper than when it rolled off the showroom floor in Stuttgart. Best detailing studio in Apex Detail by far.',
     verified: true,
     highlight: 'Deeper than showroom delivery'
   },
   {
     id: 'rev-2',
     author: 'Elena Rostova',
-    location: 'Pasadena, CA (Old Town)',
+    location: 'Apex Detail, CA (Old Town)',
     vehicle: 'Tesla Model S Plaid',
     service: 'Mobile Detailing Concierge Unit',
     rating: 5,
     date: '3 weeks ago',
-    comment: 'The mobile van came directly to my home in Pasadena. They brought their own purified water and silent generator. My interior looks and smells brand new, and they removed a tough espresso stain from my white seats completely.',
+    comment: 'The mobile van came directly to my home in Apex Detail. They brought their own purified water and silent generator. My interior looks and smells brand new, and they removed a tough espresso stain from my white seats completely.',
     verified: true,
     highlight: 'Zero water spots with mobile unit'
   },
@@ -359,7 +338,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
   {
     id: 'rev-5',
     author: 'Sophia Martinez',
-    location: 'South Pasadena, CA',
+    location: 'South Apex Detail, CA',
     vehicle: 'Audi RS6 Avant',
     service: 'Interior Deep Clean & Leather Spa',
     rating: 4.8,
@@ -399,7 +378,7 @@ export const FAQS_DATA: FaqItem[] = [
     id: 'faq-3',
     category: 'mobile',
     question: 'Do I need to provide water or power for the Mobile Detailing service?',
-    answer: 'No! Our mobile detailing Mercedes Sprinter van is 100% self-contained. We carry our own 100-gallon tank of 0-PPM deionized spot-free filtered water and an ultra-quiet internal inverter generator. All we need is access to your vehicle at your home, office, or private garage in Pasadena or surrounding cities.'
+    answer: 'No! Our mobile detailing Mercedes Sprinter van is 100% self-contained. We carry our own 100-gallon tank of 0-PPM deionized spot-free filtered water and an ultra-quiet internal inverter generator. All we need is access to your vehicle at your home, office, or private garage in Apex Detail or surrounding cities.'
   },
   {
     id: 'faq-4',
@@ -410,8 +389,8 @@ export const FAQS_DATA: FaqItem[] = [
   {
     id: 'faq-5',
     category: 'general',
-    question: 'Where is your Pasadena studio located and do I need an appointment?',
-    answer: 'Our state-of-the-art detailing studio is located at 1420 E Walnut St, Suite 104, Pasadena, CA 91106. Because we allocate dedicated technician hours and temperature-controlled bays for every car, we operate by appointment. You can book directly through our online quote tool or call us at (626) 555-0184.'
+    question: 'Where is your Apex Detail studio located and do I need an appointment?',
+    answer: 'Our state-of-the-art detailing studio is located at 1420 E Walnut St, Suite 104, Apex Detail, CA 91106. Because we allocate dedicated technician hours and temperature-controlled bays for every car, we operate by appointment. You can book directly through our online quote tool or call us at (626) 555-0184.'
   },
   {
     id: 'faq-6',
@@ -439,22 +418,22 @@ export const STYLE_GUIDE_DATA = {
     body: "Plus Jakarta Sans (400 Regular / 500 Medium) for crisp 16px+ baseline readability"
   },
   heroConcept: {
-    headline: "Concourse-Level Precision for Pasadena's Finest Automobiles",
-    subheadline: "Master-certified multi-stage paint correction, 9H/10H ceramic shield protection, and bespoke interior restoration — at our climate-controlled Pasadena studio or via our self-contained mobile unit.",
+    headline: "Concourse-Level Precision for Apex Detail's Finest Automobiles",
+    subheadline: "Master-certified multi-stage paint correction, 9H/10H ceramic shield protection, and bespoke interior restoration — at our climate-controlled Apex Detail studio or via our self-contained mobile unit.",
     primaryCta: "Calculate Instant Quote & Book",
     secondaryCta: "Explore 5-Year Ceramic Packages",
     visualStyle: "Studio spotlighting on a high-gloss supercar, interactive technical spec nodes, dynamic before/after paint clarity slider, and 4.8★ Google verified social proof banner."
   },
   wireframeSections: [
-    { number: "01", name: "Global Header & Live Status Bar", purpose: "Persistent trust signals (4.8★, Pasadena address, instant phone dial, mobile booking trigger)" },
+    { number: "01", name: "Global Header & Live Status Bar", purpose: "Persistent trust signals (4.8★, Apex Detail address, instant phone dial, mobile booking trigger)" },
     { number: "02", name: "Hero Showcase & Technical Spec Nodes", purpose: "Immediate visual impact, value proposition, and instant quote CTA" },
     { number: "03", name: "Interactive Before/After Paint Defect Slider", purpose: "Direct visual proof of swirl elimination vs. mirror ceramic gloss" },
     { number: "04", name: "Core Services Breakdown (5 Pillars)", purpose: "Deep dive into Paint Correction, Ceramic Coating, Interior Deep Clean, Engine Bay, and Mobile Van" },
     { number: "05", name: "Interactive Pricing & Package Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments and Carfax warranty details" },
     { number: "06", name: "Live Quote & Multi-Step Booking Builder", purpose: "High-conversion lead capture and instant estimated quote calculator" },
     { number: "07", name: "Craftsmanship & Studio Standards", purpose: "Deionized water, high-CRI lighting, Rupes polishers, and climate-controlled curing bay" },
-    { number: "08", name: "Verified Customer Reviews (64 Reviews)", purpose: "Social proof with real car models and Pasadena/San Marino local authenticity" },
+    { number: "08", name: "Verified Customer Reviews (64 Reviews)", purpose: "Social proof with real car models and Apex Detail/San Marino local authenticity" },
     { number: "09", name: "Interactive FAQ Accordion", purpose: "Overcoming objections around ceramic longevity, mobile logistics, and PPF compatibility" },
-    { number: "10", name: "Pasadena Studio Map & Direct Contact", purpose: "Physical address, business hours, Google directions, and VIP appointment booking" }
+    { number: "10", name: "Apex Detail Studio Map & Direct Contact", purpose: "Physical address, business hours, Google directions, and VIP appointment booking" }
   ]
 };

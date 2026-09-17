@@ -234,13 +234,13 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 
 ## 3. Hero Section Concept
 - Headline: "Elevate Your Vehicle to Concourse Perfection."
-- Subheadline: "Pasadena’s authority in multi-stage paint correction, certified 9H/10H ceramic coatings, and bespoke interior spa restoration."
+- Subheadline: "Apex Detail’s authority in multi-stage paint correction, certified 9H/10H ceramic coatings, and bespoke interior spa restoration."
 - CTAs: "Calculate Quote & Book" / "Explore Package Pricing"
-- Social Proof: 4.8 Stars (64 Local Reviews) • Pasadena, CA
+- Social Proof: 4.8 Stars (64 Local Reviews) • Apex Detail, CA
 
 ## 4. Business Ingestion
 - Name: Apex Precision Auto Detailing
-- Address: 1420 E Walnut St, Suite 104, Pasadena, CA 91106
+- Address: 1420 E Walnut St, Suite 104, Apex Detail, CA 91106
 - Phone: (626) 555-0184
 - Key Features: 5 Core Disciplines, Mobile Sprinter Unit, Interactive Split Slider, Live Multi-Step Quote Calculator`}
               </pre>
@@ -250,7 +250,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 
         {/* Modal Footer */}
         <div className="p-4 bg-[#121622] border-t border-white/10 flex justify-between items-center">
-          <span className="text-xs font-mono-tech text-slate-400">Pasadena Detailing Web Architecture • Ready for Production</span>
+          <span className="text-xs font-mono-tech text-slate-400">Apex Detail Detailing Web Architecture • Ready for Production</span>
           <button
             onClick={onClose}
             className="px-4 py-2 bg-amber-500 text-black font-bold uppercase text-xs rounded-lg hover:bg-amber-400 transition-colors"

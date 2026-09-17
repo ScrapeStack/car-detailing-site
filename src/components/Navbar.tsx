@@ -83,6 +83,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
               <Phone className="w-3 h-3 text-amber-500" />
               <span>{BUSINESS_INFO.phone}</span>
             </a>
+            <span className="text-slate-700">|</span>
+            <a 
+              id="topbar-whatsapp-link"
+              href={`https://wa.me/1${BUSINESS_INFO.phoneRaw}`} 
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center space-x-1 text-slate-300 hover:text-amber-400 transition-colors"
+            >
+              <span>WhatsApp Booking</span>
+            </a>
           </div>
         </div>
       </div>

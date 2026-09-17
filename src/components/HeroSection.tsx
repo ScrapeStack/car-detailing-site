@@ -91,7 +91,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             }}
           >
             <span className="w-2 h-2 rounded-full bg-amber-400 inline-block animate-pulse"></span>
-            <span className="text-slate-300 font-semibold">Pasadena, CA</span>
+            <span className="text-slate-300 font-semibold">Apex Detail, CA</span>
             <span className="text-slate-600">•</span>
             <span className="text-slate-400">Studio & Mobile Detailing</span>
           </motion.div>
@@ -105,11 +105,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight text-white uppercase leading-[1.03]">
-              LIVE BETTER, <br />
-              LIVE <span className="font-serif-luxury italic font-normal tracking-wide text-slate-200 capitalize">Luxury</span>
+              PASADENA AUTO <br />
+              <span className="font-serif-luxury italic font-normal tracking-wide text-slate-200 capitalize">Detailing</span>
             </h1>
             <p className="text-xs sm:text-sm font-mono-tech uppercase tracking-wider text-amber-400/90 pt-0.5">
-              Precision Paint Correction • Ceramic Coating • Interior Spa
+              Paint Correction • Ceramic Coating • Interior Deep Cleaning
             </p>
           </motion.div>
 
@@ -123,12 +123,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           >
             <div>
               <p>
-                Restore your vehicle’s true showroom shine with deep paint decontamination, swirl scratch removal, and durable ceramic protection.
+                Restore your vehicle’s true showroom shine with expert auto detailing, deep paint correction, and durable ceramic coating protection.
               </p>
             </div>
             <div>
               <p>
-                From meticulous interior deep cleaning to full paint enhancement, enjoy flawless results at our Pasadena studio or right at your driveway.
+                From meticulous interior deep cleaning and steam cleaning to full paint enhancement, enjoy flawless results at our Apex Detail studio or right at your driveway.
               </p>
             </div>
           </motion.div>

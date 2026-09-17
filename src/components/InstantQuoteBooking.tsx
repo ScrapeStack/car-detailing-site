@@ -54,7 +54,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
     const item = ADDONS_DATA.find(a => a.id === addonId);
     return acc + (item ? item.price : 0);
   }, 0);
-  const mobileConvenienceFee = formData.serviceMode === 'mobile' ? 0 : 0; // complimentary mobile dispatch within Pasadena
+  const mobileConvenienceFee = formData.serviceMode === 'mobile' ? 0 : 0; // complimentary mobile dispatch within Apex Detail
   const grandTotal = basePackagePrice + addOnsTotal + mobileConvenienceFee;
 
   const toggleAddOn = (addonId: string) => {
@@ -251,7 +251,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                   >
                     <div className="flex items-center space-x-2">
                       <MapPin className="w-4 h-4 text-amber-400" />
-                      <span className="font-bold text-xs text-white">Pasadena Studio Bay</span>
+                      <span className="font-bold text-xs text-white">Apex Detail Studio Bay</span>
                     </div>
                     <p className="text-[11px] text-slate-400 mt-1">
                       1420 E Walnut St (Climate-controlled infrared curing bays)
@@ -279,11 +279,11 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
 
                 {formData.serviceMode === 'mobile' && (
                   <div className="mb-4">
-                    <label className="text-xs text-slate-300 font-mono-tech block mb-1">Your Mobile Service Address in Pasadena / Greater LA:</label>
+                    <label className="text-xs text-slate-300 font-mono-tech block mb-1">Your Mobile Service Address in Apex Detail / Greater LA:</label>
                     <input
                       type="text"
                       id="booking-address-input"
-                      placeholder="e.g. 1200 S Orange Grove Blvd, Pasadena, CA 91105"
+                      placeholder="e.g. 1200 S Orange Grove Blvd, Apex Detail, CA 91105"
                       value={formData.mobileAddress}
                       onChange={(e) => setFormData(prev => ({ ...prev, mobileAddress: e.target.value }))}
                       className="w-full bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
@@ -432,7 +432,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
 
                 <div className="flex justify-between text-slate-300 pt-2 border-t border-white/5">
                   <span className="text-slate-400 font-mono-tech">Location Mode:</span>
-                  <span className="font-bold text-white capitalize">{formData.serviceMode === 'studio' ? 'Pasadena Studio Bay' : 'Mobile Unit (Pasadena Area)'}</span>
+                  <span className="font-bold text-white capitalize">{formData.serviceMode === 'studio' ? 'Apex Detail Studio Bay' : 'Mobile Unit (Apex Detail Area)'}</span>
                 </div>
 
                 <div className="flex justify-between text-slate-300">
@@ -497,14 +497,14 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
               <span className="text-xs font-mono-tech uppercase text-amber-400 font-bold">Booking Request Confirmed</span>
               <h3 className="text-2xl font-display font-black text-white">You're Scheduled for Perfection!</h3>
               <p className="text-xs text-slate-300">
-                Thank you <strong className="text-white">{formData.fullName}</strong>. Our Pasadena concierge team has received your appointment request for your <strong className="text-white">{formData.vehicleYearMakeModel || selectedVehicleObj.name}</strong>.
+                Thank you <strong className="text-white">{formData.fullName}</strong>. Our Apex Detail concierge team has received your appointment request for your <strong className="text-white">{formData.vehicleYearMakeModel || selectedVehicleObj.name}</strong>.
               </p>
             </div>
 
             <div className="bg-[#090b10] border border-white/10 rounded-xl p-4 text-xs text-left space-y-2 font-mono-tech">
               <div className="flex justify-between"><span className="text-slate-400">Confirmation Code:</span><span className="text-amber-400 font-bold">{confirmationCode}</span></div>
               <div className="flex justify-between"><span className="text-slate-400">Package:</span><span className="text-white">{selectedPackageObj.name}</span></div>
-              <div className="flex justify-between"><span className="text-slate-400">Service Mode:</span><span className="text-white">{formData.serviceMode === 'studio' ? 'Pasadena Studio' : 'Mobile Unit'}</span></div>
+              <div className="flex justify-between"><span className="text-slate-400">Service Mode:</span><span className="text-white">{formData.serviceMode === 'studio' ? 'Apex Detail Studio' : 'Mobile Unit'}</span></div>
               <div className="flex justify-between"><span className="text-slate-400">Estimated Total:</span><span className="text-emerald-400 font-bold">${grandTotal}</span></div>
               <div className="flex justify-between"><span className="text-slate-400">Date & Slot:</span><span className="text-white">{formData.preferredDate || 'Earliest Available'} ({formData.preferredTime})</span></div>
             </div>

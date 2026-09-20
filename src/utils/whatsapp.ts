@@ -34,32 +34,27 @@ export function getTelLink(): string {
 }
 
 /**
- * Constructs a structured WhatsApp reservation message and triggers redirect
+ * Constructs a structured WhatsApp reservation message with clean %0A line break encoding and triggers redirect
  */
-export function sendWhatsAppBooking(bookingData: WhatsAppBookingData): string {
-  const cleanPhone = getCleanOwnerPhone();
+export function sendWhatsAppBooking(bookingData: any): string {
+  const cleanPhone = BUSINESS_CONFIG.ownerPhone.replace(/\D/g, '');
+  
+  const lines = [
+    `*New Booking Request - ${BUSINESS_CONFIG.businessName}*`,
+    '',
+    `*Vehicle:* ${bookingData.vehicleType}`,
+    `*Service:* ${bookingData.serviceName}`,
+    `*Add-ons:* ${bookingData.addOns.join(', ') || 'None'}`,
+    `*Estimated Total:* ${BUSINESS_CONFIG.currency}${bookingData.totalPrice}`,
+    '',
+    `*Client Name:* ${bookingData.clientName}`,
+    `*Client Phone:* ${bookingData.clientPhone}`,
+    `*Preferred Date/Time:* ${bookingData.preferredTime || 'ASAP'}`
+  ];
 
-  const message =
-    "👋 *New Booking Request - " + BUSINESS_CONFIG.businessName + "*\n\n" +
-    "🚗 *Vehicle:* " + bookingData.vehicleType + "\n" +
-    "✨ *Service:* " + bookingData.serviceName + "\n" +
-    "🛠️ *Add-ons:* " + (bookingData.addOns.join(", ") || "None") + "\n" +
-    "💰 *Estimated Total:* " + BUSINESS_CONFIG.currency + bookingData.totalPrice + "\n\n" +
-    "👤 *Client Name:* " + bookingData.clientName + "\n" +
-    "📞 *Client Phone:* " + bookingData.clientPhone + "\n" +
-    "📅 *Preferred Date/Time:* " + (bookingData.preferredTime || "ASAP");
-
-  const encodedMsg = encodeURIComponent(message);
-  const targetUrl = `https://wa.me/${cleanPhone}?text=${encodedMsg}`;
-
-  try {
-    const newWindow = window.open(targetUrl, '_blank');
-    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-      window.location.href = targetUrl;
-    }
-  } catch {
-    window.location.href = targetUrl;
-  }
-
+  const formattedText = lines.map(line => encodeURIComponent(line)).join('%0A');
+  const targetUrl = `https://wa.me/${cleanPhone}?text=${formattedText}`;
+  
+  window.open(targetUrl, '_blank');
   return targetUrl;
 }

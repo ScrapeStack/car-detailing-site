@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Copy, Check, Palette, Type, Layout, Sparkles, Code2, BookOpen } from 'lucide-react';
 import { STYLE_GUIDE_DATA } from '../data/businessData';
+import { BUSINESS_CONFIG } from '../config';
 
 interface StyleGuideModalProps {
   isOpen: boolean;
@@ -30,7 +31,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
             </div>
             <div>
               <h3 className="text-base sm:text-lg font-display font-black text-white">
-                Apex Precision • Design System & Concept Blueprint
+                {BUSINESS_CONFIG.businessName} • Design System & Concept Blueprint
               </h3>
               <p className="text-xs text-slate-400 font-mono-tech">
                 Synthesized from reference inspiration & local business requirements
@@ -218,7 +219,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
           {activeTab === 'raw' && (
             <div className="relative">
               <pre className="p-4 bg-[#090b10] border border-white/10 rounded-xl font-mono-tech text-[11px] text-slate-300 overflow-x-auto whitespace-pre-wrap">
-{`# Apex Precision Auto Detailing - Design Concept & Visual Style Guide
+{`# ${BUSINESS_CONFIG.businessName} - Design Concept & Visual Style Guide
 
 ## 1. Visual Style Guide
 - Primary Background: #090B10 (Obsidian Carbon)
@@ -234,14 +235,14 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 
 ## 3. Hero Section Concept
 - Headline: "Elevate Your Vehicle to Concourse Perfection."
-- Subheadline: "Apex Detail’s authority in multi-stage paint correction, certified 9H/10H ceramic coatings, and bespoke interior spa restoration."
+- Subheadline: "${BUSINESS_CONFIG.location}’s authority in multi-stage paint correction, certified 9H/10H ceramic coatings, and bespoke interior spa restoration."
 - CTAs: "Calculate Quote & Book" / "Explore Package Pricing"
-- Social Proof: 4.8 Stars (64 Local Reviews) • Apex Detail, CA
+- Social Proof: 4.8 Stars (64 Local Reviews) • ${BUSINESS_CONFIG.location}
 
 ## 4. Business Ingestion
-- Name: Apex Precision Auto Detailing
-- Address: 1420 E Walnut St, Suite 104, Apex Detail, CA 91106
-- Phone: (626) 555-0184
+- Name: ${BUSINESS_CONFIG.businessName}
+- Address: 1420 E Walnut St, Suite 104, ${BUSINESS_CONFIG.location} 91106
+- Phone: +${BUSINESS_CONFIG.ownerPhone}
 - Key Features: 5 Core Disciplines, Mobile Sprinter Unit, Interactive Split Slider, Live Multi-Step Quote Calculator`}
               </pre>
             </div>
@@ -250,7 +251,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 
         {/* Modal Footer */}
         <div className="p-4 bg-[#121622] border-t border-white/10 flex justify-between items-center">
-          <span className="text-xs font-mono-tech text-slate-400">Apex Detail Detailing Web Architecture • Ready for Production</span>
+          <span className="text-xs font-mono-tech text-slate-400">{BUSINESS_CONFIG.businessName} Web Architecture • Ready for Production</span>
           <button
             onClick={onClose}
             className="px-4 py-2 bg-amber-500 text-black font-bold uppercase text-xs rounded-lg hover:bg-amber-400 transition-colors"

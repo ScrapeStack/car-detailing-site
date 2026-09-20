@@ -1,6 +1,8 @@
 import React from 'react';
 import { Sparkles, Phone, MapPin, Star, Shield, ArrowUp, BookOpen, Heart } from 'lucide-react';
 import { BUSINESS_INFO, SERVICES_DATA } from '../data/businessData';
+import { BUSINESS_CONFIG } from '../config';
+import { getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
 
 interface FooterProps {
   onOpenStyleGuide: () => void;
@@ -20,7 +22,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           <div className="space-y-1 text-center sm:text-left">
             <span className="text-amber-400 font-mono-tech uppercase text-[11px] font-bold">Ready to Experience Flawless Reflections?</span>
             <div className="text-xl sm:text-2xl font-display font-black text-white">
-              Reserve Your Apex Detail Detailing Bay or Mobile Visit
+              Reserve Your {BUSINESS_CONFIG.location} Detailing Bay or Mobile Visit
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-3">
@@ -33,11 +35,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
             </button>
             <a
               id="footer-call-btn"
-              href={`tel:${BUSINESS_INFO.phoneRaw}`}
+              href={getTelLink()}
               className="px-5 py-3 bg-white/5 hover:bg-white/10 text-white font-semibold text-xs rounded-xl border border-white/10 transition-all flex items-center space-x-1.5"
             >
               <Phone className="w-3.5 h-3.5 text-amber-400" />
-              <span>{BUSINESS_INFO.phone}</span>
+              <span>{getDisplayOwnerPhone()}</span>
             </a>
           </div>
         </div>
@@ -53,17 +55,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
                 <Sparkles className="w-5 h-5" />
               </div>
               <span className="font-display font-black text-lg text-white tracking-tight">
-                {BUSINESS_INFO.name}
+                {BUSINESS_CONFIG.businessName}
               </span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              Apex Detail’s certified luxury automotive detailing studio & mobile unit. We specialize in multi-stage paint correction, 9H/10H ceramic coatings, dry steam interior restoration, and engine bay detailing.
+              {BUSINESS_CONFIG.location}’s certified luxury automotive detailing studio & mobile unit. We specialize in multi-stage paint correction, 9H/10H ceramic coatings, dry steam interior restoration, and engine bay detailing.
             </p>
             <div className="flex items-center space-x-2 text-amber-400 font-mono-tech text-xs">
               <Star className="w-4 h-4 fill-amber-400" />
               <span className="font-bold">{BUSINESS_INFO.rating} / 5.0 Star Rating</span>
               <span className="text-slate-500">•</span>
-              <span className="text-slate-400">{BUSINESS_INFO.reviewCount} Apex Detail Client Reviews</span>
+              <span className="text-slate-400">{BUSINESS_INFO.reviewCount} {BUSINESS_CONFIG.location} Client Reviews</span>
             </div>
             <div className="pt-2">
               <button
@@ -111,21 +113,21 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           {/* Studio Location & Service Coverage */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              Apex Detail Studio
+              {BUSINESS_CONFIG.location} Studio
             </span>
             <div className="space-y-2 text-slate-400">
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                <span>{BUSINESS_INFO.address}</span>
+                <span>1420 E Walnut St, Suite 104, {BUSINESS_CONFIG.location} 91106</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-amber-500 shrink-0" />
-                <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-slate-300 hover:text-amber-400">
-                  {BUSINESS_INFO.phone}
+                <a href={getTelLink()} className="text-slate-300 hover:text-amber-400">
+                  {getDisplayOwnerPhone()}
                 </a>
               </div>
               <div className="text-[11px] text-slate-500 font-mono-tech pt-2">
-                Serving: Apex Detail, San Marino, Arcadia, South Apex Detail, Glendale, La Cañada.
+                Serving: Pasadena, San Marino, Arcadia, South Pasadena, Glendale, La Cañada.
               </div>
             </div>
           </div>
@@ -134,7 +136,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
         {/* Bottom Copyright & Back to Top */}
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
           <div>
-            © {new Date().getFullYear()} {BUSINESS_INFO.name}. All rights reserved. Registered IDA Certified Auto Detailer.
+            © {new Date().getFullYear()} {BUSINESS_CONFIG.businessName}. All rights reserved. Registered IDA Certified Auto Detailer.
           </div>
           <button
             onClick={scrollToTop}
@@ -148,3 +150,4 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
     </footer>
   );
 };
+

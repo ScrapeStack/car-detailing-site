@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Shield, Sparkles, Check, ArrowRight, Star, Clock, Award, ChevronRight } from 'lucide-react';
 import { PACKAGES_DATA, VEHICLE_OPTIONS } from '../data/businessData';
+import { BUSINESS_CONFIG } from '../config';
 import { VehicleType } from '../types';
 
 interface PricingPackagesProps {
@@ -84,7 +85,7 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
                 {/* Top Badge */}
                 {pkg.bestValue && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-black uppercase text-[10px] tracking-widest px-4 py-1 rounded-full shadow-lg">
-                    ★ MOST POPULAR IN PASADENA
+                    ★ MOST POPULAR IN {BUSINESS_CONFIG.location.toUpperCase()}
                   </div>
                 )}
                 {pkg.popular && !pkg.bestValue && (
@@ -111,11 +112,11 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
                   <div className="mb-6 p-4 bg-[#090b10] rounded-xl border border-white/5">
                     <div className="flex items-baseline space-x-2">
                       <span className="text-3xl sm:text-4xl font-display font-black text-white">
-                        ${finalPrice}
+                        {BUSINESS_CONFIG.currency}{finalPrice}
                       </span>
                       {originalFinal && (
                         <span className="text-xs text-slate-500 line-through font-mono-tech">
-                          ${originalFinal}
+                          {BUSINESS_CONFIG.currency}{originalFinal}
                         </span>
                       )}
                     </div>

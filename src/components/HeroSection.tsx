@@ -2,6 +2,8 @@ import React from 'react';
 import { ChevronRight, PhoneCall, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { BUSINESS_INFO } from '../data/businessData';
+import { BUSINESS_CONFIG } from '../config';
+import { getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
 import heroSupercarImg from '../assets/images/luxury_hero_supercar_1787212586636.jpg';
 
 interface HeroSectionProps {
@@ -13,55 +15,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
   return (
     <section className="relative overflow-hidden bg-[#07090e] text-white min-h-[76vh] md:min-h-[82vh] flex flex-col justify-between select-none">
       
-      {/* BACKGROUND SUPERCAR IMAGE WITH LUXURY AMBIENT CINEMATIC MOTION */}
+      {/* BACKGROUND SUPERCAR IMAGE WITH LUXURY AMBIENT CINEMATIC DISPLAY */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         
-        {/* The Full Car View - Slow luxury zoom & subtle drift */}
+        {/* Full Car View - Seamless full-bleed container with zero hard edges */}
         <motion.div 
-          className="absolute inset-0 flex justify-end items-center"
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          <div className="w-full lg:w-[66%] xl:w-[60%] h-full relative flex items-center justify-end">
-            <motion.img
-              src={heroSupercarImg}
-              alt="Apex Precision Luxury Supercar Detailing"
-              className="w-full h-full object-cover object-[65%_center] lg:object-right opacity-65 sm:opacity-80 lg:opacity-95"
-              referrerPolicy="no-referrer"
-              animate={{ 
-                scale: [1, 1.02, 1],
-              }}
-              transition={{ 
-                duration: 18, 
-                repeat: Infinity, 
-                repeatType: "reverse", 
-                ease: "easeInOut" 
-              }}
-            />
-
-            {/* Glowing Accent with subtle breathing pulse */}
-            <motion.div 
-              className="hidden lg:block absolute top-[45%] right-[25%] w-48 h-1 bg-amber-500/40 blur-[4px] rounded-full"
-              animate={{ opacity: [0.35, 0.8, 0.35], scaleX: [0.9, 1.1, 0.9] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            />
-
-            {/* Left Edge Seamless Feather Blend into Dark Canvas */}
-            <div className="absolute inset-y-0 left-0 w-36 sm:w-64 bg-gradient-to-r from-[#07090e] via-[#07090e]/90 to-transparent"></div>
-          </div>
+          <img
+            src={heroSupercarImg}
+            alt="Apex Precision Luxury Supercar Detailing"
+            className="w-full h-full object-cover object-[70%_center] lg:object-right opacity-65 sm:opacity-80 lg:opacity-95"
+            referrerPolicy="no-referrer"
+          />
         </motion.div>
 
-        {/* Global Dark Radial & Linear Overlays for Crisp Text Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07090e] via-[#07090e]/90 to-transparent sm:w-[65%] lg:w-[50%]"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-[#07090e]/30"></div>
+        {/* Global Dark Radial & Linear Seamless Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07090e] via-[#07090e]/95 via-35% sm:via-45% to-transparent w-full h-full"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-[#07090e]/30 w-full h-full"></div>
         
         {/* Subtle Ambient Golden Glow */}
-        <motion.div 
-          className="absolute top-1/4 left-10 w-96 h-96 bg-amber-500/[0.03] rounded-full blur-3xl"
-          animate={{ opacity: [0.02, 0.06, 0.02], scale: [0.95, 1.08, 0.95] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
+        <div className="absolute top-1/4 left-10 w-96 h-96 bg-amber-500/[0.03] rounded-full blur-3xl pointer-events-none" />
       </div>
 
       {/* Main Hero Content - Staggered Luxury Entrance */}
@@ -91,7 +68,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             }}
           >
             <span className="w-2 h-2 rounded-full bg-amber-400 inline-block animate-pulse"></span>
-            <span className="text-slate-300 font-semibold">Apex Detail, CA</span>
+            <span className="text-slate-300 font-semibold">{BUSINESS_CONFIG.location}</span>
             <span className="text-slate-600">•</span>
             <span className="text-slate-400">Studio & Mobile Detailing</span>
           </motion.div>
@@ -128,7 +105,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             </div>
             <div>
               <p>
-                From meticulous interior deep cleaning and steam cleaning to full paint enhancement, enjoy flawless results at our Apex Detail studio or right at your driveway.
+                From meticulous interior deep cleaning and steam cleaning to full paint enhancement, enjoy flawless results at our {BUSINESS_CONFIG.location} studio or right at your driveway.
               </p>
             </div>
           </motion.div>
@@ -167,12 +144,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
 
             <motion.a
               id="hero-phone-direct-btn"
-              href={`tel:${BUSINESS_INFO.phoneRaw}`}
+              href={getTelLink()}
               whileHover={{ x: 2 }}
               className="px-2 py-3.5 text-xs text-slate-400 hover:text-amber-400 transition-colors flex items-center space-x-1.5 cursor-pointer"
             >
               <PhoneCall className="w-3.5 h-3.5 text-amber-500" />
-              <span className="font-mono-tech">{BUSINESS_INFO.phone}</span>
+              <span className="font-mono-tech">{getDisplayOwnerPhone()}</span>
             </motion.a>
           </motion.div>
 

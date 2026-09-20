@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Navigation, Send, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessData';
+import { BUSINESS_CONFIG } from '../config';
+import { getCleanOwnerPhone, getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
 
 export const LocationContactSection: React.FC = () => {
   const [inquirySent, setInquirySent] = useState(false);
@@ -23,13 +25,13 @@ export const LocationContactSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono-tech text-amber-400 mb-3">
             <MapPin className="w-3.5 h-3.5" />
-            <span>Apex Detail Facility & Service Hub</span>
+            <span>{BUSINESS_CONFIG.businessName} Facility & Service Hub</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-            Visit Our Apex Detail Studio or Call For Mobile Dispatch
+            Visit Our {BUSINESS_CONFIG.location} Studio or Call For Mobile Dispatch
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Conveniently situated off Walnut Street near Old Apex Detail and Colorado Boulevard with secure customer parking.
+            Conveniently situated off Walnut Street near Old Pasadena and Colorado Boulevard with secure customer parking.
           </p>
         </div>
 
@@ -41,7 +43,7 @@ export const LocationContactSection: React.FC = () => {
               <div>
                 <span className="text-xs font-mono-tech uppercase text-amber-400 font-bold">Studio Headquarters</span>
                 <h3 className="text-2xl font-display font-black text-white mt-1">
-                  {BUSINESS_INFO.name}
+                  {BUSINESS_CONFIG.businessName}
                 </h3>
               </div>
 
@@ -53,7 +55,7 @@ export const LocationContactSection: React.FC = () => {
                   </div>
                   <div>
                     <strong className="text-white block font-medium">Studio Address:</strong>
-                    <span>{BUSINESS_INFO.address}</span>
+                    <span>1420 E Walnut St, Suite 104, {BUSINESS_CONFIG.location} 91106</span>
                     <div className="text-[11px] text-slate-400 mt-0.5 font-mono-tech">Suite 104 (Rear Studio Entrance & Curing Bays)</div>
                   </div>
                 </div>
@@ -64,8 +66,8 @@ export const LocationContactSection: React.FC = () => {
                   </div>
                   <div>
                     <strong className="text-white block font-medium">Phone, SMS, & WhatsApp Booking:</strong>
-                    <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-amber-400 font-bold hover:underline">
-                      {BUSINESS_INFO.phone}
+                    <a href={getTelLink()} className="text-amber-400 font-bold hover:underline">
+                      {getDisplayOwnerPhone()}
                     </a>
                     <div className="text-[11px] text-slate-400 mt-0.5">Direct line to Master Detailer (Call, SMS, or WhatsApp)</div>
                   </div>
@@ -102,21 +104,21 @@ export const LocationContactSection: React.FC = () => {
             {/* Quick Action Bar */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-white/10">
               <a
-                href={`tel:${BUSINESS_INFO.phoneRaw}`}
+                href={getTelLink()}
                 className="py-3 px-4 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase text-xs rounded-xl flex items-center justify-center space-x-2 transition-colors text-center"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>Call Directly</span>
               </a>
               <a
-                href={`https://wa.me/1${BUSINESS_INFO.phoneRaw}`}
+                href={`https://wa.me/${getCleanOwnerPhone()}`}
                 target="_blank" rel="noopener noreferrer"
                 className="py-3 px-4 bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/50 text-white font-bold uppercase text-xs rounded-xl flex items-center justify-center space-x-2 transition-colors text-center"
               >
                 <span>WhatsApp Us</span>
               </a>
               <a
-                href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_INFO.name + ' ' + BUSINESS_INFO.address)}`}
+                href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + ' 1420 E Walnut St, Suite 104, ' + BUSINESS_CONFIG.location)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="py-3 px-4 bg-white/10 hover:bg-white/20 text-white font-bold uppercase text-xs rounded-xl flex items-center justify-center space-x-2 transition-colors text-center"
@@ -142,7 +144,7 @@ export const LocationContactSection: React.FC = () => {
                 <div className="w-96 h-96 rounded-full border border-white/5 absolute"></div>
               </div>
 
-              {/* Apex Detail Map Marker Center */}
+              {/* Location Map Marker Center */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10">
                 <div className="relative inline-block">
                   <div className="w-12 h-12 rounded-full bg-amber-500 text-black flex items-center justify-center shadow-2xl animate-bounce mx-auto">
@@ -151,18 +153,18 @@ export const LocationContactSection: React.FC = () => {
                   <div className="w-8 h-2 rounded-full bg-amber-500/30 blur-sm mx-auto mt-1"></div>
                 </div>
                 <div className="bg-[#090b10]/95 backdrop-blur-md border border-amber-500/40 px-3.5 py-1.5 rounded-lg text-xs font-bold text-white mt-1 shadow-xl font-mono-tech">
-                  Apex Precision • 1420 E Walnut St
+                  {BUSINESS_CONFIG.businessName} • 1420 E Walnut St
                 </div>
               </div>
 
               {/* Floating Map Navigation Badge */}
               <div className="absolute top-3 left-3 bg-[#090b10]/90 backdrop-blur-md border border-white/10 px-3 py-1 rounded-md text-[10px] font-mono-tech text-slate-300">
-                Apex Detail, CA 91106
+                {BUSINESS_CONFIG.location} 91106
               </div>
 
               <div className="absolute bottom-3 right-3">
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_INFO.name + ' ' + BUSINESS_INFO.address)}`}
+                  href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + ' 1420 E Walnut St, Suite 104, ' + BUSINESS_CONFIG.location)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="bg-black/90 hover:bg-black text-amber-400 border border-white/15 px-3 py-1.5 rounded-lg text-xs font-bold font-mono-tech flex items-center space-x-1.5 transition-colors"
@@ -228,7 +230,7 @@ export const LocationContactSection: React.FC = () => {
                   </div>
                   <h4 className="text-lg font-bold text-white">Message Received!</h4>
                   <p className="text-xs text-slate-300 max-w-sm mx-auto">
-                    Thank you {inquiryData.name}. Our master detailer in Apex Detail will contact you at {inquiryData.phone} shortly.
+                    Thank you {inquiryData.name}. Our master detailer in {BUSINESS_CONFIG.location} will contact you at {inquiryData.phone} shortly.
                   </p>
                   <button
                     onClick={() => {

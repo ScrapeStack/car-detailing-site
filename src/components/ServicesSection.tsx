@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, Shield, Droplets, Wrench, Truck, Check, ArrowRight, Clock, DollarSign, Layers } from 'lucide-react';
 import { SERVICES_DATA } from '../data/businessData';
+import { BUSINESS_CONFIG } from '../config';
 import { ServiceDetail } from '../types';
 
 interface ServicesSectionProps {
@@ -43,7 +44,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             </h2>
           </div>
           <p className="text-slate-400 text-sm max-w-md">
-            Every vehicle in our Apex Detail facility receives clinical grade attention, tailored chemical balances, and certified ceramic installation.
+            Every vehicle in our {BUSINESS_CONFIG.location} facility receives clinical grade attention, tailored chemical balances, and certified ceramic installation.
           </p>
         </div>
 
@@ -73,7 +74,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                   {service.title.split('&')[0]}
                 </div>
                 <div className="text-[11px] text-slate-400 font-mono-tech flex items-center justify-between">
-                  <span>From ${service.startingPrice}</span>
+                  <span>From {BUSINESS_CONFIG.currency}{service.startingPrice}</span>
                   {service.popular && (
                     <span className="text-amber-400 text-[10px] font-bold">★ POPULAR</span>
                   )}
@@ -98,7 +99,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 </span>
                 <span className="flex items-center text-xs text-emerald-400 font-mono-tech gap-1 font-semibold">
                   <DollarSign className="w-3.5 h-3.5" />
-                  Starting at ${currentService.startingPrice}
+                  Starting at {BUSINESS_CONFIG.currency}{currentService.startingPrice}
                 </span>
               </div>
 
@@ -170,7 +171,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 {/* Overlay Badge */}
                 <div className="absolute bottom-4 left-4 right-4 bg-[#090b10]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/15">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-mono-tech text-amber-400 font-semibold uppercase">Apex Detail Studio Standard</span>
+                    <span className="font-mono-tech text-amber-400 font-semibold uppercase">{BUSINESS_CONFIG.location} Studio Standard</span>
                     <span className="text-slate-400">IDA Certified</span>
                   </div>
                   <div className="text-xs text-slate-300 font-medium mt-1">

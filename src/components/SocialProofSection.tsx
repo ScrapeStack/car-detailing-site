@@ -1,6 +1,7 @@
 import React from 'react';
 import { Star, CheckCircle } from 'lucide-react';
 import { REVIEWS_DATA, BUSINESS_INFO } from '../data/businessData';
+import { BUSINESS_CONFIG } from '../config';
 
 export const SocialProofSection: React.FC = () => {
   // Select 3 top verified reviews for a balanced single-row desktop layout and concise mobile stack
@@ -17,7 +18,7 @@ export const SocialProofSection: React.FC = () => {
               Verified Client Reviews
             </p>
             <h2 className="text-2xl sm:text-3xl font-black text-white uppercase font-heading tracking-tight">
-              Trusted by Apex Detail’s Drivers
+              Trusted by {BUSINESS_CONFIG.location}’s Drivers
             </h2>
           </div>
 

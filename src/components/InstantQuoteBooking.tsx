@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Calculator, Calendar, Clock, MapPin, Shield, Sparkles, CheckCircle2, User, Mail, Phone, Car, AlertCircle, ArrowRight } from 'lucide-react';
+import { Calculator, Calendar, Clock, MapPin, Shield, Sparkles, CheckCircle2, User, Mail, Phone, Car, AlertCircle, ArrowRight, MessageSquare, Loader2 } from 'lucide-react';
 import { VEHICLE_OPTIONS, PACKAGES_DATA, SERVICES_DATA, ADDONS_DATA, BUSINESS_INFO } from '../data/businessData';
+import { BUSINESS_CONFIG } from '../config';
+import { sendWhatsAppBooking, getCleanOwnerPhone, getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
 import { VehicleType, BookingFormData } from '../types';
 
 interface InstantQuoteBookingProps {
@@ -54,7 +56,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
     const item = ADDONS_DATA.find(a => a.id === addonId);
     return acc + (item ? item.price : 0);
   }, 0);
-  const mobileConvenienceFee = formData.serviceMode === 'mobile' ? 0 : 0; // complimentary mobile dispatch within Apex Detail
+  const mobileConvenienceFee = formData.serviceMode === 'mobile' ? 0 : 0; // complimentary mobile dispatch within Pasadena
   const grandTotal = basePackagePrice + addOnsTotal + mobileConvenienceFee;
 
   const toggleAddOn = (addonId: string) => {
@@ -68,15 +70,46 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
     });
   };
 
+  const [whatsAppUrl, setWhatsAppUrl] = useState<string>('');
+  const [isRedirecting, setIsRedirecting] = useState<boolean>(false);
+
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName || !formData.phone) {
-      alert('Please enter your name and phone number to reserve your spot.');
       return;
     }
     const code = `APEX-${Math.floor(100000 + Math.random() * 900000)}`;
     setConfirmationCode(code);
     setBookingConfirmed(true);
+    setIsRedirecting(true);
+
+    const vehicleType = formData.vehicleYearMakeModel 
+      ? `${formData.vehicleYearMakeModel} (${selectedVehicleObj.name})`
+      : selectedVehicleObj.name;
+
+    const addOnsList = formData.selectedAddOns
+      .map(id => ADDONS_DATA.find(a => a.id === id)?.name)
+      .filter((name): name is string => Boolean(name));
+
+    const preferredTimeStr = formData.preferredDate 
+      ? `${formData.preferredDate} (${formData.preferredTime})` 
+      : formData.preferredTime;
+
+    const targetUrl = sendWhatsAppBooking({
+      vehicleType,
+      serviceName: selectedPackageObj.name,
+      addOns: addOnsList,
+      totalPrice: grandTotal,
+      clientName: formData.fullName,
+      clientPhone: formData.phone,
+      preferredTime: preferredTimeStr || 'ASAP'
+    });
+
+    setWhatsAppUrl(targetUrl);
+
+    setTimeout(() => {
+      setIsRedirecting(false);
+    }, 3500);
   };
 
   return (
@@ -251,7 +284,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                   >
                     <div className="flex items-center space-x-2">
                       <MapPin className="w-4 h-4 text-amber-400" />
-                      <span className="font-bold text-xs text-white">Apex Detail Studio Bay</span>
+                      <span className="font-bold text-xs text-white">{BUSINESS_CONFIG.location} Studio Bay</span>
                     </div>
                     <p className="text-[11px] text-slate-400 mt-1">
                       1420 E Walnut St (Climate-controlled infrared curing bays)
@@ -279,11 +312,11 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
 
                 {formData.serviceMode === 'mobile' && (
                   <div className="mb-4">
-                    <label className="text-xs text-slate-300 font-mono-tech block mb-1">Your Mobile Service Address in Apex Detail / Greater LA:</label>
+                    <label className="text-xs text-slate-300 font-mono-tech block mb-1">Your Mobile Service Address in {BUSINESS_CONFIG.location} / Greater LA:</label>
                     <input
                       type="text"
                       id="booking-address-input"
-                      placeholder="e.g. 1200 S Orange Grove Blvd, Apex Detail, CA 91105"
+                      placeholder={`e.g. 1200 S Orange Grove Blvd, ${BUSINESS_CONFIG.location} 91105`}
                       value={formData.mobileAddress}
                       onChange={(e) => setFormData(prev => ({ ...prev, mobileAddress: e.target.value }))}
                       className="w-full bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
@@ -378,11 +411,28 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
               <button
                 id="booking-submit-final-btn"
                 type="submit"
-                className="w-full py-4 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-black font-black uppercase tracking-wider text-sm rounded-xl shadow-xl shadow-amber-500/25 flex items-center justify-center space-x-2 transition-all cursor-pointer"
+                disabled={isRedirecting}
+                className="w-full py-4 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 disabled:opacity-80 text-black font-black uppercase tracking-wider text-sm rounded-xl shadow-xl shadow-amber-500/25 flex items-center justify-center space-x-2 transition-all cursor-pointer"
               >
-                <span>Reserve Appointment & Lock In Quote (${grandTotal})</span>
-                <ArrowRight className="w-4 h-4" />
+                {isRedirecting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 text-black animate-spin" />
+                    <span>Redirecting to WhatsApp...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Reserve Appointment & Lock In Quote ({BUSINESS_CONFIG.currency}{grandTotal})</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
               </button>
+
+              {isRedirecting && (
+                <div className="p-3 bg-emerald-500/15 border border-emerald-500/30 rounded-xl text-xs text-emerald-300 flex items-center justify-center space-x-2 animate-pulse font-mono-tech">
+                  <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Redirecting to WhatsApp with your reservation details...</span>
+                </div>
+              )}
             </form>
           </div>
 
@@ -392,7 +442,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <span className="font-display font-bold text-white text-base">Live Quote Summary</span>
                 <span className="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-1 rounded font-mono-tech font-bold">
-                  PASADENA RATES
+                  {BUSINESS_CONFIG.location.toUpperCase()} RATES
                 </span>
               </div>
 
@@ -410,7 +460,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
 
                 <div className="flex justify-between text-slate-300">
                   <span className="text-slate-400 font-mono-tech">Base Package:</span>
-                  <span className="font-mono-tech font-semibold">${basePackagePrice}</span>
+                  <span className="font-mono-tech font-semibold">{BUSINESS_CONFIG.currency}{basePackagePrice}</span>
                 </div>
 
                 {/* Add-ons list */}
@@ -423,7 +473,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                       return (
                         <div key={addId} className="flex justify-between text-[11px] text-slate-300">
                           <span className="truncate pr-2">• {addon.name}</span>
-                          <span className="font-mono-tech text-amber-400">+${addon.price}</span>
+                          <span className="font-mono-tech text-amber-400">+{BUSINESS_CONFIG.currency}{addon.price}</span>
                         </div>
                       );
                     })}
@@ -432,7 +482,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
 
                 <div className="flex justify-between text-slate-300 pt-2 border-t border-white/5">
                   <span className="text-slate-400 font-mono-tech">Location Mode:</span>
-                  <span className="font-bold text-white capitalize">{formData.serviceMode === 'studio' ? 'Apex Detail Studio Bay' : 'Mobile Unit (Apex Detail Area)'}</span>
+                  <span className="font-bold text-white capitalize">{formData.serviceMode === 'studio' ? `${BUSINESS_CONFIG.location} Studio Bay` : `Mobile Unit (${BUSINESS_CONFIG.location} Area)`}</span>
                 </div>
 
                 <div className="flex justify-between text-slate-300">
@@ -450,7 +500,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
               <div className="bg-[#090b10] p-4 rounded-xl border border-white/10 space-y-1">
                 <div className="text-[11px] text-slate-400 font-mono-tech uppercase">Estimated Total Cost:</div>
                 <div className="text-3xl font-display font-black text-amber-400 flex items-baseline justify-between">
-                  <span>${grandTotal}</span>
+                  <span>{BUSINESS_CONFIG.currency}{grandTotal}</span>
                   <span className="text-[10px] text-slate-500 font-mono-tech font-normal">All Taxes & Chemicals Included</span>
                 </div>
               </div>
@@ -476,8 +526,8 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
             <div className="bg-[#0f131d] border border-white/10 rounded-xl p-4 text-xs text-center space-y-1">
               <span className="text-slate-400 font-mono-tech">Prefer to talk with our Master Detailer?</span>
               <div>
-                <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-amber-400 font-bold text-sm hover:underline">
-                  {BUSINESS_INFO.phone}
+                <a href={getTelLink()} className="text-amber-400 font-bold text-sm hover:underline">
+                  {getDisplayOwnerPhone()}
                 </a>
               </div>
             </div>
@@ -494,28 +544,40 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
             </div>
 
             <div className="space-y-2">
-              <span className="text-xs font-mono-tech uppercase text-amber-400 font-bold">Booking Request Confirmed</span>
+              <span className="text-xs font-mono-tech uppercase text-amber-400 font-bold">Booking Request Dispatched</span>
               <h3 className="text-2xl font-display font-black text-white">You're Scheduled for Perfection!</h3>
               <p className="text-xs text-slate-300">
-                Thank you <strong className="text-white">{formData.fullName}</strong>. Our Apex Detail concierge team has received your appointment request for your <strong className="text-white">{formData.vehicleYearMakeModel || selectedVehicleObj.name}</strong>.
+                Thank you <strong className="text-white">{formData.fullName}</strong>. Our {BUSINESS_CONFIG.businessName} concierge team has received your appointment request for your <strong className="text-white">{formData.vehicleYearMakeModel || selectedVehicleObj.name}</strong>.
               </p>
             </div>
 
             <div className="bg-[#090b10] border border-white/10 rounded-xl p-4 text-xs text-left space-y-2 font-mono-tech">
               <div className="flex justify-between"><span className="text-slate-400">Confirmation Code:</span><span className="text-amber-400 font-bold">{confirmationCode}</span></div>
               <div className="flex justify-between"><span className="text-slate-400">Package:</span><span className="text-white">{selectedPackageObj.name}</span></div>
-              <div className="flex justify-between"><span className="text-slate-400">Service Mode:</span><span className="text-white">{formData.serviceMode === 'studio' ? 'Apex Detail Studio' : 'Mobile Unit'}</span></div>
-              <div className="flex justify-between"><span className="text-slate-400">Estimated Total:</span><span className="text-emerald-400 font-bold">${grandTotal}</span></div>
+              <div className="flex justify-between"><span className="text-slate-400">Service Mode:</span><span className="text-white">{formData.serviceMode === 'studio' ? `${BUSINESS_CONFIG.location} Studio` : 'Mobile Unit'}</span></div>
+              <div className="flex justify-between"><span className="text-slate-400">Estimated Total:</span><span className="text-emerald-400 font-bold">{BUSINESS_CONFIG.currency}{grandTotal}</span></div>
               <div className="flex justify-between"><span className="text-slate-400">Date & Slot:</span><span className="text-white">{formData.preferredDate || 'Earliest Available'} ({formData.preferredTime})</span></div>
             </div>
 
             <p className="text-[11px] text-slate-400">
-              We have dispatched an SMS/Email confirmation to <strong className="text-slate-200">{formData.phone}</strong>. No upfront deposit is required.
+              Your structured reservation message has been prepared for WhatsApp. If your WhatsApp window did not open automatically, click below:
             </p>
+
+            {whatsAppUrl && (
+              <a
+                href={whatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold uppercase tracking-wider text-xs rounded-xl transition-colors flex items-center justify-center space-x-2"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Open in WhatsApp Now</span>
+              </a>
+            )}
 
             <button
               onClick={() => setBookingConfirmed(false)}
-              className="w-full py-3 bg-amber-500 text-black font-bold uppercase tracking-wider text-xs rounded-xl hover:bg-amber-400 transition-colors"
+              className="w-full py-2.5 bg-white/10 text-white font-semibold uppercase tracking-wider text-xs rounded-xl hover:bg-white/20 transition-colors"
             >
               Done & Return to Site
             </button>

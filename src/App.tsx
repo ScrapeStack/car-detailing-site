@@ -98,7 +98,7 @@ export default function App() {
         {/* 8. Frequently Asked Questions */}
         <FaqSection />
 
-        {/* 9. Apex Detail Studio Map, Direct Call & Concierge Contact */}
+        {/* 9. Pasadena Studio Map, Direct Call & Concierge Contact */}
         <LocationContactSection />
       </main>
 

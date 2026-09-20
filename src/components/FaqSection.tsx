@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
 import { FAQS_DATA } from '../data/businessData';
+import { BUSINESS_CONFIG } from '../config';
 
 export const FaqSection: React.FC = () => {
   const [openFaqId, setOpenFaqId] = useState<string | null>(FAQS_DATA[0].id);
@@ -22,7 +23,7 @@ export const FaqSection: React.FC = () => {
             Clear Answers for Car Enthusiasts
           </h2>
           <p className="mt-3 text-slate-400 text-sm">
-            Everything you need to know about ceramic longevity, paint correction thickness safety, and our Apex Detail mobile detailing unit.
+            Everything you need to know about ceramic longevity, paint correction thickness safety, and our {BUSINESS_CONFIG.location} mobile detailing unit.
           </p>
         </div>
 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, MapPin, Star, Calendar, Menu, X, Shield, Sparkles, BookOpen, ShoppingBag } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessData';
+import { BUSINESS_CONFIG } from '../config';
+import { getCleanOwnerPhone, getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -58,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-1.5 text-slate-300">
               <MapPin className="w-3 h-3 text-amber-500" />
-              <span>{BUSINESS_INFO.address}</span>
+              <span>1420 E Walnut St, Suite 104, {BUSINESS_CONFIG.location} 91106</span>
             </div>
             <div className="flex items-center space-x-1 text-amber-400 font-medium">
               <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
@@ -74,19 +76,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
               <BookOpen className="w-3 h-3 text-amber-400" />
               <span>View Style Guide</span>
             </button>
-            <span className="text-slate-700">|</span>
+            <span className="w-px h-3 bg-white/10 shrink-0" aria-hidden="true" />
             <a 
               id="topbar-phone-link"
-              href={`tel:${BUSINESS_INFO.phoneRaw}`} 
+              href={getTelLink()} 
               className="flex items-center space-x-1 text-slate-300 hover:text-amber-400 transition-colors"
             >
               <Phone className="w-3 h-3 text-amber-500" />
-              <span>{BUSINESS_INFO.phone}</span>
+              <span>{getDisplayOwnerPhone()}</span>
             </a>
-            <span className="text-slate-700">|</span>
+            <span className="w-px h-3 bg-white/10 shrink-0" aria-hidden="true" />
             <a 
               id="topbar-whatsapp-link"
-              href={`https://wa.me/1${BUSINESS_INFO.phoneRaw}`} 
+              href={`https://wa.me/${getCleanOwnerPhone()}`} 
               target="_blank" rel="noopener noreferrer"
               className="flex items-center space-x-1 text-slate-300 hover:text-amber-400 transition-colors"
             >
@@ -153,14 +155,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
 
           {/* Mobile Hamburger */}
           <div className="flex items-center space-x-2 lg:hidden">
-            <button
+            <a
               id="nav-mobile-call-btn"
-              onClick={() => window.open(`tel:${BUSINESS_INFO.phoneRaw}`)}
+              href={getTelLink()}
               className="p-2 text-amber-400 bg-white/5 border border-white/10 rounded"
-              aria-label="Call Apex Detailing"
+              aria-label={`Call ${BUSINESS_CONFIG.businessName}`}
             >
               <Phone className="w-4 h-4" />
-            </button>
+            </a>
             <button
               id="nav-mobile-toggle-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

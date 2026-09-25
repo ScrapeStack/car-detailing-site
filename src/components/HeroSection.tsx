@@ -82,7 +82,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight text-white uppercase leading-[1.03]">
-              PASADENA AUTO <br />
+              {BUSINESS_CONFIG.location.split(',')[0].trim().toUpperCase()} AUTO <br />
               <span className="font-serif-luxury italic font-normal tracking-wide text-slate-200 capitalize">Detailing</span>
             </h1>
             <p className="text-xs sm:text-sm font-mono-tech uppercase tracking-wider text-amber-400/90 pt-0.5">
@@ -153,32 +153,51 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             </motion.a>
           </motion.div>
 
-          {/* Simple Quality Guarantees */}
+          {/* Privacy Trust Micro-Disclaimer */}
+          <motion.p
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { duration: 0.5 } }
+            }}
+            className="text-xs text-slate-400/80 pt-0.5"
+          >
+            By submitting an inquiry, you consent to sending your request details directly to the independent business operator via WhatsApp.
+          </motion.p>
+
+          {/* Realistic Quality Commitments - Rock-Solid Responsive Alignment */}
           <motion.div 
-            className="flex flex-wrap items-center gap-4 sm:gap-6 text-[11px] sm:text-xs text-slate-400 font-mono-tech pt-1"
+            className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-x-6 sm:gap-y-2 text-[11px] sm:text-xs text-slate-300 font-mono-tech pt-2 border-t border-white/5 sm:border-transparent"
             variants={{
               hidden: { opacity: 0 },
               visible: { opacity: 1, transition: { duration: 0.8 } }
             }}
           >
-            <span className="flex items-center space-x-1.5">
-              <span className="text-amber-400">✓</span>
-              <span>100% Satisfaction Guaranteed</span>
-            </span>
-            <span className="flex items-center space-x-1.5">
-              <span className="text-amber-400">✓</span>
-              <span>IDA Certified Master Detailers</span>
-            </span>
-            <span className="flex items-center space-x-1.5">
-              <span className="text-amber-400">✓</span>
-              <span>Fully Insured & Licensed</span>
-            </span>
+            <div className="flex items-center space-x-2">
+              <span className="w-4 h-4 rounded-full bg-amber-500/15 text-amber-400 flex items-center justify-center text-[10px] font-bold shrink-0">
+                ✓
+              </span>
+              <span>Quality Assurance Walk-Around Inspection</span>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <span className="w-4 h-4 rounded-full bg-amber-500/15 text-amber-400 flex items-center justify-center text-[10px] font-bold shrink-0">
+                ✓
+              </span>
+              <span>Experienced Detail Technicians</span>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <span className="w-4 h-4 rounded-full bg-amber-500/15 text-amber-400 flex items-center justify-center text-[10px] font-bold shrink-0">
+                ✓
+              </span>
+              <span>Professional Surface Care Standards</span>
+            </div>
           </motion.div>
 
         </motion.div>
       </div>
 
-      {/* BOTTOM BRAND / LUXURY LOGOS BAR (Exact Match to Reference Bottom Strip) */}
+      {/* BOTTOM PROFESSIONAL STANDARDS & SUPPLIES STRIP */}
       <motion.div 
         className="w-full border-t border-white/10 bg-[#05060a]/95 backdrop-blur-md py-4 sm:py-5 px-4 relative z-20"
         initial={{ opacity: 0, y: 15 }}
@@ -186,50 +205,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
         transition={{ duration: 0.8, delay: 0.6 }}
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
-          <div className="flex items-center space-x-2 text-[10px] sm:text-[11px] font-mono-tech text-slate-500 uppercase tracking-widest shrink-0">
-            <span>TRUSTED DETAILING STANDARDS & PRODUCTS</span>
+          <div className="flex items-center space-x-2 text-[10px] sm:text-[11px] font-mono-tech text-slate-400 uppercase tracking-widest shrink-0">
+            <span>We utilize professional-grade products from trusted industry leaders</span>
           </div>
 
-          {/* Luxury Typography Logos Grid Matching Screenshot */}
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-6 sm:gap-10 lg:gap-12 opacity-75 hover:opacity-100 transition-opacity">
-            {/* ARMOND logo */}
-            <motion.div whileHover={{ y: -2 }} className="flex items-center space-x-2 group cursor-pointer text-slate-300 hover:text-white transition-colors">
-              <div className="w-6 h-6 rounded border border-white/30 flex items-center justify-center font-serif text-xs font-bold">
-                L T
-              </div>
-              <div className="flex flex-col text-[10px] leading-tight font-mono-tech font-semibold tracking-widest uppercase">
-                <span>ARMOND</span>
-              </div>
-            </motion.div>
-
-            {/* Darkside Studios logo */}
-            <motion.div whileHover={{ y: -2 }} className="flex flex-col items-center group cursor-pointer text-slate-300 hover:text-white transition-colors">
-              <span className="font-serif italic text-sm tracking-wide">Darkside</span>
-              <span className="text-[7px] tracking-[0.3em] uppercase text-slate-500 font-mono-tech">—— STUDIOS ——</span>
-            </motion.div>
-
-            {/* BASTIL logo */}
-            <motion.div whileHover={{ y: -2 }} className="flex items-center space-x-1.5 group cursor-pointer text-slate-300 hover:text-white transition-colors">
-              <span className="text-base font-serif font-black text-amber-500">8</span>
-              <div className="flex flex-col text-[10px] leading-none tracking-widest uppercase font-bold">
-                <span>BASTIL</span>
-                <span className="text-[6px] tracking-[0.2em] text-slate-500 font-normal">PROFESSIONALS</span>
-              </div>
-            </motion.div>
-
-            {/* BŌLEIR logo */}
-            <motion.div whileHover={{ y: -2 }} className="group cursor-pointer text-slate-300 hover:text-white transition-colors">
-              <span className="font-display font-medium text-xs tracking-[0.3em] uppercase">
-                BŌLEIR
-              </span>
-            </motion.div>
-
-            {/* Esquire logo */}
-            <motion.div whileHover={{ y: -2 }} className="group cursor-pointer text-slate-300 hover:text-white transition-colors">
-              <span className="font-serif italic font-bold text-sm tracking-wider">
-                Esquire
-              </span>
-            </motion.div>
+          {/* Clean Disciplines List */}
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-8 text-[11px] font-mono-tech text-slate-300">
+            <span className="flex items-center space-x-1.5">
+              <span className="text-amber-500">•</span>
+              <span>Surface Decontamination</span>
+            </span>
+            <span className="flex items-center space-x-1.5">
+              <span className="text-amber-500">•</span>
+              <span>Multi-Stage Correction</span>
+            </span>
+            <span className="flex items-center space-x-1.5">
+              <span className="text-amber-500">•</span>
+              <span>Ceramic Surface Care</span>
+            </span>
+            <span className="flex items-center space-x-1.5">
+              <span className="text-amber-500">•</span>
+              <span>Dry Steam Sanitization</span>
+            </span>
           </div>
         </div>
       </motion.div>

@@ -235,7 +235,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 
 ## 3. Hero Section Concept
 - Headline: "Elevate Your Vehicle to Concourse Perfection."
-- Subheadline: "${BUSINESS_CONFIG.location}’s authority in multi-stage paint correction, certified 9H/10H ceramic coatings, and bespoke interior spa restoration."
+- Subheadline: "${BUSINESS_CONFIG.location}’s authority in multi-stage paint correction, professional-grade ceramic protective care, and bespoke interior spa restoration."
 - CTAs: "Calculate Quote & Book" / "Explore Package Pricing"
 - Social Proof: 4.8 Stars (64 Local Reviews) • ${BUSINESS_CONFIG.location}
 

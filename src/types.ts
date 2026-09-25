@@ -80,4 +80,8 @@ export interface BookingFormData {
   email: string;
   phone: string;
   specialNotes?: string;
+  notes?: string;
+  comments?: string;
+  specialRequests?: string;
+  description?: string;
 }

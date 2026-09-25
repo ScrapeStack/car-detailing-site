@@ -7,32 +7,32 @@ export const CraftsmanshipStandards: React.FC = () => {
     {
       icon: <Sun className="w-6 h-6 text-amber-400" />,
       title: "5000K High-CRI LED Studio Lighting",
-      description: `Our ${BUSINESS_CONFIG.location} studio is engineered with specialized high Color Rendering Index diffuse lighting arrays that expose every micro-scratch, hologram, and clear coat flaw that standard garage lights hide.`
+      description: `Our ${BUSINESS_CONFIG.location} studio is engineered with specialized high Color Rendering Index diffuse lighting arrays that reveal surface imperfections, holograms, and clear coat flaws that standard garage lights hide.`
     },
     {
       icon: <Droplets className="w-6 h-6 text-sky-400" />,
-      title: "0-PPM Deionized Pure Water Filtration",
-      description: `Both our ${BUSINESS_CONFIG.location} studio and mobile detailing Sprinter unit utilize multi-stage deionization resin filters that strip 100% of minerals and calcium, guaranteeing a completely spot-free rinse in direct California sunlight.`
+      title: "Pure Water Rinse & Filtration Standards",
+      description: `We utilize spot-free water filtration systems and professional-grade rinse solutions to ensure a clean, streak-free surface finish without mineral residue.`
     },
     {
       icon: <Flame className="w-6 h-6 text-amber-500" />,
-      title: "Short-Wave Infrared Heat Lamp Baking",
-      description: "Unlike detailers that leave ceramic to air cure in humid conditions, we bake every ceramic coating under infrared lamps, achieving full cross-link molecular density and maximum Rockwell hardness."
+      title: "Professional Multi-Stage Paint & Coating Curing Process",
+      description: "Unlike operations that leave ceramic to air cure in ambient humidity, we utilize controlled multi-stage curing processes to achieve uniform cross-link curing and enhanced coating durability."
     },
     {
       icon: <Cpu className="w-6 h-6 text-indigo-400" />,
       title: "Ultrasonic Digital Paint Thickness Gauges",
-      description: "Before machine polishing, we map your clear coat thickness in microns across all metal and carbon composite panels to preserve paint longevity and eliminate burn-through risks."
+      description: "Before machine polishing, we measure clear coat thickness in microns across all panels to preserve paint longevity and maintain safe working margins."
     },
     {
       icon: <Layers className="w-6 h-6 text-emerald-400" />,
-      title: "Rupes Bigfoot & Flex Dual-Action Polishers",
-      description: "We exclusively deploy Italian Rupes and German Flex orbital polishers matched with micro-fine pad densities and jewel compounds for swirl-free holograph-free mirror reflections."
+      title: "High-Efficiency Specialized Equipment",
+      description: "We utilize high-efficiency specialized equipment and professional-grade care solutions paired with micro-fine pad densities and fine finishing compounds for consistent, refined reflections."
     },
     {
       icon: <Award className="w-6 h-6 text-amber-400" />,
-      title: "Official Carfax Warranty Recording",
-      description: `${BUSINESS_CONFIG.businessName} is an authorized installer. Your ceramic coating and paint correction treatments are officially logged into Carfax vehicle history, elevating provenance and resale value.`
+      title: "Comprehensive Service Documentation",
+      description: `Every vehicle treatment is comprehensively logged with paint depth readings, date stamps, and product details so you have clear records of your vehicle's care and maintenance history.`
     }
   ];
 

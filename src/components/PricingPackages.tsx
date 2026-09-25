@@ -6,12 +6,16 @@ import { VehicleType } from '../types';
 
 interface PricingPackagesProps {
   onSelectPackage: (packageId: string, vehicleType: VehicleType) => void;
+  selectedVehicleClass: VehicleType;
+  onSelectVehicleClass: (vehicleType: VehicleType) => void;
 }
 
-export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackage }) => {
-  const [selectedVehicle, setSelectedVehicle] = useState<VehicleType>('coupe');
-
-  const currentVehicleOption = VEHICLE_OPTIONS.find(v => v.id === selectedVehicle) || VEHICLE_OPTIONS[0];
+export const PricingPackages: React.FC<PricingPackagesProps> = ({ 
+  onSelectPackage,
+  selectedVehicleClass = 'coupe',
+  onSelectVehicleClass
+}) => {
+  const currentVehicleOption = VEHICLE_OPTIONS.find(v => v.id === selectedVehicleClass) || VEHICLE_OPTIONS[0];
 
   const calculatePrice = (basePrice: number) => {
     return Math.round(basePrice * currentVehicleOption.multiplier);
@@ -30,17 +34,17 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
             Curated Detailing Packages
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Select your vehicle class below to view real-time adjusted rates. All ceramic packages include Carfax warranty registration and climate-controlled bay curing.
+            Select your vehicle class below to view real-time adjusted rates. All ceramic packages include comprehensive service documentation and climate-controlled bay curing.
           </p>
 
           {/* Vehicle Class Selector */}
           <div className="mt-8 p-1.5 bg-[#090b10] border border-white/10 rounded-2xl inline-flex flex-wrap justify-center gap-1.5 max-w-full">
             {VEHICLE_OPTIONS.map((veh) => {
-              const isSelected = veh.id === selectedVehicle;
+              const isSelected = veh.id === selectedVehicleClass;
               return (
                 <button
                   key={veh.id}
-                  onClick={() => setSelectedVehicle(veh.id)}
+                  onClick={() => onSelectVehicleClass?.(veh.id)}
                   className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-2 ${
                     isSelected
                       ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/25'
@@ -155,8 +159,8 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
                   {/* CTA Button */}
                   <button
                     id={`package-select-btn-${pkg.id}`}
-                    onClick={() => onSelectPackage(pkg.id, selectedVehicle)}
-                    className={`w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 ${
+                    onClick={() => onSelectPackage(pkg.id, selectedVehicleClass)}
+                    className={`w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 cursor-pointer ${
                       pkg.bestValue
                         ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/25'
                         : 'bg-white/10 hover:bg-white/20 text-white border border-white/10 hover:border-amber-500/50'
@@ -165,6 +169,10 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
                     <span>Select & Book Package</span>
                     <ChevronRight className="w-4 h-4" />
                   </button>
+
+                  <p className="text-[11px] text-slate-400/80 text-center pt-2">
+                    By submitting an inquiry, you consent to sending your request details directly to the independent business operator via WhatsApp.
+                  </p>
                 </div>
               </div>
             );

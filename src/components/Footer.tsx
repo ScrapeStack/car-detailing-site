@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Sparkles, Phone, MapPin, Star, Shield, ArrowUp, BookOpen, Heart } from 'lucide-react';
 import { BUSINESS_INFO, SERVICES_DATA } from '../data/businessData';
-import { BUSINESS_CONFIG } from '../config';
+import { BUSINESS_CONFIG, CLIENT_CONFIG } from '../config';
 import { getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
+import { LegalModal, LegalTab } from './LegalModal';
 
 interface FooterProps {
   onOpenStyleGuide: () => void;
@@ -10,37 +11,50 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking }) => {
+  const [isLegalModalOpen, setIsLegalModalOpen] = useState<boolean>(false);
+  const [legalModalTab, setLegalModalTab] = useState<LegalTab>('privacy');
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleOpenLegalModal = (tab: LegalTab) => {
+    setLegalModalTab(tab);
+    setIsLegalModalOpen(true);
+  };
+
   return (
-    <footer className="bg-[#07080c] border-t border-white/10 text-slate-400 text-xs">
+    <footer className="bg-[#07080c] border-t border-white/10 text-slate-400 text-xs pb-28 sm:pb-0 relative z-30">
       {/* Top CTA Band */}
       <div className="border-b border-white/5 bg-[#090b10] py-10 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <span className="text-amber-400 font-mono-tech uppercase text-[11px] font-bold">Ready to Experience Flawless Reflections?</span>
             <div className="text-xl sm:text-2xl font-display font-black text-white">
-              Reserve Your {BUSINESS_CONFIG.location} Detailing Bay or Mobile Visit
+              Reserve Your {CLIENT_CONFIG.location} Detailing Bay or Mobile Visit
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              id="footer-quote-btn"
-              onClick={onOpenBooking}
-              className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all"
-            >
-              Get Instant Quote & Book
-            </button>
-            <a
-              id="footer-call-btn"
-              href={getTelLink()}
-              className="px-5 py-3 bg-white/5 hover:bg-white/10 text-white font-semibold text-xs rounded-xl border border-white/10 transition-all flex items-center space-x-1.5"
-            >
-              <Phone className="w-3.5 h-3.5 text-amber-400" />
-              <span>{getDisplayOwnerPhone()}</span>
-            </a>
+          <div className="flex flex-col items-center sm:items-end gap-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                id="footer-quote-btn"
+                onClick={onOpenBooking}
+                className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all cursor-pointer"
+              >
+                Get Instant Quote & Book
+              </button>
+              <a
+                id="footer-call-btn"
+                href={getTelLink()}
+                className="px-5 py-3 bg-white/5 hover:bg-white/10 text-white font-semibold text-xs rounded-xl border border-white/10 transition-all flex items-center space-x-1.5"
+              >
+                <Phone className="w-3.5 h-3.5 text-amber-400" />
+                <span>{getDisplayOwnerPhone()}</span>
+              </a>
+            </div>
+            <p className="text-xs text-slate-400/80 text-center sm:text-right">
+              By submitting an inquiry, you consent to sending your request details directly to the independent business operator via WhatsApp.
+            </p>
           </div>
         </div>
       </div>
@@ -55,23 +69,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
                 <Sparkles className="w-5 h-5" />
               </div>
               <span className="font-display font-black text-lg text-white tracking-tight">
-                {BUSINESS_CONFIG.businessName}
+                {CLIENT_CONFIG.businessName}
               </span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              {BUSINESS_CONFIG.location}’s certified luxury automotive detailing studio & mobile unit. We specialize in multi-stage paint correction, 9H/10H ceramic coatings, dry steam interior restoration, and engine bay detailing.
+              {CLIENT_CONFIG.location}’s premier luxury automotive detailing studio & mobile unit. We specialize in multi-stage paint correction, professional-grade ceramic protective care solutions, dry steam interior restoration, and engine bay detailing.
             </p>
             <div className="flex items-center space-x-2 text-amber-400 font-mono-tech text-xs">
               <Star className="w-4 h-4 fill-amber-400" />
               <span className="font-bold">{BUSINESS_INFO.rating} / 5.0 Star Rating</span>
               <span className="text-slate-500">•</span>
-              <span className="text-slate-400">{BUSINESS_INFO.reviewCount} {BUSINESS_CONFIG.location} Client Reviews</span>
+              <span className="text-slate-400">{BUSINESS_INFO.reviewCount} {CLIENT_CONFIG.location} Client Reviews</span>
             </div>
             <div className="pt-2">
               <button
                 id="footer-style-guide-link"
                 onClick={onOpenStyleGuide}
-                className="text-amber-400 hover:text-amber-300 font-mono-tech text-xs flex items-center space-x-1.5 underline underline-offset-4"
+                className="text-amber-400 hover:text-amber-300 font-mono-tech text-xs flex items-center space-x-1.5 underline underline-offset-4 cursor-pointer"
               >
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>View Design System & Visual Style Guide</span>
@@ -113,12 +127,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           {/* Studio Location & Service Coverage */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              {BUSINESS_CONFIG.location} Studio
+              {CLIENT_CONFIG.location} Studio
             </span>
             <div className="space-y-2 text-slate-400">
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                <span>1420 E Walnut St, Suite 104, {BUSINESS_CONFIG.location} 91106</span>
+                <span>1420 E Walnut St, Suite 104, {CLIENT_CONFIG.location} 91106</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-amber-500 shrink-0" />
@@ -127,26 +141,50 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
                 </a>
               </div>
               <div className="text-[11px] text-slate-500 font-mono-tech pt-2">
-                Serving: Pasadena, San Marino, Arcadia, South Pasadena, Glendale, La Cañada.
+                Serving: {CLIENT_CONFIG.location}, San Marino, Arcadia, Glendale, and surrounding communities.
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Copyright & Back to Top */}
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
-          <div>
-            © {new Date().getFullYear()} {BUSINESS_CONFIG.businessName}. All rights reserved. Registered IDA Certified Auto Detailer.
+        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-xs relative z-30">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 relative z-30 pointer-events-auto">
+            <span>© {new Date().getFullYear()} {CLIENT_CONFIG.businessName}. All Rights Reserved.</span>
+            <span className="text-slate-600">|</span>
+            <button
+              id="footer-privacy-policy-link"
+              onClick={() => handleOpenLegalModal('privacy')}
+              className="text-slate-400 hover:text-amber-400 transition-colors underline underline-offset-2 cursor-pointer relative z-30 pointer-events-auto"
+            >
+              Privacy Policy
+            </button>
+            <span className="text-slate-600">|</span>
+            <button
+              id="footer-terms-of-service-link"
+              onClick={() => handleOpenLegalModal('terms')}
+              className="text-slate-400 hover:text-amber-400 transition-colors underline underline-offset-2 cursor-pointer relative z-30 pointer-events-auto"
+            >
+              Terms of Service
+            </button>
           </div>
           <button
             onClick={scrollToTop}
-            className="flex items-center space-x-1.5 text-slate-400 hover:text-amber-400 transition-colors"
+            className="flex items-center space-x-1.5 text-slate-400 hover:text-amber-400 transition-colors cursor-pointer relative z-30 pointer-events-auto"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
+
+      {/* Accessible Legal Privacy Policy & Terms Modal */}
+      <LegalModal
+        isOpen={isLegalModalOpen}
+        activeTab={legalModalTab}
+        onClose={() => setIsLegalModalOpen(false)}
+        onTabChange={(tab) => setLegalModalTab(tab)}
+      />
     </footer>
   );
 };

@@ -20,7 +20,7 @@ export default function App() {
   const [isStyleGuideOpen, setIsStyleGuideOpen] = useState<boolean>(false);
   const [selectedServiceId, setSelectedServiceId] = useState<string>('paint-correction');
   const [selectedPackageId, setSelectedPackageId] = useState<string>('deep-detail');
-  const [selectedVehicleType, setSelectedVehicleType] = useState<VehicleType>('coupe');
+  const [selectedVehicleClass, setSelectedVehicleClass] = useState<VehicleType>('coupe');
 
   const scrollToQuote = () => {
     const el = document.getElementById('quote-builder');
@@ -55,7 +55,7 @@ export default function App() {
 
   const handleSelectPackage = (packageId: string, vehicleType: VehicleType) => {
     setSelectedPackageId(packageId);
-    setSelectedVehicleType(vehicleType);
+    setSelectedVehicleClass(vehicleType);
     scrollToQuote();
   };
 
@@ -68,7 +68,7 @@ export default function App() {
       />
 
       {/* Main Content Sections */}
-      <main className="flex-1">
+      <main className="flex-1 pb-24 sm:pb-0">
         {/* 1. Hero Section with Supercar Studio Showcase & Performance Specs */}
         <HeroSection 
           onOpenBooking={scrollToQuote} 
@@ -82,6 +82,8 @@ export default function App() {
 
         {/* 4. Packages & Pricing Matrix with Vehicle Size Multiplier */}
         <PricingPackages 
+          selectedVehicleClass={selectedVehicleClass}
+          onSelectVehicleClass={setSelectedVehicleClass}
           onSelectPackage={handleSelectPackage} 
         />
 
@@ -89,7 +91,8 @@ export default function App() {
         <InstantQuoteBooking 
           initialServiceId={selectedServiceId}
           initialPackageId={selectedPackageId}
-          initialVehicleType={selectedVehicleType}
+          selectedVehicleClass={selectedVehicleClass}
+          onSelectVehicleClass={setSelectedVehicleClass}
         />
 
         {/* 6. Social Proof & Verified Reviews Grid (4.8 Stars, 64 Reviews) */}
@@ -98,7 +101,7 @@ export default function App() {
         {/* 8. Frequently Asked Questions */}
         <FaqSection />
 
-        {/* 9. Pasadena Studio Map, Direct Call & Concierge Contact */}
+        {/* 9. Studio Map, Direct Call & Concierge Contact */}
         <LocationContactSection />
       </main>
 

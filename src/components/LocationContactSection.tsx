@@ -1,23 +1,10 @@
-import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Navigation, Send, CheckCircle2, ShieldCheck } from 'lucide-react';
+import React from 'react';
+import { MapPin, Phone, Clock, Navigation, MessageSquare } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessData';
 import { BUSINESS_CONFIG } from '../config';
 import { getCleanOwnerPhone, getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
 
 export const LocationContactSection: React.FC = () => {
-  const [inquirySent, setInquirySent] = useState(false);
-  const [inquiryData, setInquiryData] = useState({
-    name: '',
-    phone: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!inquiryData.name || !inquiryData.phone) return;
-    setInquirySent(true);
-  };
-
   return (
     <section id="location" className="py-24 bg-[#090b10] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +18,7 @@ export const LocationContactSection: React.FC = () => {
             Visit Our {BUSINESS_CONFIG.location} Studio or Call For Mobile Dispatch
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Conveniently situated off Walnut Street near Old Pasadena and Colorado Boulevard with secure customer parking.
+            Conveniently situated off Walnut Street near historic Old Town and Colorado Boulevard with secure customer parking.
           </p>
         </div>
 
@@ -69,7 +56,7 @@ export const LocationContactSection: React.FC = () => {
                     <a href={getTelLink()} className="text-amber-400 font-bold hover:underline">
                       {getDisplayOwnerPhone()}
                     </a>
-                    <div className="text-[11px] text-slate-400 mt-0.5">Direct line to Master Detailer (Call, SMS, or WhatsApp)</div>
+                    <div className="text-[11px] text-slate-400 mt-0.5">Direct line to Experienced Detail Technicians (Call, SMS, or WhatsApp)</div>
                   </div>
                 </div>
 
@@ -127,6 +114,9 @@ export const LocationContactSection: React.FC = () => {
                 <span>Get Directions</span>
               </a>
             </div>
+            <p className="text-xs text-slate-400/80 text-center pt-2">
+              By submitting an inquiry, you consent to sending your request details directly to the independent business operator via WhatsApp.
+            </p>
           </div>
 
           {/* Right Column: Custom Interactive Map & Fast Inquiry Form */}
@@ -175,74 +165,34 @@ export const LocationContactSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Direct Quick Inquiry Form */}
-            <div className="p-6 sm:p-8 flex-1">
-              {!inquirySent ? (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono-tech text-amber-400 uppercase font-bold">Have a Custom Project or Question?</span>
-                    <span className="text-[11px] text-slate-400">Response within 15 mins</span>
-                  </div>
+            {/* Direct Action WhatsApp Contact Card */}
+            <div className="p-6 sm:p-8 flex-1 flex flex-col justify-center items-center text-center space-y-4 bg-gradient-to-b from-[#121622] to-[#0c0f17]">
+              <div className="w-12 h-12 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] shadow-lg shadow-[#25D366]/10">
+                <MessageSquare className="w-6 h-6" />
+              </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <input
-                      type="text"
-                      id="inquiry-name"
-                      placeholder="Your Name"
-                      required
-                      value={inquiryData.name}
-                      onChange={(e) => setInquiryData(prev => ({ ...prev, name: e.target.value }))}
-                      className="bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
-                    />
-                    <input
-                      type="tel"
-                      id="inquiry-phone"
-                      placeholder="Phone Number"
-                      required
-                      value={inquiryData.phone}
-                      onChange={(e) => setInquiryData(prev => ({ ...prev, phone: e.target.value }))}
-                      className="bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
-                    />
-                  </div>
+              <div className="space-y-1.5 max-w-md">
+                <h4 className="text-xl sm:text-2xl font-display font-black text-white tracking-tight">
+                  Have Questions Before Booking?
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-400">
+                  Chat directly with our detail specialists on WhatsApp for immediate assistance.
+                </p>
+              </div>
 
-                  <textarea
-                    id="inquiry-message"
-                    rows={2}
-                    placeholder="Tell us about your vehicle model, condition, or question..."
-                    value={inquiryData.message}
-                    onChange={(e) => setInquiryData(prev => ({ ...prev, message: e.target.value }))}
-                    className="w-full bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500 resize-none"
-                  ></textarea>
+              <a
+                href={`https://wa.me/${getCleanOwnerPhone()}?text=Hi!%20I%20have%20a%20question%20about%20your%20detailing%20services.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-black font-black uppercase tracking-wider text-xs sm:text-sm rounded-xl shadow-xl shadow-[#25D366]/25 flex items-center justify-center space-x-2.5 transition-all cursor-pointer"
+              >
+                <MessageSquare className="w-4 h-4 fill-black text-black" />
+                <span>Instant WhatsApp Chat</span>
+              </a>
 
-                  <button
-                    type="submit"
-                    id="inquiry-submit-btn"
-                    className="w-full py-3 bg-white/10 hover:bg-amber-500 hover:text-black text-white font-bold uppercase tracking-wider text-xs rounded-xl border border-white/10 transition-all flex items-center justify-center space-x-2 cursor-pointer"
-                  >
-                    <Send className="w-3.5 h-3.5" />
-                    <span>Send Message to Concierge</span>
-                  </button>
-                </form>
-              ) : (
-                <div className="text-center py-6 space-y-3">
-                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-6 h-6" />
-                  </div>
-                  <h4 className="text-lg font-bold text-white">Message Received!</h4>
-                  <p className="text-xs text-slate-300 max-w-sm mx-auto">
-                    Thank you {inquiryData.name}. Our master detailer in {BUSINESS_CONFIG.location} will contact you at {inquiryData.phone} shortly.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setInquirySent(false);
-                      setInquiryData({ name: '', phone: '', message: '' });
-                    }}
-                    className="text-xs text-amber-400 underline font-mono-tech"
-                  >
-                    Send another inquiry
-                  </button>
-                </div>
-              )}
+              <p className="text-xs text-slate-400/80 text-center pt-1 max-w-md">
+                By submitting an inquiry, you consent to sending your request details directly to the independent business operator via WhatsApp.
+              </p>
             </div>
           </div>
         </div>

@@ -10,7 +10,6 @@ export const BUSINESS_INFO = {
   address: `1420 E Walnut St, Suite 104, ${BUSINESS_CONFIG.location} 91106`,
   phone: BUSINESS_CONFIG.ownerPhone.startsWith('+') ? BUSINESS_CONFIG.ownerPhone : `+${BUSINESS_CONFIG.ownerPhone}`,
   phoneRaw: BUSINESS_CONFIG.ownerPhone.replace(/\D/g, ''),
-  email: BUSINESS_CONFIG.email,
   rating: 4.8,
   reviewCount: 64,
   hours: {
@@ -70,8 +69,8 @@ export const SERVICES_DATA: ServiceDetail[] = [
     id: 'paint-correction',
     title: 'Paint Correction & Auto Detailing',
     badge: 'Signature Mastery',
-    shortDesc: 'Eliminate 85%–99% of swirl marks, water spots, and scratches for an authentic mirror finish in Pasadena.',
-    fullDesc: 'Using digital paint depth gauges and multi-stage rotary/dual-action polishers with precision micro-abrasives, we provide the ultimate auto detailing and paint correction service to gently restore clear coat clarity.',
+    shortDesc: 'Multi-stage paint correction designed to safely remove up to 80-90% of swirl marks and light defects.',
+    fullDesc: 'Using digital paint depth gauges and multi-stage specialized equipment with precision micro-abrasives, we provide the ultimate auto detailing and paint correction service to gently restore clear coat clarity.',
     startingPrice: 450,
     duration: '6 – 10 Hours',
     popular: true,
@@ -79,13 +78,13 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Paint thickness ultrasound digital measurement before/after',
       'Decontamination foam bath & ultra-fine clay bar auto detailing',
       'Multi-stage compound & jeweling micro-polish',
-      'Eliminates spiderwebs, car wash swirls, and clear coat haze',
+      'Reduces spiderwebs, car wash swirls, and clear coat haze',
       'Pre-coating alcohol prep wipe inspection'
     ],
     specs: [
-      { label: 'Defect Removal', value: 'Up to 95%–99%' },
+      { label: 'Defect Reduction', value: 'Safely up to 80%–90%' },
       { label: 'Gloss Meter Jump', value: '+35 to +55 GU' },
-      { label: 'Equipment', value: 'Rupes Bigfoot & Flex Polishers' }
+      { label: 'Equipment', value: 'High-Efficiency Specialized Equipment' }
     ],
     idealFor: 'Vehicles with visible spiderwebs, dull sun haze, track micro-scuffs, or preparing for ceramic shield.',
     imageUrl: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80'
@@ -94,21 +93,21 @@ export const SERVICES_DATA: ServiceDetail[] = [
     id: 'ceramic-coating',
     title: 'Multi-Year Ceramic Coating',
     badge: 'Ultimate Armor',
-    shortDesc: 'Military-grade 9H/10H SiO2 nano-ceramic molecular bond offering intense hydrophobic gloss and UV defense.',
-    fullDesc: 'Our certified climate-controlled application creates a semi-permanent glassy shell over clear coat, wheels, plastics, and glass. The best ceramic coating in Pasadena sheds rain, brake dust, and smog pollutants effortlessly.',
+    shortDesc: 'Professional-grade ceramic surface care solutions offering intense hydrophobic gloss and UV defense.',
+    fullDesc: 'Our specialized climate-controlled application creates a durable glassy shell over clear coat, wheels, plastics, and glass. Premium professional ceramic coating sheds rain, brake dust, and road pollutants effortlessly.',
     startingPrice: 850,
     duration: '1 – 2 Days (Cure Bay)',
     popular: true,
     features: [
-      'Genuine 9H / 10H certified nano-ceramic or graphene matrix',
+      'Professional-grade ceramic surface care matrix',
       'Ultra-hydrophobic 115°+ water contact angle bead effect',
       'UV & oxidation protection against California sun fading',
-      'Includes Carfax registration & official ceramic coating warranty',
-      'Infrared curing heat-lamp baking cycle'
+      'Includes service documentation & maintenance care guide',
+      'Professional Multi-Stage Paint & Coating Curing Process'
     ],
     specs: [
       { label: 'Protection Lifespan', value: '2 to 7+ Years' },
-      { label: 'Hardness Rating', value: '9H – 10H Ceramic / Graphene' },
+      { label: 'Surface Protection', value: 'Professional-Grade Surface Defense' },
       { label: 'Maintenance', value: 'Self-Cleaning Hydrophobic' }
     ],
     idealFor: 'New vehicle protection, post-paint correction lock-in, daily luxury drivers and collector sports cars.',
@@ -134,7 +133,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       { label: 'Leather Finish', value: 'Original OEM Matte Non-Greasy' },
       { label: 'Steam Temp', value: '220°F Dry Vapor' }
     ],
-    idealFor: 'Vehicles needing interior rejuvenation, coffee/food stain removal, pet hair extraction, or leather restoration.',
+    idealFor: 'Vehicles needing interior rejuvenation, targeted deep-cleaning treatments, pet hair extraction, or leather restoration.',
     imageUrl: luxuryInteriorImg
   },
   {
@@ -153,8 +152,8 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Prevents hose dry-rot and electrical dust buildup'
     ],
     specs: [
-      { label: 'Safety Protocol', value: '100% Masked Electronics' },
-      { label: 'Dressing Finish', value: 'Anti-Static Heat Resistant' },
+      { label: 'Safety Protocol', value: 'Masked Sensitive Electronics' },
+      { label: 'Dressing Finish', value: 'Premium UV-Protective & Satin Anti-Glare Finish' },
       { label: 'Service Time', value: '90 Minutes' }
     ],
     idealFor: 'Performance sports cars, car show prep, resale appraisal boost, and routine mechanical care.',
@@ -164,21 +163,21 @@ export const SERVICES_DATA: ServiceDetail[] = [
     id: 'mobile-detailing',
     title: 'Mobile Auto Detailing Concierge',
     badge: 'Direct to You',
-    shortDesc: 'Our fully equipped Mercedes Sprinter arrives at your Pasadena residence or office for premium mobile auto detailing.',
-    fullDesc: 'Experience luxury auto detailing at zero hassle. Our self-contained mobile van carries 100 gallons of pure 0-PPM deionized water and full professional detailing machinery right to your driveway.',
+    shortDesc: 'Our fully equipped mobile detailing unit arrives directly at your residence or office for premium mobile auto detailing.',
+    fullDesc: 'Our mobile detailing unit comes fully equipped with all professional tools, products, and equipment. Depending on your location and chosen package, access to a standard outdoor water spigot and electrical outlet may be coordinated prior to your service.',
     startingPrice: 220,
     duration: '2 – 4.5 Hours',
     features: [
-      'Self-contained with 100% 0-PPM Spot-Free Deionized Water',
-      'Eco-friendly on-board quiet inverter generator & compressors',
-      'Available across Pasadena, San Marino, Arcadia, and Glendale',
+      'Fully equipped mobile detailing unit with professional-grade supplies',
+      'Professional detailing equipment and specialized exterior wash setup',
+      'Flexible on-site service across our standard mobile coverage area',
       'Home garage, residential driveway, or corporate executive parking',
-      'Same master-grade technicians & chemicals as our studio'
+      'Same trained detail technicians & supplies as our studio'
     ],
     specs: [
-      { label: 'Water Quality', value: '0 PPM Deionized (Zero Spots)' },
-      { label: 'Radius', value: 'Up to 25 Miles from Pasadena' },
-      { label: 'Self-Sufficient', value: 'No Water/Power Hookups Needed' }
+      { label: 'Equipment Setup', value: 'Fully Equipped Mobile Rig' },
+      { label: 'Service Range', value: 'Standard Mobile Coverage Area' },
+      { label: 'Preparation', value: 'Flexible Water & Power Setup' }
     ],
     idealFor: 'Busy professionals, luxury homeowners, and car enthusiasts who value utmost convenience without compromising standards.',
     imageUrl: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80'
@@ -193,10 +192,10 @@ export const PACKAGES_DATA: PackageTier[] = [
     price: 199,
     originalPrice: 249,
     duration: '2 – 3 Hours',
-    warranty: 'Gloss Guarantee',
+    warranty: 'Quality Assurance Walk-Around',
     serviceType: 'Mobile or Studio',
     includes: [
-      'Ph-neutral snow foam bath & hand wash',
+      'Professional-grade snow foam bath & gentle contact hand wash',
       'Wheels & brake calipers cleaned',
       'Light synthetic sealant application',
       'Interior vacuum & wipe down',
@@ -212,7 +211,7 @@ export const PACKAGES_DATA: PackageTier[] = [
     price: 499,
     originalPrice: 599,
     duration: '5 – 7 Hours',
-    warranty: '6-Month Poly-Shield',
+    warranty: 'Extended Surface Protection',
     popular: true,
     serviceType: 'Studio Recommended',
     includes: [
@@ -221,7 +220,7 @@ export const PACKAGES_DATA: PackageTier[] = [
       'Single-Stage Machine Paint Polish',
       'Interior complete deep steam extraction',
       'Leather cleaning & conditioning',
-      '6-Month high-bonding polymer paint sealant'
+      'High-bonding polymer surface sealant application'
     ],
     perfectFor: 'Vehicles needing a thorough refresh and paint enhancement.'
   },
@@ -232,17 +231,17 @@ export const PACKAGES_DATA: PackageTier[] = [
     price: 1290,
     originalPrice: 1490,
     duration: '1.5 Days (Cure Bay)',
-    warranty: '5-Year Written Carfax Warranty',
+    warranty: 'Multi-Year Quality Commitment',
     bestValue: true,
     serviceType: 'Studio Required (IR Baking)',
     includes: [
       'Full Multi-Stage Paint Correction',
-      '2 Coats of 9H Ceramic Coating on all painted panels',
+      'Multi-layer professional-grade ceramic protective application',
       'Wheel faces ceramic coat protection',
       'Windshield hydrophobic rain-repellent shield',
       'Plastic trim & rubber ceramic restoration',
       'Full interior deep clean & stain guard',
-      'Infrared bake cure & official Carfax warranty'
+      'Professional multi-stage curing & complete service documentation'
     ],
     perfectFor: 'New cars, luxury exotics, and maximum long-term protection.'
   }
@@ -271,7 +270,7 @@ export const ADDONS_DATA: AddOnOption[] = [
     id: 'headlight-resto',
     name: 'Headlight Wet-Sand & UV Clear Coat Restoration',
     price: 110,
-    description: 'Restores yellowed, hazy polycarbonate headlights back to 100% optical clarity.'
+    description: 'Restores yellowed, hazy polycarbonate headlights back to clear optical brilliance.'
   },
   {
     id: 'engine-add',
@@ -296,7 +295,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: 'Apex 5-Year Ceramic Shield & Paint Correction',
     rating: 5,
     date: '2 weeks ago',
-    comment: 'Took my GT3 to Apex after getting swirls from a previous dealership wash. The level of detail here is obsessive. The carbon roof and paint look deeper than when it rolled off the showroom floor in Stuttgart. Best detailing studio in Pasadena by far.',
+    comment: 'Took my GT3 to Apex after getting swirls from a previous dealership wash. The level of detail here is obsessive. The carbon roof and paint look deeper than when it rolled off the showroom floor in Stuttgart. Best detailing studio by far.',
     verified: true,
     highlight: 'Deeper than showroom delivery'
   },
@@ -308,9 +307,9 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: 'Mobile Detailing Concierge Unit',
     rating: 5,
     date: '3 weeks ago',
-    comment: 'The mobile van came directly to my home in Pasadena. They brought their own purified water and silent generator. My interior looks and smells brand new, and they removed a tough espresso stain from my white seats completely.',
+    comment: 'Outstanding experience from start to finish. The service was punctual, professional, and delivered incredible results right at my doorstep. My interior looks and smells like new—every detail was handled with precision.',
     verified: true,
-    highlight: 'Zero water spots with mobile unit'
+    highlight: 'Outstanding mobile detailing experience'
   },
   {
     id: 'rev-3',
@@ -320,7 +319,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: 'Signature Paint Correction & 2-Year Ceramic',
     rating: 5,
     date: '1 month ago',
-    comment: 'Under the LED inspection lights, you could see 99% of all hairline scratches were gone. Water literally falls off the hood now. Very honest pricing and master craftsmanship. Will be bringing my wife’s X5 next month.',
+    comment: 'Under the LED inspection lights, the vast majority of hairline scratches and swirls were gone. Water literally falls off the hood now. Very honest pricing and expert craftsmanship. Will be bringing my wife’s car next month.',
     verified: true,
     highlight: 'Under LED lights it was flawless'
   },
@@ -332,9 +331,9 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: 'Concourse Apex Bespoke & Engine Bay Detail',
     rating: 5,
     date: '1 month ago',
-    comment: 'The G-Wagon is a monster to clean with all the square edges. Apex treated it like fine jewelry. Engine bay was spotless, wheel calipers coated, and the 7-year graphene warranty gives me total peace of mind in the SoCal sun.',
+    comment: 'The G-Wagon is a monster to clean with all the square edges. Apex treated it with total precision. Engine bay was spotless, wheel calipers coated, and the durable graphene protection gives me total peace of mind in the SoCal sun.',
     verified: true,
-    highlight: 'Treated my G63 like fine jewelry'
+    highlight: 'Treated my vehicle with total precision'
   },
   {
     id: 'rev-5',
@@ -356,7 +355,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: 'Multi-Stage Paint Correction & Concourse Prep',
     rating: 5,
     date: '2 months ago',
-    comment: 'Hard to trust anyone with Rosso Corsa single-stage clear, but Apex has certified masters. The paint depth readings before and after were documented in detail. Simply unmatched professionalism.',
+    comment: 'Hard to trust anyone with delicate clear coat, but Apex has experienced detail technicians. The paint depth readings before and after were documented in detail. Simply unmatched professionalism.',
     verified: true,
     highlight: 'Documented paint depth readings'
   }
@@ -367,19 +366,19 @@ export const FAQS_DATA: FaqItem[] = [
     id: 'faq-1',
     category: 'ceramic',
     question: 'How long does ceramic coating really last, and is it better than wax?',
-    answer: 'Unlike traditional carnauba waxes or synthetic polymer sealants that melt away after 2–8 weeks in the hot California sun, our 9H / 10H ceramic coatings create a semi-permanent chemical and covalent bond with your vehicle’s clear coat. They last between 2 to 7+ years depending on the chosen package, providing extreme chemical resistance, UV protection, and self-cleaning hydrophobic properties.'
+    answer: 'Unlike traditional carnauba waxes or synthetic polymer sealants that degrade quickly in the hot California sun, our professional-grade ceramic care solutions create a durable surface bond with your vehicle’s clear coat. They provide extended protection depending on the chosen package, delivering robust chemical resistance, UV protection, and self-cleaning hydrophobic properties.'
   },
   {
     id: 'faq-2',
     category: 'correction',
     question: 'What is the difference between a 1-step and a multi-step paint correction?',
-    answer: 'A 1-Step enhancement combines light polishing to boost gloss and remove 50%–70% of micro-marring, ideal for newer vehicles. A 2-Step or Multi-Stage Paint Correction uses a heavy cutting compound with micro-abrasive pads to eliminate 85%–99% of deep swirl marks, scratches, and etching, followed by a jeweling finishing polish for laser-sharp reflections.'
+    answer: 'A 1-Step enhancement combines light polishing to boost gloss and reduce light micro-marring, ideal for newer vehicles. Multi-stage paint correction is designed to safely remove up to 80-90% of swirl marks and light defects, followed by a jeweling finishing polish for laser-sharp reflections.'
   },
   {
     id: 'faq-3',
     category: 'mobile',
     question: 'Do I need to provide water or power for the Mobile Detailing service?',
-    answer: 'No! Our mobile detailing Mercedes Sprinter van is 100% self-contained. We carry our own 100-gallon tank of 0-PPM deionized spot-free filtered water and an ultra-quiet internal inverter generator. All we need is access to your vehicle at your home, office, or private garage in Pasadena or surrounding cities.'
+    answer: 'Our mobile detailing unit comes fully equipped with all professional tools, products, and equipment. Depending on your location and chosen package, access to a standard outdoor water spigot and electrical outlet may be coordinated prior to your service.'
   },
   {
     id: 'faq-4',
@@ -390,14 +389,14 @@ export const FAQS_DATA: FaqItem[] = [
   {
     id: 'faq-5',
     category: 'general',
-    question: 'Where is your Pasadena studio located and do I need an appointment?',
-    answer: `Our state-of-the-art detailing studio is located at 1420 E Walnut St, Suite 104, Pasadena, CA 91106. Because we allocate dedicated technician hours and temperature-controlled bays for every car, we operate by appointment. You can book directly through our online quote tool or call us at +${BUSINESS_CONFIG.ownerPhone}.`
+    question: 'Where is your studio located and do I need an appointment?',
+    answer: `Our state-of-the-art detailing studio is located at 1420 E Walnut St, Suite 104, ${BUSINESS_CONFIG.location} 91106. Because we allocate dedicated technician hours and temperature-controlled bays for every car, we operate by appointment. You can book directly through our online quote tool or call us at +${BUSINESS_CONFIG.ownerPhone}.`
   },
   {
     id: 'faq-6',
     category: 'general',
-    question: 'What is your satisfaction guarantee and warranty policy?',
-    answer: 'Every vehicle undergoes a 32-point inspection under high-CRI 5000K LED studio bay lighting before handover. Our ceramic coating installations include an official warranty certificate with Carfax registry reporting, ensuring your vehicle retains maximum resale value.'
+    question: 'What is your quality assurance and service policy?',
+    answer: 'Quality Assurance Commitment: Every detail includes a thorough walk-around inspection before handover to ensure your satisfaction. Our ceramic coating installations include complete service documentation and care guidelines to protect your vehicle surface for the long term.'
   }
 ];
 
@@ -419,22 +418,22 @@ export const STYLE_GUIDE_DATA = {
     body: "Plus Jakarta Sans (400 Regular / 500 Medium) for crisp 16px+ baseline readability"
   },
   heroConcept: {
-    headline: "Concourse-Level Precision for Pasadena's Finest Automobiles",
-    subheadline: "Master-certified multi-stage paint correction, 9H/10H ceramic shield protection, and bespoke interior restoration — at our climate-controlled Pasadena studio or via our self-contained mobile unit.",
+    headline: "Concourse-Level Precision for High-Performance Automobiles",
+    subheadline: `Multi-stage paint correction designed to safely remove up to 80-90% of swirl marks and light defects, professional-grade ceramic protective care, and bespoke interior restoration — at our climate-controlled ${BUSINESS_CONFIG.location} studio or via our fully equipped mobile unit.`,
     primaryCta: "Calculate Instant Quote & Book",
     secondaryCta: "Explore 5-Year Ceramic Packages",
-    visualStyle: "Studio spotlighting on a high-gloss supercar, interactive technical spec nodes, dynamic before/after paint clarity slider, and 4.8★ Google verified social proof banner."
+    visualStyle: "Studio spotlighting on a high-gloss vehicle, interactive technical spec nodes, dynamic before/after paint clarity slider, and 4.8★ Google verified social proof banner."
   },
   wireframeSections: [
-    { number: "01", name: "Global Header & Live Status Bar", purpose: "Persistent trust signals (4.8★, Pasadena address, instant phone dial, mobile booking trigger)" },
+    { number: "01", name: "Global Header & Live Status Bar", purpose: "Persistent trust signals (4.8★, studio address, instant phone dial, mobile booking trigger)" },
     { number: "02", name: "Hero Showcase & Technical Spec Nodes", purpose: "Immediate visual impact, value proposition, and instant quote CTA" },
-    { number: "03", name: "Interactive Before/After Paint Defect Slider", purpose: "Direct visual proof of swirl elimination vs. mirror ceramic gloss" },
+    { number: "03", name: "Interactive Before/After Paint Defect Slider", purpose: "Direct visual proof of swirl reduction vs. refined ceramic gloss" },
     { number: "04", name: "Core Services Breakdown (5 Pillars)", purpose: "Deep dive into Paint Correction, Ceramic Coating, Interior Deep Clean, Engine Bay, and Mobile Van" },
-    { number: "05", name: "Interactive Pricing & Package Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments and Carfax warranty details" },
+    { number: "05", name: "Interactive Pricing & Package Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments and service documentation details" },
     { number: "06", name: "Live Quote & Multi-Step Booking Builder", purpose: "High-conversion lead capture and instant estimated quote calculator" },
-    { number: "07", name: "Craftsmanship & Studio Standards", purpose: "Deionized water, high-CRI lighting, Rupes polishers, and climate-controlled curing bay" },
-    { number: "08", name: "Verified Customer Reviews (64 Reviews)", purpose: "Social proof with real car models and Pasadena/San Marino local authenticity" },
+    { number: "07", name: "Craftsmanship & Studio Standards", purpose: "Water filtration, high-CRI lighting, specialized equipment, and climate-controlled curing bay" },
+    { number: "08", name: "Verified Customer Reviews (64 Reviews)", purpose: "Social proof with real car models and regional local authenticity" },
     { number: "09", name: "Interactive FAQ Accordion", purpose: "Overcoming objections around ceramic longevity, mobile logistics, and PPF compatibility" },
-    { number: "10", name: "Pasadena Studio Map & Direct Contact", purpose: "Physical address, business hours, Google directions, and VIP appointment booking" }
+    { number: "10", name: "Studio Map & Direct Contact", purpose: "Physical address, business hours, Google directions, and VIP appointment booking" }
   ]
 };

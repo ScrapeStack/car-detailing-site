@@ -37,14 +37,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <span className="text-xs uppercase tracking-[0.25em] font-mono-tech text-amber-400 font-semibold block mb-2">
-              Master Craftsmanship Disciplines
+              Precision Craftsmanship Disciplines
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
               Specialized Detailing Services
             </h2>
           </div>
           <p className="text-slate-400 text-sm max-w-md">
-            Every vehicle in our {BUSINESS_CONFIG.location} facility receives clinical grade attention, tailored chemical balances, and certified ceramic installation.
+            Every vehicle in our {BUSINESS_CONFIG.location} facility receives clinical grade attention, tailored chemical balances, and professional-grade ceramic application.
           </p>
         </div>
 
@@ -145,15 +145,20 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap gap-4 pt-2">
-                <button
-                  id={`service-quote-btn-${currentService.id}`}
-                  onClick={() => onSelectServiceForQuote(currentService.id)}
-                  className="px-6 py-3 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-amber-500/20 flex items-center space-x-2 group"
-                >
-                  <span>Build Quote for {currentService.title.split(' ')[0]}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+              <div className="space-y-2 pt-2">
+                <div className="flex flex-wrap gap-4">
+                  <button
+                    id={`service-quote-btn-${currentService.id}`}
+                    onClick={() => onSelectServiceForQuote(currentService.id)}
+                    className="px-6 py-3 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-amber-500/20 flex items-center space-x-2 group cursor-pointer"
+                  >
+                    <span>Build Quote for {currentService.title.split(' ')[0]}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+                <p className="text-[11px] text-slate-400/80">
+                  By submitting an inquiry, you consent to sending your request details directly to the independent business operator via WhatsApp.
+                </p>
               </div>
             </div>
 
@@ -172,7 +177,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 <div className="absolute bottom-4 left-4 right-4 bg-[#090b10]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/15">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-mono-tech text-amber-400 font-semibold uppercase">{BUSINESS_CONFIG.location} Studio Standard</span>
-                    <span className="text-slate-400">IDA Certified</span>
+                    <span className="text-slate-400">Experienced Technicians</span>
                   </div>
                   <div className="text-xs text-slate-300 font-medium mt-1">
                     {currentService.shortDesc}

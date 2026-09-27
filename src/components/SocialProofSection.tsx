@@ -4,28 +4,28 @@ import { REVIEWS_DATA, BUSINESS_INFO } from '../data/businessData';
 import { BUSINESS_CONFIG } from '../config';
 
 export const SocialProofSection: React.FC = () => {
-  // Select 3 top verified reviews for a balanced single-row desktop layout and concise mobile stack
+  // Select top verified reviews from Bronx and NYC clients
   const featuredReviews = REVIEWS_DATA.slice(0, 3);
 
   return (
     <section id="reviews" className="py-14 sm:py-16 bg-[#090b10] border-t border-slate-850 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Compact Balanced Header */}
+        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 border-b border-white/5 pb-5">
           <div>
             <p className="text-xs uppercase font-mono-tech tracking-[0.2em] text-amber-400 font-semibold mb-1">
-              Verified Client Reviews
+              Verified Customer Reviews
             </p>
             <h2 className="text-2xl sm:text-3xl font-black text-white uppercase font-heading tracking-tight">
-              Trusted by {BUSINESS_CONFIG.location}’s Drivers
+              Trusted by Drivers in the Bronx & Greater NYC
             </h2>
           </div>
 
           {/* Compact Rating Pill */}
           <div className="flex items-center space-x-3 bg-[#121620] border border-white/10 px-4 py-2 rounded-xl self-start sm:self-auto">
             <span className="text-xl font-black text-amber-400 font-mono-tech leading-none">
-              {BUSINESS_INFO.rating}
+              {BUSINESS_INFO.rating.toFixed(1)}
             </span>
             <div className="flex items-center space-x-0.5 text-amber-400">
               {[1, 2, 3, 4, 5].map((star) => (
@@ -38,7 +38,7 @@ export const SocialProofSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Reviews Grid: Exactly 3 even columns on laptop/tablet, 1 clean column on mobile */}
+        {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {featuredReviews.map((rev) => (
             <div
@@ -61,7 +61,7 @@ export const SocialProofSection: React.FC = () => {
 
                 {/* Highlight Quote */}
                 <div className="text-xs font-bold text-amber-400 font-mono-tech mb-2">
-                  "{rev.highlight}"
+                  &ldquo;{rev.highlight}&rdquo;
                 </div>
 
                 {/* Comment Text */}
@@ -84,7 +84,7 @@ export const SocialProofSection: React.FC = () => {
                 <div className="text-[11px] text-slate-400 font-medium truncate">
                   🚗 {rev.vehicle}
                 </div>
-                <div className="text-[10px] font-mono-tech text-slate-500 truncate">
+                <div className="text-[10px] font-mono-tech text-amber-400/90 truncate">
                   {rev.service}
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
+import { HelpCircle, ChevronDown } from 'lucide-react';
 import { FAQS_DATA } from '../data/businessData';
 import { BUSINESS_CONFIG } from '../config';
 
@@ -11,7 +11,7 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-24 bg-[#0c0f16] border-t border-b border-white/5 relative">
+    <section id="faq" className="py-20 sm:py-24 bg-[#0c0f16] border-t border-b border-white/5 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14">
@@ -20,10 +20,10 @@ export const FaqSection: React.FC = () => {
             <span>Frequently Asked Questions</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-black text-white tracking-tight">
-            Clear Answers for Car Enthusiasts
+            Clear Answers About Our Mobile Service
           </h2>
           <p className="mt-3 text-slate-400 text-sm">
-            Everything you need to know about ceramic longevity, paint correction thickness safety, and our {BUSINESS_CONFIG.location} mobile detailing unit.
+            Everything you need to know about our mobile detailing in the Bronx and NYC, steam extraction process, flat-rate pricing, and driveway brake & radio installations.
           </p>
         </div>
 

@@ -1,7 +1,13 @@
 export const BUSINESS_CONFIG = {
-  businessName: "Apex Precision Auto Detailing",
-  ownerPhone: "+995555123456", // Raw phone string (with or without +, spaces, or dashes)
-  location: "Pasadena, CA",
+  businessName: "Guy On The Go Mobile Detailing",
+  ownerName: "Hershel",
+  ownerPhone: "+13475937649",
+  email: "guyonthego21@gmail.com",
+  location: "Bronx, NY",
+  address: "1219 Woodycrest Ave, Bronx, NY 10452",
+  serviceArea: "Bronx, NY & Greater NYC Metropolitan Area (Mobile - We Come To You)",
+  rating: 5.0,
+  reviewCount: 20,
   currency: "$"
 };
 

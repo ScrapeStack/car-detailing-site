@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Sparkles, Phone, MapPin, Star, Shield, ArrowUp, BookOpen, Heart } from 'lucide-react';
+import { Sparkles, Phone, MapPin, Star, ArrowUp, BookOpen, MessageSquare, Mail, MessageCircle } from 'lucide-react';
 import { BUSINESS_INFO, SERVICES_DATA } from '../data/businessData';
 import { BUSINESS_CONFIG, CLIENT_CONFIG } from '../config';
-import { getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
+import { getDisplayOwnerPhone, getTelLink, getSmsLink, getEmailLink, getCleanOwnerPhone, getWhatsAppLink } from '../utils/whatsapp';
 import { LegalModal, LegalTab } from './LegalModal';
 
 interface FooterProps {
@@ -29,31 +29,55 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
       <div className="border-b border-white/5 bg-[#090b10] py-10 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
-            <span className="text-amber-400 font-mono-tech uppercase text-[11px] font-bold">Ready to Experience Flawless Reflections?</span>
+            <span className="text-amber-400 font-mono-tech uppercase text-[11px] font-bold">Ready for a Flawless Mobile Detailing Experience?</span>
             <div className="text-xl sm:text-2xl font-display font-black text-white">
-              Reserve Your {CLIENT_CONFIG.location} Detailing Bay or Mobile Visit
+              Reserve Your Mobile Visit in the Bronx & NYC
             </div>
+            <p className="text-xs text-slate-400">
+              Hershel comes directly to your driveway with high-heat steam extraction and high-foam washes.
+            </p>
           </div>
-          <div className="flex flex-col items-center sm:items-end gap-2">
-            <div className="flex flex-wrap items-center gap-3">
-              <button
+          <div className="flex flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a
                 id="footer-quote-btn"
-                onClick={onOpenBooking}
-                className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all cursor-pointer"
+                href={getWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-12 px-6 bg-[#25D366] hover:bg-[#20bd5a] text-black font-black uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-[#25D366]/20 transition-all flex items-center justify-center space-x-1.5 cursor-pointer"
               >
-                Get Instant Quote & Book
-              </button>
+                <MessageSquare className="w-3.5 h-3.5 fill-black text-black" />
+                <span>BOOK VIA WHATSAPP</span>
+              </a>
               <a
                 id="footer-call-btn"
                 href={getTelLink()}
-                className="px-5 py-3 bg-white/5 hover:bg-white/10 text-white font-semibold text-xs rounded-xl border border-white/10 transition-all flex items-center space-x-1.5"
+                className="h-12 px-5 bg-white/5 hover:bg-white/10 text-white font-semibold text-xs rounded-xl border border-white/10 transition-all flex items-center justify-center space-x-1.5"
               >
                 <Phone className="w-3.5 h-3.5 text-amber-400" />
-                <span>{getDisplayOwnerPhone()}</span>
+                <span className="font-mono-tech">{getDisplayOwnerPhone()}</span>
+              </a>
+              <a
+                id="footer-sms-btn"
+                href={getSmsLink()}
+                className="h-12 px-4 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-semibold text-xs rounded-xl border border-white/10 transition-all flex items-center justify-center space-x-1.5"
+                title="Send SMS"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-amber-500" />
+                <span>SMS</span>
+              </a>
+              <a
+                id="footer-email-btn"
+                href={getEmailLink()}
+                className="h-12 px-4 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-semibold text-xs rounded-xl border border-white/10 transition-all flex items-center justify-center space-x-1.5"
+                title="Email Inquiry"
+              >
+                <Mail className="w-3.5 h-3.5 text-amber-500" />
+                <span>Email</span>
               </a>
             </div>
             <p className="text-xs text-slate-400/80 text-center sm:text-right">
-              By submitting an inquiry, you consent to sending your request details directly to the independent business operator via WhatsApp.
+              By submitting an inquiry or reaching out, you consent to sending your request details directly to the independent business operator via WhatsApp, SMS, Phone, or Email.
             </p>
           </div>
         </div>
@@ -62,6 +86,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
       {/* Main Footer Links & Bio */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          
           {/* Brand Info (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
@@ -73,15 +98,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
               </span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              {CLIENT_CONFIG.location}’s premier luxury automotive detailing studio & mobile unit. We specialize in multi-stage paint correction, professional-grade ceramic protective care solutions, dry steam interior restoration, and engine bay detailing.
+              NYC’s premier mobile auto detailing specialist. Operating out of 1219 Woodycrest Ave, Bronx, NY, Hershel delivers full interior steam extraction, high-foam exterior baths, pet hair removal, and driveway brake & radio installations directly to your doorstep.
             </p>
             <div className="flex items-center space-x-2 text-amber-400 font-mono-tech text-xs">
               <Star className="w-4 h-4 fill-amber-400" />
-              <span className="font-bold">{BUSINESS_INFO.rating} / 5.0 Star Rating</span>
+              <span className="font-bold">{BUSINESS_INFO.rating.toFixed(1)} / 5.0 Star Rating</span>
               <span className="text-slate-500">•</span>
-              <span className="text-slate-400">{BUSINESS_INFO.reviewCount} {CLIENT_CONFIG.location} Client Reviews</span>
+              <span className="text-slate-400">{BUSINESS_INFO.reviewCount}+ Verified Google Reviews</span>
             </div>
-            <div className="pt-2">
+            <div className="pt-1">
               <button
                 id="footer-style-guide-link"
                 onClick={onOpenStyleGuide}
@@ -96,7 +121,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           {/* Services Column */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              Core Services
+              Services & Pricing
             </span>
             <ul className="space-y-2">
               {SERVICES_DATA.map((s) => (
@@ -106,51 +131,76 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
                   </a>
                 </li>
               ))}
+              <li>
+                <a href="#pricing" className="hover:text-amber-400 transition-colors">
+                  Sedans: $200.00 / 3-Row: $249.99
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" className="hover:text-amber-400 transition-colors">
+                  Express Flat Rate: $99.99
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" className="hover:text-amber-400 transition-colors">
+                  Foam Wash Flat Rate: $74.99
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Quick Navigation */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              Experience & Proof
+              Quick Navigation
             </span>
             <ul className="space-y-2">
-              <li><a href="#services" className="hover:text-amber-400 transition-colors">Core Detailing Services</a></li>
-              <li><a href="#pricing" className="hover:text-amber-400 transition-colors">Package Pricing Matrix</a></li>
-              <li><a href="#standards" className="hover:text-amber-400 transition-colors">Craftsmanship Standards</a></li>
+              <li><a href="#services" className="hover:text-amber-400 transition-colors">Mobile Services Menu</a></li>
+              <li><a href="#pricing" className="hover:text-amber-400 transition-colors">Packages & Pricing</a></li>
+              <li><a href="#quote-builder" className="hover:text-amber-400 transition-colors">Instant Quote & WhatsApp Booking</a></li>
               <li><a href="#reviews" className="hover:text-amber-400 transition-colors">Verified Customer Reviews</a></li>
               <li><a href="#faq" className="hover:text-amber-400 transition-colors">Frequently Asked Questions</a></li>
-              <li><a href="#quote-builder" className="hover:text-amber-400 transition-colors">Instant Quote Builder</a></li>
+              <li><a href="#location" className="hover:text-amber-400 transition-colors">Mobile Dispatch & Hours</a></li>
             </ul>
           </div>
 
-          {/* Studio Location & Service Coverage */}
+          {/* Mobile Base Location & Service Coverage */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              {CLIENT_CONFIG.location} Studio
+              Dispatch Base & Hours
             </span>
             <div className="space-y-2 text-slate-400">
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                <span>1420 E Walnut St, Suite 104, {CLIENT_CONFIG.location} 91106</span>
+                <span>{CLIENT_CONFIG.address}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-amber-500 shrink-0" />
-                <a href={getTelLink()} className="text-slate-300 hover:text-amber-400">
+                <a href={getTelLink()} className="text-slate-300 hover:text-amber-400 font-mono-tech">
                   {getDisplayOwnerPhone()}
                 </a>
               </div>
-              <div className="text-[11px] text-slate-500 font-mono-tech pt-2">
-                Serving: {CLIENT_CONFIG.location}, San Marino, Arcadia, Glendale, and surrounding communities.
+              <div className="flex items-center space-x-2">
+                <Mail className="w-4 h-4 text-amber-500 shrink-0" />
+                <a href={getEmailLink()} className="text-slate-300 hover:text-amber-400 font-mono-tech">
+                  {BUSINESS_CONFIG.email}
+                </a>
+              </div>
+              <div className="text-[11px] text-slate-300 font-mono-tech pt-1">
+                Mon – Sat: 9:00 AM – 8:00 PM <br />
+                <span className="text-rose-400">Sunday: Closed</span>
+              </div>
+              <div className="text-[11px] text-slate-500 font-mono-tech pt-1">
+                Serving: Bronx, NY & Greater NYC Metropolitan Area (Mobile - We Come To You).
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Copyright & Back to Top */}
+        {/* Bottom Copyright & Back to Top (Exact User Requirement) */}
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-xs relative z-30">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 relative z-30 pointer-events-auto">
-            <span>© {new Date().getFullYear()} {CLIENT_CONFIG.businessName}. All Rights Reserved.</span>
+            <span>© 2026 Guy On The Go Mobile Detailing. All Rights Reserved.</span>
             <span className="text-slate-600">|</span>
             <button
               id="footer-privacy-policy-link"
@@ -178,7 +228,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
         </div>
       </div>
 
-      {/* Accessible Legal Privacy Policy & Terms Modal */}
+      {/* Accessible Legal Privacy Policy & Terms Modal (Untouched Legal Shields & Disclaimers) */}
       <LegalModal
         isOpen={isLegalModalOpen}
         activeTab={legalModalTab}
@@ -188,4 +238,3 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
     </footer>
   );
 };
-

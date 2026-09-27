@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MapPin, Star, Calendar, Menu, X, Shield, Sparkles, BookOpen, ShoppingBag } from 'lucide-react';
+import { Phone, MapPin, Star, Menu, X, BookOpen, MessageSquare, Mail } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessData';
 import { BUSINESS_CONFIG } from '../config';
-import { getCleanOwnerPhone, getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
+import { getCleanOwnerPhone, getDisplayOwnerPhone, getTelLink, getSmsLink, getEmailLink, getWhatsAppLink } from '../utils/whatsapp';
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -28,9 +28,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
   const navLinks = [
     { name: 'HOME', href: '#' },
     { name: 'SERVICES', href: '#services' },
-    { name: 'PACKAGES', href: '#pricing' },
+    { name: 'PACKAGES & PRICING', href: '#pricing' },
     { name: 'REVIEWS', href: '#reviews' },
-    { name: 'CONTACT', href: '#location' },
+    { name: 'CONTACT & DISPATCH', href: '#location' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -60,22 +60,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-1.5 text-slate-300">
               <MapPin className="w-3 h-3 text-amber-500" />
-              <span>1420 E Walnut St, Suite 104, {BUSINESS_CONFIG.location} 91106</span>
+              <span>{BUSINESS_CONFIG.address} • Mobile (We Come To You)</span>
             </div>
             <div className="flex items-center space-x-1 text-amber-400 font-medium">
               <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-              <span>{BUSINESS_INFO.rating} / 5.0 Star Rating ({BUSINESS_INFO.reviewCount} Reviews)</span>
+              <span>{BUSINESS_INFO.rating.toFixed(1)} Stars ({BUSINESS_INFO.reviewCount}+ Google Reviews)</span>
             </div>
           </div>
-          <div className="flex items-center space-x-5">
+          <div className="flex items-center space-x-4">
             <button 
               id="nav-style-guide-top-btn"
               onClick={onOpenStyleGuide}
               className="text-slate-400 hover:text-amber-400 transition-colors flex items-center space-x-1 text-[11px]"
             >
               <BookOpen className="w-3 h-3 text-amber-400" />
-              <span>View Style Guide</span>
+              <span>Style Guide</span>
             </button>
+            <span className="w-px h-3 bg-white/10 shrink-0" aria-hidden="true" />
+            <a 
+              id="topbar-email-link"
+              href={getEmailLink()} 
+              className="flex items-center space-x-1 text-slate-300 hover:text-amber-400 transition-colors"
+              title="Email Inquiry"
+            >
+              <Mail className="w-3 h-3 text-amber-500" />
+              <span>Email</span>
+            </a>
             <span className="w-px h-3 bg-white/10 shrink-0" aria-hidden="true" />
             <a 
               id="topbar-phone-link"
@@ -88,17 +98,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
             <span className="w-px h-3 bg-white/10 shrink-0" aria-hidden="true" />
             <a 
               id="topbar-whatsapp-link"
-              href={`https://wa.me/${getCleanOwnerPhone()}`} 
+              href={getWhatsAppLink()} 
               target="_blank" rel="noopener noreferrer"
-              className="flex items-center space-x-1 text-slate-300 hover:text-amber-400 transition-colors"
+              className="flex items-center space-x-1 text-emerald-400 hover:text-emerald-300 transition-colors font-bold"
             >
+              <MessageSquare className="w-3 h-3 text-emerald-400" />
               <span>WhatsApp Booking</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Luxury Header (Equis Aesthetic Match) */}
+      {/* Main Luxury Header */}
       <header className={`sticky top-0 z-40 transition-all duration-300 ${
         isScrolled 
           ? 'bg-[#07090e]/95 backdrop-blur-md border-b border-white/10 shadow-2xl py-3.5' 
@@ -106,67 +117,80 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           
-          {/* Logo / Brand Name in Minimalist High-End Lettering */}
+          {/* Logo / Brand Name */}
           <a href="#" className="flex items-center space-x-3 group" id="nav-brand-logo">
-            <span className="font-display font-black text-xl sm:text-2xl tracking-[0.25em] text-white group-hover:text-amber-400 transition-colors uppercase leading-none">
-              EQUIS
-            </span>
-            <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-            <span className="hidden sm:inline-block text-[11px] tracking-[0.2em] text-slate-400 uppercase font-mono-tech">
-              APEX PRECISION
-            </span>
+            <div className="w-9 h-9 rounded-lg bg-amber-500 flex items-center justify-center font-display font-black text-black text-base shadow-md shadow-amber-500/20 shrink-0">
+              G
+            </div>
+            <div>
+              <span className="font-display font-black text-base sm:text-lg md:text-xl tracking-tight text-white group-hover:text-amber-400 transition-colors leading-tight block">
+                Guy On The Go Mobile Detailing
+              </span>
+              <span className="text-[10px] sm:text-[11px] tracking-[0.18em] text-amber-400/90 uppercase font-mono-tech block mt-0.5">
+                BRONX & NYC • WE COME TO YOU
+              </span>
+            </div>
           </a>
 
-          {/* Desktop Nav Links (Reference Style) */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          {/* Desktop Nav Links */}
+          <nav className="hidden lg:flex items-center space-x-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-xs font-mono-tech tracking-[0.18em] uppercase text-slate-300 hover:text-white transition-colors relative py-1 hover:text-amber-400"
+                className="text-xs font-mono-tech tracking-[0.16em] uppercase text-slate-300 hover:text-amber-400 transition-colors relative py-1"
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          {/* Action CTAs: Book & Quick Cart / Reserve */}
-          <div className="hidden sm:flex items-center space-x-4">
+          {/* Action CTAs: Book via WhatsApp & Call */}
+          <div className="hidden sm:flex items-center space-x-3">
+            <a
+              id="nav-call-btn"
+              href={getTelLink()}
+              className="px-3.5 py-2 text-xs font-mono-tech font-semibold tracking-wider text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all flex items-center space-x-1.5"
+            >
+              <Phone className="w-3.5 h-3.5 text-amber-400" />
+              <span>{getDisplayOwnerPhone()}</span>
+            </a>
+
             <button
               id="nav-instant-quote-btn"
               onClick={onOpenBooking}
-              className="px-5 py-2 text-xs font-mono-tech font-semibold tracking-widest uppercase text-white bg-transparent hover:bg-white hover:text-black border border-white/40 hover:border-white transition-all rounded-none duration-200"
+              className="px-4 py-2 text-xs font-mono-tech font-bold tracking-wider uppercase text-black bg-[#25D366] hover:bg-[#20bd5a] transition-all rounded-xl shadow-md shadow-[#25D366]/20 flex items-center space-x-1.5 cursor-pointer"
             >
-              BOOK STUDIO
-            </button>
-
-            <button
-              id="nav-cart-btn"
-              onClick={onOpenBooking}
-              className="p-2 text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors relative"
-              aria-label="View Booking cart and quotes"
-              title="Instant Quote & Reservation"
-            >
-              <ShoppingBag className="w-4 h-4" />
-              <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              <MessageSquare className="w-3.5 h-3.5 fill-black text-black" />
+              <span>BOOK VIA WHATSAPP</span>
             </button>
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile Buttons */}
           <div className="flex items-center space-x-2 lg:hidden">
             <a
               id="nav-mobile-call-btn"
               href={getTelLink()}
-              className="p-2 text-amber-400 bg-white/5 border border-white/10 rounded"
+              className="p-2 text-amber-400 bg-white/5 border border-white/10 rounded-lg"
               aria-label={`Call ${BUSINESS_CONFIG.businessName}`}
             >
               <Phone className="w-4 h-4" />
             </a>
+            <a
+              id="nav-mobile-whatsapp-btn"
+              href={getWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-[#25D366] bg-[#25D366]/10 border border-[#25D366]/30 rounded-lg"
+              aria-label="Book on WhatsApp"
+            >
+              <MessageSquare className="w-4 h-4" />
+            </a>
             <button
               id="nav-mobile-toggle-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-300 hover:text-white bg-white/5 border border-white/10 rounded"
+              className="p-2 text-slate-300 hover:text-white bg-white/5 border border-white/10 rounded-lg"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -174,7 +198,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Drawer Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-[#0a0d14] border-b border-white/10 px-4 pt-3 pb-6 mt-3 space-y-3 animate-in slide-in-from-top duration-200">
             <div className="grid grid-cols-1 gap-1 pt-2">
@@ -183,7 +207,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="px-3 py-2.5 text-slate-200 hover:bg-white/5 hover:text-amber-400 font-mono-tech tracking-widest text-xs uppercase transition-colors flex items-center justify-between"
+                  className="px-3 py-2.5 text-slate-200 hover:bg-white/5 hover:text-amber-400 font-mono-tech tracking-widest text-xs uppercase transition-colors flex items-between justify-between"
                 >
                   <span>{link.name}</span>
                   <span className="text-slate-600 text-xs">→</span>
@@ -198,20 +222,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
                   setMobileMenuOpen(false);
                   onOpenBooking();
                 }}
-                className="w-full py-3 text-xs font-mono-tech font-bold uppercase tracking-widest text-black bg-white hover:bg-slate-200 transition-colors"
+                className="w-full py-3 text-xs font-mono-tech font-black uppercase tracking-widest text-black bg-[#25D366] hover:bg-[#20bd5a] transition-colors rounded-xl flex items-center justify-center space-x-2"
               >
-                GET IN TOUCH & BOOK
+                <MessageSquare className="w-4 h-4 fill-black text-black" />
+                <span>BOOK VIA WHATSAPP</span>
               </button>
-              <button
-                id="mobile-drawer-style-guide-btn"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenStyleGuide();
-                }}
-                className="w-full py-2.5 text-xs font-mono-tech text-slate-400 hover:text-white bg-white/5 border border-white/10"
-              >
-                VIEW DESIGN SYSTEM & STYLE GUIDE
-              </button>
+
+              <div className="grid grid-cols-3 gap-2">
+                <a
+                  href={getTelLink()}
+                  className="py-2.5 text-center text-[11px] font-mono-tech text-amber-400 bg-white/5 border border-white/10 rounded-lg"
+                >
+                  Call Now
+                </a>
+                <a
+                  href={getSmsLink()}
+                  className="py-2.5 text-center text-[11px] font-mono-tech text-slate-300 bg-white/5 border border-white/10 rounded-lg"
+                >
+                  Send SMS
+                </a>
+                <a
+                  href={getEmailLink()}
+                  className="py-2.5 text-center text-[11px] font-mono-tech text-slate-300 bg-white/5 border border-white/10 rounded-lg"
+                >
+                  Email Us
+                </a>
+              </div>
             </div>
           </div>
         )}

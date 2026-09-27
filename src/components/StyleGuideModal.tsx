@@ -224,26 +224,27 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 ## 1. Visual Style Guide
 - Primary Background: #090B10 (Obsidian Carbon)
 - Surface Container: #12161F (Graphite Surface)
-- Primary CTA Accent: #F59E0B (Electric Amber)
-- Technical Metric Accent: #38BDF8 (Precision Cyan)
+- Primary CTA Accent: #25D366 (WhatsApp Green) & #F59E0B (Electric Amber)
 - Text Contrast: #F8FAFC (Pure Platinum Headings) / #94A3B8 (Muted Steel Body)
 
 ## 2. Typography
-- Display: Outfit / Space Grotesk 800 Bold
+- Display: Outfit 800 Bold
 - Monospace / Metrics: Space Grotesk 500 Medium
-- Body: Plus Jakarta Sans 400/500 (16px base)
+- Body: Plus Jakarta Sans / Inter (16px base)
 
 ## 3. Hero Section Concept
-- Headline: "Elevate Your Vehicle to Concourse Perfection."
-- Subheadline: "${BUSINESS_CONFIG.location}’s authority in multi-stage paint correction, professional-grade ceramic protective care, and bespoke interior spa restoration."
-- CTAs: "Calculate Quote & Book" / "Explore Package Pricing"
-- Social Proof: 4.8 Stars (64 Local Reviews) • ${BUSINESS_CONFIG.location}
+- Headline: "NYC’s Premier Mobile Detailing — We Come To Your Doorstep"
+- Subheadline: "Professional steam extraction, high-foam exterior washes, and deep interior care delivered directly to your driveway in the Bronx and NYC."
+- CTAs: "Book via WhatsApp" / "View Services & Pricing"
+- Social Proof: 5.0 Stars (20+ Google Reviews) • Bronx & NYC
 
 ## 4. Business Ingestion
 - Name: ${BUSINESS_CONFIG.businessName}
-- Address: 1420 E Walnut St, Suite 104, ${BUSINESS_CONFIG.location} 91106
-- Phone: +${BUSINESS_CONFIG.ownerPhone}
-- Key Features: 5 Core Disciplines, Mobile Sprinter Unit, Interactive Split Slider, Live Multi-Step Quote Calculator`}
+- Owner: Hershel
+- Address / Base: 1219 Woodycrest Ave, Bronx, NY 10452
+- Phone: +1 (347) 593-7649
+- Email: guyonthego21@gmail.com
+- Services: Full Interior Steam & Shampoo, Interior Express Maintenance, Exterior Foam Wash & Gloss Seal, Engine Bay Cleaning, Pet Hair Removal, Radio Installation, Front & Rear Brake Installation`}
               </pre>
             </div>
           )}

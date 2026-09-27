@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { ServicesSection } from './components/ServicesSection';
@@ -16,11 +17,22 @@ import { StyleGuideModal } from './components/StyleGuideModal';
 import { Footer } from './components/Footer';
 import { VehicleType } from './types';
 
+const ScrollReveal: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 16 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-60px" }}
+    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+  >
+    {children}
+  </motion.div>
+);
+
 export default function App() {
   const [isStyleGuideOpen, setIsStyleGuideOpen] = useState<boolean>(false);
-  const [selectedServiceId, setSelectedServiceId] = useState<string>('paint-correction');
-  const [selectedPackageId, setSelectedPackageId] = useState<string>('deep-detail');
-  const [selectedVehicleClass, setSelectedVehicleClass] = useState<VehicleType>('coupe');
+  const [selectedServiceId, setSelectedServiceId] = useState<string>('full-interior-steam');
+  const [selectedPackageId, setSelectedPackageId] = useState<string>('full-interior-steam');
+  const [selectedVehicleClass, setSelectedVehicleClass] = useState<VehicleType>('sedan');
 
   const scrollToQuote = () => {
     const el = document.getElementById('quote-builder');
@@ -76,33 +88,45 @@ export default function App() {
         />
 
         {/* 2. 5 Core Disciplines & Services Detailed Showcase */}
-        <ServicesSection 
-          onSelectServiceForQuote={handleSelectServiceForQuote} 
-        />
+        <ScrollReveal>
+          <ServicesSection 
+            onSelectServiceForQuote={handleSelectServiceForQuote} 
+          />
+        </ScrollReveal>
 
         {/* 4. Packages & Pricing Matrix with Vehicle Size Multiplier */}
-        <PricingPackages 
-          selectedVehicleClass={selectedVehicleClass}
-          onSelectVehicleClass={setSelectedVehicleClass}
-          onSelectPackage={handleSelectPackage} 
-        />
+        <ScrollReveal>
+          <PricingPackages 
+            selectedVehicleClass={selectedVehicleClass}
+            onSelectVehicleClass={setSelectedVehicleClass}
+            onSelectPackage={handleSelectPackage} 
+          />
+        </ScrollReveal>
 
         {/* 5. Live Instant Quote Calculator & Appointment Scheduler */}
-        <InstantQuoteBooking 
-          initialServiceId={selectedServiceId}
-          initialPackageId={selectedPackageId}
-          selectedVehicleClass={selectedVehicleClass}
-          onSelectVehicleClass={setSelectedVehicleClass}
-        />
+        <ScrollReveal>
+          <InstantQuoteBooking 
+            initialServiceId={selectedServiceId}
+            initialPackageId={selectedPackageId}
+            selectedVehicleClass={selectedVehicleClass}
+            onSelectVehicleClass={setSelectedVehicleClass}
+          />
+        </ScrollReveal>
 
         {/* 6. Social Proof & Verified Reviews Grid (4.8 Stars, 64 Reviews) */}
-        <SocialProofSection />
+        <ScrollReveal>
+          <SocialProofSection />
+        </ScrollReveal>
 
         {/* 8. Frequently Asked Questions */}
-        <FaqSection />
+        <ScrollReveal>
+          <FaqSection />
+        </ScrollReveal>
 
         {/* 9. Studio Map, Direct Call & Concierge Contact */}
-        <LocationContactSection />
+        <ScrollReveal>
+          <LocationContactSection />
+        </ScrollReveal>
       </main>
 
       {/* Global Footer */}

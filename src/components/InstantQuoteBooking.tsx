@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Calculator, Calendar, Clock, MapPin, Shield, Sparkles, CheckCircle2, User, Mail, Phone, Car, AlertCircle, ArrowRight, MessageSquare, Loader2 } from 'lucide-react';
 import { VEHICLE_OPTIONS, PACKAGES_DATA, SERVICES_DATA, ADDONS_DATA, BUSINESS_INFO } from '../data/businessData';
 import { BUSINESS_CONFIG } from '../config';
-import { sendWhatsAppBooking, getCleanOwnerPhone, getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
+import { sendWhatsAppBooking, getCleanOwnerPhone, getDisplayOwnerPhone, getTelLink, generateWhatsAppUrl, generateSmsUrl } from '../utils/whatsapp';
 import { VehicleType, BookingFormData } from '../types';
 
 interface InstantQuoteBookingProps {
@@ -13,79 +13,7 @@ interface InstantQuoteBookingProps {
   onSelectVehicleClass?: (vehicleType: VehicleType) => void;
 }
 
-/**
- * Generates a pre-filled WhatsApp booking URL with clean formatting
- */
-export function generateWhatsAppUrl(bookingData: {
-  vehicleType?: string;
-  selectedVehicle?: string;
-  serviceName?: string;
-  selectedPackage?: string;
-  addOns?: string[];
-  selectedAddons?: string[];
-  totalPrice: number | string;
-  clientName?: string;
-  name?: string;
-  fullName?: string;
-  clientPhone?: string;
-  phone?: string;
-  clientEmail?: string;
-  email?: string;
-  serviceAddress?: string;
-  address?: string;
-  preferredTime?: string;
-  notes?: string;
-  comments?: string;
-  specialRequests?: string;
-  specialNotes?: string;
-  description?: string;
-}): string {
-  const cleanPhone = BUSINESS_CONFIG.ownerPhone.replace(/\D/g, '');
-  
-  const rawNotes = (
-    bookingData.notes ?? 
-    bookingData.comments ?? 
-    bookingData.specialRequests ?? 
-    bookingData.specialNotes ?? 
-    bookingData.description ?? 
-    ''
-  ).trim();
-
-  const addOnsRaw = bookingData.selectedAddons ?? bookingData.addOns ?? [];
-  const addOnsList = addOnsRaw.length > 0 ? addOnsRaw.join(', ') : 'None';
-
-  const clientName = bookingData.name || bookingData.fullName || bookingData.clientName || '';
-  const clientPhone = bookingData.phone || bookingData.clientPhone || '';
-  const clientEmail = bookingData.email || bookingData.clientEmail || 'Not provided';
-  const serviceAddress = bookingData.address || bookingData.serviceAddress || 'To be coordinated';
-  const selectedVehicle = bookingData.selectedVehicle || bookingData.vehicleType || 'Standard';
-  const selectedPackage = bookingData.selectedPackage || bookingData.serviceName || 'Custom Detail';
-
-  const lines = [
-    `*New Booking Request - ${BUSINESS_CONFIG.businessName}*`,
-    ``,
-    `*Client:* ${clientName}`,
-    `*Phone:* ${clientPhone}`,
-    `*Email:* ${clientEmail}`,
-    `*Service Address:* ${serviceAddress}`,
-    ``,
-    `*Vehicle:* ${selectedVehicle}`,
-    `*Package:* ${selectedPackage}`,
-    `*Add-ons:* ${addOnsList}`,
-    `*Estimated Total:* ${BUSINESS_CONFIG.currency}${bookingData.totalPrice}`
-  ];
-
-  if (bookingData.preferredTime) {
-    lines.push(`*Preferred Time:* ${bookingData.preferredTime}`);
-  }
-
-  if (rawNotes.length > 0 && rawNotes !== 'None provided') {
-    lines.push(`*Notes:* ${rawNotes}`);
-  }
-
-  const encodedMessage = lines.map(line => encodeURIComponent(line)).join('%0A');
-  return `https://wa.me/${cleanPhone}?text=${encodedMessage}`;
-}
+export { generateWhatsAppUrl };
 
 export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
   initialServiceId,
@@ -137,7 +65,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
   const selectedVehicleObj = VEHICLE_OPTIONS.find(v => v.id === activeVehicleType) || VEHICLE_OPTIONS[0];
   const selectedPackageObj = PACKAGES_DATA.find(p => p.id === formData.packageTierId) || PACKAGES_DATA[0];
 
-  // Calculate live price with exact 2 decimal places support
+  // Calculate live price
   const basePackagePrice = Number((selectedPackageObj.price * selectedVehicleObj.multiplier).toFixed(2));
   const addOnsTotal = formData.selectedAddOns.reduce((acc, addonId) => {
     const item = ADDONS_DATA.find(a => a.id === addonId);
@@ -167,7 +95,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
     if (!formData.fullName || !formData.phone) {
       return;
     }
-    const code = `GT-${Math.floor(100000 + Math.random() * 900000)}`;
+    const code = `LMC-${Math.floor(100000 + Math.random() * 900000)}`;
     setConfirmationCode(code);
     setBookingConfirmed(true);
     setIsRedirecting(true);
@@ -210,11 +138,11 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
       clientEmail: formData.email.trim() ? formData.email.trim() : 'Not provided',
       email: formData.email.trim() ? formData.email.trim() : 'Not provided',
       serviceAddress: formData.serviceMode === 'mobile'
-        ? (formData.mobileAddress.trim() ? formData.mobileAddress.trim() : 'Mobile Dispatch (Address to be coordinated)')
-        : `${BUSINESS_CONFIG.location} Studio Bay (108-14 Northern Blvd)`,
+        ? (formData.mobileAddress.trim() ? formData.mobileAddress.trim() : 'Mobile Unit (Address to be coordinated)')
+        : `${BUSINESS_CONFIG.location} Center Bay (550 4th Ave)`,
       address: formData.serviceMode === 'mobile'
-        ? (formData.mobileAddress.trim() ? formData.mobileAddress.trim() : 'Mobile Dispatch (Address to be coordinated)')
-        : `${BUSINESS_CONFIG.location} Studio Bay (108-14 Northern Blvd)`,
+        ? (formData.mobileAddress.trim() ? formData.mobileAddress.trim() : 'Mobile Unit (Address to be coordinated)')
+        : `${BUSINESS_CONFIG.location} Center Bay (550 4th Ave)`,
       preferredTime: preferredTimeStr || 'ASAP',
       notes: notesText,
       comments: notesText,
@@ -243,7 +171,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
             <span>Instant Quote Calculator & Online Scheduler</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-            Customize Your Detailing Package
+            Customize Your Service Package
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
             Get an instant, transparent quote calibrated to your specific vehicle size, service choice, and appointment preferences in {BUSINESS_CONFIG.location}.
@@ -295,7 +223,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                   <input
                     type="text"
                     id="booking-vehicle-input"
-                    placeholder="e.g. 2024 Honda Accord, Black or Tesla Model Y"
+                    placeholder="e.g. 2023 Toyota Camry, White or Honda CR-V"
                     value={formData.vehicleYearMakeModel}
                     onChange={(e) => setFormData(prev => ({ ...prev, vehicleYearMakeModel: e.target.value }))}
                     className="w-full bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-[#0066FF]"
@@ -303,17 +231,17 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                 </div>
               </div>
 
-              {/* STEP 2: Detailing Package Tier */}
+              {/* STEP 2: Package Tier */}
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <label className="text-sm font-display font-bold text-white flex items-center gap-2">
                     <span className="w-6 h-6 rounded-full bg-[#0066FF] text-white text-xs font-black flex items-center justify-center font-mono-tech">2</span>
-                    Select Detailing Package
+                    Select Service Package
                   </label>
                   <span className="text-xs text-[#00E5FF] font-mono-tech font-semibold">{BUSINESS_CONFIG.location} Center Rates</span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {PACKAGES_DATA.map((pkg) => {
                     const isSelected = pkg.id === formData.packageTierId;
                     const tierPrice = (pkg.price * selectedVehicleObj.multiplier).toFixed(2);
@@ -349,14 +277,14 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                 </div>
               </div>
 
-              {/* STEP 3: Add-On Precision Coatings */}
+              {/* STEP 3: Add-On Options */}
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <label className="text-sm font-display font-bold text-white flex items-center gap-2">
                     <span className="w-6 h-6 rounded-full bg-[#0066FF] text-white text-xs font-black flex items-center justify-center font-mono-tech">3</span>
-                    Add-On Precision Treatments (Optional)
+                    Add-On Quick Services (Optional)
                   </label>
-                  <span className="text-xs text-slate-400 font-mono-tech">Targeted Care Options</span>
+                  <span className="text-xs text-slate-400 font-mono-tech">Maintenance Upgrades</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -434,8 +362,8 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                     )}
 
                     <div className="flex justify-between text-slate-300 pt-2 border-t border-white/5">
-                      <span className="text-slate-400 font-mono-tech">Location Mode:</span>
-                      <span className="font-bold text-white capitalize">{formData.serviceMode === 'studio' ? 'Queens Detail Center Bay' : 'Mobile Detailing Unit'}</span>
+                      <span className="text-slate-400 font-mono-tech">Service Location:</span>
+                      <span className="font-bold text-white capitalize">{formData.serviceMode === 'studio' ? 'Brooklyn Center Bay' : 'Mobile Service'}</span>
                     </div>
 
                     <div className="flex justify-between text-slate-300">
@@ -461,7 +389,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
 
                 {/* Quick Phone Call Card */}
                 <div className="bg-[#0f131d] border border-white/10 rounded-xl p-4 text-xs text-center space-y-1">
-                  <span className="text-slate-400 font-mono-tech">Prefer to speak with our Queens detail team?</span>
+                  <span className="text-slate-400 font-mono-tech">Prefer to speak with our Brooklyn team?</span>
                   <div>
                     <a href={getTelLink()} className="text-[#00E5FF] font-bold text-sm hover:underline">
                       {getDisplayOwnerPhone()}
@@ -493,10 +421,10 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                 >
                   <div className="flex items-center space-x-2">
                     <MapPin className="w-4 h-4 text-[#00E5FF]" />
-                    <span className="font-bold text-xs text-white">{BUSINESS_CONFIG.location} Detail Center</span>
+                    <span className="font-bold text-xs text-white">{BUSINESS_CONFIG.location} Center</span>
                   </div>
                   <p className="text-[11px] text-slate-400 mt-1">
-                    108-14 Northern Blvd, Queens, NY (Fully equipped wash & detail bays)
+                    550 4th Ave, Brooklyn, NY (Full service wash & quick lube bays)
                   </p>
                 </button>
 
@@ -514,18 +442,18 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                     <span className="font-bold text-xs text-white">Mobile Detailing Unit</span>
                   </div>
                   <p className="text-[11px] text-slate-400 mt-1">
-                    Mobile unit dispatched directly to your home or office in Queens
+                    Mobile unit dispatched directly to your home or office in Brooklyn
                   </p>
                 </button>
               </div>
 
               {formData.serviceMode === 'mobile' && (
                 <div className="mb-4">
-                  <label className="text-xs text-slate-300 font-mono-tech block mb-1">Your Mobile Service Address (Queens, NY):</label>
+                  <label className="text-xs text-slate-300 font-mono-tech block mb-1">Your Mobile Service Address (Brooklyn, NY):</label>
                   <input
                     type="text"
                     id="booking-address-input"
-                    placeholder={`e.g. 31-10 Broadway, Astoria, Queens, NY 11106`}
+                    placeholder={`e.g. 450 5th Ave, Park Slope, Brooklyn, NY 11215`}
                     value={formData.mobileAddress}
                     onChange={(e) => setFormData(prev => ({ ...prev, mobileAddress: e.target.value }))}
                     className="w-full bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-[#0066FF]"
@@ -585,7 +513,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                   <input
                     type="tel"
                     id="booking-phone-input"
-                    placeholder="Phone (For confirmation) *"
+                    placeholder="Phone (For SMS/Phone confirmation) *"
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
@@ -596,7 +524,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                   <input
                     type="email"
                     id="booking-email-input"
-                    placeholder="Email Address"
+                    placeholder="Email Address (Optional)"
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                     className="w-full bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-[#0066FF]"
@@ -608,7 +536,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                 <textarea
                   id="booking-notes-input"
                   name="notes"
-                  placeholder="Special requests or vehicle condition notes (e.g. heavy pet hair, interior spill, dark paint swirl removal)..."
+                  placeholder="Special requests or vehicle condition notes (e.g. synthetic oil preference, heavy crumbs, rubber mats)..."
                   rows={2}
                   value={formData.specialNotes}
                   onChange={(e) => {
@@ -651,7 +579,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
             <div className="w-full pt-3 px-3">
               <p className="text-xs text-slate-300 text-center flex items-center justify-center gap-1.5 leading-relaxed">
                 <Shield className="w-3.5 h-3.5 text-[#00E5FF] shrink-0" />
-                <span>By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with Gentle Touch Hand Car Wash and Vehicle Detail Center.</span>
+                <span>By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with {BUSINESS_CONFIG.businessName}.</span>
               </p>
             </div>
 
@@ -708,11 +636,32 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                   className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold uppercase tracking-wider text-xs rounded-xl transition-colors flex items-center justify-center space-x-2"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>Open in WhatsApp Now</span>
+                  <span>Send via WhatsApp (+17187866228)</span>
                 </a>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href={generateSmsUrl({
+                      selectedPackage: selectedPackageObj.name,
+                      totalPrice: grandTotal,
+                      name: formData.fullName,
+                      vehicleType: activeVehicleType
+                    })}
+                    className="py-2.5 px-3 bg-[#0066FF] hover:bg-[#0052CC] text-white font-bold uppercase text-[11px] rounded-xl transition-colors flex items-center justify-center space-x-1.5"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5" />
+                    <span>Send via SMS</span>
+                  </a>
+                  <a
+                    href={getTelLink()}
+                    className="py-2.5 px-3 bg-white/10 hover:bg-white/20 text-white font-bold uppercase text-[11px] rounded-xl transition-colors flex items-center justify-center space-x-1.5"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-[#00E5FF]" />
+                    <span>Call Shop</span>
+                  </a>
+                </div>
                 {/* Strictly visible readable disclaimer */}
                 <p className="text-xs text-slate-300 text-center py-2 px-3 leading-relaxed">
-                  By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with Gentle Touch Hand Car Wash and Vehicle Detail Center.
+                  By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with {BUSINESS_CONFIG.businessName}.
                 </p>
               </div>
             )}

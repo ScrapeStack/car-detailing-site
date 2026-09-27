@@ -1,6 +1,6 @@
 {
-  "name": "Gentle Touch Hand Car Wash and Vehicle Detail Center",
-  "description": "Queens, NY's premier hand car wash and vehicle detail center. Specialized in Gentle Touch Hand Wash, Interior Deep Steam, Express Wax & Polish, and Showroom Detail.",
+  "name": "LMC Car Wash & Lube",
+  "description": "Brooklyn, NY's trusted local car wash and lube center. Express washes, full-service interior cleaning, express waxing, and quick oil changes.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

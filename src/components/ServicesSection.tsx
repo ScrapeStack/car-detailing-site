@@ -13,16 +13,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
   const getServiceIcon = (id: string) => {
     switch (id) {
-      case 'hand-wash':
+      case 'full-service-wash':
         return <Droplets className="w-5 h-5" />;
-      case 'interior-steam':
-        return <Sparkles className="w-5 h-5" />;
-      case 'wax-polish':
+      case 'deluxe-wash-express-wax':
         return <Shield className="w-5 h-5" />;
-      case 'showroom-detail':
-        return <Layers className="w-5 h-5" />;
-      case 'engine-bay':
+      case 'oil-change-quick-lube':
         return <Wrench className="w-5 h-5" />;
+      case 'express-exterior':
+        return <Layers className="w-5 h-5" />;
+      case 'interior-quick-refresh':
+        return <Sparkles className="w-5 h-5" />;
       default:
         return <Droplets className="w-5 h-5" />;
     }
@@ -37,14 +37,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <span className="text-xs uppercase tracking-[0.25em] font-mono-tech text-[#00E5FF] font-semibold block mb-2">
-              Gentle Touch Vehicle Care
+              LMC Vehicle Care
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-              Specialized Wash & Detail Services
+              Car Wash & Quick Lube Services
             </h2>
           </div>
           <p className="text-slate-400 text-sm max-w-md">
-            Every vehicle at our {BUSINESS_CONFIG.location} center receives gentle microfiber care, pH-balanced foam baths, and professional detailing standards.
+            Every vehicle at our {BUSINESS_CONFIG.location} center receives thorough wash care, fresh vacuuming, and certified lube maintenance with fast turnaround.
           </p>
         </div>
 
@@ -160,13 +160,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 {/* RESPONSIVE DISCLAIMER: Strictly visible, readable, padded, no hidden classes */}
                 <div className="w-full pt-2">
                   <p className="text-xs text-slate-300 text-center sm:text-left py-2 px-1 block w-full leading-relaxed">
-                    By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with Gentle Touch Hand Car Wash and Vehicle Detail Center.
+                    By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with {BUSINESS_CONFIG.businessName}.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Right: Service Studio Visual */}
+            {/* Right: Service Visual */}
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-black border border-white/15 shadow-2xl group">
                 <img
@@ -181,7 +181,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 <div className="absolute bottom-4 left-4 right-4 bg-[#090b10]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/15">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-mono-tech text-[#00E5FF] font-semibold uppercase">{BUSINESS_CONFIG.location} Standard</span>
-                    <span className="text-slate-300 font-medium">Experienced Queens Technicians</span>
+                    <span className="text-slate-300 font-medium">Experienced Brooklyn Technicians</span>
                   </div>
                   <div className="text-xs text-slate-300 font-medium mt-1">
                     {currentService.shortDesc}

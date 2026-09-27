@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-1.5 text-slate-300">
               <MapPin className="w-3 h-3 text-[#00E5FF]" />
-              <span>108-14 Northern Blvd, {BUSINESS_CONFIG.location} 11368</span>
+              <span>550 4th Ave, {BUSINESS_CONFIG.location} 11215</span>
             </div>
             <div className="flex items-center space-x-1 text-[#00E5FF] font-medium">
               <Star className="w-3 h-3 fill-[#00E5FF] text-[#00E5FF]" />
@@ -109,11 +109,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
           {/* Logo / Brand Name */}
           <a href="#" className="flex items-center space-x-3 group" id="nav-brand-logo">
             <span className="font-display font-black text-lg sm:text-xl tracking-[0.15em] text-white group-hover:text-[#00E5FF] transition-colors uppercase leading-none">
-              GENTLE TOUCH
+              LMC
             </span>
             <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#0066FF]"></span>
             <span className="hidden sm:inline-block text-[11px] tracking-[0.2em] text-[#00E5FF] uppercase font-mono-tech">
-              CAR WASH & DETAIL
+              CAR WASH & LUBE
             </span>
           </a>
 

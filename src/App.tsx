@@ -18,8 +18,8 @@ import { VehicleType } from './types';
 
 export default function App() {
   const [isStyleGuideOpen, setIsStyleGuideOpen] = useState<boolean>(false);
-  const [selectedServiceId, setSelectedServiceId] = useState<string>('hand-wash');
-  const [selectedPackageId, setSelectedPackageId] = useState<string>('gentle-touch-hand-wash');
+  const [selectedServiceId, setSelectedServiceId] = useState<string>('full-service-wash');
+  const [selectedPackageId, setSelectedPackageId] = useState<string>('full-service-wash');
   const [selectedVehicleClass, setSelectedVehicleClass] = useState<VehicleType>('coupe');
 
   const scrollToQuote = () => {

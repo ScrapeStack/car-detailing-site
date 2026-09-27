@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Sparkles, Phone, Mail, MapPin, Star, ArrowUp, BookOpen } from 'lucide-react';
+import { Sparkles, Phone, MessageSquare, MapPin, Star, ArrowUp, BookOpen } from 'lucide-react';
 import { BUSINESS_INFO, SERVICES_DATA } from '../data/businessData';
 import { CLIENT_CONFIG } from '../config';
-import { getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
+import { getDisplayOwnerPhone, getTelLink, getSmsLink } from '../utils/whatsapp';
 import { LegalModal, LegalTab } from './LegalModal';
 
 interface FooterProps {
@@ -29,9 +29,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
       <div className="border-b border-white/5 bg-[#090b10] py-10 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
-            <span className="text-[#00E5FF] font-mono-tech uppercase text-[11px] font-bold">Ready for a True Swirl-Free Hand Wash?</span>
+            <span className="text-[#00E5FF] font-mono-tech uppercase text-[11px] font-bold">Fast & Honest Local Vehicle Maintenance</span>
             <div className="text-xl sm:text-2xl font-display font-black text-white">
-              Reserve Your {CLIENT_CONFIG.location} Detailing Bay or Mobile Visit
+              Visit Our {CLIENT_CONFIG.location} Shop or Book Online
             </div>
           </div>
           <div className="flex flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
@@ -55,7 +55,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
             {/* RESPONSIVE DISCLAIMER: Strictly visible, readable, padded, no hidden classes */}
             <div className="w-full sm:w-auto pt-2">
               <p className="text-xs text-slate-300 text-center sm:text-right py-2 px-3 block leading-relaxed max-w-md">
-                By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with Gentle Touch Hand Car Wash and Vehicle Detail Center.
+                By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with {CLIENT_CONFIG.businessName}.
               </p>
             </div>
           </div>
@@ -76,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
               </span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              {CLIENT_CONFIG.location}’s premier hand car wash and vehicle detail center. Specialized in Gentle Touch Hand Wash ($49.99), Interior Deep Steam ($179.99), Express Wax & Polish ($129.99), and Showroom Detail ($289.99).
+              Brooklyn's trusted local car wash and lube center. Express washes, full-service interior cleaning, express waxing, and quick oil changes.
             </p>
             <div className="flex items-center space-x-2 text-[#00E5FF] font-mono-tech text-xs">
               <Star className="w-4 h-4 fill-[#00E5FF]" />
@@ -99,27 +99,22 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           {/* Services Column */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              Core Services & Prices
+              Core Packages & Prices
             </span>
             <ul className="space-y-2">
               <li>
                 <a href="#pricing" className="hover:text-[#00E5FF] transition-colors">
-                  Gentle Touch Hand Wash ($49.99)
+                  Full Service Wash ($25)
                 </a>
               </li>
               <li>
                 <a href="#pricing" className="hover:text-[#00E5FF] transition-colors">
-                  Interior Deep Steam ($179.99)
+                  Deluxe Wash & Express Wax ($70)
                 </a>
               </li>
               <li>
                 <a href="#pricing" className="hover:text-[#00E5FF] transition-colors">
-                  Express Wax & Polish ($129.99)
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-[#00E5FF] transition-colors">
-                  Showroom Detail ($289.99)
+                  Oil Change & Quick Lube + Free Wash ($95)
                 </a>
               </li>
             </ul>
@@ -128,26 +123,26 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
           {/* Quick Navigation */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              Experience & Proof
+              Quick Links
             </span>
             <ul className="space-y-2">
-              <li><a href="#services" className="hover:text-[#00E5FF] transition-colors">Our Detail Services</a></li>
+              <li><a href="#services" className="hover:text-[#00E5FF] transition-colors">Our Wash & Lube Services</a></li>
               <li><a href="#pricing" className="hover:text-[#00E5FF] transition-colors">Package Pricing Matrix</a></li>
-              <li><a href="#reviews" className="hover:text-[#00E5FF] transition-colors">Verified Queens Reviews</a></li>
+              <li><a href="#reviews" className="hover:text-[#00E5FF] transition-colors">Verified Brooklyn Reviews</a></li>
               <li><a href="#faq" className="hover:text-[#00E5FF] transition-colors">Frequently Asked Questions</a></li>
               <li><a href="#quote-builder" className="hover:text-[#00E5FF] transition-colors">Instant Quote Builder</a></li>
             </ul>
           </div>
 
-          {/* Studio Location & Service Coverage */}
+          {/* Shop Location & Service Coverage */}
           <div className="space-y-3">
             <span className="font-mono-tech uppercase text-white font-bold text-xs tracking-wider block">
-              {CLIENT_CONFIG.location} Center
+              {CLIENT_CONFIG.location} Shop
             </span>
             <div className="space-y-2 text-slate-400">
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-[#0066FF] shrink-0 mt-0.5" />
-                <span>108-14 Northern Blvd, {CLIENT_CONFIG.location} 11368</span>
+                <span>550 4th Ave, {CLIENT_CONFIG.location} 11215</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-[#0066FF] shrink-0" />
@@ -156,13 +151,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
                 </a>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-[#0066FF] shrink-0" />
-                <a href={`mailto:${CLIENT_CONFIG.email}`} className="text-slate-300 hover:text-[#00E5FF]">
-                  {CLIENT_CONFIG.email}
+                <MessageSquare className="w-4 h-4 text-[#0066FF] shrink-0" />
+                <a href={getSmsLink("Hi LMC team, I have a quick question:")} className="text-slate-300 hover:text-[#00E5FF]">
+                  SMS: {getDisplayOwnerPhone()}
                 </a>
               </div>
               <div className="text-[11px] text-slate-500 font-mono-tech pt-2">
-                Serving: Astoria, Long Island City, Flushing, Forest Hills, Bayside, Sunnyside, and Queens communities.
+                Serving: Park Slope, Gowanus, Downtown Brooklyn, Cobble Hill, Sunset Park, Bay Ridge, and Brooklyn communities.
               </div>
             </div>
           </div>

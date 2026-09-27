@@ -31,10 +31,10 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({
             <span>Transparent Pricing in {BUSINESS_CONFIG.location}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-            Curated Wash & Detail Packages
+            Car Wash & Quick Lube Packages
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Select your vehicle class below to view real-time adjusted rates. All services are performed with gentle microfiber methods and premium care solutions.
+            Select your vehicle class below to view real-time adjusted rates. Fast turnaround, quality motor oil, and clean results.
           </p>
 
           {/* Vehicle Class Selector */}
@@ -69,8 +69,8 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({
           </div>
         </div>
 
-        {/* Pricing Cards Grid - 4 Columns on XL screens, 2 on MD, 1 on Mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        {/* Pricing Cards Grid - 3 Columns on LG/XL screens, 2 on MD, 1 on Mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {PACKAGES_DATA.map((pkg) => {
             const finalPrice = calculatePrice(pkg.price);
             const originalFinal = pkg.originalPrice ? calculatePrice(pkg.originalPrice) : null;
@@ -80,7 +80,7 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({
                 key={pkg.id}
                 className={`relative rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 ${
                   pkg.bestValue
-                    ? 'bg-gradient-to-b from-[#0e1d38] to-[#091122] border-2 border-[#00E5FF] shadow-2xl shadow-[#0066FF]/20 scale-100 xl:-translate-y-2'
+                    ? 'bg-gradient-to-b from-[#0e1d38] to-[#091122] border-2 border-[#00E5FF] shadow-2xl shadow-[#0066FF]/20 scale-100 lg:-translate-y-2'
                     : pkg.popular
                     ? 'bg-[#121622] border border-[#0066FF]/60 shadow-xl'
                     : 'bg-[#0e1118] border border-white/10 hover:border-white/20'
@@ -89,7 +89,7 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({
                 {/* Top Badge */}
                 {pkg.bestValue && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#0066FF] to-[#00E5FF] text-white font-black uppercase text-[10px] tracking-widest px-4 py-1 rounded-full shadow-lg">
-                    ★ MOST POPULAR IN QUEENS
+                    ★ BEST VALUE SHOP COMBO
                   </div>
                 )}
                 {pkg.popular && !pkg.bestValue && (
@@ -173,7 +173,7 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({
                   {/* RESPONSIVE DISCLAIMER: Strictly visible, readable, padded, no hidden classes */}
                   <div className="w-full pt-3 px-1">
                     <p className="text-[11px] text-slate-300 text-center leading-relaxed">
-                      By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with Gentle Touch Hand Car Wash and Vehicle Detail Center.
+                      By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with {BUSINESS_CONFIG.businessName}.
                     </p>
                   </div>
                 </div>

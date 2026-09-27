@@ -6,27 +6,27 @@ import luxuryInteriorImg from '../assets/images/luxury_interior_clean_1787211008
 
 export const BUSINESS_INFO = {
   name: BUSINESS_CONFIG.businessName,
-  tagline: `${BUSINESS_CONFIG.location}'s Top-Rated Hand Car Wash & Vehicle Detail Center`,
-  address: `108-14 Northern Blvd, ${BUSINESS_CONFIG.location} 11368`,
-  phone: BUSINESS_CONFIG.ownerPhone.startsWith('+') ? BUSINESS_CONFIG.ownerPhone : `+${BUSINESS_CONFIG.ownerPhone}`,
-  phoneRaw: BUSINESS_CONFIG.ownerPhone.replace(/\D/g, ''),
+  tagline: `${BUSINESS_CONFIG.location}'s Trusted Car Wash & Quick Lube Center`,
+  address: `550 4th Ave, ${BUSINESS_CONFIG.location} 11215`,
+  phone: `+1${BUSINESS_CONFIG.phone}`,
+  phoneRaw: BUSINESS_CONFIG.phone,
   email: BUSINESS_CONFIG.email,
-  rating: 4.9,
-  reviewCount: 148,
+  rating: 4.8,
+  reviewCount: 260,
   hours: {
     weekdays: "Monday – Friday: 7:30 AM – 6:30 PM",
     saturday: "Saturday: 8:00 AM – 6:00 PM",
-    sunday: "Sunday: 8:30 AM – 4:30 PM"
+    sunday: "Sunday: 8:30 AM – 5:00 PM"
   },
   serviceAreas: [
-    "Astoria",
-    "Long Island City",
-    "Flushing",
-    "Forest Hills",
-    "Bayside",
-    "Sunnyside",
-    "Jackson Heights",
-    "Howard Beach"
+    "Park Slope",
+    "Gowanus",
+    "Downtown Brooklyn",
+    "Cobble Hill",
+    "Sunset Park",
+    "Bay Ridge",
+    "Crown Heights",
+    "Williamsburg"
   ]
 };
 
@@ -37,7 +37,7 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Standard Size',
     multiplier: 1.0,
     iconName: 'Car',
-    examples: 'Honda Accord, BMW 3/4 Series, Tesla Model 3, Mercedes C-Class'
+    examples: 'Honda Accord, BMW 3 Series, Toyota Camry, Tesla Model 3'
   },
   {
     id: 'suv',
@@ -45,7 +45,7 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Medium Size (+15%)',
     multiplier: 1.15,
     iconName: 'Shield',
-    examples: 'Toyota RAV4, Tesla Model Y, BMW X5, Audi Q5, Lexus RX'
+    examples: 'Toyota RAV4, Honda CR-V, Subaru Outback, Jeep Grand Cherokee'
   },
   {
     id: 'truck',
@@ -53,312 +53,292 @@ export const VEHICLE_OPTIONS: VehicleOption[] = [
     category: 'Large Size (+30%)',
     multiplier: 1.3,
     iconName: 'Truck',
-    examples: 'Chevy Tahoe, Cadillac Escalade, Ford F-150, Dodge Ram'
+    examples: 'Ford F-150, Chevy Tahoe, Suburban, Ram 1500'
   },
   {
     id: 'exotic',
-    name: 'Exotic & Luxury Sports Car',
-    category: 'Precision Custom Care (+25%)',
-    multiplier: 1.25,
+    name: 'Luxury / Commercial Fleet',
+    category: 'Custom Fleet & Luxury (+20%)',
+    multiplier: 1.2,
     iconName: 'Sparkles',
-    examples: 'Porsche 911, Corvette C8, Mercedes AMG GT, Maserati'
+    examples: 'Mercedes S-Class, BMW 7 Series, Sprinter Vans, TNC Fleets'
   }
 ];
 
 export const SERVICES_DATA: ServiceDetail[] = [
   {
-    id: 'hand-wash',
-    title: 'Gentle Touch Hand Wash',
-    badge: 'Gentle Care',
-    shortDesc: 'Scratch-free hand wash using pH-neutral foam baths and plush microfiber mitts for a mirror finish.',
-    fullDesc: 'Our signature Gentle Touch Hand Wash safely lifts road grime, salt, and urban fallout without swirl marks. Includes complete hand drying with ultra-soft plush microfiber, wheel face cleaning, and crystal-clear glass polish.',
-    startingPrice: 49.99,
-    duration: '45 – 60 Mins',
+    id: 'full-service-wash',
+    title: 'Full Service Wash',
+    badge: 'Daily Favorite',
+    shortDesc: 'Exterior hand/machine wash, vacuum, window wipe down, and tire shine for a clean daily drive.',
+    fullDesc: 'Our high-volume signature Full Service Wash gives your vehicle a pristine clean inside and out. Includes gentle exterior wash with rich foam lather, complete interior cabin vacuuming, streak-free window cleaning, and long-lasting tire dressing.',
+    startingPrice: 25,
+    duration: '20 – 30 Mins',
     popular: true,
     features: [
-      '100% Scratch-free hand wash with two-bucket grit guard method',
-      'pH-balanced snow foam bath to encapsulate dirt particles',
-      'Hand dried with ultra-soft plush microfiber drying towels',
-      'Wheel faces, rims, and tire walls cleaned & conditioned',
-      'Exterior streak-free glass & mirror finish'
+      'Exterior gentle hand/machine wash with active foam bath',
+      'Full interior floor mats, carpets & seat vacuuming',
+      'Streak-free interior & exterior glass and mirror cleaning',
+      'Dashboard & center console dust wipe down',
+      'Wheel cleaning & long-lasting deep black tire shine'
     ],
     specs: [
-      { label: 'Wash Method', value: '100% Gentle Hand Wash' },
-      { label: 'Towels', value: 'Ultra-Soft Plush Microfiber' },
-      { label: 'Finish', value: 'Spot-Free Gloss' }
+      { label: 'Wash Method', value: 'Gentle Wash & Rinse' },
+      { label: 'Vacuum', value: 'Cabin & Mats' },
+      { label: 'Turnaround', value: '20–30 Minutes' }
     ],
-    idealFor: 'Weekly maintenance, daily commuters, and vehicle owners who demand swirl-free exterior care.',
+    idealFor: 'Weekly maintenance wash, ride-share drivers, and busy Brooklyn commuters.',
     imageUrl: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    id: 'interior-steam',
-    title: 'Interior Deep Steam Cleaning',
-    badge: 'Sanitized Luxury',
-    shortDesc: 'Hospital-grade pressurized 220°F dry steam cleaning, carpet extraction, and allergen elimination.',
-    fullDesc: 'We deep clean every nook and cranny with pressurized steam, hot-water extract stains from carpets and fabric seats, and condition fine leathers leaving an OEM matte factory-clean feel and fresh scent.',
-    startingPrice: 179.99,
-    duration: '2.5 – 3.5 Hours',
+    id: 'deluxe-wash-express-wax',
+    title: 'Deluxe Wash & Express Wax',
+    badge: 'Gloss & Protection',
+    shortDesc: 'Full service wash plus hand wax sealant application and interior deep vacuum.',
+    fullDesc: 'Take your wash to the next level with our Deluxe treatment. Combines our complete Full Service Wash with a hand-buffed carnauba wax sealant that shields your paint against road grime and UV rays, paired with deep interior vacuuming.',
+    startingPrice: 70,
+    duration: '45 – 60 Mins',
     popular: true,
     features: [
-      'Dry-vapor pressurized steam cleaning (220°F kills 99.9% bacteria & allergens)',
-      'Deep hot-water carpet & fabric upholstery shampoo extraction',
-      'Leather cleaning & conditioning treatment with non-greasy matte finish',
-      'HVAC air vent sterilization & cabin odor neutralization',
-      'All consoles, cupholders, door panels, and crevices sanitized'
+      'Complete Full Service Wash included (exterior wash + vacuum)',
+      'Hand-applied carnauba protective wax sealant & buff',
+      'Deep interior vacuuming including trunk and under seats',
+      'Air vent dusting & dashboard UV protectant wipe',
+      'Brake dust wheel clean & premium tire luster shine'
     ],
     specs: [
-      { label: 'Steam Temp', value: '220°F Dry Vapor' },
-      { label: 'Sanitization', value: '99.9% Bacteria Free' },
-      { label: 'Leather Finish', value: 'OEM Factory Matte' }
+      { label: 'Protection', value: 'Carnauba Hand Wax' },
+      { label: 'Interior', value: 'Deep Vacuum & Wipe' },
+      { label: 'Turnaround', value: '45–60 Minutes' }
     ],
-    idealFor: 'Vehicles needing interior rejuvenation, stain and pet hair removal, odor elimination, or leather spa care.',
-    imageUrl: luxuryInteriorImg
-  },
-  {
-    id: 'wax-polish',
-    title: 'Express Wax & Machine Polish',
-    badge: 'High-Gloss Armor',
-    shortDesc: 'Single-stage machine polish and premium hydrophobic polymer wax protection.',
-    fullDesc: 'Revitalize your paint with gentle machine jeweling polish to enhance depth and reflectivity, sealed with a durable carnauba-polymer blend that shields against UV rays, acid rain, and Queens road grime.',
-    startingPrice: 129.99,
-    duration: '1.5 – 2 Hours',
-    features: [
-      'Gentle Touch Hand Wash & clay surface decontamination',
-      'Single-stage machine polish to boost gloss and clarity',
-      'High-grade hydrophobic polymer sealant & wax application',
-      'Exterior plastics and black trim conditioning with UV inhibitors',
-      'Brake dust wheel shield application'
-    ],
-    specs: [
-      { label: 'Gloss Enhancement', value: 'Deep Wet Reflections' },
-      { label: 'Protection', value: 'Hydrophobic Shield' },
-      { label: 'Durability', value: 'Up to 3 Months' }
-    ],
-    idealFor: 'Cars needing gloss restoration, hydrophobic water beading, and weather defense.',
+    idealFor: 'Seasonal paint protection, deeper interior clean, and restoring brilliant wet shine.',
     imageUrl: ceramicApplicatorImg
   },
   {
-    id: 'showroom-detail',
-    title: 'Showroom Detail (Full Inside & Out)',
-    badge: 'Complete Rejuvenation',
-    shortDesc: 'Comprehensive inside-and-out vehicle rejuvenation returning your car to showroom presentation.',
-    fullDesc: 'The complete vehicle treatment combining our full Gentle Touch Hand Wash, Interior Deep Steam extraction, single-stage gloss polish, protective paint sealant, and engine bay top-surface dressing.',
-    startingPrice: 289.99,
-    duration: '4 – 5 Hours',
+    id: 'oil-change-quick-lube',
+    title: 'Oil Change & Quick Lube + Free Wash',
+    badge: 'Best Value Shop Combo',
+    shortDesc: 'Full oil & filter change, liquid top-offs, plus a complimentary exterior car wash.',
+    fullDesc: 'Get your scheduled engine maintenance and a squeaky-clean car in one quick stop! Includes up to 5 quarts of premium motor oil, new OEM filter, fluid top-offs, tire pressure check, plus a free exterior car wash.',
+    startingPrice: 95,
+    duration: '30 – 45 Mins',
     popular: true,
     features: [
-      'Complete Gentle Touch Hand Wash & clay bar paint decontamination',
-      'Full Interior Deep Steam sanitization & hot-water extraction',
-      'Machine gloss polish & ceramic-infused polymer paint sealant',
-      'Leather conditioning and fabric stain-guard shield',
-      'Wheels, tires, wheel wells, and engine bay top dressed'
+      'Premium motor oil change (up to 5 qts) with new OEM oil filter',
+      'Vital fluid level checks & complimentary top-offs (washer fluid, coolant)',
+      'Tire pressure check and inflation to factory specification',
+      'Battery terminal & engine air filter visual inspection',
+      'Complimentary exterior car wash & spot-free dry included'
     ],
     specs: [
-      { label: 'Coverage', value: 'Complete 360° Interior & Exterior' },
-      { label: 'Protection', value: 'Multi-Month Sealant' },
-      { label: 'Inspection', value: 'Full Walk-Around Assurance' }
+      { label: 'Oil Service', value: 'Up to 5 Qts + Filter' },
+      { label: 'Fluids', value: 'Inspected & Topped' },
+      { label: 'Bonus', value: 'Free Car Wash Included' }
     ],
-    idealFor: 'Total vehicle revitalization, seasonal detailing, lease return preparation, or resale boost.',
+    idealFor: 'Every 3,000 to 5,000 miles engine routine maintenance with zero hassle.',
+    imageUrl: engineBayCleaningImg
+  },
+  {
+    id: 'express-exterior',
+    title: 'Express Exterior Tunnel Wash',
+    badge: 'Quick In & Out',
+    shortDesc: 'Fast 10-minute automated tunnel wash with spot-free rinse and power dry.',
+    fullDesc: 'Quick drive-thru wash designed for drivers on the go. High-pressure underbody rinse, active wheel blasters, triple foam polish, and high-velocity touchless dryers.',
+    startingPrice: 15,
+    duration: '10 – 15 Mins',
+    features: [
+      'High-pressure undercarriage spray',
+      'Triple-foam cleaning cycle',
+      'Spot-free deionized rinse',
+      'High-velocity air blow dry'
+    ],
+    specs: [
+      { label: 'Speed', value: '10–15 Minutes' },
+      { label: 'Process', value: 'Automated Tunnel' },
+      { label: 'Dry', value: 'Power Air Dry' }
+    ],
+    idealFor: 'Quick exterior dust and road salt removal on busy workdays.',
     imageUrl: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    id: 'engine-bay',
-    title: 'Engine Bay & Specialty Detailing',
-    badge: 'Mechanical Precision',
-    shortDesc: 'Electronic-safe degreasing, dry steam cleaning, and satin thermal dressing under the hood.',
-    fullDesc: 'Sensitive components (ECU, alternator) are protected before high-pressure dry steam dissolves built-up grime, finished with heat-resistant satin polymer dressing.',
-    startingPrice: 99.99,
-    duration: '1 – 1.5 Hours',
+    id: 'interior-quick-refresh',
+    title: 'Interior Quick Refresh & Sanitize',
+    badge: 'Clean Cabin',
+    shortDesc: 'Deep vacuuming, rubber mat washing, and interior door panel wipe down.',
+    fullDesc: 'Dedicated interior cleaning service focusing on removing crumbs, dirt, and dust from seats, floors, cupholders, and dashboard surfaces with hospital-grade disinfectant wipes.',
+    startingPrice: 40,
+    duration: '30 – 40 Mins',
     features: [
-      'Water-sensitive wiring harness & sensor masking',
-      'Gentle bio-degradable degreaser agitated with specialized brushes',
-      'Controlled dry-vapor steam rinse with minimal moisture',
-      'Heat-resistant, non-sticky satin plastic & rubber conditioner'
+      'Comprehensive seat and carpet vacuum',
+      'Rubber all-weather floor mats pressure washed',
+      'All door panels and cupholders sanitized',
+      'Inside window glass crystal clear wipe'
     ],
     specs: [
-      { label: 'Safety Protocol', value: 'Protected Sensitive Electronics' },
-      { label: 'Dressing Finish', value: 'Non-Greasy Satin Finish' },
-      { label: 'Service Time', value: '60 Minutes' }
+      { label: 'Focus', value: 'Interior Cabin' },
+      { label: 'Mats', value: 'Power Washed' },
+      { label: 'Time', value: '30 Minutes' }
     ],
-    idealFor: 'Performance sports cars, car show prep, resale appraisal boost, and routine mechanical care.',
-    imageUrl: engineBayCleaningImg
+    idealFor: 'Family haulers, pet owners, and ride-share vehicles needing cabin sanitization.',
+    imageUrl: luxuryInteriorImg
   }
 ];
 
 export const PACKAGES_DATA: PackageTier[] = [
   {
-    id: 'gentle-touch-hand-wash',
-    name: 'Gentle Touch Hand Wash',
-    subtitle: 'Scratch-Free Hand Wash & Wheel Treatment',
-    price: 49.99,
-    originalPrice: 65.00,
+    id: 'full-service-wash',
+    name: 'Full Service Wash',
+    subtitle: 'Exterior Hand/Machine Wash, Vacuum, Window Wipe Down, Tire Shine',
+    price: 25,
+    originalPrice: 32,
+    duration: '20 – 30 Mins',
+    warranty: 'Spot-Free Clean Guarantee',
+    serviceType: 'Car Wash Bay',
+    includes: [
+      'Exterior hand/machine wash with rich foam bath',
+      'Complete interior floor and seat vacuuming',
+      'Streak-free interior and exterior window wipe down',
+      'Dashboard & center console dust wipe down',
+      'Wheel rim cleaning & tire shine dressing',
+      'Door jambs wiped down clean'
+    ],
+    perfectFor: 'Routine weekly maintenance wash and quick clean for daily Brooklyn drivers.'
+  },
+  {
+    id: 'deluxe-wash-express-wax',
+    name: 'Deluxe Wash & Express Wax',
+    subtitle: 'Full Service Wash + Hand Wax Sealant & Interior Deep Vacuum',
+    price: 70,
+    originalPrice: 85,
     duration: '45 – 60 Mins',
-    warranty: 'Spot-Free Shine Guarantee',
-    serviceType: 'Hand Wash Bay',
-    includes: [
-      '100% Gentle microfiber hand wash & pH-neutral foam soak',
-      'Hand dried with ultra-soft plush microfiber towels',
-      'Wheel faces, rims, and tire walls deep degreased',
-      'Tire dressing with non-sling satin finish',
-      'Crystal-clear exterior glass & mirror polish',
-      'Door jambs wiped down and wiped clean'
-    ],
-    perfectFor: 'Routine maintenance wash and safe swirl-free clean for daily drivers.'
-  },
-  {
-    id: 'interior-deep-steam',
-    name: 'Interior Deep Steam',
-    subtitle: 'Pressurized 220°F Dry Steam & Hot-Water Carpet Extraction',
-    price: 179.99,
-    originalPrice: 219.99,
-    duration: '2.5 – 3.5 Hours',
-    warranty: '99.9% Bacteria & Odor Sanitization',
+    warranty: 'Hand Wax High-Gloss Protection',
     popular: true,
-    serviceType: 'Interior Deep Clean',
+    serviceType: 'Wash & Wax Bay',
     includes: [
-      'Pressurized 220°F chemical-free dry steam sanitization',
-      'Deep hot-water carpet & fabric seat shampoo extraction',
-      'Leather seats cleaned & conditioned with OEM matte finish',
-      'HVAC dashboard air vent steam sterilization',
-      'Cup holders, center console, and crevices deep detailed',
-      'Cabin air freshening & pet dander/stain elimination'
+      'Complete Full Service Wash included (exterior wash + vacuum)',
+      'Hand-applied protective carnauba wax sealant',
+      'Deep interior carpet & seat vacuuming with trunk cleaning',
+      'Air vent dusting & dashboard UV protectant wipe',
+      'Brake dust wheel clean & premium tire shine',
+      'Exterior rain repellent glass treatment'
     ],
-    perfectFor: 'Spills, pet hair, allergen removal, and restoring like-new interior freshness.'
+    perfectFor: 'Vehicles needing glossy weather protection, paint shine boost, and deep interior refresh.'
   },
   {
-    id: 'express-wax-polish',
-    name: 'Express Wax & Polish',
-    subtitle: 'Deep Gloss Enhancement & Hydrophobic Carnauba Shield',
-    price: 129.99,
-    originalPrice: 159.99,
-    duration: '1.5 – 2 Hours',
-    warranty: '3-Month Paint Protection',
-    serviceType: 'Exterior Polish & Wax',
-    includes: [
-      'Full Gentle Touch Hand Wash & clay decontamination',
-      'High-grade carnauba & synthetic polymer sealant wax',
-      'Machine single-stage gloss polish & paint brighten',
-      'Brake dust removal & alloy wheel protective seal',
-      'Exterior trim rejuvenation & UV defense dressing',
-      'Streak-free window cleaning inside & out'
-    ],
-    perfectFor: 'Cars needing gloss boost, hydrophobic water beading, and weather protection.'
-  },
-  {
-    id: 'showroom-detail',
-    name: 'Showroom Detail',
-    subtitle: 'Complete Inside & Out Concourse Rejuvenation',
-    price: 289.99,
-    originalPrice: 349.99,
-    duration: '4 – 5 Hours',
-    warranty: 'Full Showroom Walk-Around Assurance',
+    id: 'oil-change-quick-lube',
+    name: 'Oil Change & Quick Lube + Free Wash',
+    subtitle: 'Full Oil & Filter Change, Fluid Top-Offs + Complimentary Exterior Wash',
+    price: 95,
+    originalPrice: 115,
+    duration: '30 – 45 Mins',
+    warranty: 'Certified Lube & Multi-Point Inspection',
     bestValue: true,
-    serviceType: 'Full Vehicle Detail',
+    serviceType: 'Quick Lube & Wash Bay',
     includes: [
-      'Complete Gentle Touch Hand Wash & clay bar paint decontam',
-      'Full Interior Deep Steam sanitization & shampoo extraction',
-      'Machine jewel polish & ceramic-infused polymer paint sealant',
-      'Engine bay top surface wipe-down and satin dressing',
-      'Full leather conditioning & fabric hydrophobic stain barrier',
-      'Tires, wheels, wheel wells, and exterior trim treated'
+      'Full oil & filter change (up to 5 qts premium motor oil)',
+      'New OEM engine oil filter installed',
+      'Vital fluid level checks & liquid top-offs',
+      'Tire pressure check & adjustment to factory spec',
+      'Complimentary exterior car wash & hand dry included',
+      'Multi-point vehicle safety maintenance check'
     ],
-    perfectFor: 'Total vehicle revitalization, seasonal prep, lease return, or resale readiness.'
+    perfectFor: 'Every 3,000–5,000 miles engine maintenance while getting your car washed at the same stop.'
   }
 ];
 
 export const ADDONS_DATA: AddOnOption[] = [
   {
-    id: 'engine-steam',
-    name: 'Engine Bay Steam Clean & Satin Dressing',
-    price: 60,
-    description: 'Electronic-safe degreasing and dry-vapor detailing under the hood.'
+    id: 'tire-shine-wheel',
+    name: 'Tire Shine & Wheel Bright Cleaner',
+    price: 10,
+    description: 'Brake dust dissolver and high-gloss long-lasting tire dressing.'
   },
   {
-    id: 'pet-hair',
-    name: 'Heavy Pet Hair Extraction & Sanitizer',
-    price: 45,
-    description: 'Micro-hair needle extraction tool and specialized sanitizing treatment.'
+    id: 'rubber-mats',
+    name: 'Rubber All-Weather Floor Mat Wash',
+    price: 12,
+    description: 'High-pressure power washing and drying for all 4 all-weather mats.'
   },
   {
-    id: 'headlight-resto',
-    name: 'Headlight Oxidation Removal & UV Seal',
-    price: 55,
-    description: 'Restores yellowed, hazy polycarbonate headlights back to optical clarity.'
-  },
-  {
-    id: 'leather-conditioner',
-    name: 'Premium Leather Deep Nourish & Shield',
-    price: 40,
-    description: 'Prevents dye transfer, UV drying, and cracking on delicate leather seats.'
-  },
-  {
-    id: 'rain-repellent',
-    name: 'Hydrophobic Glass Rain Repellent',
+    id: 'engine-cabin-filter',
+    name: 'Engine Air or Cabin Air Filter Check & Replacement',
     price: 35,
-    description: 'Extreme windshield water repellency for safer driving in heavy Queens rain.'
+    description: 'Quick filter swap to maintain clean cabin air and optimal engine airflow.'
+  },
+  {
+    id: 'rainx-treatment',
+    name: 'Rain-X Windshield Rain Repellent Treatment',
+    price: 15,
+    description: 'Hydrophobic windshield coating for enhanced visibility in heavy rain.'
+  },
+  {
+    id: 'underbody-flush',
+    name: 'Underbody Salt & Road Grime Flush',
+    price: 15,
+    description: 'High-pressure undercarriage wash removing winter road salt and debris.'
   }
 ];
 
 export const REVIEWS_DATA: ReviewItem[] = [
   {
     id: 'rev-1',
-    author: 'Anthony R.',
-    location: 'Astoria, Queens, NY',
-    vehicle: 'BMW M3 (Isle of Man Green)',
-    service: 'Showroom Detail ($289.99)',
+    author: 'Marcus K.',
+    location: 'Park Slope, Brooklyn, NY',
+    vehicle: 'Honda CR-V',
+    service: 'Full Service Wash ($25)',
     rating: 5,
-    date: '1 week ago',
-    comment: 'Gentle Touch is the absolute real deal in Queens. My M3 had stubborn swirl marks from automatic car washes and dirty city street grime. After their Showroom Detail, the paint looks like glass. Completely swirl-free and the interior smells incredible.',
+    date: '3 days ago',
+    comment: 'LMC is my go-to weekly wash in Brooklyn. Fast, efficient, and they actually vacuum thoroughly under the child seats. Wheels and windows came out spotless for just $25. Can’t beat this value in the borough.',
     verified: true,
-    highlight: 'Paint looks like glass'
+    highlight: 'Spotless windows and thorough vacuum'
   },
   {
     id: 'rev-2',
-    author: 'Jessica Chen',
-    location: 'Long Island City, Queens, NY',
-    vehicle: 'Tesla Model Y',
-    service: 'Interior Deep Steam ($179.99)',
+    author: 'Elena Rostova',
+    location: 'Gowanus, Brooklyn, NY',
+    vehicle: 'Toyota RAV4',
+    service: 'Oil Change & Quick Lube + Free Wash ($95)',
     rating: 5,
-    date: '2 weeks ago',
-    comment: 'With two toddlers and a golden retriever, our white Tesla interior was a disaster. The Interior Deep Steam worked absolute miracles on the seats and carpets. Every stain disappeared and zero harsh chemical smell. Will be coming back every season!',
+    date: '1 week ago',
+    comment: 'Getting an oil change and driving away in a clean washed car in under 40 minutes is unbeatable. The technicians were friendly, checked all my fluids, and the free wash was a great bonus.',
     verified: true,
-    highlight: 'Worked absolute miracles on the interior'
+    highlight: 'Oil change and clean car in 40 minutes'
   },
   {
     id: 'rev-3',
-    author: 'Michael Morales',
-    location: 'Flushing, Queens, NY',
-    vehicle: 'Mercedes-Benz E350',
-    service: 'Express Wax & Polish ($129.99)',
+    author: 'David S.',
+    location: 'Bay Ridge, Brooklyn, NY',
+    vehicle: 'BMW 330i',
+    service: 'Deluxe Wash & Express Wax ($70)',
     rating: 5,
-    date: '3 weeks ago',
-    comment: 'The Express Wax & Polish brought back the deep black shine I haven’t seen in years. Rain beads right off the hood now. The staff was polite, fast, and took genuine pride in their work. Best detail center in Queens hands down.',
+    date: '2 weeks ago',
+    comment: 'The hand wax on the Deluxe package made my car look brand new. The wax gave a deep gloss that has held up through two rainy weeks. Great Brooklyn local shop with honest pricing.',
     verified: true,
-    highlight: 'Brought back deep black shine'
+    highlight: 'Hand wax gave a deep gloss'
   },
   {
     id: 'rev-4',
-    author: 'Dmitri V.',
-    location: 'Bayside, Queens, NY',
-    vehicle: 'Audi Q7',
-    service: 'Gentle Touch Hand Wash ($49.99)',
+    author: 'Carmine M.',
+    location: 'Downtown Brooklyn, NY',
+    vehicle: 'Toyota Camry (TNC Driver)',
+    service: 'Full Service Wash ($25)',
     rating: 5,
-    date: '1 month ago',
-    comment: 'Finding a real hand car wash that actually uses clean microfiber mitts and gentle foam in Queens is rare. Gentle Touch never scratches the clear coat and the wheels come out spotless every single time.',
+    date: '3 weeks ago',
+    comment: 'As a full-time TLC driver in NYC, keeping my car clean is my livelihood. LMC gets me in and out fast with spotless tire shine and fresh vacuuming. Best car wash in Brooklyn.',
     verified: true,
-    highlight: 'Clean microfiber mitts and zero scratches'
+    highlight: 'Fast turnaround and spotless tire shine'
   },
   {
     id: 'rev-5',
-    author: 'Sal G.',
-    location: 'Forest Hills, Queens, NY',
-    vehicle: 'Porsche Macan GTS',
-    service: 'Showroom Detail ($289.99)',
+    author: 'Sarah Jenkins',
+    location: 'Cobble Hill, Brooklyn, NY',
+    vehicle: 'Subaru Outback',
+    service: 'Oil Change & Quick Lube + Free Wash ($95)',
     rating: 5,
     date: '1 month ago',
-    comment: 'Brought my Macan in before putting it up for sale. The Showroom Detail made it look brand new. The buyer commented on how immaculate the engine bay and leather were. Got top dollar thanks to Gentle Touch.',
+    comment: 'Honest mechanics and quick car wash all at once. Checked my tire pressure, topped off my washer fluid, and the exterior wash was sparkling. Highly recommend LMC Car Wash & Lube!',
     verified: true,
-    highlight: 'Made it look brand new'
+    highlight: 'Honest mechanics and sparkling wash'
   }
 ];
 
@@ -366,42 +346,42 @@ export const FAQS_DATA: FaqItem[] = [
   {
     id: 'faq-1',
     category: 'general',
-    question: 'Why choose a 100% hand car wash over an automated machine wash?',
-    answer: 'Automated drive-thru car washes use abrasive spinning plastic brushes that slap road grime into your clear coat, causing spiderweb scratches and swirl marks. Our Gentle Touch Hand Wash uses pH-balanced snow foam baths, clean wash mitts with grit guards, and ultra-plush drying towels for a completely scratch-free clean.'
+    question: 'Do I need an appointment for a car wash or oil change?',
+    answer: 'No appointment is strictly required! We welcome drive-up walk-ins every day for our Full Service Wash ($25), Deluxe Wash & Express Wax ($70), and Oil Change & Quick Lube ($95). You can also reserve or request an appointment online or via WhatsApp to streamline your visit.'
   },
   {
     id: 'faq-2',
-    category: 'correction',
-    question: 'What is included in the Interior Deep Steam service ($179.99)?',
-    answer: 'Our Interior Deep Steam utilizes medical-grade 220°F pressurized dry steam to kill 99.9% of bacteria, allergens, and odors without saturating your cabin. It includes deep hot-water extraction of carpets and cloth seats, gentle conditioning of leather surfaces, AC vent sterilization, and detailed cleaning of every console and crevice.'
+    category: 'lube',
+    question: 'What is included in the Oil Change & Quick Lube + Free Wash ($95)?',
+    answer: 'Our $95 Quick Lube package includes up to 5 quarts of quality motor oil, a brand new OEM oil filter, fluid checks and top-offs (windshield washer, brake fluid, coolant), tire pressure adjustment to factory spec, and a complimentary exterior car wash with spot-free rinse and dry.'
   },
   {
     id: 'faq-3',
-    category: 'mobile',
-    question: 'Where is Gentle Touch Hand Car Wash located in Queens, NY?',
-    answer: `We are conveniently located at 108-14 Northern Blvd, ${BUSINESS_CONFIG.location} 11368, easily accessible from Astoria, Flushing, Long Island City, Forest Hills, and Bayside. We also offer mobile detailing dispatch for customers preferring service at their home or office.`
+    category: 'wash',
+    question: 'What is the difference between Full Service Wash ($25) and Deluxe Wash ($70)?',
+    answer: 'The Full Service Wash ($25) covers exterior wash, cabin vacuuming, window wipe down, and tire shine. The Deluxe Wash & Express Wax ($70) adds a hand-applied carnauba protective wax sealant for high-gloss UV protection, plus deep vacuuming of the trunk and under-seat areas.'
   },
   {
     id: 'faq-4',
-    category: 'ceramic',
-    question: 'How long does the Express Wax & Polish ($129.99) last?',
-    answer: 'Our Express Wax & Polish includes single-stage machine polishing and a high-grade hydrophobic polymer sealant wax that typically provides 2 to 3 months of durable water beading and UV defense against harsh Queens road salt and sun.'
+    category: 'location',
+    question: 'Where is LMC Car Wash & Lube located in Brooklyn, NY?',
+    answer: `We are conveniently located at 550 4th Ave, ${BUSINESS_CONFIG.location} 11215, easily accessible from Park Slope, Gowanus, Bay Ridge, Sunset Park, and Downtown Brooklyn. Call us directly at ${BUSINESS_CONFIG.primaryPhone}.`
   },
   {
     id: 'faq-5',
     category: 'general',
-    question: 'Do I need an appointment for the Gentle Touch Hand Wash or detailing?',
-    answer: `Walk-ins are welcomed for our Gentle Touch Hand Wash ($49.99) based on bay availability, but we strongly recommend booking an appointment online or calling us at ${BUSINESS_CONFIG.primaryPhone} to secure dedicated time, especially for Interior Deep Steam and Showroom Detail packages.`
+    question: 'How long does a typical service take at LMC?',
+    answer: 'A Full Service Wash typically takes 20 to 30 minutes, an Oil Change & Quick Lube combo takes 30 to 45 minutes, and our Deluxe Wash & Express Wax takes approximately 45 to 60 minutes.'
   }
 ];
 
 export const STYLE_GUIDE_DATA = {
-  themeName: "Deep Blue & Electric Cyan Luxury Detailing",
-  conceptOverview: "High-contrast dark mode UI featuring deep royal blue (#0066FF) brand pillars and electric cyan (#00E5FF) precision accents for Gentle Touch Hand Car Wash and Vehicle Detail Center in Queens, NY.",
+  themeName: "Deep Blue & Electric Cyan Local Car Wash & Lube",
+  conceptOverview: `High-contrast dark mode UI featuring deep royal blue (#0066FF) brand pillars and electric cyan (#00E5FF) precision accents for ${BUSINESS_CONFIG.businessName} in ${BUSINESS_CONFIG.location}.`,
   colors: [
     { name: "Deep Blue (Primary Brand)", hex: "#0066FF", role: "Primary conversion trigger, brand badges, and dominant buttons" },
     { name: "Electric Cyan (Accent)", hex: "#00E5FF", role: "Feature accents, technical metrics, hover glows, and active highlights" },
-    { name: "Obsidian Canvas (Background)", hex: "#090B10", role: "Dark mode background providing contrast and luxury depth" },
+    { name: "Obsidian Canvas (Background)", hex: "#090B10", role: "Dark mode background providing contrast and readability" },
     { name: "Graphite Surface", hex: "#0F131D", role: "Component cards, elevated containers, and structural panels" },
     { name: "Pure Platinum", hex: "#F8FAFC", role: "High-legibility primary display headlines and badges" },
     { name: "Muted Steel", hex: "#94A3B8", role: "Secondary labels, technical specs, and body descriptions" }
@@ -412,20 +392,20 @@ export const STYLE_GUIDE_DATA = {
     body: "Plus Jakarta Sans / Outfit for crisp 16px+ baseline readability"
   },
   heroConcept: {
-    headline: "Queens' Premier Hand Car Wash & Detail Center",
-    subheadline: `Gentle Touch Hand Wash ($49.99), Interior Deep Steam ($179.99), Express Wax & Polish ($129.99), and Showroom Detail ($289.99) in Queens, NY.`,
-    primaryCta: "Book Your Detailing Bay",
+    headline: "Brooklyn's Trusted Local Car Wash & Quick Lube",
+    subheadline: `Full Service Wash ($25), Deluxe Wash & Express Wax ($70), and Oil Change & Quick Lube + Free Wash ($95) in Brooklyn, NY.`,
+    primaryCta: "Get a Quote & Book",
     secondaryCta: "View Services & Packages",
     visualStyle: "Pristine dark automotive studio lighting with Deep Blue and Electric Cyan ambient glow."
   },
   wireframeSections: [
-    { number: "01", name: "Global Header & Trust Bar", purpose: "Persistent trust signals (4.9★, Queens studio address, instant phone dial)" },
+    { number: "01", name: "Global Header & Trust Bar", purpose: "Persistent trust signals (4.8★, Brooklyn center address, instant phone dial)" },
     { number: "02", name: "Hero Showcase & Service Pillars", purpose: "Immediate visual impact, value proposition, and instant quote CTA" },
-    { number: "03", name: "Core Services Breakdown", purpose: "Gentle Touch Hand Wash, Interior Deep Steam, Express Wax & Polish, Showroom Detail" },
-    { number: "04", name: "Transparent Package Pricing Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments ($49.99 to $289.99)" },
+    { number: "03", name: "Core Services Breakdown", purpose: "Full Service Wash, Deluxe Wash & Express Wax, Oil Change & Quick Lube" },
+    { number: "04", name: "Transparent Package Pricing Matrix", purpose: "Clear transparent pricing tiers with vehicle size adjustments ($25 to $95)" },
     { number: "05", name: "Live Quote & Appointment Scheduler", purpose: "High-conversion lead capture and instant estimated quote calculator" },
-    { number: "06", name: "Verified Customer Reviews (Queens, NY)", purpose: "Social proof with real car models and Queens neighborhoods" },
-    { number: "07", name: "Interactive FAQ Accordion", purpose: "Overcoming objections around hand wash benefits, steam safety, and location" },
-    { number: "08", name: "Studio Map & Direct Contact", purpose: "Physical address in Queens, NY, business hours, and phone/WhatsApp booking" }
+    { number: "06", name: "Verified Customer Reviews (Brooklyn, NY)", purpose: "Social proof with real car models and Brooklyn neighborhoods" },
+    { number: "07", name: "Interactive FAQ Accordion", purpose: "Overcoming objections around oil change combos, wash speed, and location" },
+    { number: "08", name: "Center Map & Direct Contact", purpose: "Physical address in Brooklyn, NY, business hours, and phone/WhatsApp booking" }
   ]
 };

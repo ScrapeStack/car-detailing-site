@@ -223,16 +223,15 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 - Surface: #0F131D (Graphite Surface)
 
 ## 2. Core Packages & Prices
-- Gentle Touch Hand Wash: $49.99
-- Interior Deep Steam: $179.99
-- Express Wax & Polish: $129.99
-- Showroom Detail: $289.99
+- Full Service Wash: $25
+- Deluxe Wash & Express Wax: $70
+- Oil Change & Quick Lube + Free Wash: $95
 
 ## 3. Location
 - Location / Service Area: ${BUSINESS_CONFIG.location}
-- Address: 108-14 Northern Blvd, Queens, NY 11368
+- Address: 550 4th Ave, Brooklyn, NY 11215
 - Phone: ${BUSINESS_CONFIG.primaryPhone}
-- Email: ${BUSINESS_CONFIG.email}`}
+- Direct SMS: +17187866228`}
               </pre>
             </div>
           )}

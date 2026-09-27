@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { X, Shield, FileText, CheckCircle2, Lock, Scale } from 'lucide-react';
+import { X, Shield, FileText, CheckCircle2, Lock, Scale, Phone, MessageSquare } from 'lucide-react';
 import { CLIENT_CONFIG } from '../config';
+import { getDisplayOwnerPhone, getTelLink, getSmsLink } from '../utils/whatsapp';
 
 export type LegalTab = 'privacy' | 'terms';
 
@@ -151,7 +152,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   <span>2. How Your Details Are Used</span>
                 </h4>
                 <p className="text-slate-400">
-                  This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via WhatsApp, email, or phone.
+                  This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via phone, SMS, or WhatsApp.
                 </p>
               </div>
 
@@ -171,8 +172,35 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   <span>4. Direct Messaging & Consent</span>
                 </h4>
                 <p className="text-slate-400">
-                  By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with Gentle Touch Hand Car Wash and Vehicle Detail Center regarding your specific service request.
+                  By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with {CLIENT_CONFIG.businessName} regarding your specific service request.
                 </p>
+              </div>
+
+              {/* Direct Privacy Inquiry Action Buttons (Phone/SMS) */}
+              <div className="space-y-3 pt-3 border-t border-white/10">
+                <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF]" />
+                  <span>5. Privacy Inquiries & Direct Phone / SMS Routing</span>
+                </h4>
+                <p className="text-slate-400 text-xs">
+                  To ensure complete safety and prevent inquiries from lingering in dead or unmonitored email inboxes, all privacy requests, data deletion requests, or questions route directly to our primary phone and SMS line at <strong className="text-white">+17187866228</strong>:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                  <a
+                    href={getTelLink()}
+                    className="py-2.5 px-3 bg-[#0066FF] hover:bg-[#0052CC] text-white font-bold uppercase text-[11px] rounded-lg flex items-center justify-center space-x-2 transition-colors text-center"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    <span>Call +17187866228</span>
+                  </a>
+                  <a
+                    href={getSmsLink(`Privacy Inquiry for ${CLIENT_CONFIG.businessName}: I would like to inquire about my data.`)}
+                    className="py-2.5 px-3 bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/50 text-[#00E5FF] hover:text-white font-bold uppercase text-[11px] rounded-lg flex items-center justify-center space-x-2 transition-colors text-center"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5 text-[#00E5FF]" />
+                    <span>SMS Privacy Inquiry</span>
+                  </a>
+                </div>
               </div>
             </div>
           ) : (
@@ -189,7 +217,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   <span>1. Pricing Estimates & On-Site Evaluation</span>
                 </h4>
                 <p className="text-slate-400">
-                  Online package prices ($49.99 for Gentle Touch Hand Wash, $179.99 for Interior Deep Steam, $129.99 for Express Wax & Polish, $289.99 for Showroom Detail) provide accurate baseline rates based on vehicle size class. Excessive contamination, biohazards, or severe pet hair may require additional labor time and pre-authorized surcharges.
+                  Online package prices ($25 for Full Service Wash, $70 for Deluxe Wash & Express Wax, $95 for Oil Change & Quick Lube + Free Wash) provide accurate baseline rates based on vehicle size class. Excessive contamination, biohazards, or severe pet hair may require additional labor time and pre-authorized surcharges.
                 </p>
               </div>
 

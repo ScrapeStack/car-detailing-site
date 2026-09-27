@@ -1,8 +1,8 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, Navigation, MessageSquare } from 'lucide-react';
+import { MapPin, Phone, MessageSquare, Clock, Navigation } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessData';
 import { BUSINESS_CONFIG } from '../config';
-import { getCleanOwnerPhone, getDisplayOwnerPhone, getTelLink } from '../utils/whatsapp';
+import { getCleanOwnerPhone, getDisplayOwnerPhone, getTelLink, getSmsLink } from '../utils/whatsapp';
 
 export const LocationContactSection: React.FC = () => {
   return (
@@ -15,10 +15,10 @@ export const LocationContactSection: React.FC = () => {
             <span>{BUSINESS_CONFIG.businessName}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-            Visit Our {BUSINESS_CONFIG.location} Center or Request Mobile Service
+            Visit Our {BUSINESS_CONFIG.location} Center or Request Service
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Conveniently located on Northern Boulevard in Queens, NY, serving Astoria, Long Island City, Flushing, Forest Hills, and Bayside.
+            Conveniently located on 4th Avenue in Brooklyn, NY, serving Park Slope, Gowanus, Bay Ridge, Sunset Park, and Downtown Brooklyn.
           </p>
         </div>
 
@@ -28,7 +28,7 @@ export const LocationContactSection: React.FC = () => {
           <div className="lg:col-span-5 bg-[#121620] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div className="space-y-6">
               <div>
-                <span className="text-xs font-mono-tech uppercase text-[#00E5FF] font-bold">Wash & Detail Center</span>
+                <span className="text-xs font-mono-tech uppercase text-[#00E5FF] font-bold">Car Wash & Quick Lube Center</span>
                 <h3 className="text-2xl font-display font-black text-white mt-1">
                   {BUSINESS_CONFIG.businessName}
                 </h3>
@@ -42,8 +42,8 @@ export const LocationContactSection: React.FC = () => {
                   </div>
                   <div>
                     <strong className="text-white block font-medium">Center Location:</strong>
-                    <span>108-14 Northern Blvd, {BUSINESS_CONFIG.location} 11368</span>
-                    <div className="text-[11px] text-slate-400 mt-0.5 font-mono-tech">Convenient Northern Blvd facility with dedicated wash & detail bays</div>
+                    <span>550 4th Ave, {BUSINESS_CONFIG.location} 11215</span>
+                    <div className="text-[11px] text-slate-400 mt-0.5 font-mono-tech">Convenient 4th Avenue facility with dedicated wash & quick lube bays</div>
                   </div>
                 </div>
 
@@ -56,20 +56,20 @@ export const LocationContactSection: React.FC = () => {
                     <a href={getTelLink()} className="text-[#00E5FF] font-bold hover:underline">
                       {getDisplayOwnerPhone()}
                     </a>
-                    <div className="text-[11px] text-slate-400 mt-0.5">Direct line to our Queens detail team (Call, SMS, or WhatsApp)</div>
+                    <div className="text-[11px] text-slate-400 mt-0.5">Direct line to our Brooklyn shop team (Call, SMS, or WhatsApp)</div>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3 text-slate-300">
                   <div className="p-2 rounded-lg bg-[#0066FF]/20 text-[#00E5FF] shrink-0 mt-0.5">
-                    <Mail className="w-4 h-4" />
+                    <MessageSquare className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-white block font-medium">Primary Email Contact:</strong>
-                    <a href={`mailto:${BUSINESS_CONFIG.email}`} className="text-[#00E5FF] font-bold hover:underline">
-                      {BUSINESS_CONFIG.email}
+                    <strong className="text-white block font-medium">Direct SMS & Text Routing:</strong>
+                    <a href={getSmsLink("Hi LMC team, I'd like to ask a question or get a quote:")} className="text-[#00E5FF] font-bold hover:underline">
+                      {getDisplayOwnerPhone()} (SMS)
                     </a>
-                    <div className="text-[11px] text-slate-400 mt-0.5">Questions, corporate fleet inquiries, or custom quotes</div>
+                    <div className="text-[11px] text-slate-400 mt-0.5">Instant text routing directly to shop team (no unmonitored email routing)</div>
                   </div>
                 </div>
 
@@ -89,7 +89,7 @@ export const LocationContactSection: React.FC = () => {
               {/* Service Areas Tags */}
               <div className="pt-3 border-t border-white/10">
                 <span className="text-[11px] font-mono-tech uppercase text-slate-400 block mb-2 font-semibold">
-                  Queens, NY Service Areas:
+                  Brooklyn, NY Service Areas:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {BUSINESS_INFO.serviceAreas.map((area, idx) => (
@@ -111,14 +111,14 @@ export const LocationContactSection: React.FC = () => {
                 <span>Call Directly</span>
               </a>
               <a
-                href={`https://wa.me/${getCleanOwnerPhone()}`}
+                href={`https://wa.me/${getCleanOwnerPhone()}?text=${encodeURIComponent(BUSINESS_CONFIG.defaultBookingMessage + ' services.')}`}
                 target="_blank" rel="noopener noreferrer"
                 className="py-3 px-4 bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/50 text-white font-bold uppercase text-xs rounded-xl flex items-center justify-center space-x-2 transition-colors text-center"
               >
                 <span>WhatsApp Us</span>
               </a>
               <a
-                href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + ' 108-14 Northern Blvd, Queens, NY')}`}
+                href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + ' 550 4th Ave, Brooklyn, NY')}`}
                 target="_blank"
                 rel="noreferrer"
                 className="py-3 px-4 bg-white/10 hover:bg-white/20 text-white font-bold uppercase text-xs rounded-xl flex items-center justify-center space-x-2 transition-colors text-center"
@@ -131,14 +131,14 @@ export const LocationContactSection: React.FC = () => {
             {/* RESPONSIVE DISCLAIMER: Strictly visible, readable, padded, no hidden classes */}
             <div className="w-full pt-2">
               <p className="text-xs text-slate-300 text-center py-2 px-2 block w-full leading-relaxed">
-                By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with Gentle Touch Hand Car Wash and Vehicle Detail Center.
+                By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with {BUSINESS_CONFIG.businessName}.
               </p>
             </div>
           </div>
 
           {/* Right Column: Custom Interactive Map & Fast Inquiry Form */}
           <div className="lg:col-span-7 bg-[#0f131d] border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
-            {/* Custom Studio Map Visual Frame */}
+            {/* Custom Center Map Visual Frame */}
             <div className="relative h-64 sm:h-72 bg-[#1a202c] overflow-hidden border-b border-white/10">
               {/* Map stylized background simulation */}
               <div className="absolute inset-0 bg-[#0d1017] carbon-grid opacity-80"></div>
@@ -160,18 +160,18 @@ export const LocationContactSection: React.FC = () => {
                   <div className="w-8 h-2 rounded-full bg-[#0066FF]/40 blur-sm mx-auto mt-1"></div>
                 </div>
                 <div className="bg-[#090b10]/95 backdrop-blur-md border border-[#0066FF]/50 px-3.5 py-1.5 rounded-lg text-xs font-bold text-white mt-1 shadow-xl font-mono-tech">
-                  {BUSINESS_CONFIG.businessName} • 108-14 Northern Blvd, Queens, NY
+                  {BUSINESS_CONFIG.businessName} • 550 4th Ave, Brooklyn, NY
                 </div>
               </div>
 
               {/* Floating Map Navigation Badge */}
               <div className="absolute top-3 left-3 bg-[#090b10]/90 backdrop-blur-md border border-white/10 px-3 py-1 rounded-md text-[10px] font-mono-tech text-slate-300">
-                Queens, NY 11368
+                Brooklyn, NY 11215
               </div>
 
               <div className="absolute bottom-3 right-3">
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + ' 108-14 Northern Blvd, Queens, NY')}`}
+                  href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + ' 550 4th Ave, Brooklyn, NY')}`}
                   target="_blank"
                   rel="noreferrer"
                   className="bg-black/90 hover:bg-black text-[#00E5FF] border border-white/15 px-3 py-1.5 rounded-lg text-xs font-bold font-mono-tech flex items-center space-x-1.5 transition-colors"
@@ -190,15 +190,15 @@ export const LocationContactSection: React.FC = () => {
 
               <div className="space-y-1.5 max-w-md">
                 <h4 className="text-xl sm:text-2xl font-display font-black text-white tracking-tight">
-                  Have Questions Before Booking?
+                  Have Questions Before Your Visit?
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-400">
-                  Chat directly with our Queens detail specialists on WhatsApp or call our team for immediate assistance.
+                  Chat directly with our Brooklyn team on WhatsApp or call us for pricing and current bay availability.
                 </p>
               </div>
 
               <a
-                href={`https://wa.me/${getCleanOwnerPhone()}?text=Hi!%20I%20have%20a%20question%20about%20Gentle%20Touch%20Hand%20Car%20Wash%20services.`}
+                href={`https://wa.me/${getCleanOwnerPhone()}?text=${encodeURIComponent(BUSINESS_CONFIG.defaultBookingMessage + ' services.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-black font-black uppercase tracking-wider text-xs sm:text-sm rounded-xl shadow-xl shadow-[#25D366]/25 flex items-center justify-center space-x-2.5 transition-all cursor-pointer"
@@ -210,7 +210,7 @@ export const LocationContactSection: React.FC = () => {
               {/* RESPONSIVE DISCLAIMER: Strictly visible, readable, padded, no hidden classes */}
               <div className="w-full pt-1 max-w-md">
                 <p className="text-xs text-slate-300 text-center leading-relaxed">
-                  By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with Gentle Touch Hand Car Wash and Vehicle Detail Center.
+                  By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with {BUSINESS_CONFIG.businessName}.
                 </p>
               </div>
             </div>

@@ -1,32 +1,39 @@
 export const BUSINESS_CONFIG = {
-  businessName: "Gentle Touch Hand Car Wash and Vehicle Detail Center",
-  ownerPhone: "+17185550199", // (718) 555-0199
-  primaryPhone: "(718) 555-0199",
-  email: "info@gentletouchcarwash.com",
-  primaryEmail: "info@gentletouchcarwash.com",
-  location: "Queens, NY",
-  serviceArea: "Queens, NY",
+  businessName: "LMC Car Wash & Lube",
+  city: "Brooklyn, NY",
+  area: "Brooklyn, NY",
+  location: "Brooklyn, NY",
+  serviceArea: "Brooklyn, NY",
+  countryCode: "US",
+  phone: "7187866228",
+  phoneNumber: "7187866228",
+  ownerPhone: "7187866228",
+  primaryPhone: "(718) 786-6228",
   currency: "$",
+  currencySymbol: "$",
+  defaultBookingMessage: "Hi LMC team, I'd like to get a price quote or request an appointment for",
+  email: "",
+  primaryEmail: "",
+  directSmsPhone: "+17187866228",
+  directTelPhone: "+17187866228",
   packages: [
     {
-      id: "gentle-touch-hand-wash",
-      name: "Gentle Touch Hand Wash",
-      price: 49.99
+      id: "full-service-wash",
+      name: "Full Service Wash",
+      price: 25,
+      description: "Exterior hand/machine wash, vacuum, window wipe down, tire shine"
     },
     {
-      id: "interior-deep-steam",
-      name: "Interior Deep Steam",
-      price: 179.99
+      id: "deluxe-wash-express-wax",
+      name: "Deluxe Wash & Express Wax",
+      price: 70,
+      description: "Full service wash + hand wax sealant & interior deep vacuum"
     },
     {
-      id: "express-wax-polish",
-      name: "Express Wax & Polish",
-      price: 129.99
-    },
-    {
-      id: "showroom-detail",
-      name: "Showroom Detail",
-      price: 289.99
+      id: "oil-change-quick-lube",
+      name: "Oil Change & Quick Lube + Free Wash",
+      price: 95,
+      description: "Full oil & filter change, liquid top-offs, includes complimentary exterior car wash"
     }
   ],
   colors: {

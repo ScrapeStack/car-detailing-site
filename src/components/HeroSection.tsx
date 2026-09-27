@@ -15,7 +15,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
   return (
     <section className="relative overflow-hidden bg-[#07090e] text-white min-h-[76vh] md:min-h-[82vh] flex flex-col justify-between select-none">
       
-      {/* BACKGROUND SUPERCAR IMAGE WITH LUXURY AMBIENT CINEMATIC DISPLAY */}
+      {/* BACKGROUND IMAGE WITH LUXURY AMBIENT CINEMATIC DISPLAY */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         
         {/* Full Car View - Seamless full-bleed container with zero hard edges */}
@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
         >
           <img
             src={heroSupercarImg}
-            alt="Gentle Touch Hand Car Wash and Vehicle Detail Center"
+            alt="LMC Car Wash & Lube"
             className="w-full h-full object-cover object-[70%_center] lg:object-right opacity-65 sm:opacity-80 lg:opacity-95"
             referrerPolicy="no-referrer"
           />
@@ -70,7 +70,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             <span className="w-2 h-2 rounded-full bg-[#00E5FF] inline-block animate-pulse"></span>
             <span className="text-slate-200 font-semibold">{BUSINESS_CONFIG.location}</span>
             <span className="text-slate-600">•</span>
-            <span className="text-slate-400">Hand Car Wash & Detail Center</span>
+            <span className="text-slate-400">Car Wash & Quick Lube</span>
           </motion.div>
 
           {/* Headline */}
@@ -82,11 +82,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight text-white uppercase leading-[1.03]">
-              QUEENS HAND CAR <br />
-              <span className="font-serif-luxury italic font-normal tracking-wide text-slate-200 capitalize">Wash & Detail</span>
+              BROOKLYN CAR <br />
+              <span className="font-serif-luxury italic font-normal tracking-wide text-slate-200 capitalize">Wash & Quick Lube</span>
             </h1>
             <p className="text-xs sm:text-sm font-mono-tech uppercase tracking-wider text-[#00E5FF] pt-0.5">
-              Gentle Touch Hand Wash ($49.99) • Interior Deep Steam ($179.99) • Express Wax & Polish ($129.99) • Showroom Detail ($289.99)
+              Full Service Wash ($25) • Deluxe Wash & Express Wax ($70) • Oil Change & Quick Lube + Free Wash ($95)
             </p>
           </motion.div>
 
@@ -100,12 +100,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
           >
             <div>
               <p>
-                Experience a true scratch-free hand wash and vehicle detail in {BUSINESS_CONFIG.location}. Meticulous microfiber wash techniques that preserve your clear coat without swirl marks.
+                Brooklyn's trusted local destination for express washes, thorough interior vacuuming, and certified quick oil changes. Walk-ins always welcome with fast turnaround times.
               </p>
             </div>
             <div>
               <p>
-                From pressurized 220°F interior steam sanitization to high-gloss machine polishing and concourse showroom detailing, visit our Northern Blvd center or book mobile dispatch.
+                Combine your scheduled oil & filter service with a complimentary exterior wash, or refresh your vehicle with our hand carnauba wax package.
               </p>
             </div>
           </motion.div>
@@ -162,7 +162,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             className="w-full pt-1"
           >
             <p className="text-xs text-slate-300 text-center sm:text-left py-2 px-1 block w-full leading-relaxed">
-              By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with Gentle Touch Hand Car Wash and Vehicle Detail Center.
+              By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with {BUSINESS_CONFIG.businessName}.
             </p>
           </motion.div>
 
@@ -178,21 +178,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
               <span className="w-4 h-4 rounded-full bg-[#0066FF]/20 text-[#00E5FF] flex items-center justify-center text-[10px] font-bold shrink-0">
                 ✓
               </span>
-              <span>100% Gentle Microfiber Hand Wash</span>
+              <span>Fast 20–30 Min Full Service Wash ($25)</span>
             </div>
 
             <div className="flex items-center space-x-2">
               <span className="w-4 h-4 rounded-full bg-[#0066FF]/20 text-[#00E5FF] flex items-center justify-center text-[10px] font-bold shrink-0">
                 ✓
               </span>
-              <span>Pressurized 220°F Dry Steam Extraction</span>
+              <span>Oil Change Combo + Free Car Wash ($95)</span>
             </div>
 
             <div className="flex items-center space-x-2">
               <span className="w-4 h-4 rounded-full bg-[#0066FF]/20 text-[#00E5FF] flex items-center justify-center text-[10px] font-bold shrink-0">
                 ✓
               </span>
-              <span>Queens, NY Service & Mobile Dispatch</span>
+              <span>{BUSINESS_CONFIG.location} Walk-Ins Welcome Daily</span>
             </div>
           </motion.div>
 
@@ -208,26 +208,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
           <div className="flex items-center space-x-2 text-[10px] sm:text-[11px] font-mono-tech text-slate-400 uppercase tracking-widest shrink-0">
-            <span>We utilize professional-grade vehicle wash and detailing products</span>
+            <span>Fast, honest local vehicle wash and quick lube maintenance</span>
           </div>
 
           {/* Clean Disciplines List */}
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-8 text-[11px] font-mono-tech text-slate-300">
             <span className="flex items-center space-x-1.5">
               <span className="text-[#00E5FF]">•</span>
-              <span>Gentle Hand Wash ($49.99)</span>
+              <span>Full Service Wash ($25)</span>
             </span>
             <span className="flex items-center space-x-1.5">
               <span className="text-[#00E5FF]">•</span>
-              <span>Interior Deep Steam ($179.99)</span>
+              <span>Deluxe Wash & Express Wax ($70)</span>
             </span>
             <span className="flex items-center space-x-1.5">
               <span className="text-[#00E5FF]">•</span>
-              <span>Express Wax & Polish ($129.99)</span>
-            </span>
-            <span className="flex items-center space-x-1.5">
-              <span className="text-[#00E5FF]">•</span>
-              <span>Showroom Detail ($289.99)</span>
+              <span>Oil Change & Quick Lube + Free Wash ($95)</span>
             </span>
           </div>
         </div>

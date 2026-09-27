@@ -1,55 +1,55 @@
 import React from 'react';
-import { ShieldCheck, Droplets, Sparkles, Award, Flame, Wrench } from 'lucide-react';
+import { ShieldCheck, Droplets, Sparkles, Award, Flame, Layers } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../config';
 
 export const CraftsmanshipStandards: React.FC = () => {
   const standards = [
     {
-      icon: <Flame className="w-6 h-6 text-amber-500" />,
-      title: "Commercial High-Heat Steam Extraction",
-      description: "Our pressurized dry steam penetrates deep into seat upholstery and carpets at 220°F, lifting stubborn spills and eradicating 99.9% of bacteria without leaving soggy residues."
-    },
-    {
       icon: <Droplets className="w-6 h-6 text-sky-400" />,
-      title: "High-Foam Lubricating Wash Systems",
-      description: "Thick snow foam blankets your vehicle exterior, encapsulating road grime and abrasive NYC salt so dirt glides away effortlessly without causing swirl marks."
+      title: "100% Soft Cloth Hand Wash Care",
+      description: "We use only ultra-plush microfiber wash mitts and dual-bucket grit-guard systems. Zero harsh automated brushes, ensuring your clear coat remains free of micro-marring swirl marks."
     },
     {
-      icon: <Sparkles className="w-6 h-6 text-emerald-400" />,
-      title: "UV Protection & OEM Matte Conditioning",
-      description: "We restore interior plastics, vinyl, and leather to a clean, non-greasy factory matte finish with durable UV blockers that resist sun cracking and fading."
+      icon: <Flame className="w-6 h-6 text-sky-400" />,
+      title: "220°F Pressurized Steam Extraction",
+      description: "Our commercial steam extractors eradicate 99.9% of bacteria, biological allergens, and lingering odors from upholstery and air vents without oversaturating fabrics."
     },
     {
-      icon: <Wrench className="w-6 h-6 text-indigo-400" />,
-      title: "Mobile Driveway Mechanical Precision",
-      description: "Professional installation of front & rear brake pads/rotors and aftermarket touchscreen stereos right in your driveway, saving you valuable hours at an auto shop."
+      icon: <Sparkles className="w-6 h-6 text-cyan-400" />,
+      title: "Dual-Action Paint Polishing",
+      description: "Precision orbital machine buffing with optical finishing glazes to eliminate fine oxidation, enhance paint depth, and lock in mirror gloss reflection."
+    },
+    {
+      icon: <Layers className="w-6 h-6 text-indigo-400" />,
+      title: "pH-Balanced Leather & Trim Conditioning",
+      description: "We cleanse and replenish delicate leather hides and vinyl dash trims with breathable UV-matte balms that defend against sun cracking without oily residue."
     },
     {
       icon: <Award className="w-6 h-6 text-amber-400" />,
-      title: "Meticulous Hand Quality Walk-Around",
-      description: "Every mobile detailing job concludes with a joint walk-around inspection to ensure your interior and exterior meet our rigorous 5-star standard before departure."
+      title: "Meticulous Hand Quality Inspection",
+      description: "Every hand wash and full showroom detail finishes with an exhaustive multi-point quality inspection of all door jambs, wheel barrels, and glass."
     },
     {
       icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
-      title: "100% Mobile — We Come To You",
-      description: "Based in the Bronx, Hershel arrives directly at your home, apartment, or designated parking area across the Bronx and the Greater NYC Metropolitan Area."
+      title: "Facility Drop-Off & Mobile Dispatch",
+      description: "Visit our dedicated detail facility at 1219 Woodycrest Ave, Bronx, or schedule our fully equipped mobile detailing rig to come right to your location."
     }
   ];
 
   return (
-    <section id="standards" className="py-20 sm:py-24 bg-[#0c0f16] border-t border-b border-white/5 relative overflow-hidden">
+    <section id="standards" className="py-20 sm:py-24 bg-[#0a0d15] border-t border-b border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono-tech text-amber-400 mb-3">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs font-mono-tech text-sky-400 mb-3">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>The Guy On The Go Promise</span>
+            <span>The Gentle Touch Standard</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-            Mobile Excellence. Direct to Your Driveway.
+            Hand Craftsmanship. Uncompromising Excellence.
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Professional steam extraction, high-foam exterior baths, and mechanical upgrades delivered directly to you across the Bronx and NYC.
+            Dedicated hand car wash care, hospital-grade steam extraction, and concourse paint protection in the Bronx & Greater NYC.
           </p>
         </div>
 
@@ -58,12 +58,12 @@ export const CraftsmanshipStandards: React.FC = () => {
           {standards.map((std, idx) => (
             <div
               key={idx}
-              className="bg-[#121620] border border-white/10 hover:border-amber-500/40 rounded-2xl p-6 transition-all duration-300 group"
+              className="bg-[#121622] border border-white/10 hover:border-sky-400/40 rounded-2xl p-6 transition-all duration-300 group"
             >
               <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 {std.icon}
               </div>
-              <h3 className="text-lg font-display font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+              <h3 className="text-lg font-display font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
                 {std.title}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">

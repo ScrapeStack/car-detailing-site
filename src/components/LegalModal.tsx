@@ -64,7 +64,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 bg-[#090b10]">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-[#0066FF]/20 text-[#00E5FF] flex items-center justify-center">
               {activeTab === 'privacy' ? (
                 <Shield className="w-4 h-4" />
               ) : (
@@ -97,7 +97,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             onClick={() => onTabChange('privacy')}
             className={`py-3 px-4 text-xs font-mono-tech font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center space-x-2 cursor-pointer ${
               activeTab === 'privacy'
-                ? 'border-amber-400 text-amber-400 bg-white/[0.02]'
+                ? 'border-[#00E5FF] text-[#00E5FF] bg-white/[0.02]'
                 : 'border-transparent text-slate-400 hover:text-white'
             }`}
           >
@@ -108,7 +108,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             onClick={() => onTabChange('terms')}
             className={`py-3 px-4 text-xs font-mono-tech font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center space-x-2 cursor-pointer ${
               activeTab === 'terms'
-                ? 'border-amber-400 text-amber-400 bg-white/[0.02]'
+                ? 'border-[#00E5FF] text-[#00E5FF] bg-white/[0.02]'
                 : 'border-transparent text-slate-400 hover:text-white'
             }`}
           >
@@ -124,12 +124,12 @@ export const LegalModal: React.FC<LegalModalProps> = ({
               {/* Opening Terms Preamble & Scope */}
               <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-slate-300">
                 <p className="text-xs leading-relaxed">
-                  Welcome to {CLIENT_CONFIG.businessName}. By accessing, browsing, or using this website, as well as by requesting an estimate, booking an appointment, or utilizing any of our studio or mobile detailing services, you expressly agree to be bound by all of our terms, conditions, operating policies, and legal disclaimers outlined herein. If you do not agree to all of these terms and policies in their entirety, you are strictly prohibited from using this website or our services.
+                  Welcome to {CLIENT_CONFIG.businessName}. By accessing, browsing, or using this website, as well as by requesting an estimate, booking an appointment, or utilizing any of our vehicle wash or detailing services, you agree to all terms, policies, and disclaimers outlined herein.
                 </p>
               </div>
 
               {/* Highlighted Standardized Privacy Core Statement */}
-              <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-200">
+              <div className="p-4 rounded-xl bg-[#0066FF]/15 border border-[#0066FF]/30 text-blue-100">
                 <p className="font-medium text-xs leading-relaxed">
                   {CLIENT_CONFIG.businessName} respects your privacy. We collect information that you voluntarily provide to initiate service requests, including your name, telephone number, email address, vehicle details, service address/location, and preferred appointment dates/times. This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via WhatsApp or phone. We do not sell, rent, or trade your contact details, email addresses, or physical location data to external third parties or marketing databases.
                 </p>
@@ -137,7 +137,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
 
               <div className="space-y-2">
                 <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF]" />
                   <span>1. Information We Collect</span>
                 </h4>
                 <p className="text-slate-400">
@@ -147,18 +147,18 @@ export const LegalModal: React.FC<LegalModalProps> = ({
 
               <div className="space-y-2">
                 <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF]" />
                   <span>2. How Your Details Are Used</span>
                 </h4>
                 <p className="text-slate-400">
-                  This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via WhatsApp or phone.
+                  This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via WhatsApp, email, or phone.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>3. Zero Data Sale or Rental Commitment</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF]" />
+                  <span>3. Zero Data Sale Commitment</span>
                 </h4>
                 <p className="text-slate-400">
                   We do not sell, rent, or trade your contact details, email addresses, or physical location data to external third parties or marketing databases.
@@ -167,114 +167,49 @@ export const LegalModal: React.FC<LegalModalProps> = ({
 
               <div className="space-y-2">
                 <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>4. Direct Messaging</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF]" />
+                  <span>4. Direct Messaging & Consent</span>
                 </h4>
                 <p className="text-slate-400">
-                  By submitting an inquiry, you consent to receiving direct communications from the business operator via phone or WhatsApp regarding your specific service request. Communication occurs directly through your messaging app, and you may end messaging at any time simply by closing or leaving the chat.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>5. Inquiries & Data Requests</span>
-                </h4>
-                <p className="text-slate-400">
-                  If you have questions regarding privacy practices or wish to request the deletion or modification of any contact information provided through this site, please reach out directly to the business operator via the primary telephone or WhatsApp contact listed on this website. The technical platform vendor does not store, host, or process end-user customer database entries.
+                  By submitting you consent to sharing your info via WhatsApp, email, phone, and direct messaging with Gentle Touch Hand Car Wash and Vehicle Detail Center regarding your specific service request.
                 </p>
               </div>
             </div>
           ) : (
             <div className="space-y-5">
-              {/* IMPORTANT PLATFORM NOTICE & LIMITATION OF LIABILITY */}
-              <div className="p-4 sm:p-5 rounded-xl bg-amber-500/10 border-2 border-amber-500/40 text-amber-200 space-y-3 font-sans">
-                <div className="flex items-center space-x-2 text-amber-400 font-bold font-mono-tech uppercase text-xs tracking-wider">
-                  <Shield className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span>IMPORTANT PLATFORM NOTICE & LIMITATION OF LIABILITY</span>
-                </div>
-                <p className="text-xs leading-relaxed text-amber-100 font-bold">
-                  This website operates strictly as an independent digital technology template provided by an external technical vendor.
-                </p>
-                <div className="space-y-2 text-[11px] leading-relaxed text-slate-300">
-                  <p>
-                    <strong className="text-white font-semibold">1. NO AFFILIATION OR AGENCY:</strong> The website developer, designer, and platform host are third-party technology providers and are not partners, employees, agents, or guarantors of the operating business.
-                  </p>
-                  <p>
-                    <strong className="text-white font-semibold">2. &apos;AS-IS&apos; DELIVERY:</strong> All website features, calculators, and contact triggers are provided strictly on an &apos;AS-IS&apos; basis without warranties of any kind.
-                  </p>
-                  <p>
-                    <strong className="text-white font-semibold">3. ABSOLUTE WAIVER OF LIABILITY:</strong> Under no circumstances shall the website developer be held liable for any direct, indirect, or consequential damages—including property damage, vehicle damage, service disputes, pricing discrepancies, or unfulfilled service agreements—arising out of business operations or website use.
-                  </p>
-                  <p>
-                    <strong className="text-white font-semibold">4. INDEMNIFICATION:</strong> The business operator and end-users explicitly agree to indemnify and hold harmless the web designer/developer from any third-party claims, liabilities, or legal costs resulting from business operations or customer interactions.
-                  </p>
-                </div>
-              </div>
-
               <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-slate-300">
                 <p className="text-xs leading-relaxed">
-                  Welcome to {CLIENT_CONFIG.businessName}. By accessing, browsing, or using this website, as well as by requesting an estimate, booking an appointment, or utilizing any of our studio or mobile detailing services, you expressly agree to be bound by all of our terms, conditions, operating policies, and legal disclaimers outlined herein. If you do not agree to all of these terms and policies in their entirety, you are strictly prohibited from using this website or our services.
+                  Welcome to {CLIENT_CONFIG.businessName}. By accessing or using this website, as well as by booking an appointment, you agree to be bound by our operating policies and service terms.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>1. Digital Quotes & On-Site Evaluation</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF]" />
+                  <span>1. Pricing Estimates & On-Site Evaluation</span>
                 </h4>
                 <p className="text-slate-400">
-                  Online quote calculators and package prices provide accurate baseline estimates based on vehicle class. Final service scope and pricing are confirmed on-site following an initial physical walk-around and paint condition evaluation. Excessive contamination, biohazards, or severe pet hair may require additional labor time and pre-authorized surcharges.
+                  Online package prices ($49.99 for Gentle Touch Hand Wash, $179.99 for Interior Deep Steam, $129.99 for Express Wax & Polish, $289.99 for Showroom Detail) provide accurate baseline rates based on vehicle size class. Excessive contamination, biohazards, or severe pet hair may require additional labor time and pre-authorized surcharges.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>2. Mobile Detailing Requirements</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF]" />
+                  <span>2. Cancellation & Rescheduling</span>
                 </h4>
                 <p className="text-slate-400">
-                  For mobile detailing visits, clients must provide safe, legal parking with sufficient clearance around the entire perimeter of the vehicle. Our mobile detailing unit comes fully equipped with all professional tools, products, and equipment. Depending on your location and chosen package, access to a standard outdoor water spigot and electrical outlet may be coordinated prior to your service.
+                  We kindly request advance notice to cancel or reschedule appointments without penalty. In the event of adverse weather (such as rain or snow), we will proactively reschedule your appointment for optimal results.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>3. Cancellation & Rescheduling Policy</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF]" />
+                  <span>3. Customer Satisfaction Walk-Around</span>
                 </h4>
                 <p className="text-slate-400">
-                  We kindly request a minimum of 24 hours advance notice to cancel or reschedule appointments without penalty. In the event of adverse weather (such as rain, heavy wind, or excessive heat), we will proactively reschedule your mobile appointment to ensure optimal curing and flawless results.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>4. Pricing Estimates & Payment Terms</span>
-                </h4>
-                <p className="text-slate-400">
-                  Transparent pricing estimates and flexible booking workflows are provided for client convenience. All final pricing, deposits, and payment terms are agreed upon directly with the business operator. Every detail concludes with a joint walk-around inspection before handover to confirm full customer satisfaction.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>5. Pre-Existing Conditions & Liability</span>
-                </h4>
-                <p className="text-slate-400">
-                  Clients must disclose any pre-existing paint defects, failing clear coats, non-factory paintwork, aftermarket electronics, or damaged interior components prior to service. {CLIENT_CONFIG.businessName} takes every measure to safely protect and enhance your vehicle, utilizing professional-grade care solutions and high-efficiency specialized equipment.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="text-white font-bold font-mono-tech uppercase text-[11px] tracking-wider flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>6. Customer Data Handling & Privacy</span>
-                </h4>
-                <p className="text-slate-400">
-                  We collect information that you voluntarily provide to initiate service requests, including your name, telephone number, email address, vehicle details, service address/location, and preferred appointment dates/times. This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via WhatsApp or phone. We do not sell, rent, or trade your contact details, email addresses, or physical location data to external third parties or marketing databases.
+                  Every wash and detail concludes with a joint walk-around inspection before handover to confirm full customer satisfaction.
                 </p>
               </div>
             </div>
@@ -288,7 +223,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
           </span>
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-lg transition-colors cursor-pointer"
+            className="px-5 py-2 bg-[#0066FF] hover:bg-[#0052CC] text-white font-bold uppercase tracking-wider text-xs rounded-lg transition-colors cursor-pointer"
           >
             Close
           </button>

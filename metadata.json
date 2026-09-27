@@ -1,6 +1,6 @@
 {
-  "name": "Guy On The Go Mobile Detailing",
-  "description": "NYC's premier mobile detailing — we come to your doorstep in the Bronx and Greater NYC Metropolitan Area.",
+  "name": "Gentle Touch Hand Car Wash and Vehicle Detail Center",
+  "description": "Queens, NY's premier hand car wash and vehicle detail center. Specialized in Gentle Touch Hand Wash, Interior Deep Steam, Express Wax & Polish, and Showroom Detail.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

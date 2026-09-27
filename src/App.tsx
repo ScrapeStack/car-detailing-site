@@ -4,7 +4,6 @@
  */
 
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { ServicesSection } from './components/ServicesSection';
@@ -17,22 +16,11 @@ import { StyleGuideModal } from './components/StyleGuideModal';
 import { Footer } from './components/Footer';
 import { VehicleType } from './types';
 
-const ScrollReveal: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 16 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-60px" }}
-    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-  >
-    {children}
-  </motion.div>
-);
-
 export default function App() {
   const [isStyleGuideOpen, setIsStyleGuideOpen] = useState<boolean>(false);
-  const [selectedServiceId, setSelectedServiceId] = useState<string>('full-interior-steam');
-  const [selectedPackageId, setSelectedPackageId] = useState<string>('full-interior-steam');
-  const [selectedVehicleClass, setSelectedVehicleClass] = useState<VehicleType>('sedan');
+  const [selectedServiceId, setSelectedServiceId] = useState<string>('hand-wash');
+  const [selectedPackageId, setSelectedPackageId] = useState<string>('gentle-touch-hand-wash');
+  const [selectedVehicleClass, setSelectedVehicleClass] = useState<VehicleType>('coupe');
 
   const scrollToQuote = () => {
     const el = document.getElementById('quote-builder');
@@ -79,54 +67,42 @@ export default function App() {
         onOpenStyleGuide={() => setIsStyleGuideOpen(true)} 
       />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections - EXACT LAYOUT 100% INTACT */}
       <main className="flex-1 pb-24 sm:pb-0">
-        {/* 1. Hero Section with Supercar Studio Showcase & Performance Specs */}
+        {/* 1. Hero Section with Wash & Detail Showcase */}
         <HeroSection 
           onOpenBooking={scrollToQuote} 
           onExplorePackages={scrollToPricing} 
         />
 
-        {/* 2. 5 Core Disciplines & Services Detailed Showcase */}
-        <ScrollReveal>
-          <ServicesSection 
-            onSelectServiceForQuote={handleSelectServiceForQuote} 
-          />
-        </ScrollReveal>
+        {/* 2. Specialized Services Detailed Showcase */}
+        <ServicesSection 
+          onSelectServiceForQuote={handleSelectServiceForQuote} 
+        />
 
-        {/* 4. Packages & Pricing Matrix with Vehicle Size Multiplier */}
-        <ScrollReveal>
-          <PricingPackages 
-            selectedVehicleClass={selectedVehicleClass}
-            onSelectVehicleClass={setSelectedVehicleClass}
-            onSelectPackage={handleSelectPackage} 
-          />
-        </ScrollReveal>
+        {/* 3. Packages & Pricing Matrix with Vehicle Size Multiplier */}
+        <PricingPackages 
+          selectedVehicleClass={selectedVehicleClass}
+          onSelectVehicleClass={setSelectedVehicleClass}
+          onSelectPackage={handleSelectPackage} 
+        />
 
-        {/* 5. Live Instant Quote Calculator & Appointment Scheduler */}
-        <ScrollReveal>
-          <InstantQuoteBooking 
-            initialServiceId={selectedServiceId}
-            initialPackageId={selectedPackageId}
-            selectedVehicleClass={selectedVehicleClass}
-            onSelectVehicleClass={setSelectedVehicleClass}
-          />
-        </ScrollReveal>
+        {/* 4. Live Instant Quote Calculator & Appointment Scheduler */}
+        <InstantQuoteBooking 
+          initialServiceId={selectedServiceId}
+          initialPackageId={selectedPackageId}
+          selectedVehicleClass={selectedVehicleClass}
+          onSelectVehicleClass={setSelectedVehicleClass}
+        />
 
-        {/* 6. Social Proof & Verified Reviews Grid (4.8 Stars, 64 Reviews) */}
-        <ScrollReveal>
-          <SocialProofSection />
-        </ScrollReveal>
+        {/* 5. Social Proof & Verified Reviews Grid (Queens, NY) */}
+        <SocialProofSection />
 
-        {/* 8. Frequently Asked Questions */}
-        <ScrollReveal>
-          <FaqSection />
-        </ScrollReveal>
+        {/* 6. Frequently Asked Questions */}
+        <FaqSection />
 
-        {/* 9. Studio Map, Direct Call & Concierge Contact */}
-        <ScrollReveal>
-          <LocationContactSection />
-        </ScrollReveal>
+        {/* 7. Center Location, Direct Call & Concierge Contact */}
+        <LocationContactSection />
       </main>
 
       {/* Global Footer */}
@@ -143,4 +119,3 @@ export default function App() {
     </div>
   );
 }
-

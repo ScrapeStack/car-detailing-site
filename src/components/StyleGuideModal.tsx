@@ -22,25 +22,25 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 
   return (
     <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-      <div className="bg-[#0f131d] border border-amber-500/40 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+      <div className="bg-[#0f131d] border border-[#0066FF]/50 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
         {/* Modal Top Header */}
         <div className="p-5 bg-[#121622] border-b border-white/10 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30">
+            <div className="w-8 h-8 rounded-lg bg-[#0066FF]/20 text-[#00E5FF] flex items-center justify-center border border-[#0066FF]/30">
               <BookOpen className="w-4 h-4" />
             </div>
             <div>
               <h3 className="text-base sm:text-lg font-display font-black text-white">
-                {BUSINESS_CONFIG.businessName} • Design System & Concept Blueprint
+                {BUSINESS_CONFIG.businessName} • Design System
               </h3>
               <p className="text-xs text-slate-400 font-mono-tech">
-                Synthesized from reference inspiration & local business requirements
+                Deep Blue (#0066FF) & Electric Cyan (#00E5FF) UI Architecture
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+            className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -50,9 +50,9 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
         <div className="flex border-b border-white/10 bg-[#0a0d14] px-5 gap-4">
           <button
             onClick={() => setActiveTab('visual')}
-            className={`py-3 text-xs font-bold border-b-2 transition-all flex items-center space-x-1.5 ${
+            className={`py-3 text-xs font-bold border-b-2 transition-all flex items-center space-x-1.5 cursor-pointer ${
               activeTab === 'visual'
-                ? 'border-amber-500 text-amber-400'
+                ? 'border-[#00E5FF] text-[#00E5FF]'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -62,9 +62,9 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 
           <button
             onClick={() => setActiveTab('hero')}
-            className={`py-3 text-xs font-bold border-b-2 transition-all flex items-center space-x-1.5 ${
+            className={`py-3 text-xs font-bold border-b-2 transition-all flex items-center space-x-1.5 cursor-pointer ${
               activeTab === 'hero'
-                ? 'border-amber-500 text-amber-400'
+                ? 'border-[#00E5FF] text-[#00E5FF]'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -74,21 +74,21 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 
           <button
             onClick={() => setActiveTab('wireframe')}
-            className={`py-3 text-xs font-bold border-b-2 transition-all flex items-center space-x-1.5 ${
+            className={`py-3 text-xs font-bold border-b-2 transition-all flex items-center space-x-1.5 cursor-pointer ${
               activeTab === 'wireframe'
-                ? 'border-amber-500 text-amber-400'
+                ? 'border-[#00E5FF] text-[#00E5FF]'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
             <Layout className="w-3.5 h-3.5" />
-            <span>Section Wireframe (10 Pillars)</span>
+            <span>Sections & Flow</span>
           </button>
 
           <button
             onClick={() => setActiveTab('raw')}
-            className={`py-3 text-xs font-bold border-b-2 transition-all flex items-center space-x-1.5 ${
+            className={`py-3 text-xs font-bold border-b-2 transition-all flex items-center space-x-1.5 cursor-pointer ${
               activeTab === 'raw'
-                ? 'border-amber-500 text-amber-400'
+                ? 'border-[#00E5FF] text-[#00E5FF]'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -103,7 +103,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
           {activeTab === 'visual' && (
             <div className="space-y-6">
               <div className="p-4 bg-white/[0.03] border border-white/10 rounded-xl space-y-1">
-                <span className="text-xs font-mono-tech text-amber-400 uppercase font-bold">Aesthetic Architecture</span>
+                <span className="text-xs font-mono-tech text-[#00E5FF] uppercase font-bold">Aesthetic Architecture</span>
                 <div className="text-white font-bold text-sm">{STYLE_GUIDE_DATA.themeName}</div>
                 <p className="text-slate-300 text-xs">{STYLE_GUIDE_DATA.conceptOverview}</p>
               </div>
@@ -111,7 +111,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
               {/* Color Tokens Matrix */}
               <div>
                 <h4 className="font-display font-bold text-white text-sm mb-3 flex items-center gap-2">
-                  <Palette className="w-4 h-4 text-amber-400" />
+                  <Palette className="w-4 h-4 text-[#00E5FF]" />
                   <span>Color Tokens (Click to Copy HEX)</span>
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -119,7 +119,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
                     <div
                       key={i}
                       onClick={() => handleCopyHex(c.hex)}
-                      className="p-3 bg-[#121620] border border-white/10 hover:border-amber-500/40 rounded-xl flex items-center justify-between cursor-pointer group transition-all"
+                      className="p-3 bg-[#121620] border border-white/10 hover:border-[#0066FF]/60 rounded-xl flex items-center justify-between cursor-pointer group transition-all"
                     >
                       <div className="flex items-center space-x-3">
                         <div
@@ -131,7 +131,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
                           <div className="text-[11px] text-slate-400 font-mono-tech">{c.role}</div>
                         </div>
                       </div>
-                      <div className="flex items-center space-x-1.5 text-amber-400 font-mono-tech text-xs bg-black/40 px-2 py-1 rounded">
+                      <div className="flex items-center space-x-1.5 text-[#00E5FF] font-mono-tech text-xs bg-black/40 px-2 py-1 rounded">
                         <span>{c.hex}</span>
                         {copiedHex === c.hex ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-slate-400 group-hover:text-white" />}
                       </div>
@@ -143,24 +143,24 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
               {/* Typography Hierarchy */}
               <div>
                 <h4 className="font-display font-bold text-white text-sm mb-3 flex items-center gap-2">
-                  <Type className="w-4 h-4 text-amber-400" />
+                  <Type className="w-4 h-4 text-[#00E5FF]" />
                   <span>Typography Pairings</span>
                 </h4>
                 <div className="space-y-3">
                   <div className="p-3.5 bg-[#121620] border border-white/10 rounded-xl">
-                    <span className="text-[10px] font-mono-tech text-amber-400 uppercase">Primary Display Headings:</span>
+                    <span className="text-[10px] font-mono-tech text-[#00E5FF] uppercase">Primary Display Headings:</span>
                     <div className="text-base font-display font-black text-white mt-0.5">{STYLE_GUIDE_DATA.typography.displayHeading}</div>
-                    <p className="text-xs text-slate-400 mt-1">High-contrast geometric sans with aggressive luxury stance, ideal for automotive headlines and banners.</p>
+                    <p className="text-xs text-slate-400 mt-1">High-contrast geometric sans with luxury stance, ideal for automotive headlines and banners.</p>
                   </div>
                   <div className="p-3.5 bg-[#121620] border border-white/10 rounded-xl">
                     <span className="text-[10px] font-mono-tech text-sky-400 uppercase">Technical Monospace Badges:</span>
                     <div className="text-sm font-mono-tech text-white mt-0.5">{STYLE_GUIDE_DATA.typography.technicalMonospace}</div>
-                    <p className="text-xs text-slate-400 mt-1">Precision metrics, paint microns, water contact angles (115°), and live pricing tickers.</p>
+                    <p className="text-xs text-slate-400 mt-1">Pricing tiers, vehicle sizes, wash durations, and status indicators.</p>
                   </div>
                   <div className="p-3.5 bg-[#121620] border border-white/10 rounded-xl">
                     <span className="text-[10px] font-mono-tech text-emerald-400 uppercase">Body Readability:</span>
                     <div className="text-sm text-white mt-0.5">{STYLE_GUIDE_DATA.typography.body}</div>
-                    <p className="text-xs text-slate-400 mt-1">Refined modern sans at 16px minimum with generous line-height for high conversion readability.</p>
+                    <p className="text-xs text-slate-400 mt-1">Refined modern sans at 16px baseline with generous line-height for high conversion readability.</p>
                   </div>
                 </div>
               </div>
@@ -171,29 +171,24 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
           {activeTab === 'hero' && (
             <div className="space-y-4">
               <div className="p-4 bg-[#121620] border border-white/10 rounded-xl space-y-2">
-                <span className="text-xs font-mono-tech text-amber-400 uppercase font-bold">Hero Headline:</span>
+                <span className="text-xs font-mono-tech text-[#00E5FF] uppercase font-bold">Hero Headline:</span>
                 <div className="text-lg font-display font-black text-white">"{STYLE_GUIDE_DATA.heroConcept.headline}"</div>
               </div>
 
               <div className="p-4 bg-[#121620] border border-white/10 rounded-xl space-y-2">
-                <span className="text-xs font-mono-tech text-amber-400 uppercase font-bold">Hero Subheadline:</span>
+                <span className="text-xs font-mono-tech text-[#00E5FF] uppercase font-bold">Hero Subheadline:</span>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">"{STYLE_GUIDE_DATA.heroConcept.subheadline}"</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="p-3 bg-[#090b10] border border-white/10 rounded-xl">
                   <span className="text-[10px] font-mono-tech text-slate-400 uppercase">Primary CTA Text:</span>
-                  <div className="font-bold text-amber-400 text-xs mt-1">{STYLE_GUIDE_DATA.heroConcept.primaryCta}</div>
+                  <div className="font-bold text-[#00E5FF] text-xs mt-1">{STYLE_GUIDE_DATA.heroConcept.primaryCta}</div>
                 </div>
                 <div className="p-3 bg-[#090b10] border border-white/10 rounded-xl">
                   <span className="text-[10px] font-mono-tech text-slate-400 uppercase">Secondary CTA Text:</span>
                   <div className="font-bold text-white text-xs mt-1">{STYLE_GUIDE_DATA.heroConcept.secondaryCta}</div>
                 </div>
-              </div>
-
-              <div className="p-4 bg-[#121620] border border-white/10 rounded-xl space-y-2">
-                <span className="text-xs font-mono-tech text-sky-400 uppercase font-bold">Visual Scene & Lighting:</span>
-                <p className="text-xs text-slate-300">{STYLE_GUIDE_DATA.heroConcept.visualStyle}</p>
               </div>
             </div>
           )}
@@ -203,7 +198,7 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
             <div className="space-y-3">
               {STYLE_GUIDE_DATA.wireframeSections.map((sec) => (
                 <div key={sec.number} className="p-3.5 bg-[#121620] border border-white/10 rounded-xl flex items-start space-x-3">
-                  <span className="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 font-mono-tech font-bold text-xs flex items-center justify-center shrink-0">
+                  <span className="w-7 h-7 rounded-lg bg-[#0066FF]/20 text-[#00E5FF] font-mono-tech font-bold text-xs flex items-center justify-center shrink-0">
                     {sec.number}
                   </span>
                   <div>
@@ -219,32 +214,25 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
           {activeTab === 'raw' && (
             <div className="relative">
               <pre className="p-4 bg-[#090b10] border border-white/10 rounded-xl font-mono-tech text-[11px] text-slate-300 overflow-x-auto whitespace-pre-wrap">
-{`# ${BUSINESS_CONFIG.businessName} - Design Concept & Visual Style Guide
+{`# ${BUSINESS_CONFIG.businessName} - Style Guide
 
 ## 1. Visual Style Guide
-- Primary Background: #090B10 (Obsidian Carbon)
-- Surface Container: #12161F (Graphite Surface)
-- Primary CTA Accent: #25D366 (WhatsApp Green) & #F59E0B (Electric Amber)
-- Text Contrast: #F8FAFC (Pure Platinum Headings) / #94A3B8 (Muted Steel Body)
+- Primary Brand Color: #0066FF (Deep Blue)
+- Accent Color: #00E5FF (Electric Cyan)
+- Background: #090B10 (Obsidian Canvas)
+- Surface: #0F131D (Graphite Surface)
 
-## 2. Typography
-- Display: Outfit 800 Bold
-- Monospace / Metrics: Space Grotesk 500 Medium
-- Body: Plus Jakarta Sans / Inter (16px base)
+## 2. Core Packages & Prices
+- Gentle Touch Hand Wash: $49.99
+- Interior Deep Steam: $179.99
+- Express Wax & Polish: $129.99
+- Showroom Detail: $289.99
 
-## 3. Hero Section Concept
-- Headline: "NYC’s Premier Mobile Detailing — We Come To Your Doorstep"
-- Subheadline: "Professional steam extraction, high-foam exterior washes, and deep interior care delivered directly to your driveway in the Bronx and NYC."
-- CTAs: "Book via WhatsApp" / "View Services & Pricing"
-- Social Proof: 5.0 Stars (20+ Google Reviews) • Bronx & NYC
-
-## 4. Business Ingestion
-- Name: ${BUSINESS_CONFIG.businessName}
-- Owner: Hershel
-- Address / Base: 1219 Woodycrest Ave, Bronx, NY 10452
-- Phone: +1 (347) 593-7649
-- Email: guyonthego21@gmail.com
-- Services: Full Interior Steam & Shampoo, Interior Express Maintenance, Exterior Foam Wash & Gloss Seal, Engine Bay Cleaning, Pet Hair Removal, Radio Installation, Front & Rear Brake Installation`}
+## 3. Location
+- Location / Service Area: ${BUSINESS_CONFIG.location}
+- Address: 108-14 Northern Blvd, Queens, NY 11368
+- Phone: ${BUSINESS_CONFIG.primaryPhone}
+- Email: ${BUSINESS_CONFIG.email}`}
               </pre>
             </div>
           )}
@@ -252,10 +240,10 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 
         {/* Modal Footer */}
         <div className="p-4 bg-[#121622] border-t border-white/10 flex justify-between items-center">
-          <span className="text-xs font-mono-tech text-slate-400">{BUSINESS_CONFIG.businessName} Web Architecture • Ready for Production</span>
+          <span className="text-xs font-mono-tech text-slate-400">{BUSINESS_CONFIG.businessName} • {BUSINESS_CONFIG.location}</span>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-amber-500 text-black font-bold uppercase text-xs rounded-lg hover:bg-amber-400 transition-colors"
+            className="px-4 py-2 bg-[#0066FF] text-white font-bold uppercase text-xs rounded-lg hover:bg-[#0052CC] transition-colors cursor-pointer"
           >
             Close Guide
           </button>

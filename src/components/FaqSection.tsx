@@ -11,19 +11,19 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 sm:py-24 bg-[#0c0f16] border-t border-b border-white/5 relative">
+    <section id="faq" className="py-24 bg-[#0c0f16] border-t border-b border-white/5 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono-tech text-amber-400 mb-3">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 text-xs font-mono-tech text-[#00E5FF] mb-3">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Frequently Asked Questions</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-black text-white tracking-tight">
-            Clear Answers About Our Mobile Service
+            Clear Answers for Queens Drivers
           </h2>
           <p className="mt-3 text-slate-400 text-sm">
-            Everything you need to know about our mobile detailing in the Bronx and NYC, steam extraction process, flat-rate pricing, and driveway brake & radio installations.
+            Everything you need to know about our Gentle Touch Hand Wash, Interior Deep Steam, Express Wax & Polish, and Showroom Detail in {BUSINESS_CONFIG.location}.
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export const FaqSection: React.FC = () => {
                 key={faq.id}
                 className={`rounded-2xl border transition-all overflow-hidden ${
                   isOpen
-                    ? 'bg-[#121620] border-amber-500/50 shadow-lg shadow-amber-500/5'
+                    ? 'bg-[#121622] border-[#00E5FF]/60 shadow-lg shadow-[#0066FF]/10'
                     : 'bg-[#0e1118] border-white/10 hover:border-white/20'
                 }`}
               >
@@ -48,7 +48,7 @@ export const FaqSection: React.FC = () => {
                     {faq.question}
                   </span>
                   <div className={`p-1.5 rounded-lg shrink-0 transition-transform ${
-                    isOpen ? 'bg-amber-500 text-black rotate-180' : 'bg-white/5 text-slate-400'
+                    isOpen ? 'bg-[#0066FF] text-white rotate-180' : 'bg-white/5 text-slate-400'
                   }`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>

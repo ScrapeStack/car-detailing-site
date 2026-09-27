@@ -1,10 +1,11 @@
-export type VehicleType = 'coupe' | 'sedan' | 'suv' | 'truck' | 'exotic';
+export type VehicleType = 'sedan' | 'mid_suv' | 'full_truck_van' | 'coupe' | 'suv' | 'truck' | string;
 
 export interface VehicleOption {
   id: VehicleType;
   name: string;
   category: string;
-  multiplier: number;
+  upcharge: number;
+  multiplier?: number;
   iconName: string;
   examples: string;
 }
@@ -28,7 +29,7 @@ export interface PackageTier {
   id: string;
   name: string;
   subtitle: string;
-  price: number;
+  price: number; // Base price for Sedan / Compact
   originalPrice?: number;
   duration: string;
   warranty: string;
@@ -63,7 +64,7 @@ export interface FaqItem {
   id: string;
   question: string;
   answer: string;
-  category: 'ceramic' | 'correction' | 'mobile' | 'general';
+  category: 'ceramic' | 'correction' | 'mobile' | 'general' | 'handwash';
 }
 
 export interface BookingFormData {

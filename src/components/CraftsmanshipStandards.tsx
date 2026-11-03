@@ -49,7 +49,7 @@ export const CraftsmanshipStandards: React.FC = () => {
             Obsessive Standards. Zero Compromise.
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            We operate at the exact intersection of surgical chemistry and automotive art. Here is why luxury car owners across {BUSINESS_CONFIG.location} and the San Gabriel Valley trust us with their vehicles.
+            We operate at the exact intersection of surgical chemistry and automotive art. Here is why luxury car owners across {BUSINESS_CONFIG.location} trust us with their vehicles.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export const CraftsmanshipStandards: React.FC = () => {
           <div className="space-y-2 text-center md:text-left">
             <span className="text-xs font-mono-tech text-amber-400 uppercase font-semibold">{BUSINESS_CONFIG.location} Studio Specification</span>
             <div className="text-xl sm:text-2xl font-display font-bold text-white">
-              Visiting Our 1420 E Walnut St Facility
+              Visiting Our {BUSINESS_CONFIG.location} Facility
             </div>
             <p className="text-xs text-slate-400 max-w-xl">
               Enjoy our private customer lounge with high-speed fiber Wi-Fi, Nespresso bar, and direct viewing bay windows while your vehicle receives its precision treatment.

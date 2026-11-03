@@ -18,7 +18,7 @@ export const LocationContactSection: React.FC = () => {
             Visit Our {BUSINESS_CONFIG.location} Studio or Call For Mobile Dispatch
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            Conveniently situated off Walnut Street near historic Old Town and Colorado Boulevard with secure customer parking.
+            Conveniently situated in {BUSINESS_CONFIG.location} with secure customer parking.
           </p>
         </div>
 
@@ -42,8 +42,8 @@ export const LocationContactSection: React.FC = () => {
                   </div>
                   <div>
                     <strong className="text-white block font-medium">Studio Address:</strong>
-                    <span>1420 E Walnut St, Suite 104, {BUSINESS_CONFIG.location} 91106</span>
-                    <div className="text-[11px] text-slate-400 mt-0.5 font-mono-tech">Suite 104 (Rear Studio Entrance & Curing Bays)</div>
+                    <span>{BUSINESS_CONFIG.location}</span>
+                    <div className="text-[11px] text-slate-400 mt-0.5 font-mono-tech">{BUSINESS_CONFIG.location}</div>
                   </div>
                 </div>
 
@@ -105,7 +105,7 @@ export const LocationContactSection: React.FC = () => {
                 <span>WhatsApp Us</span>
               </a>
               <a
-                href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + ' 1420 E Walnut St, Suite 104, ' + BUSINESS_CONFIG.location)}`}
+                href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + ' ' + BUSINESS_CONFIG.location)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="py-3 px-4 bg-white/10 hover:bg-white/20 text-white font-bold uppercase text-xs rounded-xl flex items-center justify-center space-x-2 transition-colors text-center"
@@ -143,18 +143,18 @@ export const LocationContactSection: React.FC = () => {
                   <div className="w-8 h-2 rounded-full bg-amber-500/30 blur-sm mx-auto mt-1"></div>
                 </div>
                 <div className="bg-[#090b10]/95 backdrop-blur-md border border-amber-500/40 px-3.5 py-1.5 rounded-lg text-xs font-bold text-white mt-1 shadow-xl font-mono-tech">
-                  {BUSINESS_CONFIG.businessName} • 1420 E Walnut St
+                  {BUSINESS_CONFIG.businessName} • {BUSINESS_CONFIG.location}
                 </div>
               </div>
 
               {/* Floating Map Navigation Badge */}
               <div className="absolute top-3 left-3 bg-[#090b10]/90 backdrop-blur-md border border-white/10 px-3 py-1 rounded-md text-[10px] font-mono-tech text-slate-300">
-                {BUSINESS_CONFIG.location} 91106
+                {BUSINESS_CONFIG.location}
               </div>
 
               <div className="absolute bottom-3 right-3">
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + ' 1420 E Walnut St, Suite 104, ' + BUSINESS_CONFIG.location)}`}
+                  href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + ' ' + BUSINESS_CONFIG.location)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="bg-black/90 hover:bg-black text-amber-400 border border-white/15 px-3 py-1.5 rounded-lg text-xs font-bold font-mono-tech flex items-center space-x-1.5 transition-colors"

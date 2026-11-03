@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-1.5 text-slate-300">
               <MapPin className="w-3 h-3 text-amber-500" />
-              <span>1420 E Walnut St, Suite 104, {BUSINESS_CONFIG.location} 91106</span>
+              <span>{BUSINESS_CONFIG.location}</span>
             </div>
             <div className="flex items-center space-x-1 text-amber-400 font-medium">
               <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
@@ -109,11 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenStyleGuide 
           {/* Logo / Brand Name in Minimalist High-End Lettering */}
           <a href="#" className="flex items-center space-x-3 group" id="nav-brand-logo">
             <span className="font-display font-black text-xl sm:text-2xl tracking-[0.25em] text-white group-hover:text-amber-400 transition-colors uppercase leading-none">
-              EQUIS
-            </span>
-            <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-            <span className="hidden sm:inline-block text-[11px] tracking-[0.2em] text-slate-400 uppercase font-mono-tech">
-              APEX PRECISION
+              {BUSINESS_CONFIG.businessName}
             </span>
           </a>
 

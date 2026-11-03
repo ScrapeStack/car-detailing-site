@@ -7,25 +7,19 @@ import luxuryInteriorImg from '../assets/images/luxury_interior_clean_1787211008
 export const BUSINESS_INFO = {
   name: BUSINESS_CONFIG.businessName,
   tagline: `${BUSINESS_CONFIG.location}'s Top-Rated Auto Detailing, Ceramic Coating & Paint Correction`,
-  address: `1420 E Walnut St, Suite 104, ${BUSINESS_CONFIG.location} 91106`,
-  phone: BUSINESS_CONFIG.ownerPhone.startsWith('+') ? BUSINESS_CONFIG.ownerPhone : `+${BUSINESS_CONFIG.ownerPhone}`,
-  phoneRaw: BUSINESS_CONFIG.ownerPhone.replace(/\D/g, ''),
+  address: "[City, State / Service Area]",
+  phone: "(555) 000-0000",
+  phoneRaw: "5550000000",
+  email: "contact@yourbusiness.com",
   rating: 4.8,
   reviewCount: 64,
   hours: {
-    weekdays: "Monday – Friday: 7:30 AM – 6:30 PM",
-    saturday: "Saturday: 8:00 AM – 5:00 PM",
-    sunday: "Sunday: By VIP Appointment Only"
+    weekdays: "Mon - Sat: 8:00 AM - 6:00 PM",
+    saturday: "",
+    sunday: ""
   },
   serviceAreas: [
-    "Pasadena",
-    "San Marino",
-    "South Pasadena",
-    "Arcadia",
-    "La Cañada Flintridge",
-    "Glendale",
-    "Sierra Madre",
-    "Downtown Los Angeles"
+    "[City, State / Service Area]"
   ]
 };
 
@@ -390,7 +384,7 @@ export const FAQS_DATA: FaqItem[] = [
     id: 'faq-5',
     category: 'general',
     question: 'Where is your studio located and do I need an appointment?',
-    answer: `Our state-of-the-art detailing studio is located at 1420 E Walnut St, Suite 104, ${BUSINESS_CONFIG.location} 91106. Because we allocate dedicated technician hours and temperature-controlled bays for every car, we operate by appointment. You can book directly through our online quote tool or call us at +${BUSINESS_CONFIG.ownerPhone}.`
+    answer: `Our state-of-the-art detailing studio is located at [City, State / Service Area]. Because we allocate dedicated technician hours and temperature-controlled bays for every car, we operate by appointment. You can book directly through our online quote tool or call us at (555) 000-0000.`
   },
   {
     id: 'faq-6',

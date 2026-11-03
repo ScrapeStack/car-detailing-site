@@ -241,8 +241,10 @@ export const StyleGuideModal: React.FC<StyleGuideModalProps> = ({ isOpen, onClos
 
 ## 4. Business Ingestion
 - Name: ${BUSINESS_CONFIG.businessName}
-- Address: 1420 E Walnut St, Suite 104, ${BUSINESS_CONFIG.location} 91106
-- Phone: +${BUSINESS_CONFIG.ownerPhone}
+- Address: [City, State / Service Area]
+- Phone: (555) 000-0000
+- Email: contact@yourbusiness.com
+- Hours: Mon - Sat: 8:00 AM - 6:00 PM
 - Key Features: 5 Core Disciplines, Mobile Sprinter Unit, Interactive Split Slider, Live Multi-Step Quote Calculator`}
               </pre>
             </div>

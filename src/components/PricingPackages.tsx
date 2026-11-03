@@ -171,7 +171,7 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({
                   </button>
 
                   <p className="text-[11px] text-slate-400/80 text-center pt-2">
-                    By submitting an inquiry, you consent to sending your request details directly to the independent business operator via WhatsApp.
+                    By submitting an inquiry, you consent to sending your request details directly to the independent business operator via Messenger.
                   </p>
                 </div>
               </div>

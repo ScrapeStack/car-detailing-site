@@ -143,7 +143,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
     const item = ADDONS_DATA.find(a => a.id === addonId);
     return acc + (item ? item.price : 0);
   }, 0);
-  const mobileConvenienceFee = formData.serviceMode === 'mobile' ? 0 : 0; // complimentary mobile dispatch within Pasadena
+  const mobileConvenienceFee = formData.serviceMode === 'mobile' ? 0 : 0; // complimentary mobile dispatch within service area
   const grandTotal = basePackagePrice + addOnsTotal + mobileConvenienceFee;
 
   const toggleAddOn = (addonId: string) => {
@@ -167,7 +167,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
     if (!formData.fullName || !formData.phone) {
       return;
     }
-    const code = `APEX-${Math.floor(100000 + Math.random() * 900000)}`;
+    const code = `BOOKING-${Math.floor(100000 + Math.random() * 900000)}`;
     setConfirmationCode(code);
     setBookingConfirmed(true);
     setIsRedirecting(true);
@@ -497,7 +497,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                     <span className="font-bold text-xs text-white">{BUSINESS_CONFIG.location} Studio Bay</span>
                   </div>
                   <p className="text-[11px] text-slate-400 mt-1">
-                    1420 E Walnut St (Climate-controlled studio detailing bays)
+                    {BUSINESS_CONFIG.location} (Climate-controlled studio detailing bays)
                   </p>
                 </button>
 
@@ -526,7 +526,7 @@ export const InstantQuoteBooking: React.FC<InstantQuoteBookingProps> = ({
                   <input
                     type="text"
                     id="booking-address-input"
-                    placeholder={`e.g. 1200 S Orange Grove Blvd, ${BUSINESS_CONFIG.location} 91105`}
+                    placeholder={`e.g. 123 Main St, ${BUSINESS_CONFIG.location}`}
                     value={formData.mobileAddress}
                     onChange={(e) => setFormData(prev => ({ ...prev, mobileAddress: e.target.value }))}
                     className="w-full bg-[#090b10] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500"

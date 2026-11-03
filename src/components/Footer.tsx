@@ -132,7 +132,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
             <div className="space-y-2 text-slate-400">
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                <span>1420 E Walnut St, Suite 104, {CLIENT_CONFIG.location} 91106</span>
+                <span>{CLIENT_CONFIG.location}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-amber-500 shrink-0" />
@@ -141,7 +141,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenStyleGuide, onOpenBooking 
                 </a>
               </div>
               <div className="text-[11px] text-slate-500 font-mono-tech pt-2">
-                Serving: {CLIENT_CONFIG.location}, San Marino, Arcadia, Glendale, and surrounding communities.
+                Serving: {CLIENT_CONFIG.location} and surrounding communities.
               </div>
             </div>
           </div>

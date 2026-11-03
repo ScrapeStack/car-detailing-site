@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
         >
           <img
             src={heroSupercarImg}
-            alt="Apex Precision Luxury Supercar Detailing"
+            alt={`${BUSINESS_CONFIG.businessName} Luxury Supercar Detailing`}
             className="w-full h-full object-cover object-[70%_center] lg:object-right opacity-65 sm:opacity-80 lg:opacity-95"
             referrerPolicy="no-referrer"
           />
@@ -82,7 +82,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onExplo
             }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight text-white uppercase leading-[1.03]">
-              {BUSINESS_CONFIG.location.split(',')[0].trim().toUpperCase()} AUTO <br />
+              {BUSINESS_CONFIG.location} AUTO <br />
               <span className="font-serif-luxury italic font-normal tracking-wide text-slate-200 capitalize">Detailing</span>
             </h1>
             <p className="text-xs sm:text-sm font-mono-tech uppercase tracking-wider text-amber-400/90 pt-0.5">

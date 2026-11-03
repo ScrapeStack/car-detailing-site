@@ -1,122 +1,109 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState } from 'react';
+import { TemplateProvider } from './context/TemplateContext';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { KeyFeaturesSection } from './components/KeyFeaturesSection';
+import { PackagesSection } from './components/PackagesSection';
+import { BeforeAfterSlider } from './components/BeforeAfterSlider';
+import { AboutSection } from './components/AboutSection';
+import { ReviewsSection } from './components/ReviewsSection';
 import { ServicesSection } from './components/ServicesSection';
-import { PricingPackages } from './components/PricingPackages';
-import { InstantQuoteBooking } from './components/InstantQuoteBooking';
-import { SocialProofSection } from './components/SocialProofSection';
-import { FaqSection } from './components/FaqSection';
-import { LocationContactSection } from './components/LocationContactSection';
-import { StyleGuideModal } from './components/StyleGuideModal';
+import { ContactBookingSection } from './components/ContactBookingSection';
+import { FloatingMessengerWidget } from './components/FloatingMessengerWidget';
 import { Footer } from './components/Footer';
-import { VehicleType } from './types';
+import { TemplateCustomizerModal } from './components/TemplateCustomizerModal';
+import { BookingModal } from './components/BookingModal';
 
-export default function App() {
-  const [isStyleGuideOpen, setIsStyleGuideOpen] = useState<boolean>(false);
-  const [selectedServiceId, setSelectedServiceId] = useState<string>('paint-correction');
-  const [selectedPackageId, setSelectedPackageId] = useState<string>('deep-detail');
-  const [selectedVehicleClass, setSelectedVehicleClass] = useState<VehicleType>('coupe');
+function DetailingLandingPage() {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState<boolean>(false);
+  const [selectedService, setSelectedService] = useState<string>('Full Interior & Exterior Detail');
+  const [selectedPrice, setSelectedPrice] = useState<number | undefined>(undefined);
 
-  const scrollToQuote = () => {
-    const el = document.getElementById('quote-builder');
+  const scrollToContactBooking = (serviceName?: string, price?: number) => {
+    if (serviceName) setSelectedService(serviceName);
+    if (price) setSelectedPrice(price);
+
+    const el = document.getElementById('contact');
     if (el) {
-      const headerOffset = 80;
+      const headerOffset = 75;
       const elementPosition = el.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
+    } else {
+      setIsBookingModalOpen(true);
     }
   };
 
-  const scrollToPricing = () => {
-    const el = document.getElementById('pricing');
-    if (el) {
-      const headerOffset = 80;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  const handleSelectServiceForQuote = (serviceId: string) => {
-    setSelectedServiceId(serviceId);
-    scrollToQuote();
-  };
-
-  const handleSelectPackage = (packageId: string, vehicleType: VehicleType) => {
-    setSelectedPackageId(packageId);
-    setSelectedVehicleClass(vehicleType);
-    scrollToQuote();
+  const handleOpenBookingModal = () => {
+    setIsBookingModalOpen(true);
   };
 
   return (
-    <div className="min-h-screen bg-[#090b10] text-[#f1f5f9] flex flex-col font-sans antialiased">
-      {/* Global Navigation */}
-      <Navbar 
-        onOpenBooking={scrollToQuote} 
-        onOpenStyleGuide={() => setIsStyleGuideOpen(true)} 
-      />
+    <div className="min-h-screen bg-[var(--bg-base)] text-[#f1f5f9] flex flex-col font-sans antialiased selection:bg-accent selection:text-white transition-colors duration-300">
+      
+      {/* Section 1: Sticky Navigation Bar */}
+      <Navbar onOpenBooking={handleOpenBookingModal} />
 
-      {/* Main Content Sections */}
-      <main className="flex-1 pb-24 sm:pb-0">
-        {/* 1. Hero Section with Supercar Studio Showcase & Performance Specs */}
-        <HeroSection 
-          onOpenBooking={scrollToQuote} 
-          onExplorePackages={scrollToPricing} 
+      <main className="flex-1">
+        {/* Section 2: Hero Section (High Impact) */}
+        <HeroSection onOpenBooking={() => scrollToContactBooking()} />
+
+        {/* Section 3: Key Features & Trust Badges */}
+        <KeyFeaturesSection />
+
+        {/* Section 4: Service Packages & Pricing */}
+        <PackagesSection 
+          onSelectPackageForBooking={(pkgName, price) => scrollToContactBooking(pkgName, price)} 
         />
 
-        {/* 2. 5 Core Disciplines & Services Detailed Showcase */}
+        {/* Section 5: Visual Showcase (Before & After Slider) */}
+        <BeforeAfterSlider />
+
+        {/* Authority / About Us Craftsmanship Section */}
+        <AboutSection />
+
+        {/* Section 6: Customer Testimonials & Reviews */}
+        <ReviewsSection />
+
+        {/* Core Services Detailed Pillar Showcase */}
         <ServicesSection 
-          onSelectServiceForQuote={handleSelectServiceForQuote} 
+          onSelectServiceForQuote={(serviceName) => scrollToContactBooking(serviceName)} 
         />
 
-        {/* 4. Packages & Pricing Matrix with Vehicle Size Multiplier */}
-        <PricingPackages 
-          selectedVehicleClass={selectedVehicleClass}
-          onSelectVehicleClass={setSelectedVehicleClass}
-          onSelectPackage={handleSelectPackage} 
+        {/* Section 7: Contact & Location / Booking Form */}
+        <ContactBookingSection 
+          preselectedService={selectedService}
+          preselectedPackagePrice={selectedPrice}
         />
-
-        {/* 5. Live Instant Quote Calculator & Appointment Scheduler */}
-        <InstantQuoteBooking 
-          initialServiceId={selectedServiceId}
-          initialPackageId={selectedPackageId}
-          selectedVehicleClass={selectedVehicleClass}
-          onSelectVehicleClass={setSelectedVehicleClass}
-        />
-
-        {/* 6. Social Proof & Verified Reviews Grid (4.8 Stars, 64 Reviews) */}
-        <SocialProofSection />
-
-        {/* 8. Frequently Asked Questions */}
-        <FaqSection />
-
-        {/* 9. Studio Map, Direct Call & Concierge Contact */}
-        <LocationContactSection />
       </main>
 
-      {/* Global Footer */}
-      <Footer 
-        onOpenBooking={scrollToQuote}
-        onOpenStyleGuide={() => setIsStyleGuideOpen(true)}
-      />
+      {/* Section 8: Floating Messenger Widget */}
+      <FloatingMessengerWidget />
 
-      {/* Visual Style Guide & Design Blueprint Modal */}
-      <StyleGuideModal 
-        isOpen={isStyleGuideOpen} 
-        onClose={() => setIsStyleGuideOpen(false)} 
+      {/* Section 8: Footer */}
+      <Footer />
+
+      {/* Interactive Template Customizer & Placeholder Inspector Modal */}
+      <TemplateCustomizerModal />
+
+      {/* Instant Quote & Booking Modal */}
+      <BookingModal 
+        isOpen={isBookingModalOpen} 
+        onClose={() => setIsBookingModalOpen(false)}
+        preselectedPackage={selectedService}
+        preselectedPrice={selectedPrice}
       />
     </div>
   );
 }
 
+export default function App() {
+  return (
+    <TemplateProvider>
+      <DetailingLandingPage />
+    </TemplateProvider>
+  );
+}

@@ -39,23 +39,22 @@ export interface WhatsAppBookingData {
  * Strips all non-numeric characters from ownerPhone
  */
 export function getCleanOwnerPhone(): string {
-  return BUSINESS_CONFIG.ownerPhone.replace(/\D/g, '');
+  const digits = BUSINESS_CONFIG.ownerPhone.replace(/\D/g, '');
+  return digits || '5550000000';
 }
 
 /**
- * Formats ownerPhone for user-facing display with a leading +
+ * Formats ownerPhone for user-facing display
  */
 export function getDisplayOwnerPhone(): string {
-  const p = BUSINESS_CONFIG.ownerPhone.trim();
-  return p.startsWith('+') ? p : `+${p}`;
+  return '(555) 000-0000';
 }
 
 /**
  * Returns a tel: RFC 3966 URI for phone links
  */
 export function getTelLink(): string {
-  const clean = BUSINESS_CONFIG.ownerPhone.replace(/[^\d+]/g, '');
-  return clean.startsWith('+') ? `tel:${clean}` : `tel:+${clean}`;
+  return 'tel:5550000000';
 }
 
 /**

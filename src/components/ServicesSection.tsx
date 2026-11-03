@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { Sparkles, Shield, Droplets, Wrench, Truck, Check, ArrowRight, Clock, DollarSign, Layers } from 'lucide-react';
+import { Sparkles, Shield, Droplets, Wrench, Truck, Check, ArrowRight, Clock, DollarSign } from 'lucide-react';
 import { SERVICES_DATA } from '../data/businessData';
-import { BUSINESS_CONFIG } from '../config';
+import { useTemplate } from '../context/TemplateContext';
 import { ServiceDetail } from '../types';
 
 interface ServicesSectionProps {
-  onSelectServiceForQuote: (serviceId: string) => void;
+  onSelectServiceForQuote: (serviceName: string) => void;
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServiceForQuote }) => {
+  const { config, showRawPlaceholders } = useTemplate();
   const [activeServiceId, setActiveServiceId] = useState<string>(SERVICES_DATA[0].id);
 
   const getServiceIcon = (id: string) => {
@@ -31,25 +32,27 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   const currentService: ServiceDetail = SERVICES_DATA.find(s => s.id === activeServiceId) || SERVICES_DATA[0];
 
   return (
-    <section id="services" className="py-24 bg-[#090b10] relative">
+    <section id="services" className="py-20 border-b border-white/10 bg-[var(--bg-base)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <span className="text-xs uppercase tracking-[0.25em] font-mono-tech text-amber-400 font-semibold block mb-2">
-              Precision Craftsmanship Disciplines
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white tracking-tight">
-              Specialized Detailing Services
+            <p className="text-xs font-mono-tech uppercase tracking-widest text-accent font-semibold block mb-2">
+              Core Detailing Capabilities
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
+              Specialized Automotive Services
             </h2>
           </div>
           <p className="text-slate-400 text-sm max-w-md">
-            Every vehicle in our {BUSINESS_CONFIG.location} facility receives clinical grade attention, tailored chemical balances, and professional-grade ceramic application.
+            Whether at our studio or through our mobile unit in{' '}
+            {showRawPlaceholders ? '[YOUR CITY]' : config.city}, each service uses precision products and calibrated equipment.
           </p>
         </div>
 
-        {/* Service Category Buttons / Navigation Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-10">
+        {/* Service Category Buttons */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
           {SERVICES_DATA.map((service) => {
             const isSelected = service.id === activeServiceId;
             return (
@@ -58,15 +61,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 onClick={() => setActiveServiceId(service.id)}
                 className={`p-4 rounded-xl border text-left transition-all relative overflow-hidden group ${
                   isSelected
-                    ? 'bg-[#151a24] border-amber-500 shadow-lg shadow-amber-500/10'
-                    : 'bg-[#0e1118] border-white/10 hover:bg-[#121620] hover:border-white/20'
+                    ? 'bg-[#151a24] border-accent shadow-lg shadow-accent/15'
+                    : 'bg-[#111622] border-white/10 hover:border-white/20'
                 }`}
               >
-                {isSelected && (
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-amber-600"></div>
-                )}
                 <div className={`p-2 rounded-lg w-fit mb-3 transition-colors ${
-                  isSelected ? 'bg-amber-500 text-black' : 'bg-white/5 text-amber-400 group-hover:text-white'
+                  isSelected ? 'bg-accent text-white' : 'bg-white/5 text-accent group-hover:text-white'
                 }`}>
                   {getServiceIcon(service.id)}
                 </div>
@@ -74,9 +74,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                   {service.title.split('&')[0]}
                 </div>
                 <div className="text-[11px] text-slate-400 font-mono-tech flex items-center justify-between">
-                  <span>From {BUSINESS_CONFIG.currency}{service.startingPrice}</span>
+                  <span>Starting ${service.startingPrice}</span>
                   {service.popular && (
-                    <span className="text-amber-400 text-[10px] font-bold">★ POPULAR</span>
+                    <span className="text-accent text-[10px] font-bold">★ POPULAR</span>
                   )}
                 </div>
               </button>
@@ -84,26 +84,29 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           })}
         </div>
 
-        {/* Active Service Detailed Showcase Panel */}
-        <div className="bg-[#0f131d] border border-white/10 rounded-2xl overflow-hidden shadow-2xl p-6 lg:p-10">
+        {/* Active Service Detailed Panel */}
+        <div className="bg-[#111622] border border-white/10 rounded-2xl overflow-hidden shadow-2xl p-6 lg:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
             {/* Left: Detail Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="px-3 py-1 bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-mono-tech font-bold uppercase rounded-full">
+              <div className="flex flex-wrap items-center gap-3 text-xs font-mono-tech">
+                <span className="text-accent font-bold uppercase tracking-wider">
                   {currentService.badge}
                 </span>
-                <span className="flex items-center text-xs text-slate-400 font-mono-tech gap-1">
+                <span className="text-slate-600">·</span>
+                <span className="flex items-center text-slate-400 gap-1">
                   <Clock className="w-3.5 h-3.5 text-slate-500" />
-                  Typical Time: {currentService.duration}
+                  Est. {currentService.duration}
                 </span>
-                <span className="flex items-center text-xs text-emerald-400 font-mono-tech gap-1 font-semibold">
-                  <DollarSign className="w-3.5 h-3.5" />
-                  Starting at {BUSINESS_CONFIG.currency}{currentService.startingPrice}
+                <span className="text-slate-600">·</span>
+                <span className="flex items-center text-slate-200 gap-1 font-semibold">
+                  <DollarSign className="w-3.5 h-3.5 text-accent" />
+                  Starting at ${currentService.startingPrice}
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-black text-white">
+              <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-white">
                 {currentService.title}
               </h3>
 
@@ -112,9 +115,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               </p>
 
               {/* Specs Metric Badges */}
-              <div className="grid grid-cols-3 gap-3 py-2">
+              <div className="grid grid-cols-3 gap-3 py-1">
                 {currentService.specs.map((spec, i) => (
-                  <div key={i} className="bg-[#090b10] border border-white/10 rounded-xl p-3">
+                  <div key={i} className="bg-black/30 border border-white/10 rounded-xl p-3">
                     <span className="text-[10px] uppercase font-mono-tech text-slate-400 block">{spec.label}</span>
                     <span className="text-xs sm:text-sm font-bold text-white mt-0.5 block">{spec.value}</span>
                   </div>
@@ -122,43 +125,29 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               </div>
 
               {/* What is Included Bullet Points */}
-              <div className="space-y-2.5">
+              <div className="space-y-2">
                 <span className="text-xs font-mono-tech uppercase tracking-wider text-slate-400 font-semibold block">
-                  Process & Inclusions:
+                  Service Inclusions:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {currentService.features.map((feat, i) => (
                     <div key={i} className="flex items-start space-x-2 text-xs text-slate-200">
-                      <div className="mt-0.5 p-0.5 rounded bg-amber-500/20 text-amber-400 shrink-0">
-                        <Check className="w-3 h-3" />
-                      </div>
+                      <Check className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Ideal For Note */}
-              <div className="p-3 bg-white/[0.03] border border-white/10 rounded-xl text-xs text-slate-300">
-                <strong className="text-amber-400 font-mono-tech uppercase block mb-0.5">Ideal Application:</strong>
-                {currentService.idealFor}
-              </div>
-
               {/* Action Buttons */}
-              <div className="space-y-2 pt-2">
-                <div className="flex flex-wrap gap-4">
-                  <button
-                    id={`service-quote-btn-${currentService.id}`}
-                    onClick={() => onSelectServiceForQuote(currentService.id)}
-                    className="px-6 py-3 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-amber-500/20 flex items-center space-x-2 group cursor-pointer"
-                  >
-                    <span>Build Quote for {currentService.title.split(' ')[0]}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-                <p className="text-[11px] text-slate-400/80">
-                  By submitting an inquiry, you consent to sending your request details directly to the independent business operator via WhatsApp.
-                </p>
+              <div className="pt-2">
+                <button
+                  onClick={() => onSelectServiceForQuote(currentService.title)}
+                  className="px-6 py-3.5 bg-accent hover:opacity-95 text-white font-bold uppercase tracking-wider text-xs rounded-xl shadow-md glow-accent-hover flex items-center space-x-2 cursor-pointer transition-all"
+                >
+                  <span>Request Quote for {currentService.title.split(' ')[0]}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
 
@@ -171,13 +160,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 
                 {/* Overlay Badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-[#090b10]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/15">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-mono-tech text-amber-400 font-semibold uppercase">{BUSINESS_CONFIG.location} Studio Standard</span>
-                    <span className="text-slate-400">Experienced Technicians</span>
+                <div className="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-md p-3.5 rounded-xl border border-white/15">
+                  <div className="flex items-center justify-between text-xs font-mono-tech">
+                    <span className="text-accent font-semibold uppercase">
+                      {showRawPlaceholders ? '[YOUR BUSINESS NAME]' : config.businessName}
+                    </span>
+                    <span className="text-slate-400">Certified Standard</span>
                   </div>
                   <div className="text-xs text-slate-300 font-medium mt-1">
                     {currentService.shortDesc}
@@ -185,8 +176,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 </div>
               </div>
             </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -131,7 +131,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
               {/* Highlighted Standardized Privacy Core Statement */}
               <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-200">
                 <p className="font-medium text-xs leading-relaxed">
-                  {CLIENT_CONFIG.businessName} respects your privacy. We collect information that you voluntarily provide to initiate service requests, including your name, telephone number, email address, vehicle details, service address/location, and preferred appointment dates/times. This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via WhatsApp or phone. We do not sell, rent, or trade your contact details, email addresses, or physical location data to external third parties or marketing databases.
+                  {CLIENT_CONFIG.businessName} respects your privacy. We collect information that you voluntarily provide to initiate service requests, including your name, telephone number, email address, vehicle details, service address/location, and preferred appointment dates/times. This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via Messenger or phone. We do not sell, rent, or trade your contact details, email addresses, or physical location data to external third parties or marketing databases.
                 </p>
               </div>
 
@@ -151,7 +151,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   <span>2. How Your Details Are Used</span>
                 </h4>
                 <p className="text-slate-400">
-                  This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via WhatsApp or phone.
+                  This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via Messenger or phone.
                 </p>
               </div>
 
@@ -171,7 +171,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   <span>4. Direct Messaging</span>
                 </h4>
                 <p className="text-slate-400">
-                  By submitting an inquiry, you consent to receiving direct communications from the business operator via phone or WhatsApp regarding your specific service request. Communication occurs directly through your messaging app, and you may end messaging at any time simply by closing or leaving the chat.
+                  By submitting an inquiry, you consent to receiving direct communications from the business operator via phone or Messenger regarding your specific service request. Communication occurs directly through your messaging app, and you may end messaging at any time simply by closing or leaving the chat.
                 </p>
               </div>
 
@@ -181,7 +181,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   <span>5. Inquiries & Data Requests</span>
                 </h4>
                 <p className="text-slate-400">
-                  If you have questions regarding privacy practices or wish to request the deletion or modification of any contact information provided through this site, please reach out directly to the business operator via the primary telephone or WhatsApp contact listed on this website. The technical platform vendor does not store, host, or process end-user customer database entries.
+                  If you have questions regarding privacy practices or wish to request the deletion or modification of any contact information provided through this site, please reach out directly to the business operator via the primary telephone or Messenger contact listed on this website. The technical platform vendor does not store, host, or process end-user customer database entries.
                 </p>
               </div>
             </div>
@@ -274,7 +274,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   <span>6. Customer Data Handling & Privacy</span>
                 </h4>
                 <p className="text-slate-400">
-                  We collect information that you voluntarily provide to initiate service requests, including your name, telephone number, email address, vehicle details, service address/location, and preferred appointment dates/times. This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via WhatsApp or phone. We do not sell, rent, or trade your contact details, email addresses, or physical location data to external third parties or marketing databases.
+                  We collect information that you voluntarily provide to initiate service requests, including your name, telephone number, email address, vehicle details, service address/location, and preferred appointment dates/times. This information is used strictly to coordinate appointment scheduling, confirm preferred booking windows with the business operator, generate price estimates, and communicate directly with you via Messenger or phone. We do not sell, rent, or trade your contact details, email addresses, or physical location data to external third parties or marketing databases.
                 </p>
               </div>
             </div>
